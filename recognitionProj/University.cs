@@ -6,13 +6,15 @@
         private string Type; // medical or engineer or humanitarian etc..
         private int studentCount;
         private Teacher[] teachers;
+        private Specialization[] specializations; // Array of specializations
 
-        public University(string name, string type, int studentCount, Teacher[] teachers)
+        public University(string name, string type, int studentCount, Teacher[] teachers, Specialization[] specializations)
         {
             Name = name;
             Type = type;
             this.studentCount = studentCount;
             this.teachers = teachers;
+            this.specializations = specializations;
         }
 
         public string GetName()
@@ -53,6 +55,16 @@
         public void SetTeachers(Teacher[] teachers)
         {
             this.teachers = teachers;
+        }
+
+        public Specialization[] GetSpecializations()
+        {
+            return specializations;
+        }
+
+        public void SetSpecializations(Specialization[] specializations)
+        {
+            this.specializations = specializations;
         }
     }
 }
