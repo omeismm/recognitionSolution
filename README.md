@@ -10,6 +10,8 @@ b. transfer data from https://rnji.mohe.gov.jo/
 
 c. process data 
 
+    0. read the pdfs and create classes with the variables mentioned in the pdf (current task)
+    
     1. automatically count number of phd, msc, bsc, and students
     
     2. write the formulas for students to teachers ratio
