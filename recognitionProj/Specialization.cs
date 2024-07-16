@@ -10,8 +10,10 @@ namespace recognitionProj
         private int SpecReqCourseHrsTheory;//mutatalabat elta5assos elnadhari
         private int SpecReqCourseHrsPractical;//mutatalabat elta5'assos el3amali
         private int FreeCourseHrs;//mawad 5ora
-
-        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs)
+        private int InternshipHrs;//tadreeb
+        private int GradProjectHrs;
+        private Teacher[] teachers;
+        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers)
         {
             Name = name;
             EduLevel = eduLevel;
@@ -21,6 +23,9 @@ namespace recognitionProj
             SpecReqCourseHrsTheory = specReqCourseHrsTheory;
             SpecReqCourseHrsPractical = specReqCourseHrsPractical;
             FreeCourseHrs = freeCourseHrs;
+            InternshipHrs = internshipHrs;
+            GradProjectHrs = gradProjectHrs;
+            this.teachers = teachers;
         }
 
         public string GetName()
@@ -102,5 +107,55 @@ namespace recognitionProj
         {
             FreeCourseHrs = freeCourseHrs;
         }
+
+        public int GetInternshipHrs()
+        {
+            return InternshipHrs;
+        }
+        public void SetInternshipHrs(int internshipHrs)
+        {
+            InternshipHrs = internshipHrs;
+        }
+        public int GetGradProjectHrs()
+        {
+            return GradProjectHrs;
+        }
+        public void SetGradProjectHrs(int gradProjectHrs)
+        {
+            GradProjectHrs = gradProjectHrs;
+        }
+        public Teacher[] GetTeachers()
+        {
+            return teachers;
+        }
+        public void SetTeachers(Teacher[] teachers)
+        {
+            this.teachers = teachers;
+        }
+        public void AddTeacher(Teacher teacher)
+        {
+            Teacher[] newTeachers = new Teacher[teachers.Length + 1];
+            for (int i = 0; i < teachers.Length; i++)
+            {
+                newTeachers[i] = teachers[i];
+            }
+            newTeachers[teachers.Length] = teacher;
+            teachers = newTeachers;
+        }
+        public void RemoveTeacher(Teacher teacher)
+        {
+            Teacher[] newTeachers = new Teacher[teachers.Length - 1];
+            int j = 0;
+            for (int i = 0; i < teachers.Length; i++)
+            {
+                if (teachers[i] != teacher)
+                {
+                    newTeachers[j] = teachers[i];
+                    j++;
+                }
+            }
+            teachers = newTeachers;
+        }
+        
     }
 }
