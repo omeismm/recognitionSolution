@@ -7,7 +7,7 @@
         private int studentCount;
         private Teacher[] teachers;
         private Specialization[] specializations; // Array of specializations
-
+        
         public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations)
         {
             Name = name;
@@ -105,5 +105,6 @@
             }
             specializations = newSpecializations;
         }
+        
     }
 }
