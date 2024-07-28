@@ -2,160 +2,123 @@ namespace recognitionProj
 {
     public class Specialization
     {
-        private string Name;
-        private string EduLevel;//msc/bsc/phd etc...
-        private int TotalHours;
-        private int UniReqCourseHrs;//mutatalabat eljam3a
-        private int ColReqCourseHrs;//mutatalabat elkuliyah
-        private int SpecReqCourseHrsTheory;//mutatalabat elta5assos elnadhari
-        private int SpecReqCourseHrsPractical;//mutatalabat elta5'assos el3amali
-        private int FreeCourseHrs;//mawad 5ora
-        private int InternshipHrs;//tadreeb
-        private int GradProjectHrs;
-        private Teacher[] teachers;
+        private string _name;
+        private string _eduLevel;//bsc, msc, phd, etc...
+        private int _totalHours;//professor, assistant professor, lecturer, etc...
+        private int _uniReqCourseHrs;//mutatalabat eljam3a
+        private int _colReqCourseHrs;//mutatalabat elkuliyah
+        private int _specReqCourseHrsTheory;//mutatalabat elta5'assos elnazari
+        private int _specReqCourseHrsPractical;//mutatalabat elta5'assos el3amali
+        private int _freeCourseHrs;//mawad 5ora
+        private int _internshipHrs;//tadreeb
+        private int _gradProjectHrs;
+        private Teacher[] _teachers;
+
         public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers)
         {
-            Name = name;
-            EduLevel = eduLevel;
-            TotalHours = totalHours;
-            UniReqCourseHrs = uniReqCourseHrs;
-            ColReqCourseHrs = colReqCourseHrs;
-            SpecReqCourseHrsTheory = specReqCourseHrsTheory;
-            SpecReqCourseHrsPractical = specReqCourseHrsPractical;
-            FreeCourseHrs = freeCourseHrs;
-            InternshipHrs = internshipHrs;
-            GradProjectHrs = gradProjectHrs;
-            this.teachers = teachers;
+            _name = name;
+            _eduLevel = eduLevel;
+            _totalHours = totalHours;
+            _uniReqCourseHrs = uniReqCourseHrs;
+            _colReqCourseHrs = colReqCourseHrs;
+            _specReqCourseHrsTheory = specReqCourseHrsTheory;
+            _specReqCourseHrsPractical = specReqCourseHrsPractical;
+            _freeCourseHrs = freeCourseHrs;
+            _internshipHrs = internshipHrs;
+            _gradProjectHrs = gradProjectHrs;
+            _teachers = teachers;
         }
 
-        public string GetName()
+        public string Name
         {
-            return Name;
+            get { return _name; }
+            set { _name = value; }
         }
 
-        public void SetName(string name)
+        public string EduLevel
         {
-            Name = name;
+            get { return _eduLevel; }
+            set { _eduLevel = value; }
         }
 
-        public string GetEduLevel()
+        public int TotalHours
         {
-            return EduLevel;
+            get { return _totalHours; }
+            set { _totalHours = value; }
         }
 
-        public void SetEduLevel(string eduLevel)
+        public int UniReqCourseHrs
         {
-            EduLevel = eduLevel;
+            get { return _uniReqCourseHrs; }
+            set { _uniReqCourseHrs = value; }
         }
 
-        public int GetTotalHours()
+        public int ColReqCourseHrs
         {
-            return TotalHours;
+            get { return _colReqCourseHrs; }
+            set { _colReqCourseHrs = value; }
         }
 
-        public void SetTotalHours(int totalHours)
+        public int SpecReqCourseHrsTheory
         {
-            TotalHours = totalHours;
+            get { return _specReqCourseHrsTheory; }
+            set { _specReqCourseHrsTheory = value; }
         }
 
-        public int GetUniReqCourseHrs()
+        public int SpecReqCourseHrsPractical
         {
-            return UniReqCourseHrs;
+            get { return _specReqCourseHrsPractical; }
+            set { _specReqCourseHrsPractical = value; }
         }
 
-        public void SetUniReqCourseHrs(int uniReqCourseHrs)
+        public int FreeCourseHrs
         {
-            UniReqCourseHrs = uniReqCourseHrs;
+            get { return _freeCourseHrs; }
+            set { _freeCourseHrs = value; }
         }
 
-        public int GetColReqCourseHrs()
+        public int InternshipHrs
         {
-            return ColReqCourseHrs;
+            get { return _internshipHrs; }
+            set { _internshipHrs = value; }
         }
 
-        public void SetColReqCourseHrs(int colReqCourseHrs)
+        public int GradProjectHrs
         {
-            ColReqCourseHrs = colReqCourseHrs;
+            get { return _gradProjectHrs; }
+            set { _gradProjectHrs = value; }
         }
 
-        public int GetSpecReqCourseHrsTheory()
+        public Teacher[] Teachers
         {
-            return SpecReqCourseHrsTheory;
+            get { return _teachers; }
+            set { _teachers = value; }
         }
 
-        public void SetSpecReqCourseHrsTheory(int specReqCourseHrsTheory)
-        {
-            SpecReqCourseHrsTheory = specReqCourseHrsTheory;
-        }
-
-        public int GetSpecReqCourseHrsPractical()
-        {
-            return SpecReqCourseHrsPractical;
-        }
-
-        public void SetSpecReqCourseHrsPractical(int specReqCourseHrsPractical)
-        {
-            SpecReqCourseHrsPractical = specReqCourseHrsPractical;
-        }
-
-        public int GetFreeCourseHrs()
-        {
-            return FreeCourseHrs;
-        }
-
-        public void SetFreeCourseHrs(int freeCourseHrs)
-        {
-            FreeCourseHrs = freeCourseHrs;
-        }
-
-        public int GetInternshipHrs()
-        {
-            return InternshipHrs;
-        }
-        public void SetInternshipHrs(int internshipHrs)
-        {
-            InternshipHrs = internshipHrs;
-        }
-        public int GetGradProjectHrs()
-        {
-            return GradProjectHrs;
-        }
-        public void SetGradProjectHrs(int gradProjectHrs)
-        {
-            GradProjectHrs = gradProjectHrs;
-        }
-        public Teacher[] GetTeachers()
-        {
-            return teachers;
-        }
-        public void SetTeachers(Teacher[] teachers)
-        {
-            this.teachers = teachers;
-        }
         public void AddTeacher(Teacher teacher)
         {
-            Teacher[] newTeachers = new Teacher[teachers.Length + 1];
-            for (int i = 0; i < teachers.Length; i++)
+            Teacher[] newTeachers = new Teacher[_teachers.Length + 1];
+            for (int i = 0; i < _teachers.Length; i++)
             {
-                newTeachers[i] = teachers[i];
+                newTeachers[i] = _teachers[i];
             }
-            newTeachers[teachers.Length] = teacher;
-            teachers = newTeachers;
+            newTeachers[_teachers.Length] = teacher;
+            _teachers = newTeachers;
         }
+
         public void RemoveTeacher(Teacher teacher)
         {
-            Teacher[] newTeachers = new Teacher[teachers.Length - 1];
+            Teacher[] newTeachers = new Teacher[_teachers.Length - 1];
             int j = 0;
-            for (int i = 0; i < teachers.Length; i++)
+            for (int i = 0; i < _teachers.Length; i++)
             {
-                if (teachers[i] != teacher)
+                if (_teachers[i] != teacher)
                 {
-                    newTeachers[j] = teachers[i];
+                    newTeachers[j] = _teachers[i];
                     j++;
                 }
             }
-            teachers = newTeachers;
+            _teachers = newTeachers;
         }
-        
     }
 }

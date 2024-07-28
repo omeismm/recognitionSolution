@@ -2,109 +2,94 @@
 {
     public class University
     {
-        private string Name;
- 
-        private int studentCount;
-        private Teacher[] teachers;
-        private Specialization[] specializations; // Array of specializations
-        
+        private string _name;
+
+        private int _studentCount;
+        private Teacher[] _teachers;
+        private Specialization[] _specializations; // Array of specializations
+
         public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations)
         {
-            Name = name;
-            
-            this.studentCount = studentCount;
-            this.teachers = teachers;
-            this.specializations = specializations;
+            _name = name;
+            _studentCount = studentCount;
+            _teachers = teachers;
+            _specializations = specializations;
         }
 
-        public string GetName()
+        public string Name
         {
-            return Name;
+            get { return _name; }
+            set { _name = value; }
         }
 
-        public void SetName(string name)
+        public int StudentCount
         {
-            Name = name;
+            get { return _studentCount; }
+            set { _studentCount = value; }
         }
 
-
-        public int GetStudentCount()
+        public Teacher[] Teachers
         {
-            return studentCount;
+            get { return _teachers; }
+            set { _teachers = value; }
         }
 
-        public void SetStudentCount(int count)
-        {
-            studentCount = count;
-        }
-
-        public Teacher[] GetTeachers()
-        {
-            return teachers;
-        }
-
-        public void SetTeachers(Teacher[] teachers)
-        {
-            this.teachers = teachers;
-        }
         public void AddTeacher(Teacher teacher)
         {
-            Teacher[] newTeachers = new Teacher[teachers.Length + 1];
-            for (int i = 0; i < teachers.Length; i++)
+            Teacher[] newTeachers = new Teacher[_teachers.Length + 1];
+            for (int i = 0; i < _teachers.Length; i++)
             {
-                newTeachers[i] = teachers[i];
+                newTeachers[i] = _teachers[i];
             }
-            newTeachers[teachers.Length] = teacher;
-            teachers = newTeachers;
+            newTeachers[_teachers.Length] = teacher;
+            _teachers = newTeachers;
         }
+
         public void RemoveTeacher(Teacher teacher)
         {
-            Teacher[] newTeachers = new Teacher[teachers.Length - 1];
+            Teacher[] newTeachers = new Teacher[_teachers.Length - 1];
             int j = 0;
-            for (int i = 0; i < teachers.Length; i++)
+            for (int i = 0; i < _teachers.Length; i++)
             {
-                if (teachers[i] != teacher)
+                if (_teachers[i] != teacher)
                 {
-                    newTeachers[j] = teachers[i];
+                    newTeachers[j] = _teachers[i];
                     j++;
                 }
             }
-            teachers = newTeachers;
+            _teachers = newTeachers;
         }
 
-        public Specialization[] GetSpecializations()
+        public Specialization[] Specializations
         {
-            return specializations;
+            get { return _specializations; }
+            set { _specializations = value; }
         }
 
-        public void SetSpecializations(Specialization[] specializations)
-        {
-            this.specializations = specializations;
-        }
         public void AddSpecialization(Specialization specialization)
         {
-            Specialization[] newSpecializations = new Specialization[specializations.Length + 1];
-            for (int i = 0; i < specializations.Length; i++)
+            Specialization[] newSpecializations = new Specialization[_specializations.Length + 1];
+            for (int i = 0; i < _specializations.Length; i++)
             {
-                newSpecializations[i] = specializations[i];
+                newSpecializations[i] = _specializations[i];
             }
-            newSpecializations[specializations.Length] = specialization;
-            specializations = newSpecializations;
+            newSpecializations[_specializations.Length] = specialization;
+            _specializations = newSpecializations;
         }
+
         public void RemoveSpecialization(Specialization specialization)
         {
-            Specialization[] newSpecializations = new Specialization[specializations.Length - 1];
+            Specialization[] newSpecializations = new Specialization[_specializations.Length - 1];
             int j = 0;
-            for (int i = 0; i < specializations.Length; i++)
+            for (int i = 0; i < _specializations.Length; i++)
             {
-                if (specializations[i] != specialization)
+                if (_specializations[i] != specialization)
                 {
-                    newSpecializations[j] = specializations[i];
+                    newSpecializations[j] = _specializations[i];
                     j++;
                 }
             }
-            specializations = newSpecializations;
+            _specializations = newSpecializations;
         }
-        
     }
 }

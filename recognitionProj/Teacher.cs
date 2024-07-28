@@ -2,122 +2,113 @@
 {
     public class Teacher
     {
-        private string Name;
-        private string EduLevel; //bsc, msc, phd, etc...
-        private string JobTitle;//professor, assistant professor, lecturer, etc...
-        private bool FullTime; //yes for fulltime, no for no
-        private Specialization[] SpecializationPracticalExperience; // what subjects the teacher has practical experience in
-        private bool SameField;//yes if all certificates from bsc to phd are in the same field, no if not
-        private bool DiverseCert;//yes if certificates are from different places, no if not
-        private bool FivePointFive;//teacher requirements point number 5.5
-        private bool Jordanian;//yes if jordanian, no if not
-        private float ContractLength;//contract length in years
+        private string _name; // Teacher's name
+        private string _eduLevel; // Education level (e.g. BSc, MSc, PhD)
+        private string _jobTitle; // Job title (e.g. Professor, Assistant Professor, Lecturer)
+        private bool _fullTime; // Full-time status (true for full-time, false for part-time)
+        private Specialization[] _specializationPracticalExperience; // Array of specializations the teacher has practical experience in
+        private bool _sameField; // Indicates if all certificates are in the same field (true if yes, false if no)
+        private bool _diverseCert; // Indicates if certificates are from different places (true if yes, false if no)
+        private bool _fivePointFive; // Teacher requirements point number 5.5
+        private bool _jordanian; // Indicates if the teacher is Jordanian (true if yes, false if no)
+        private float _contractLength; // Contract length in years
+
         public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, Specialization[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength)
         {
-            Name = name;
-            EduLevel = eduLevel;
-            JobTitle = jobTitle;
-            FullTime = fullTime;
-            SpecializationPracticalExperience = specializationPracticalExperience;
-            SameField = sameField;
-            FivePointFive = fivePointFive;
-            Jordanian = jordanian;
-            ContractLength = contractLength;
+            _name = name;
+            _eduLevel = eduLevel;
+            _jobTitle = jobTitle;
+            _fullTime = fullTime;
+            _specializationPracticalExperience = specializationPracticalExperience;
+            _sameField = sameField;
+            _fivePointFive = fivePointFive;
+            _jordanian = jordanian;
+            _contractLength = contractLength;
+        }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
         }
 
-        public string GetName()
+        public string EduLevel
         {
-            return Name;
+            get { return _eduLevel; }
+            set { _eduLevel = value; }
         }
 
-        public void SetName(string name)
+        public string JobTitle
         {
-            Name = name;
+            get { return _jobTitle; }
+            set { _jobTitle = value; }
         }
 
-        public string GetEduLevel()
+        public bool FullTime
         {
-            return EduLevel;
+            get { return _fullTime; }
+            set { _fullTime = value; }
         }
 
-        public void SetEduLevel(string eduLevel)
+        public Specialization[] SpecializationPracticalExperience
         {
-            EduLevel = eduLevel;
+            get { return _specializationPracticalExperience; }
+            set { _specializationPracticalExperience = value; }
         }
 
-        public bool GetFullTime()
+        public bool SameField
         {
-            return FullTime;
+            get { return _sameField; }
+            set { _sameField = value; }
         }
 
-        public void SetFullTime(bool fullTime)
+        public bool DiverseCert
         {
-            FullTime = fullTime;
+            get { return _diverseCert; }
+            set { _diverseCert = value; }
         }
-        public Specialization[] GetSpecializationPracticalExperience()
+
+        public bool FivePointFive
         {
-            return SpecializationPracticalExperience;
+            get { return _fivePointFive; }
+            set { _fivePointFive = value; }
         }
-        public void SetSpecializationPracticalExperience(Specialization[] specializationPracticalExperience)
+
+        public bool Jordanian
         {
-            SpecializationPracticalExperience = specializationPracticalExperience;
+            get { return _jordanian; }
+            set { _jordanian = value; }
         }
+
+        public float ContractLength
+        {
+            get { return _contractLength; }
+            set { _contractLength = value; }
+        }
+
         public void AddSpecializationPracticalExperience(Specialization specialization)
         {
-            Specialization[] newSpecializations = new Specialization[SpecializationPracticalExperience.Length + 1];
-            for (int i = 0; i < SpecializationPracticalExperience.Length; i++)
+            Specialization[] newSpecializations = new Specialization[_specializationPracticalExperience.Length + 1];
+            for (int i = 0; i < _specializationPracticalExperience.Length; i++)
             {
-                newSpecializations[i] = SpecializationPracticalExperience[i];
+                newSpecializations[i] = _specializationPracticalExperience[i];
             }
-            newSpecializations[SpecializationPracticalExperience.Length] = specialization;
-            SpecializationPracticalExperience = newSpecializations;
+            newSpecializations[_specializationPracticalExperience.Length] = specialization;
+            _specializationPracticalExperience = newSpecializations;
         }
+
         public void RemoveSpecializationPracticalExperience(Specialization specialization)
         {
-            Specialization[] newSpecializations = new Specialization[SpecializationPracticalExperience.Length - 1];
+            Specialization[] newSpecializations = new Specialization[_specializationPracticalExperience.Length - 1];
             int j = 0;
-            for (int i = 0; i < SpecializationPracticalExperience.Length; i++)
+            for (int i = 0; i < _specializationPracticalExperience.Length; i++)
             {
-                if (SpecializationPracticalExperience[i] != specialization)
+                if (_specializationPracticalExperience[i] != specialization)
                 {
-                    newSpecializations[j] = SpecializationPracticalExperience[i];
+                    newSpecializations[j] = _specializationPracticalExperience[i];
                     j++;
                 }
             }
-            SpecializationPracticalExperience = newSpecializations;
+            _specializationPracticalExperience = newSpecializations;
         }
-        public bool GetSameField()
-        {
-            return SameField;
-        }
-        public void SetSameField(bool sameField)
-        {
-            SameField = sameField;
-        }
-        public bool GetFivePointFive()
-        {
-            return FivePointFive;
-        }
-        public void SetFivePointFive(bool fivePointFive)
-        {
-            FivePointFive = fivePointFive;
-        }
-        public bool GetJordanian()
-        {
-            return Jordanian;
-        }
-        public void SetJordanian(bool jordanian)
-        {
-            Jordanian = jordanian;
-        }
-        public float GetContractLength()
-        {
-            return ContractLength;
-        }
-        public void SetContractLength(float contractLength)
-        {
-            ContractLength = contractLength;
-        }
-
     }
 }
