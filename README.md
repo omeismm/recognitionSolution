@@ -17,6 +17,9 @@ c. process data
     2. write the formulas for students to teachers ratio
     
     3. count full time and part time teachers
+
+    4. other conditions in the pdfs
     
 d. allow the universities to input their data by making an excel sheet for them to fill out
 
+e. make an interface or use the existing one (not sure)
