@@ -6,14 +6,16 @@
         private string _eduLevel; // Education level (e.g. BSc, MSc, PhD)
         private string _jobTitle; // Job title (e.g. Professor, Assistant Professor, Lecturer)
         private bool _fullTime; // Full-time status (true for full-time, false for part-time)
-        private Specialization[] _specializationPracticalExperience; // Array of specializations the teacher has practical experience in
+        private SpecializationWithExperience[] _specializationPracticalExperience; // Array of specializations the teacher has practical experience in with the years of experience
         private bool _sameField; // Indicates if all certificates are in the same field (true if yes, false if no)
         private bool _diverseCert; // Indicates if certificates are from different places (true if yes, false if no)
-        private bool _fivePointFive; // Teacher requirements point number 5.5
+        private bool _fivePointFive; // Teacher requirements point number 5.5 in pdf 222222
         private bool _jordanian; // Indicates if the teacher is Jordanian (true if yes, false if no)
         private float _contractLength; // Contract length in years
+        private bool _equivalence; // Indicates if the teacher has an equivalence certificate (true if yes, false if no) (7.6 in pdf)
+        private int _numOfResearches; // Number of researches the teacher has published
 
-        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, Specialization[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength)
+        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, SpecializationWithExperience[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength, int numOfResearches, bool equivalence)
         {
             _name = name;
             _eduLevel = eduLevel;
@@ -24,6 +26,8 @@
             _fivePointFive = fivePointFive;
             _jordanian = jordanian;
             _contractLength = contractLength;
+            _numOfResearches = numOfResearches;
+            _equivalence = equivalence;
         }
         public string Name
         {
@@ -49,7 +53,7 @@
             set { _fullTime = value; }
         }
 
-        public Specialization[] SpecializationPracticalExperience
+        public SpecializationWithExperience[] SpecializationPracticalExperience
         {
             get { return _specializationPracticalExperience; }
             set { _specializationPracticalExperience = value; }
@@ -85,9 +89,9 @@
             set { _contractLength = value; }
         }
 
-        public void AddSpecializationPracticalExperience(Specialization specialization)
+        public void AddSpecializationPracticalExperience(SpecializationWithExperience specialization)
         {
-            Specialization[] newSpecializations = new Specialization[_specializationPracticalExperience.Length + 1];
+            SpecializationWithExperience[] newSpecializations = new SpecializationWithExperience[_specializationPracticalExperience.Length + 1];
             for (int i = 0; i < _specializationPracticalExperience.Length; i++)
             {
                 newSpecializations[i] = _specializationPracticalExperience[i];
@@ -96,9 +100,9 @@
             _specializationPracticalExperience = newSpecializations;
         }
 
-        public void RemoveSpecializationPracticalExperience(Specialization specialization)
+        public void RemoveSpecializationPracticalExperience(SpecializationWithExperience specialization)
         {
-            Specialization[] newSpecializations = new Specialization[_specializationPracticalExperience.Length - 1];
+            SpecializationWithExperience[] newSpecializations = new SpecializationWithExperience[_specializationPracticalExperience.Length - 1];
             int j = 0;
             for (int i = 0; i < _specializationPracticalExperience.Length; i++)
             {
@@ -110,5 +114,20 @@
             }
             _specializationPracticalExperience = newSpecializations;
         }
+
+        public int NumOfResearches
+        {
+            get { return _numOfResearches; }
+            set { _numOfResearches = value; }
+        }
+
+        public bool Equivalence
+        {
+            get { return _equivalence; }
+            set { _equivalence = value; }
+        }
     }
+
+    
+    
 }

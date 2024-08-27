@@ -13,8 +13,10 @@ namespace recognitionProj
         private int _internshipHrs;//tadreeb
         private int _gradProjectHrs;
         private Teacher[] _teachers;
+        private int _numOfStudents;
+        private bool _scientific;//true for scientific specialization, false for humanitarian
 
-        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers)
+        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers, int numOfStudents, bool scientific)
         {
             _name = name;
             _eduLevel = eduLevel;
@@ -119,6 +121,18 @@ namespace recognitionProj
                 }
             }
             _teachers = newTeachers;
+        }
+
+        public int NumOfStudents
+        {
+            get { return _numOfStudents; }
+            set { _numOfStudents = value; }
+        }
+
+        public bool Scientific
+        {
+            get { return _scientific; }
+            set { _scientific = value; }
         }
     }
 }
