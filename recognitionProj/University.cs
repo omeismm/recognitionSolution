@@ -13,9 +13,9 @@
         private bool _isPrepared;//article 12 requirements in pdf 222222
         private string _presidentName;
         private bool _recgonized;//true if the university is recognized by the ministry of higher education, false otherwise
-        private DateOnly _dateOfRecognition;//date of recognition by the ministry of higher education
+        private AcceptanceRecord[] _acceptanceRecords;// Array of acceptance records
         private bool _outstandingFees;//true if the university has outstanding fees, false otherwise (غرامات مالية)
-        public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations, Lab[] labs, SubjectRoom[] subjectRooms, Library[] library, bool isPrepared, string presidentName, bool recgonized, DateOnly dateOfRecognition, bool outstandingFees)
+        public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations, Lab[] labs, SubjectRoom[] subjectRooms, Library[] library, bool isPrepared, string presidentName, bool recgonized, AcceptanceRecord[] acceptanceRecords , bool outstandingFees)
         {
             _name = name;
             _studentCount = studentCount;
@@ -27,7 +27,7 @@
             _isPrepared = isPrepared;
             _presidentName = presidentName;
             _recgonized = recgonized;
-            _dateOfRecognition = dateOfRecognition;
+            _acceptanceRecords = acceptanceRecords;
             _outstandingFees = outstandingFees;
         }
         
@@ -239,16 +239,47 @@
             set { _recgonized = value; }
         }
 
-        public DateOnly DateOfRecognition
+        public AcceptanceRecord[] AcceptanceRecords
         {
-            get { return _dateOfRecognition; }
-            set { _dateOfRecognition = value; }
+            get { return _acceptanceRecords; }
+            set { _acceptanceRecords = value; }
+        }
+
+        public void AddAcceptanceRecord(AcceptanceRecord acceptanceRecord)
+        {
+            AcceptanceRecord[] newAcceptanceRecords = new AcceptanceRecord[_acceptanceRecords.Length + 1];
+            for (int i = 0; i < _acceptanceRecords.Length; i++)
+            {
+                newAcceptanceRecords[i] = _acceptanceRecords[i];
+            }
+            newAcceptanceRecords[_acceptanceRecords.Length] = acceptanceRecord;
+            _acceptanceRecords = newAcceptanceRecords;
+        }
+
+        public void RemoveAcceptanceRecord(AcceptanceRecord acceptanceRecord)
+        {
+            AcceptanceRecord[] newAcceptanceRecords = new AcceptanceRecord[_acceptanceRecords.Length - 1];
+            int j = 0;
+            for (int i = 0; i < _acceptanceRecords.Length; i++)
+            {
+                if (_acceptanceRecords[i] != acceptanceRecord)
+                {
+                    newAcceptanceRecords[j] = _acceptanceRecords[i];
+                    j++;
+                }
+            }
+            _acceptanceRecords = newAcceptanceRecords;
         }
 
         public bool OutstandingFees
         {
             get { return _outstandingFees; }
             set { _outstandingFees = value; }
+        }
+
+        public override string ToString()
+        {
+            return _name;
         }
     }
 }

@@ -134,5 +134,11 @@ namespace recognitionProj
             get { return _scientific; }
             set { _scientific = value; }
         }
+
+        public override string ToString()
+        {
+            return _name;
+        }
+
     }
 }

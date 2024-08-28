@@ -126,6 +126,11 @@
             get { return _equivalence; }
             set { _equivalence = value; }
         }
+
+        public override string ToString()
+        {
+            return _name + " is a " + _jobTitle + " with " + _eduLevel + " degree";
+        }
     }
 
     

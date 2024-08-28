@@ -21,4 +21,9 @@ public class SpecializationWithExperience
         _specialization = specialization;
         _yearsOfExperience = yearsOfExperience;
     }
+
+    public override string ToString()
+    {
+        return _specialization.Name + " with " + _yearsOfExperience + " years of experience";
+    }
 }

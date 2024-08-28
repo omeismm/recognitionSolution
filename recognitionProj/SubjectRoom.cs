@@ -31,6 +31,9 @@
             set { _numOfChairs = value; }
         }
 
-
+        public override string ToString()
+        {
+            return _name + " with " + _area + " area and " + _numOfChairs + " chairs";
+        }
     }
 }

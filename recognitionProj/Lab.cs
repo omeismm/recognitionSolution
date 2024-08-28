@@ -71,5 +71,36 @@
             get { return _hasSafetyEquipment; }
             set { _hasSafetyEquipment = value; }
         }
+
+        public void AddTeacher(Teacher teacher)
+        {
+            Teacher[] newTeachers = new Teacher[_teachers.Length + 1];
+            for (int i = 0; i < _teachers.Length; i++)
+            {
+                newTeachers[i] = _teachers[i];
+            }
+            newTeachers[_teachers.Length] = teacher;
+            _teachers = newTeachers;
+        }
+
+        public void RemoveTeacher(Teacher teacher)
+        {
+            Teacher[] newTeachers = new Teacher[_teachers.Length - 1];
+            int j = 0;
+            for (int i = 0; i < _teachers.Length; i++)
+            {
+                if (_teachers[i] != teacher)
+                {
+                    newTeachers[j] = _teachers[i];
+                    j++;
+                }
+            }
+            _teachers = newTeachers;
+        }
+
+        public override string ToString()
+        {
+            return _name;
+        }
     }
 }
