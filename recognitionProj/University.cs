@@ -233,7 +233,7 @@
             set { _presidentName = value; }
         }
 
-        public bool recgonized
+        public bool Recgonized
         {
             get { return _recgonized; }
             set { _recgonized = value; }
