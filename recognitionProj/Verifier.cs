@@ -4,6 +4,7 @@
     {
         private University _uni;
         private List<string> _message; 
+        private bool _verified;
 
         public Verifier(University uni)
         {
@@ -22,6 +23,12 @@
         {
             get { return _uni; }
             set { _uni = value; }
+        }
+
+        public bool Verified
+        {
+            get { return _verified; }
+            set { _verified = value; }
         }
 
         public void Verify()
@@ -96,7 +103,11 @@
             }
 
             //todo more verifications
+            //after all verificatons are done the next line will be executed
+            _uni.AcceptanceRecords.Append(new AcceptanceRecord(_verified, DateOnly.FromDateTime(DateTime.Now), _message)); //this writes the verification result to the acceptance records
+
         }
+
 
 
 
