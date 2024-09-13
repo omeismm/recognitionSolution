@@ -15,7 +15,8 @@
         private bool _recgonized;//true if the university is recognized by the ministry of higher education, false otherwise
         private AcceptanceRecord[] _acceptanceRecords;// Array of acceptance records
         private bool _outstandingFees;//true if the university has outstanding fees, false otherwise (غرامات مالية)
-        public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations, Lab[] labs, SubjectRoom[] subjectRooms, Library[] library, bool isPrepared, string presidentName, bool recgonized, AcceptanceRecord[] acceptanceRecords , bool outstandingFees)
+        private bool _hasBoardApprovalForTeachersAboveSeventy;
+        public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations, Lab[] labs, SubjectRoom[] subjectRooms, Library[] library, bool isPrepared, string presidentName, bool recgonized, AcceptanceRecord[] acceptanceRecords , bool outstandingFees, bool hasBoardApprovalForTeachersAboveSeventy)
         {
             _name = name;
             _studentCount = studentCount;
@@ -29,6 +30,7 @@
             _recgonized = recgonized;
             _acceptanceRecords = acceptanceRecords;
             _outstandingFees = outstandingFees;
+            _hasBoardApprovalForTeachersAboveSeventy = hasBoardApprovalForTeachersAboveSeventy;
         }
         
 
@@ -275,6 +277,12 @@
         {
             get { return _outstandingFees; }
             set { _outstandingFees = value; }
+        }
+
+        public bool HasBoardApprovalForTeachersAboveSeventy
+        {
+            get { return _hasBoardApprovalForTeachersAboveSeventy; }
+            set { _hasBoardApprovalForTeachersAboveSeventy = value; }
         }
 
         public override string ToString()

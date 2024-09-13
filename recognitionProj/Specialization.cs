@@ -15,8 +15,8 @@ namespace recognitionProj
         private Teacher[] _teachers;
         private int _numOfStudents;
         private bool _scientific;//true for scientific specialization, false for humanitarian
-
-        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers, int numOfStudents, bool scientific)
+        private bool _hasSpecialException;//if the specialization has exceptiopns for the type of teachers allowed to teach
+        public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers, int numOfStudents, bool scientific, bool hasSpecialException)
         {
             _name = name;
             _eduLevel = eduLevel;
@@ -29,6 +29,9 @@ namespace recognitionProj
             _internshipHrs = internshipHrs;
             _gradProjectHrs = gradProjectHrs;
             _teachers = teachers;
+            _numOfStudents = numOfStudents;
+            _scientific = scientific;
+            _hasSpecialException = hasSpecialException;
         }
 
         public string Name
@@ -135,6 +138,11 @@ namespace recognitionProj
             set { _scientific = value; }
         }
 
+        public bool HasSpecialException
+        {
+            get { return _hasSpecialException; }
+            set { _hasSpecialException = value; }
+        }
         public override string ToString()
         {
             return _name;

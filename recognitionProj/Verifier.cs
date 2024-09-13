@@ -173,6 +173,119 @@
                 {
                     _message.Add($"Specialization {specialization.Name} has GradProjectHrs less than 3 hours");
                 }
+
+                if (specialization.Teachers == null)
+                {
+                    _message.Add($"Specialization {specialization.Name} has teachers list null");
+                }
+
+                if (specialization.Teachers.Count == 0)
+                {
+                    _message.Add($"Specialization {specialization.Name} has teachers list empty");
+                }
+                int phdTeachers = 0;
+                bool hasAssociateProfessorOrHigher = false;
+                int jordanianTeachers = 0;
+                int longTermContractTeachers = 0;
+                int teachersAboveSeventy = 0;
+                bool specialExceptionForRareSpecialization = specialization.HasSpecialException; // Assuming this flag is set for special cases
+                foreach (Teacher teacher in specialization.Teachers)
+                {
+                    if (teacher.EduLevel == "PhD" && teacher.FullTime)
+                    {
+                        phdTeachers++;
+                    }
+
+                    if (teacher.JobTitle == "Associate Professor" || teacher.JobTitle == "Professor")
+                    {
+                        hasAssociateProfessorOrHigher = true;
+                    }
+
+                    if (teacher.SpecializationPracticalExperience == null)
+                    {
+                        _message.Add($"Teacher {teacher.Name} has specialization practical experience list null");
+                    }
+
+                    if (!teacher.SameField)
+                    {
+                        _message.Add($"Teacher {teacher.Name} does not have all certificates in the same field");
+                    }
+
+                    if (!teacher.DiverseCert)
+                    {
+                        _message.Add($"Teacher {teacher.Name} does not have certificates from different places");
+                    }
+
+                    if (!teacher.FivePointFive)
+                    {
+                        _message.Add($"Teacher {teacher.Name} does not meet requirement 5.5");
+                    }
+
+                    if (teacher.EduLevel == "PhD" && teacher.FullTime)
+                    {
+                        phdTeachers++;
+                    }
+
+                    if (teacher.JobTitle == "Associate Professor" || teacher.JobTitle == "Professor")
+                    {
+                        hasAssociateProfessorOrHigher = true;
+                    }
+
+                    // Check if the teacher is Jordanian
+                    if (teacher.Jordanian)
+                    {
+                        jordanianTeachers++;
+                    }
+
+                    // Check if the teacher has a contract longer than 3 years
+                    if (teacher.ContractLength >= 3)
+                    {
+                        longTermContractTeachers++;
+                    }
+
+                    // Check if the teacher is older than 70
+                    if (teacher.Age >= 70)
+                    {
+                        teachersAboveSeventy++;
+                    }
+
+                }
+
+                if (phdTeachers < 3)
+                {
+                    _message.Add($"Specialization {specialization.Name} has less than 3 full-time PhD teachers.");
+                }
+
+                if (!hasAssociateProfessorOrHigher)
+                {
+                    _message.Add($"Specialization {specialization.Name} does not have an Associate Professor or higher.");
+                }
+
+                int experiencedTeachers = specialization.Teachers.Count(t => t.SpecializationPracticalExperience.Any(e => e.YearsOfExperience >= 3));
+                if ((float)experiencedTeachers / specialization.Teachers.Length < 0.2)
+                {
+                    _message.Add($"Specialization {specialization.Name} does not have at least 20% of teachers with 3+ years of practical experience.");
+                }
+
+                // Verify that at least 75% of teachers in the specialization are Jordanian
+                if (!specialExceptionForRareSpecialization && ((float)jordanianTeachers / specialization.Teachers.Length) < 0.75)
+                {
+                    _message.Add($"Specialization {specialization.Name} has less than 75% Jordanian teachers.");
+                }
+
+                // Verify that at least 50% of teachers have contracts longer than 3 years
+                if ((float)longTermContractTeachers / specialization.Teachers.Length < 0.5)
+                {
+                    _message.Add($"Specialization {specialization.Name} has less than 50% of teachers with contracts of 3 years or more.");
+                }
+
+                // Check if there are teachers above 70 without special approval
+                if (teachersAboveSeventy > 0 && !_uni.HasBoardApprovalForTeachersAboveSeventy)
+                {
+                    _message.Add($"Specialization {specialization.Name} has teachers above 70 years old without board approval.");
+                }
+
+
                 //todo more verifications
                 //after all verificatons are done the next line will be executed
                 _uni.AcceptanceRecords.Append(new AcceptanceRecord(_verified, DateOnly.FromDateTime(DateTime.Now), _message)); //this writes the verification result to the acceptance records

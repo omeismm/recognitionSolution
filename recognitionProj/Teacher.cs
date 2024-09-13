@@ -14,8 +14,8 @@
         private float _contractLength; // Contract length in years
         private bool _equivalence; // Indicates if the teacher has an equivalence certificate (true if yes, false if no) (7.6 in pdf)
         private int _numOfResearches; // Number of researches the teacher has published
-
-        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, SpecializationWithExperience[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength, int numOfResearches, bool equivalence)
+        private int _age; // Teacher's age
+        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, SpecializationWithExperience[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength, int numOfResearches, bool equivalence, int age)
         {
             _name = name;
             _eduLevel = eduLevel;
@@ -28,6 +28,7 @@
             _contractLength = contractLength;
             _numOfResearches = numOfResearches;
             _equivalence = equivalence;
+            _age = age;
         }
         public string Name
         {
@@ -125,6 +126,12 @@
         {
             get { return _equivalence; }
             set { _equivalence = value; }
+        }
+
+        public int Age
+        {
+            get { return _age; }
+            set { _age = value; }
         }
 
         public override string ToString()
