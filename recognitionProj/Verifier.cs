@@ -3,14 +3,14 @@
     public class Verifier
     {
         private University _uni;
-        private List<string> _message; 
+        private List<string> _message;
         private bool _verified;
 
         public Verifier(University uni)
         {
             _uni = uni;
-            _message = new List<string>(); 
-            
+            _message = new List<string>();
+
         }
 
         public List<string> Message // Change the type of Message to List<string>
@@ -36,12 +36,12 @@
             if (_uni == null)
             {
                 _message.Add("University object is null"); // Append error message to _message
-                
+
             }
             if (_uni.Name == null)
             {
                 _message.Add("University name is null"); // Append error message to _message
-                
+
             }
 
             if (_uni.Name == "")
@@ -53,13 +53,13 @@
             if (_uni.Specializations == null)
             {
                 _message.Add("University specializations list is null"); // Append error message to _message
-                
+
             }
 
             if (_uni.Specializations.Length == 0)
             {
                 _message.Add("University specializations list is empty"); // Append error message to _message
-               
+
             }
 
             if (_uni.Teachers == null)
@@ -71,10 +71,10 @@
             if (_uni.Teachers.Length == 0)
             {
                 _message.Add("University teachers list is empty"); // Append error message to _message
-                
+
             }
 
-            
+
 
             if (_uni.StudentCount == 0)
             {
@@ -110,7 +110,8 @@
             if (!_uni.IsPrepared)
             {
 
-            _message.Add("University is not prepared based on article 12 requirements"); } // Append error message to _message
+                _message.Add("University is not prepared based on article 12 requirements");
+            } // Append error message to _message
 
             if (_uni.OutstandingFees)
             {
@@ -124,7 +125,7 @@
                         }
                     }
                 }
-                
+
                 _message.Add("University has outstanding fees"); // Append error message to _message
 
             }
@@ -149,7 +150,7 @@
                     _message.Add($"Specialization {specialization.Name} has SpecReqCourseHrs less than 60% of total hours");
                 }
 
-                if (specialization.SpecReqCourseHrsTheory / (specialization.SpecReqCourseHrsTheory + specialization.SpecReqCourseHrsPractical)< 0.4 || specialization.SpecReqCourseHrsTheory / (specialization.SpecReqCourseHrsTheory + specialization.SpecReqCourseHrsPractical) > 0.5)
+                if (specialization.SpecReqCourseHrsTheory / (specialization.SpecReqCourseHrsTheory + specialization.SpecReqCourseHrsPractical) < 0.4 || specialization.SpecReqCourseHrsTheory / (specialization.SpecReqCourseHrsTheory + specialization.SpecReqCourseHrsPractical) > 0.5)
                 {
                     _message.Add($"Specialization {specialization.Name} has SpecReqCourseHrsTheory not between 40% and 50% of total specialization hours");
                 }
@@ -159,7 +160,7 @@
                     _message.Add($"Specialization {specialization.Name} has SpecReqCourseHrsTheory not between 50% and 60% of total specialization hours");
                 }
 
-                if (specialization.FreeCourseHrs> 6)
+                if (specialization.FreeCourseHrs > 6)
                 {
                     _message.Add($"Specialization {specialization.Name} has FreeCourseHrs more than 6 hours");
                 }
@@ -290,10 +291,11 @@
                 //after all verificatons are done the next line will be executed
                 _uni.AcceptanceRecords.Append(new AcceptanceRecord(_verified, DateOnly.FromDateTime(DateTime.Now), _message)); //this writes the verification result to the acceptance records
 
-        }
+            }
 
 
 
 
         }
     }
+}

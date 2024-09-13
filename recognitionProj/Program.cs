@@ -4,6 +4,12 @@ namespace recognitionProj
     {
         public static void Main(string[] args)
         {
+            // open the database connection
+
+            var connectionString = "Host=my_host;Username=my_user;Password=my_pw;Database=my_db";//placeholders
+            DatabaseHandler dbHandler = new DatabaseHandler(connectionString);
+            dbHandler.Query("SELECT * FROM my_table");//placeholder query
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
