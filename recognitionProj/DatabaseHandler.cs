@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace recognitionProj
 {
@@ -28,6 +29,7 @@ namespace recognitionProj
                     {
                         command.ExecuteNonQuery();
                     }
+                    connection.Close();
                 }
                 catch (SqlException ex)
                 {
@@ -37,22 +39,109 @@ namespace recognitionProj
             }
         }
 
+        public void InsertRecord(string tableName, string columns, string values)
+        {
+            string query = $"INSERT INTO {tableName} ({columns}) VALUES ({values})";
 
-        // Method to close the connection (you can call this in your app)
-        public void CloseConnection() {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
                 {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
                     connection.Close();
-                    // Handle any required operations when connection is closed
                 }
                 catch (SqlException ex)
                 {
                     // Handle exceptions
-                    throw new Exception("Database connection closing failed", ex);
+                    throw new Exception("Database insert operation failed", ex);
                 }
             }
         }
+
+        public void UpdateRecord(string tableName, string setValues, string condition)
+        {
+            string query = $"UPDATE {tableName} SET {setValues} WHERE {condition}";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+                catch (SqlException ex)
+                {
+                    // Handle exceptions
+                    throw new Exception("Database update operation failed", ex);
+                }
+            }
+        }
+
+        public void DeleteRecord(string tableName, string condition)
+        {
+            string query = $"DELETE FROM {tableName} WHERE {condition}";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
+                catch (SqlException ex)
+                {
+                    // Handle exceptions
+                    throw new Exception("Database delete operation failed", ex);
+                }
+            }
+        }
+
+        public DataTable SelectRecords(string query)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            dataTable.Load(reader);
+                        }
+
+                    }
+                    connection.Close();
+                }
+                catch (SqlException ex)
+                {
+                    // Handle exceptions
+                    throw new Exception("Database select operation failed", ex);
+                }
+            }
+
+            return dataTable;
+        }
+
+
+
+
+
+        // Method to close the connection (you can call this in your app)
+
     }
 }
