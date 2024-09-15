@@ -141,7 +141,7 @@ namespace recognitionProj
 
 
 
-        // Method to close the connection (you can call this in your app)
+        //we can customize and make our own methods to interact with the database laters
 
     }
 }

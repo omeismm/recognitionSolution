@@ -286,6 +286,28 @@
                     _message.Add($"Specialization {specialization.Name} has teachers above 70 years old without board approval.");
                 }
 
+                // New check: Student-to-teacher ratio based on specialization type article 6
+                int studentCount = specialization.NumOfStudents;
+                int teacherCount = specialization.Teachers.Length;
+
+                if (teacherCount == 0)
+                {
+                    _message.Add($"Specialization {specialization.Name} has no teachers assigned.");
+                    continue; // Skip the ratio check if there are no teachers
+                }
+
+                // Determine the maximum allowed ratio based on specialization type
+                int maxRatio = specialization.Scientific ? 20 : 25; // 20 for scientific, 25 for humanities
+
+                // Calculate the actual student-to-teacher ratio
+                int actualRatio = studentCount / teacherCount;
+
+                if (actualRatio > maxRatio)
+                {
+                    _message.Add($"Specialization {specialization.Name} exceeds the maximum student-to-teacher ratio of {maxRatio}:1. Actual ratio: {actualRatio}:1.");
+                }
+
+                
 
                 //todo more verifications
                 //after all verificatons are done the next line will be executed
