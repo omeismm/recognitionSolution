@@ -56,6 +56,7 @@
 
             }
 
+
             if (_uni.Specializations.Length == 0)
             {
                 _message.Add("University specializations list is empty"); // Append error message to _message
@@ -87,7 +88,7 @@
                 _message.Add("University teachers list is null"); // Append error message to _message
 
             }
-            if (_uni.Teachers.Count == 0)//todo why is this not working?????
+            if (_uni.Teachers.Length == 0)//todo why is this not working?????
             {
                 _message.Add("University teachers list is empty"); // Append error message to _message
 
@@ -101,7 +102,7 @@
 
             }
 
-            if (_uni.Specializations.Count == 0)//todo why is this not working?????
+            if (_uni.Specializations.Length == 0)//todo why is this not working?????
             {
                 _message.Add("University specializations list is empty"); // Append error message to _message
 
@@ -180,7 +181,7 @@
                     _message.Add($"Specialization {specialization.Name} has teachers list null");
                 }
 
-                if (specialization.Teachers.Count == 0)
+                if (specialization.Teachers.Length == 0)
                 {
                     _message.Add($"Specialization {specialization.Name} has teachers list empty");
                 }
@@ -307,7 +308,57 @@
                     _message.Add($"Specialization {specialization.Name} exceeds the maximum student-to-teacher ratio of {maxRatio}:1. Actual ratio: {actualRatio}:1.");
                 }
 
-                
+                // Condition 2: Check the type of students (includes deferred and dropouts)
+                // This might require an additional field or logic for student types
+                // messages.Add("Consider deferred or dropout students in the count.");
+
+                // Condition 3: Check teacher education levels
+                foreach (var teacher in specialization.Teachers)
+                {
+                    if (teacher.JobTitle == "Assistant Lecturer" && teacher.EduLevel != "PhD")
+                    {
+                        _message.Add($"{teacher.Name} does not have the required PhD level.");
+                    }
+                }
+
+                // Condition 4: At least 50% of teachers should be on contracts of 3+ years
+                int longContractCount = specialization.Teachers.Count(t => t.ContractLength >= 3);
+                if (longContractCount < specialization.Teachers.Length * 0.5)
+                {
+                    _message.Add("Less than 50% of teachers have contracts of 3 years or more.");
+                }
+
+                // Condition 5: Jordanian Teachers (80% for college/university, 75% for specialization)
+                int jordanianCount = specialization.Teachers.Count(t => t.Jordanian);
+                if (jordanianCount < specialization.Teachers.Length * 0.80)
+                {
+                    _message.Add("Less than 80% of teachers are Jordanian at the university level.");
+                }
+
+                if (jordanianCount < specialization.Teachers.Length * 0.75)
+                {
+                    _message.Add("Less than 75% of teachers are Jordanian in this specialization.");
+                }
+
+                // Condition 6: Exceeding exceptions for non-Jordanians
+                // Placeholder for handling exceptions if non-Jordanians are allowed
+
+                // Condition 7: Ensure less than 50% of teachers have only MSc degrees
+                int mscCount = specialization.Teachers.Count(t => t.EduLevel == "MSc");
+                int phdCount = specialization.Teachers.Count(t => t.EduLevel == "PhD");
+
+                if (mscCount > phdCount)
+                {
+                    _message.Add("More MSc holders than PhD holders among the full-time staff.");
+                }
+
+                //we need to properly understand condition 6 in article 7
+
+                // Other conditions to be added based on additional fields or data:
+                // - Teachers with exceptions in rare specializations (handled via _hasSpecialException)
+                // - Proportions of certain teacher types per field
+                // - Specific research or practical experience requirements (teacher._specializationPracticalExperience)
+
 
                 //todo more verifications
                 //after all verificatons are done the next line will be executed
