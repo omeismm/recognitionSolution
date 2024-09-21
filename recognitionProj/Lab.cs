@@ -3,7 +3,7 @@
     public class Lab
     {
         private string _name;
-        private string type;//lab or workshop or special lab
+        private string _type;//lab or workshop or special lab
         private Teacher[] _teachers;
         private int _numOfAllStudentsInAllLabs;
         private int _numOfStudentsPerLab;
@@ -12,9 +12,10 @@
         private bool _isPrepared;
         private bool _hasSafetyEquipment;
 
-        public Lab(string name, Teacher[] teachers, int numOfAllStudentsInAllLabs, int numOfStudentsPerLab, double area, int numOfComputers, bool isPrepared, bool hasSafetyEquipment)
+        public Lab(string name, string type ,Teacher[] teachers, int numOfAllStudentsInAllLabs, int numOfStudentsPerLab, double area, int numOfComputers, bool isPrepared, bool hasSafetyEquipment)
         {
             _name = name;
+            _type = type;
             _teachers = teachers;
             _numOfAllStudentsInAllLabs = numOfAllStudentsInAllLabs;
             _numOfStudentsPerLab = numOfStudentsPerLab;
@@ -28,6 +29,12 @@
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public string Type
+        {
+            get { return _type; }
+            set { _type = value; }
         }
 
         public Teacher[] Teachers

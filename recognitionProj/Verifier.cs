@@ -29,8 +29,24 @@
         {
             get { return _verified; }
             set { _verified = value; }
+
         }
 
+        // Helper function to check if the lab has qualified technicians(article 8)
+        private bool _hasQualifiedTechnician(Lab lab)
+        {
+            foreach (var teacher in lab.Teachers)
+            {
+                // Assuming _jobTitle or some field indicates a technician
+                if (teacher.JobTitle.Equals("Technician") && teacher.EduLevel.Equals("Diploma"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        
         public void Verify()
         {
             if (_uni == null)
@@ -359,6 +375,48 @@
                 // - Proportions of certain teacher types per field
                 // - Specific research or practical experience requirements (teacher._specializationPracticalExperience)
 
+
+                foreach (var lab in _uni.Labs)
+                {
+                    // Check 1: Student to Lab Supervisor Ratio (must not exceed 20:1)
+                    if (lab.NumOfStudentsPerLab > 20)
+                    {
+                        _message.Add($"The student to supervisor ratio in lab {lab.Name} exceeds the maximum allowed (20:1).");
+                    }
+
+                    // Check 2: Maximum Supervisory Load (must not exceed 18 hours per week)
+                    // Check 3: Supervisor's Qualifications (must hold a minimum Bachelor's degree)
+                    foreach (var teacher in lab.Teachers)
+                    {
+                        if (teacher.NumOfHours > 18)
+                        {
+                            _message.Add($"Supervisor {teacher.Name} in lab {lab.Name} exceeds the maximum supervisory load (18 hours per week).");
+                        }
+
+                        if (!teacher.EduLevel.Equals("BSc") && lab.Type.Equals("lab"))
+                        {
+                            _message.Add($"Supervisor {teacher.Name} in lab {lab.Name} does not meet the minimum required qualifications (Bachelor's degree).");
+                        }
+                    }
+
+                    // Check 4: Technician qualifications (must hold at least a diploma)
+                    if (lab.Type.Equals("workshop") && !_hasQualifiedTechnician(lab))
+                    {
+                        _message.Add($"Lab {lab.Name} does not have a qualified technician with at least a diploma.");
+                    }
+
+                    // Check 5: Lab readiness
+                    if (!lab.IsPrepared)
+                    {
+                        _message.Add($"Lab {lab.Name} is not properly prepared for use.");
+                    }
+
+                    // Check 6: Safety equipment
+                    if (!lab.HasSafetyEquipment)
+                    {
+                        _message.Add($"Lab {lab.Name} does not have the required safety equipment.");
+                    }
+                }
 
                 //todo more verifications
                 //after all verificatons are done the next line will be executed

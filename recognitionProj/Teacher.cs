@@ -15,7 +15,8 @@
         private bool _equivalence; // Indicates if the teacher has an equivalence certificate (true if yes, false if no) (7.6 in pdf)
         private int _numOfResearches; // Number of researches the teacher has published
         private int _age; // Teacher's age
-        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, SpecializationWithExperience[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength, int numOfResearches, bool equivalence, int age)
+        private int _numOfHours; // Number of hours the teacher is teaching
+        public Teacher(string name, string eduLevel, string jobTitle, bool fullTime, SpecializationWithExperience[] specializationPracticalExperience, bool sameField, bool fivePointFive, bool jordanian, float contractLength, int numOfResearches, bool equivalence, int age, int numOfHours)
         {
             _name = name;
             _eduLevel = eduLevel;
@@ -29,6 +30,7 @@
             _numOfResearches = numOfResearches;
             _equivalence = equivalence;
             _age = age;
+            _numOfHours = numOfHours;
         }
         public string Name
         {
@@ -90,6 +92,12 @@
             set { _contractLength = value; }
         }
 
+
+        public int NumOfHours
+        {
+            get { return _numOfHours; }
+            set { _numOfHours = value; }
+        }
         public void AddSpecializationPracticalExperience(SpecializationWithExperience specialization)
         {
             SpecializationWithExperience[] newSpecializations = new SpecializationWithExperience[_specializationPracticalExperience.Length + 1];
