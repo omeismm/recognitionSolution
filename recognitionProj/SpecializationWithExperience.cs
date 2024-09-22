@@ -1,5 +1,5 @@
 ﻿namespace recognitionProj;
-public class SpecializationWithExperience
+public class SpecializationWithExperience//this class is here to put the amount of years of experience next to the spec
 {
     private Specialization _specialization;
     private int _yearsOfExperience;

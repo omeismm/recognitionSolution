@@ -3,7 +3,7 @@ using System.Data;
 
 namespace recognitionProj
 {
-    public class DatabaseHandler
+    public class DatabaseHandler//this class is to create the connection to the database
     {
         // Private field to store the connection string
         private string _connectionString;

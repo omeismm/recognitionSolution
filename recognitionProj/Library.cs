@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class Library
+    public class Library//we need this for article 9 املادة(9): املكتبة / وحدة مصادرالتعلم (Educational Resource Unit)
     {
         private string _name;
         private int _booksPerCourse;//must be at least 5 books per course

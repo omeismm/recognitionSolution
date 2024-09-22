@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class Lab
+    public class Lab//this also is for workshops or special labs
     {
         private string _name;
         private string _type;//lab or workshop or special lab

@@ -2,7 +2,7 @@ namespace recognitionProj
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args)//this is the main
         {
             // open the database connection
 

@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class SubjectRoom
+    public class SubjectRoom//this is the class for the rooms inside the uni
     {
         private string _name;
         private double _area;
