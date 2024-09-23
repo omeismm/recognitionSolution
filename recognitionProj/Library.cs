@@ -25,50 +25,50 @@
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public int BooksPerCourse
         {
-            get { return _booksPerCourse; }
-            set { _booksPerCourse = value; }
+            get => _booksPerCourse;
+            set => _booksPerCourse = value;
         }
 
         public int DuplicateBooks
         {
-            get { return _duplicateBooks; }
-            set { _duplicateBooks = value; }
+            get => _duplicateBooks;
+            set => _duplicateBooks = value;
         }
 
         public int UniqueBooks
         {
-            get { return _uniqueBooks; }
-            set { _uniqueBooks = value; }
+            get => _uniqueBooks;
+            set => _uniqueBooks = value;
         }
 
         public bool HasJournals
         {
-            get { return _hasJournals; }
-            set { _hasJournals = value; }
+            get => _hasJournals;
+            set => _hasJournals = value;
         }
 
         public bool HasBasicBooks
         {
-            get { return _hasBasicBooks; }
-            set { _hasBasicBooks = value; }
+            get => _hasBasicBooks;
+            set => _hasBasicBooks = value;
         }
 
         public bool HasOpenEndedCourses
         {
-            get { return _hasOpenEndedCourses; }
-            set { _hasOpenEndedCourses = value; }
+            get => _hasOpenEndedCourses;
+            set => _hasOpenEndedCourses = value;
         }
 
         public bool HasEBooks
         {
-            get { return _hasEBooks; }
-            set { _hasEBooks = value; }
+            get => _hasEBooks;
+            set => _hasEBooks = value;
         }
 
         public override string ToString()

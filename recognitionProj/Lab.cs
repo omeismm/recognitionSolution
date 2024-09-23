@@ -27,56 +27,56 @@
        
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public string Type
         {
-            get { return _type; }
-            set { _type = value; }
+            get => _type;
+            set => _type = value;
         }
 
         public Teacher[] Teachers
         {
-            get { return _teachers; }
-            set { _teachers = value; }
+            get => _teachers;
+            set => _teachers = value;
         }
 
         public int NumOfAllStudentsInAllLabs
         {
-            get { return _numOfAllStudentsInAllLabs; }
-            set { _numOfAllStudentsInAllLabs = value; }
+            get => _numOfAllStudentsInAllLabs;
+            set => _numOfAllStudentsInAllLabs = value;
         }
         
         public int NumOfStudentsPerLab
             {
-            get { return _numOfStudentsPerLab; }
-            set { _numOfStudentsPerLab = value; }
+            get => _numOfStudentsPerLab;
+            set => _numOfStudentsPerLab = value;
         }
 
         public double Area
             {
-            get { return _area; }
-            set { _area = value; }
+            get => _area;
+            set => _area = value;
         }
 
         public int NumOfComputers
             {
-            get { return _numOfComputers; }
-            set { _numOfComputers = value; }
+            get => _numOfComputers;
+            set => _numOfComputers = value;
         }
 
         public bool IsPrepared
             {
-            get { return _isPrepared; }
-            set { _isPrepared = value; }
+            get => _isPrepared;
+            set => _isPrepared = value;
         }
 
         public bool HasSafetyEquipment
             {
-            get { return _hasSafetyEquipment; }
-            set { _hasSafetyEquipment = value; }
+            get => _hasSafetyEquipment;
+            set => _hasSafetyEquipment = value;
         }
 
         public void AddTeacher(Teacher teacher)

@@ -6,14 +6,14 @@ public class SpecializationWithExperience//this class is here to put the amount 
 
     public Specialization Specialization
     {
-        get { return _specialization; }
-        set { _specialization = value; }
+        get => _specialization;
+        set => _specialization = value;
     }
 
     public int YearsOfExperience
     {
-        get { return _yearsOfExperience; }
-        set { _yearsOfExperience = value; }
+        get => _yearsOfExperience;
+        set => _yearsOfExperience = value;
     }
 
     public SpecializationWithExperience(Specialization specialization, int yearsOfExperience)
