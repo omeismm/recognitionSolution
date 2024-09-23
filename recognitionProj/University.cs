@@ -36,20 +36,20 @@
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public int StudentCount
         {
-            get { return _studentCount; }
-            set { _studentCount = value; }
+            get => _studentCount;
+            set => _studentCount = value;
         }
 
         public Teacher[] Teachers
         {
-            get { return _teachers; }
-            set { _teachers = value; }
+            get => _teachers;
+            set => _teachers = value;
         }
 
         public void AddTeacher(Teacher teacher)
@@ -80,8 +80,8 @@
 
         public Specialization[] Specializations
         {
-            get { return _specializations; }
-            set { _specializations = value; }
+            get => _specializations;
+            set => _specializations = value;
         }
 
         public void AddSpecialization(Specialization specialization)
@@ -112,8 +112,8 @@
 
         public Lab[] Labs
         {
-            get { return _labs; }
-            set { _labs = value; }
+            get => _labs;
+            set => _labs = value;
         }
 
         public void AddLab(Lab lab)
@@ -151,8 +151,8 @@
 
         public SubjectRoom[] SubjectRooms
         {
-            get { return _subjectRooms; }
-            set { _subjectRooms = value; }
+            get => _subjectRooms;
+            set => _subjectRooms = value;
         }
 
         public SubjectRoom[] GetSubjectRooms() {
@@ -187,8 +187,8 @@
 
         public Library[] Library
         {
-            get { return _library; }
-            set { _library = value; }
+            get => _library;
+            set => _library = value;
         }
 
         public void AddLibrary(Library library)
@@ -225,26 +225,26 @@
 
         public bool IsPrepared
         {
-            get { return _isPrepared; }
-            set { _isPrepared = value; }
+            get => _isPrepared;
+            set => _isPrepared = value;
         }
 
         public string PresidentName
         {
-            get { return _presidentName; }
-            set { _presidentName = value; }
+            get => _presidentName;
+            set => _presidentName = value;
         }
 
         public bool Recgonized
         {
-            get { return _recgonized; }
-            set { _recgonized = value; }
+            get => _recgonized;
+            set => _recgonized = value;
         }
 
         public AcceptanceRecord[] AcceptanceRecords
         {
-            get { return _acceptanceRecords; }
-            set { _acceptanceRecords = value; }
+            get => _acceptanceRecords;
+            set => _acceptanceRecords = value;
         }
 
         public void AddAcceptanceRecord(AcceptanceRecord acceptanceRecord)
@@ -275,14 +275,14 @@
 
         public bool OutstandingFees
         {
-            get { return _outstandingFees; }
-            set { _outstandingFees = value; }
+            get => _outstandingFees;
+            set => _outstandingFees = value;
         }
 
         public bool HasBoardApprovalForTeachersAboveSeventy
         {
-            get { return _hasBoardApprovalForTeachersAboveSeventy; }
-            set { _hasBoardApprovalForTeachersAboveSeventy = value; }
+            get => _hasBoardApprovalForTeachersAboveSeventy;
+            set => _hasBoardApprovalForTeachersAboveSeventy = value;
         }
 
         public override string ToString()

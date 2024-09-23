@@ -34,69 +34,69 @@
         }
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public string EduLevel
         {
-            get { return _eduLevel; }
-            set { _eduLevel = value; }
+            get => _eduLevel;
+            set => _eduLevel = value;
         }
 
         public string JobTitle
         {
-            get { return _jobTitle; }
-            set { _jobTitle = value; }
+            get => _jobTitle;
+            set => _jobTitle = value;
         }
 
         public bool FullTime
         {
-            get { return _fullTime; }
-            set { _fullTime = value; }
+            get => _fullTime;
+            set => _fullTime = value;
         }
 
         public SpecializationWithExperience[] SpecializationPracticalExperience
         {
-            get { return _specializationPracticalExperience; }
-            set { _specializationPracticalExperience = value; }
+            get => _specializationPracticalExperience;
+            set => _specializationPracticalExperience = value;
         }
 
         public bool SameField
         {
-            get { return _sameField; }
-            set { _sameField = value; }
+            get => _sameField;
+            set => _sameField = value;
         }
 
         public bool DiverseCert
         {
-            get { return _diverseCert; }
-            set { _diverseCert = value; }
+            get => _diverseCert;
+            set => _diverseCert = value;
         }
 
         public bool FivePointFive
         {
-            get { return _fivePointFive; }
-            set { _fivePointFive = value; }
+            get => _fivePointFive;
+            set => _fivePointFive = value;
         }
 
         public bool Jordanian
         {
-            get { return _jordanian; }
-            set { _jordanian = value; }
+            get => _jordanian;
+            set => _jordanian = value;
         }
 
         public float ContractLength
         {
-            get { return _contractLength; }
-            set { _contractLength = value; }
+            get => _contractLength;
+            set => _contractLength = value;
         }
 
 
         public int NumOfHours
         {
-            get { return _numOfHours; }
-            set { _numOfHours = value; }
+            get => _numOfHours;
+            set => _numOfHours = value;
         }
         public void AddSpecializationPracticalExperience(SpecializationWithExperience specialization)
         {
@@ -126,20 +126,20 @@
 
         public int NumOfResearches
         {
-            get { return _numOfResearches; }
-            set { _numOfResearches = value; }
+            get => _numOfResearches;
+            set => _numOfResearches = value;
         }
 
         public bool Equivalence
         {
-            get { return _equivalence; }
-            set { _equivalence = value; }
+            get => _equivalence;
+            set => _equivalence = value;
         }
 
         public int Age
         {
-            get { return _age; }
-            set { _age = value; }
+            get => _age;
+            set => _age = value;
         }
 
         public override string ToString()

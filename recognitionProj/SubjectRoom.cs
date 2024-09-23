@@ -15,20 +15,20 @@
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public double Area
         {
-            get { return _area; }
-            set { _area = value; }
+            get => _area;
+            set => _area = value;
         }
 
         public int NumOfChairs
         {
-            get { return _numOfChairs; }
-            set { _numOfChairs = value; }
+            get => _numOfChairs;
+            set => _numOfChairs = value;
         }
 
         public override string ToString()

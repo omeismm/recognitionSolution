@@ -15,20 +15,20 @@
 
         public List<string> Message // Change the type of Message to List<string>
         {
-            get { return _message; }
-            set { _message = value; }
+            get => _message;
+            set => _message = value;
         }
 
         public University Uni
         {
-            get { return _uni; }
-            set { _uni = value; }
+            get => _uni;
+            set => _uni = value;
         }
 
         public bool Verified
         {
-            get { return _verified; }
-            set { _verified = value; }
+            get => _verified;
+            set => _verified = value;
 
         }
 

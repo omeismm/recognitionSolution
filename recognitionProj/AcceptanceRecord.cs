@@ -15,20 +15,20 @@
 
         public bool IsAccepted
         {
-            get { return _isAccepted; }
-            set { _isAccepted = value; }
+            get => _isAccepted;
+            set => _isAccepted = value;
         }
 
         public DateOnly Date
         {
-            get { return _date; }
-            set { _date = value; }
+            get => _date;
+            set => _date = value;
         }
 
         public List<string> Reason
         {
-            get { return _reason; }
-            set { _reason = value; }
+            get => _reason;
+            set => _reason = value;
         }
 
         public override string ToString()

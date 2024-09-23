@@ -36,68 +36,68 @@ namespace recognitionProj
 
         public string Name
         {
-            get { return _name; }
-            set { _name = value; }
+            get => _name;
+            set => _name = value;
         }
 
         public string EduLevel
         {
-            get { return _eduLevel; }
-            set { _eduLevel = value; }
+            get => _eduLevel;
+            set => _eduLevel = value;
         }
 
         public int TotalHours
         {
-            get { return _totalHours; }
-            set { _totalHours = value; }
+            get => _totalHours;
+            set => _totalHours = value;
         }
 
         public int UniReqCourseHrs
         {
-            get { return _uniReqCourseHrs; }
-            set { _uniReqCourseHrs = value; }
+            get => _uniReqCourseHrs;
+            set => _uniReqCourseHrs = value;
         }
 
         public int ColReqCourseHrs
         {
-            get { return _colReqCourseHrs; }
-            set { _colReqCourseHrs = value; }
+            get => _colReqCourseHrs;
+            set => _colReqCourseHrs = value;
         }
 
         public int SpecReqCourseHrsTheory
         {
-            get { return _specReqCourseHrsTheory; }
-            set { _specReqCourseHrsTheory = value; }
+            get => _specReqCourseHrsTheory;
+            set => _specReqCourseHrsTheory = value;
         }
 
         public int SpecReqCourseHrsPractical
         {
-            get { return _specReqCourseHrsPractical; }
-            set { _specReqCourseHrsPractical = value; }
+            get => _specReqCourseHrsPractical;
+            set => _specReqCourseHrsPractical = value;
         }
 
         public int FreeCourseHrs
         {
-            get { return _freeCourseHrs; }
-            set { _freeCourseHrs = value; }
+            get => _freeCourseHrs;
+            set => _freeCourseHrs = value;
         }
 
         public int InternshipHrs
         {
-            get { return _internshipHrs; }
-            set { _internshipHrs = value; }
+            get => _internshipHrs;
+            set => _internshipHrs = value;
         }
 
         public int GradProjectHrs
         {
-            get { return _gradProjectHrs; }
-            set { _gradProjectHrs = value; }
+            get => _gradProjectHrs;
+            set => _gradProjectHrs = value;
         }
 
         public Teacher[] Teachers
         {
-            get { return _teachers; }
-            set { _teachers = value; }
+            get => _teachers;
+            set => _teachers = value;
         }
 
         public void AddTeacher(Teacher teacher)
@@ -128,20 +128,20 @@ namespace recognitionProj
 
         public int NumOfStudents
         {
-            get { return _numOfStudents; }
-            set { _numOfStudents = value; }
+            get => _numOfStudents;
+            set => _numOfStudents = value;
         }
 
         public bool Scientific
         {
-            get { return _scientific; }
-            set { _scientific = value; }
+            get => _scientific;
+            set => _scientific = value;
         }
 
         public bool HasSpecialException
         {
-            get { return _hasSpecialException; }
-            set { _hasSpecialException = value; }
+            get => _hasSpecialException;
+            set => _hasSpecialException = value;
         }
         public override string ToString()
         {
