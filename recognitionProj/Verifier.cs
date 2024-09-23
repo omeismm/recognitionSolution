@@ -424,7 +424,7 @@ public class Verifier
 
             //todo more verifications
             //after all verificatons are done the next line will be executed
-            _uni.AcceptanceRecords.Append(new AcceptanceRecord(_verified, DateOnly.FromDateTime(DateTime.Now), _message)); //this writes the verification result to the acceptance records
+            _uni.AcceptanceRecords.Append(new AcceptanceRecord(_verified, DateOnly.FromDateTime(DateTime.UtcNow), _message)); //this writes the verification result to the acceptance records
 
         }
 
