@@ -60,7 +60,7 @@ public class Verifier
 
         }
 
-        if (_uni.Name == "")
+        if (string.IsNullOrEmpty(_uni.Name))
         {
             _message.Add("University name is empty"); // Append error message to _message
 
