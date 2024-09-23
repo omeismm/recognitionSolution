@@ -20,12 +20,12 @@ namespace recognitionProj
         // You can add more methods to interact with the database (insert, update, etc.)
         public void Query(string query)//manual query
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -43,12 +43,12 @@ namespace recognitionProj
         {
             string query = $"INSERT INTO {tableName} ({columns}) VALUES ({values})";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -66,12 +66,12 @@ namespace recognitionProj
         {
             string query = $"UPDATE {tableName} SET {setValues} WHERE {condition}";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -89,12 +89,12 @@ namespace recognitionProj
         {
             string query = $"DELETE FROM {tableName} WHERE {condition}";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -110,14 +110,14 @@ namespace recognitionProj
 
         public DataTable SelectRecords(string query)
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new(_connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new(query, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
