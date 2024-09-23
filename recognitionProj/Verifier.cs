@@ -136,7 +136,7 @@
             {
                 foreach (AcceptanceRecord record in _uni.AcceptanceRecords)
                 {
-                    if (record.IsAccepted == false && record.Reason.Contains("University has outstanding fees"))
+                    if (!record.IsAccepted&& record.Reason.Contains("University has outstanding fees"))
                     {
                         if (record.Date.AddMonths(6) > DateOnly.FromDateTime(DateTime.Now)) // Change DateTime.Now to DateOnly.FromDateTime(DateTime.Now)
                         {
