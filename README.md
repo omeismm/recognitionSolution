@@ -13,6 +13,24 @@ c. process data
     0. read the pdfs and create classes with the variables mentioned in the pdf (current task)
 
     a.University
+        i.Name
+        ii.EntryDate
+        iii.Supervisor
+        iv.Country
+        v.City
+        vi.Address
+        vii.Website
+        viii.CreationDate
+        ix.StudentAcceptanceDate
+        x.StartDate
+        xi.Type
+        xii.Language
+        xiii.EducationType
+        xiv.AvailableDegrees
+        xv.HoursSystem
+        xvi.Faculties
+        xvii.Accepted
+        
     b.Teacher
         i.Name
         ii.Specialization
@@ -23,11 +41,20 @@ c. process data
         vii.Nationality
         viii.GraduatedFrom
     c.AcceptanceRecord
+        i.Date
+        ii.Result
+        iii.Message
     d.Specialization
         i.Name
         ii.Type
         iii.NumOfStudents
-        iv.
+        iv.NumOfFreeTeachers
+        v.NumOfOstadh
+        vi.NumOfMusharek
+        vii.NumOfOstadhMusa3ed
+        viii.NumberOfLecturers
+        ix.NumOfMudaresMusa3ed
+        x.NumOfOtherTeachers
 
 
 
