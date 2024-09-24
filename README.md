@@ -11,6 +11,27 @@ b. transfer data from https://rnji.mohe.gov.jo/
 c. process data 
 
     0. read the pdfs and create classes with the variables mentioned in the pdf (current task)
+
+    a.University
+    b.Teacher
+        i.Name
+        ii.Specialization
+        iii.SpecificSpecialization
+        iv.Degree
+        v.Date of verification
+        vi.AcademicRank
+        vii.Nationality
+        viii.GraduatedFrom
+    c.AcceptanceRecord
+    d.Specialization
+        i.Name
+        ii.Type
+        iii.NumOfStudents
+        iv.
+
+
+
+    
     
     1. automatically count number of phd, msc, bsc, and students
     
