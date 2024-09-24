@@ -72,8 +72,16 @@ c. process data
         ii.Message
     f.DatabaseHandler
     g.Program.cs (main)
+    h.Verifier
+        i.Article 3
+        ii.Article 4
+        iii.Article 5
+        iv.Article 6
+        v.Article 7
+    i.ExcelSheetHandler
+        i.University
+        ii.
     
-
     
     
     1. automatically count number of phd, msc, bsc, and students
