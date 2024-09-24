@@ -29,14 +29,25 @@ c. process data
         xiv.AvailableDegrees
         xv.HoursSystem
         xvi.Faculties
-        xvii.Accepted
+        xvii.ARWURank
+        xviii.THERank
+        xix.QSRank
+        xx.OtherRank
+        xxi.NumOfScopusResearches
+        xxii.ScopusFrom
+        xxiii.ScopusTo
+        xxiv.Infrastructure
+        xxv.OtherInfo
+        xxvi.AcceptanceRecord
+        xxvii.SuggestionRecord
+        xxviii.Accepted
         
     b.Teacher
         i.Name
         ii.Specialization
         iii.SpecificSpecialization
         iv.Degree
-        v.Date of verification
+        v.DateOfVerification
         vi.AcademicRank
         vii.Nationality
         viii.GraduatedFrom
@@ -44,6 +55,7 @@ c. process data
         i.Date
         ii.Result
         iii.Message
+        
     d.Specialization
         i.Name
         ii.Type
@@ -55,7 +67,9 @@ c. process data
         viii.NumberOfLecturers
         ix.NumOfMudaresMusa3ed
         x.NumOfOtherTeachers
-
+    e.SuggestionRecord
+        i.Date
+        ii.Message
 
 
     
