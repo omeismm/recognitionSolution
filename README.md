@@ -70,7 +70,9 @@ c. process data
     e.SuggestionRecord
         i.Date
         ii.Message
-
+    f.DatabaseHandler
+    g.Program.cs (main)
+    
 
     
     
@@ -82,6 +84,22 @@ c. process data
 
     4. other conditions in the pdfs
     
-d. allow the universities to input their data by making an excel sheet for them to fill out
+d. allow the universities to input their data by making an excel sheet for them to fill out(SANITIZE ALL TEXT INPUTS!!)
 
-e. make an interface or use the existing one (not sure)
+e. make an interface or use the existing one frontend (SANITIZE ALL TEXT INPUTS!!)
+    a.
+    b.
+    c.
+    d.
+    e.
+    f.
+    g.
+    h.
+    i.
+    j.
+    k.
+    l.
+    m.
+    n.
+        
+    
