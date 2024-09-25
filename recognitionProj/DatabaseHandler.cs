@@ -136,8 +136,16 @@ public class DatabaseHandler//this class is to create the connection to the data
 
         return dataTable;
     }
+    public void InsertUniversity(University university)
+    {
+        string tableName = "Universities";
+        string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord, Accepted";
+        string values = $"'{university.Name}',";//todo: add the rest of the values (i think for stuff like dates, arrays, acceptance record and suggestion record we can save them as json strings)
+        
+        InsertRecord(tableName, columns, values);
+    }
 
-
+  
 
 
 

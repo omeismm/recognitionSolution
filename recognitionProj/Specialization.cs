@@ -3,35 +3,28 @@ namespace recognitionProj;
 public class Specialization
 {
     private string _name;
-    private string _eduLevel;//bsc, msc, phd, etc...
-    private int _totalHours;//professor, assistant professor, lecturer, etc...
-    private int _uniReqCourseHrs;//mutatalabat eljam3a
-    private int _colReqCourseHrs;//mutatalabat elkuliyah
-    private int _specReqCourseHrsTheory;//mutatalabat elta5'assos elnazari
-    private int _specReqCourseHrsPractical;//mutatalabat elta5'assos el3amali
-    private int _freeCourseHrs;//mawad 5ora
-    private int _internshipHrs;//tadreeb
-    private int _gradProjectHrs;
-    private Teacher[] _teachers;
+    private string _type;
     private int _numOfStudents;
-    private bool _scientific;//true for scientific specialization, false for humanitarian
-    private bool _hasSpecialException;//if the specialization has exceptiopns for the type of teachers allowed to teach
-    public Specialization(string name, string eduLevel, int totalHours, int uniReqCourseHrs, int colReqCourseHrs, int specReqCourseHrsTheory, int specReqCourseHrsPractical, int freeCourseHrs, int internshipHrs, int gradProjectHrs, Teacher[] teachers, int numOfStudents, bool scientific, bool hasSpecialException)
+    private int _numOfFreeTeachers;
+    private int _numOfOstadh;
+    private int _numOfMusharek;
+    private int _numOfOstadhMusa3ed;
+    private int _numberOfLecturers;
+    private int _numOfMudaresMusa3ed;
+    private int _numOfOtherTeachers;
+
+    public Specialization(string name, string type, int numOfStudents, int numOfFreeTeachers, int numOfOstadh, int numOfMusharek, int numOfOstadhMusa3ed, int numberOfLecturers, int numOfMudaresMusa3ed, int numOfOtherTeachers)
     {
         _name = name;
-        _eduLevel = eduLevel;
-        _totalHours = totalHours;
-        _uniReqCourseHrs = uniReqCourseHrs;
-        _colReqCourseHrs = colReqCourseHrs;
-        _specReqCourseHrsTheory = specReqCourseHrsTheory;
-        _specReqCourseHrsPractical = specReqCourseHrsPractical;
-        _freeCourseHrs = freeCourseHrs;
-        _internshipHrs = internshipHrs;
-        _gradProjectHrs = gradProjectHrs;
-        _teachers = teachers;
+        _type = type;
         _numOfStudents = numOfStudents;
-        _scientific = scientific;
-        _hasSpecialException = hasSpecialException;
+        _numOfFreeTeachers = numOfFreeTeachers;
+        _numOfOstadh = numOfOstadh;
+        _numOfMusharek = numOfMusharek;
+        _numOfOstadhMusa3ed = numOfOstadhMusa3ed;
+        _numberOfLecturers = numberOfLecturers;
+        _numOfMudaresMusa3ed = numOfMudaresMusa3ed;
+        _numOfOtherTeachers = numOfOtherTeachers;
     }
 
     public string Name
@@ -40,90 +33,10 @@ public class Specialization
         set => _name = value;
     }
 
-    public string EduLevel
+    public string Type
     {
-        get => _eduLevel;
-        set => _eduLevel = value;
-    }
-
-    public int TotalHours
-    {
-        get => _totalHours;
-        set => _totalHours = value;
-    }
-
-    public int UniReqCourseHrs
-    {
-        get => _uniReqCourseHrs;
-        set => _uniReqCourseHrs = value;
-    }
-
-    public int ColReqCourseHrs
-    {
-        get => _colReqCourseHrs;
-        set => _colReqCourseHrs = value;
-    }
-
-    public int SpecReqCourseHrsTheory
-    {
-        get => _specReqCourseHrsTheory;
-        set => _specReqCourseHrsTheory = value;
-    }
-
-    public int SpecReqCourseHrsPractical
-    {
-        get => _specReqCourseHrsPractical;
-        set => _specReqCourseHrsPractical = value;
-    }
-
-    public int FreeCourseHrs
-    {
-        get => _freeCourseHrs;
-        set => _freeCourseHrs = value;
-    }
-
-    public int InternshipHrs
-    {
-        get => _internshipHrs;
-        set => _internshipHrs = value;
-    }
-
-    public int GradProjectHrs
-    {
-        get => _gradProjectHrs;
-        set => _gradProjectHrs = value;
-    }
-
-    public Teacher[] Teachers
-    {
-        get => _teachers;
-        set => _teachers = value;
-    }
-
-    public void AddTeacher(Teacher teacher)
-    {
-        Teacher[] newTeachers = new Teacher[_teachers.Length + 1];
-        for (int i = 0; i < _teachers.Length; i++)
-        {
-            newTeachers[i] = _teachers[i];
-        }
-        newTeachers[_teachers.Length] = teacher;
-        _teachers = newTeachers;
-    }
-
-    public void RemoveTeacher(Teacher teacher)
-    {
-        Teacher[] newTeachers = new Teacher[_teachers.Length - 1];
-        int j = 0;
-        for (int i = 0; i < _teachers.Length; i++)
-        {
-            if (_teachers[i] != teacher)
-            {
-                newTeachers[j] = _teachers[i];
-                j++;
-            }
-        }
-        _teachers = newTeachers;
+        get => _type;
+        set => _type = value;
     }
 
     public int NumOfStudents
@@ -132,20 +45,45 @@ public class Specialization
         set => _numOfStudents = value;
     }
 
-    public bool Scientific
+    public int NumOfFreeTeachers
     {
-        get => _scientific;
-        set => _scientific = value;
+        get => _numOfFreeTeachers;
+        set => _numOfFreeTeachers = value;
     }
 
-    public bool HasSpecialException
+    public int NumOfOstadh
     {
-        get => _hasSpecialException;
-        set => _hasSpecialException = value;
-    }
-    public override string ToString()
-    {
-        return _name;
+        get => _numOfOstadh;
+        set => _numOfOstadh = value;
     }
 
+    public int NumOfMusharek
+    {
+        get => _numOfMusharek;
+        set => _numOfMusharek = value;
+    }
+
+    public int NumOfOstadhMusa3ed
+    {
+        get => _numOfOstadhMusa3ed;
+        set => _numOfOstadhMusa3ed = value;
+    }
+
+    public int NumberOfLecturers
+    {
+        get => _numberOfLecturers;
+        set => _numberOfLecturers = value;
+    }
+
+    public int NumOfMudaresMusa3ed
+    {
+        get => _numOfMudaresMusa3ed;
+        set => _numOfMudaresMusa3ed = value;
+    }
+
+    public int NumOfOtherTeachers
+    {
+        get => _numOfOtherTeachers;
+        set => _numOfOtherTeachers = value;
+    }
 }

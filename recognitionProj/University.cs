@@ -3,36 +3,67 @@
 public class University
 {
     private string _name;
+    private DateOnly _entryDate;
+    private string _supervisor;
+    private string _country;
+    private string _city;
+    private string _address;
+    private string _website;
+    private DateOnly _creationDate;
+    private DateOnly _studentAcceptanceDate;
+    private DateOnly _startDate;
+    private string _type;
+    private string _language;
+    private string _educationType;
+    private string[] _availableDegrees;
+    private string _hoursSystem;
+    private string[] _faculties;//this might be unnecesary
+    private int _arwuRank;
+    private int _theRank;
+    private int _qsRank;
+    private string _otherRank;
+    private int _numOfScopusResearches;
+    private int _scopusFrom;
+    private int _scopusTo;
+    private string _infrastructure;
+    private string _otherInfo;
+    private AcceptanceRecord[] _acceptanceRecords;
+    private SuggestionRecord[] _suggestionRecords;
+    private Specialization[] _specializations;//i added this even though its not on the readme
+    private bool _accepted;
 
-    private int _studentCount;
-    private Teacher[] _teachers;
-    private Specialization[] _specializations; // Array of specializations
-    private Lab[] _labs; // Array of labs
-    private SubjectRoom[] _subjectRooms; // Array of subject rooms
-    private Library[] _library;
-    private bool _isPrepared;//article 12 requirements in pdf 222222
-    private string _presidentName;
-    private bool _recgonized;//true if the university is recognized by the ministry of higher education, false otherwise
-    private AcceptanceRecord[] _acceptanceRecords;// Array of acceptance records
-    private bool _outstandingFees;//true if the university has outstanding fees, false otherwise (غرامات مالية)
-    private bool _hasBoardApprovalForTeachersAboveSeventy;
-    public University(string name, int studentCount, Teacher[] teachers, Specialization[] specializations, Lab[] labs, SubjectRoom[] subjectRooms, Library[] library, bool isPrepared, string presidentName, bool recgonized, AcceptanceRecord[] acceptanceRecords , bool outstandingFees, bool hasBoardApprovalForTeachersAboveSeventy)
+    public University(string name, DateOnly entryDate, string supervisor, string country, string city, string address, string website, DateOnly creationDate, DateOnly studentAcceptanceDate, DateOnly startDate, string type, string language, string educationType, string[] availableDegrees, string hoursSystem, string[] faculties, int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches, int scopusFrom, int scopusTo, string infrastructure, string otherInfo, AcceptanceRecord[] acceptanceRecords, SuggestionRecord[] suggestionRecords, Specialization[] specializations , bool accepted)
     {
         _name = name;
-        _studentCount = studentCount;
-        _teachers = teachers;
-        _specializations = specializations;
-        _labs = labs;
-        _subjectRooms = subjectRooms;
-        _library = library;
-        _isPrepared = isPrepared;
-        _presidentName = presidentName;
-        _recgonized = recgonized;
+        _entryDate = entryDate;
+        _supervisor = supervisor;
+        _country = country;
+        _city = city;
+        _address = address;
+        _website = website;
+        _creationDate = creationDate;
+        _studentAcceptanceDate = studentAcceptanceDate;
+        _startDate = startDate;
+        _type = type;
+        _language = language;
+        _educationType = educationType;
+        _availableDegrees = availableDegrees;
+        _hoursSystem = hoursSystem;
+        _faculties = faculties;
+        _arwuRank = arwuRank;
+        _theRank = theRank;
+        _qsRank = qsRank;
+        _otherRank = otherRank;
+        _numOfScopusResearches = numOfScopusResearches;
+        _scopusFrom = scopusFrom;
+        _scopusTo = scopusTo;
+        _infrastructure = infrastructure;
+        _otherInfo = otherInfo;
         _acceptanceRecords = acceptanceRecords;
-        _outstandingFees = outstandingFees;
-        _hasBoardApprovalForTeachersAboveSeventy = hasBoardApprovalForTeachersAboveSeventy;
+        _suggestionRecords = suggestionRecords;
+        _specializations = specializations;
+        _accepted = accepted;
     }
-    
 
     public string Name
     {
@@ -40,205 +71,148 @@ public class University
         set => _name = value;
     }
 
-    public int StudentCount
+    public DateOnly EntryDate
     {
-        get => _studentCount;
-        set => _studentCount = value;
+        get => _entryDate;
+        set => _entryDate = value;
     }
 
-    public Teacher[] Teachers
+    public string Supervisor
     {
-        get => _teachers;
-        set => _teachers = value;
+        get => _supervisor;
+        set => _supervisor = value;
     }
 
-    public void AddTeacher(Teacher teacher)
+    public string Country
     {
-        Teacher[] newTeachers = new Teacher[_teachers.Length + 1];
-        for (int i = 0; i < _teachers.Length; i++)
-        {
-            newTeachers[i] = _teachers[i];
-        }
-        newTeachers[_teachers.Length] = teacher;
-        _teachers = newTeachers;
+        get => _country;
+        set => _country = value;
     }
 
-    public void RemoveTeacher(Teacher teacher)
+    public string City
     {
-        Teacher[] newTeachers = new Teacher[_teachers.Length - 1];
-        int j = 0;
-        for (int i = 0; i < _teachers.Length; i++)
-        {
-            if (_teachers[i] != teacher)
-            {
-                newTeachers[j] = _teachers[i];
-                j++;
-            }
-        }
-        _teachers = newTeachers;
+        get => _city;
+        set => _city = value;
     }
 
-    public Specialization[] Specializations
+    public string Address
     {
-        get => _specializations;
-        set => _specializations = value;
+        get => _address;
+        set => _address = value;
     }
 
-    public void AddSpecialization(Specialization specialization)
+    public string Website
     {
-        Specialization[] newSpecializations = new Specialization[_specializations.Length + 1];
-        for (int i = 0; i < _specializations.Length; i++)
-        {
-            newSpecializations[i] = _specializations[i];
-        }
-        newSpecializations[_specializations.Length] = specialization;
-        _specializations = newSpecializations;
+        get => _website;
+        set => _website = value;
     }
 
-    public void RemoveSpecialization(Specialization specialization)
+    public DateOnly CreationDate
     {
-        Specialization[] newSpecializations = new Specialization[_specializations.Length - 1];
-        int j = 0;
-        for (int i = 0; i < _specializations.Length; i++)
-        {
-            if (_specializations[i] != specialization)
-            {
-                newSpecializations[j] = _specializations[i];
-                j++;
-            }
-        }
-        _specializations = newSpecializations;
+        get => _creationDate;
+        set => _creationDate = value;
     }
 
-    public Lab[] Labs
+    public DateOnly StudentAcceptanceDate
     {
-        get => _labs;
-        set => _labs = value;
+        get => _studentAcceptanceDate;
+        set => _studentAcceptanceDate = value;
     }
 
-    public void AddLab(Lab lab)
+    public DateOnly StartDate
     {
-        Lab[] newLabs = new Lab[_labs.Length + 1];
-        for (int i = 0; i < _labs.Length; i++)
-        {
-            newLabs[i] = _labs[i];
-        }
-        newLabs[_labs.Length] = lab;
-        _labs = newLabs;
+        get => _startDate;
+        set => _startDate = value;
     }
 
-    public void RemoveLab(Lab lab)
+    public string Type
     {
-        Lab[] newLabs = _labs;
-        for (int i = 0; i < _labs.Length; i++)
-        {
-            if (_labs[i] == lab)
-            {
-                newLabs = new Lab[_labs.Length - 1];
-                for (int j = 0; j < i; j++)
-                {
-                    newLabs[j] = _labs[j];
-                }
-                for (int j = i; j < _labs.Length - 1; j++)
-                {
-                    newLabs[j] = _labs[j + 1];
-                }
-                break;
-            }
-        }
-        _labs = newLabs;
+        get => _type;
+        set => _type = value;
     }
 
-    public SubjectRoom[] SubjectRooms
+    public string Language
     {
-        get => _subjectRooms;
-        set => _subjectRooms = value;
+        get => _language;
+        set => _language = value;
     }
 
-    public SubjectRoom[] GetSubjectRooms() {
-        return _subjectRooms;
-    }
-
-    public void AddSubjectRoom(SubjectRoom subjectRoom)
+    public string EducationType
     {
-        SubjectRoom[] newSubjectRooms = new SubjectRoom[_subjectRooms.Length + 1];
-        for (int i = 0; i < _subjectRooms.Length; i++)
-        {
-            newSubjectRooms[i] = _subjectRooms[i];
-        }
-        newSubjectRooms[_subjectRooms.Length] = subjectRoom;
-        _subjectRooms = newSubjectRooms;
+        get => _educationType;
+        set => _educationType = value;
     }
 
-    public void RemoveSubjectRoom(SubjectRoom subjectRoom)
+    public string[] AvailableDegrees
     {
-        SubjectRoom[] newSubjectRooms = new SubjectRoom[_subjectRooms.Length - 1];
-        int j = 0;
-        for (int i = 0; i < _subjectRooms.Length; i++)
-        {
-            if (_subjectRooms[i] != subjectRoom)
-            {
-                newSubjectRooms[j] = _subjectRooms[i];
-                j++;
-            }
-        }
-        _subjectRooms = newSubjectRooms;
+        get => _availableDegrees;
+        set => _availableDegrees = value;
     }
 
-    public Library[] Library
+    public string HoursSystem
     {
-        get => _library;
-        set => _library = value;
+        get => _hoursSystem;
+        set => _hoursSystem = value;
     }
 
-    public void AddLibrary(Library library)
+    public string[] Faculties
     {
-        Library[] newLibrary = new Library[_library.Length + 1];
-        for (int i = 0; i < _library.Length; i++)
-        {
-            newLibrary[i] = _library[i];
-        }
-        newLibrary[_library.Length] = library;
-        _library = newLibrary;
+        get => _faculties;
+        set => _faculties = value;
     }
 
-    public void RemoveLibrary(Library library) {
-        Library[] newLibrary = _library;
-        for (int i = 0; i < _library.Length; i++)
-        {
-            if (_library[i] == library)
-            {
-                newLibrary = new Library[_library.Length - 1];
-                for (int j = 0; j < i; j++)
-                {
-                    newLibrary[j] = _library[j];
-                }
-                for (int j = i; j < _library.Length - 1; j++)
-                {
-                    newLibrary[j] = _library[j + 1];
-                }
-                break;
-            }
-        }
-        _library = newLibrary;
-    }
-
-    public bool IsPrepared
+    public int ARWURank
     {
-        get => _isPrepared;
-        set => _isPrepared = value;
+        get => _arwuRank;
+        set => _arwuRank = value;
     }
 
-    public string PresidentName
+    public int THERank
     {
-        get => _presidentName;
-        set => _presidentName = value;
+        get => _theRank;
+        set => _theRank = value;
     }
 
-    public bool Recgonized
+    public int QSRank
     {
-        get => _recgonized;
-        set => _recgonized = value;
+        get => _qsRank;
+        set => _qsRank = value;
+    }
+
+    public string OtherRank
+    {
+        get => _otherRank;
+        set => _otherRank = value;
+    }
+
+    public int NumOfScopusResearches
+    {
+        get => _numOfScopusResearches;
+        set => _numOfScopusResearches = value;
+    }
+
+    public int ScopusFrom
+    {
+        get => _scopusFrom;
+        set => _scopusFrom = value;
+    }
+
+    public int ScopusTo
+    {
+        get => _scopusTo;
+        set => _scopusTo = value;
+    }
+
+    public string Infrastructure
+    {
+        get => _infrastructure;
+        set => _infrastructure = value;
+    }
+
+    public string OtherInfo
+    {
+        get => _otherInfo;
+        set => _otherInfo = value;
     }
 
     public AcceptanceRecord[] AcceptanceRecords
@@ -247,42 +221,22 @@ public class University
         set => _acceptanceRecords = value;
     }
 
-    public void AddAcceptanceRecord(AcceptanceRecord acceptanceRecord)
+    public SuggestionRecord[] SuggestionRecords
     {
-        AcceptanceRecord[] newAcceptanceRecords = new AcceptanceRecord[_acceptanceRecords.Length + 1];
-        for (int i = 0; i < _acceptanceRecords.Length; i++)
-        {
-            newAcceptanceRecords[i] = _acceptanceRecords[i];
-        }
-        newAcceptanceRecords[_acceptanceRecords.Length] = acceptanceRecord;
-        _acceptanceRecords = newAcceptanceRecords;
+        get => _suggestionRecords;
+        set => _suggestionRecords = value;
     }
 
-    public void RemoveAcceptanceRecord(AcceptanceRecord acceptanceRecord)
+    public Specialization[] Specializations
     {
-        AcceptanceRecord[] newAcceptanceRecords = new AcceptanceRecord[_acceptanceRecords.Length - 1];
-        int j = 0;
-        for (int i = 0; i < _acceptanceRecords.Length; i++)
-        {
-            if (_acceptanceRecords[i] != acceptanceRecord)
-            {
-                newAcceptanceRecords[j] = _acceptanceRecords[i];
-                j++;
-            }
-        }
-        _acceptanceRecords = newAcceptanceRecords;
+        get => _specializations;
+        set => _specializations = value;
     }
 
-    public bool OutstandingFees
+    public bool Accepted
     {
-        get => _outstandingFees;
-        set => _outstandingFees = value;
-    }
-
-    public bool HasBoardApprovalForTeachersAboveSeventy
-    {
-        get => _hasBoardApprovalForTeachersAboveSeventy;
-        set => _hasBoardApprovalForTeachersAboveSeventy = value;
+        get => _accepted;
+        set => _accepted = value;
     }
 
     public override string ToString()
