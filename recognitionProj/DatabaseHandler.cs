@@ -1,5 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
+using Newtonsoft.Json;
+
+
+
 
 namespace recognitionProj;
 
@@ -138,10 +142,14 @@ public class DatabaseHandler//this class is to create the connection to the data
     }
     public void InsertUniversity(University university)
     {
+
+  
+
         string tableName = "Universities";
-        string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord, Accepted";
-        string values = $"'{university.Name}',";//todo: add the rest of the values (i think for stuff like dates, arrays, acceptance record and suggestion record we can save them as json strings)
-        
+        string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord,Specializations , Accepted";
+        //todo: add the rest of the values (i think for stuff like dates, arrays, acceptance record and suggestion record we can save them as json strings)
+
+        string values = $"'{university.Name}', '{university.EntryDate}', '{university.Supervisor}', '{university.Country}', '{university.City}', '{university.Address}', '{university.Website}', '{university.CreationDate}', '{university.StudentAcceptanceDate}', '{university.StartDate}', '{university.Type}', '{university.Language}', '{university.EducationType}', '{university.AvailableDegrees}', '{university.HoursSystem}', '{university.Faculties}', '{university.ARWURank}', '{university.THERank}', '{university.QSRank}', '{university.OtherRank}', '{university.NumOfScopusResearches}', '{university.ScopusFrom}', '{university.ScopusTo}', '{university.Infrastructure}', '{university.OtherInfo}', '{JsonConvert.SerializeObject(university.AcceptanceRecord)}', '{JsonConvert.SerializeObject(university.SuggestionRecord)}', '{JsonConvert.SerializeObject(university.Specializations)}', '{university.Accepted}'";
         InsertRecord(tableName, columns, values);
     }
 
