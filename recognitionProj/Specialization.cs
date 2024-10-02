@@ -29,10 +29,10 @@ public class Specialization
         _numOfOtherTeachers = numOfOtherTeachers;
     }
 
-    public Specialization(string json) // constructor from a JSON input
-    {
-        //todo using newtonsoft package
-    }
+    //public Specialization(string json) // constructor from a JSON input
+    //
+        //todo using newtonsoft package (unnecessary)
+    //}
 
 
     public string Name

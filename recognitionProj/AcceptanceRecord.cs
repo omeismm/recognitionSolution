@@ -17,10 +17,10 @@ public class AcceptanceRecord //this is to record the acceptance or decline of t
         _reason = reason;
     }
 
-    public AcceptanceRecord(string json) // constructor from a JSON input
-    {
-        //todo using newtonsoft package
-    }
+    //public AcceptanceRecord(string json) // constructor from a JSON input
+    //{
+        //todo using newtonsoft package (unnecessary)
+    //}
 
 
 

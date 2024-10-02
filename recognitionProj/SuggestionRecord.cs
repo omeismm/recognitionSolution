@@ -13,10 +13,10 @@ namespace recognitionProj
             _suggestion = suggestion;
         }
 
-        public SuggestionRecord(string json) // constructor from a JSON input
-        {
-            //todo using newtonsoft package
-        }
+        //public SuggestionRecord(string json) // constructor from a JSON input
+        //{
+        //    //todo using newtonsoft package (unnecessary)
+        //}
 
         public DateOnly Date
         {
