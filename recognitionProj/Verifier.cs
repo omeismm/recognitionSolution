@@ -81,8 +81,51 @@ public class Verifier
         set => _verified = value;
 
     }
+    //these functions will be used inside aticle 4 to calculate the ratios
+    public bool ScientificBachelorRatio()//todo (1:25)
+    {
+        return true;
+    }
 
+    public bool HumanitarianBachelorRatio()//todo (1:35)
+    {
+        return true;
+    }
 
+    public bool HumnamitarianPracticalBachelorRatio()//todo (1:25)
+    {
+        return true;
+    }
+
+    public bool ScientificPracticalBachelorRatio()//todo (1:20)
+    {
+        return true;
+    }
+
+    public bool HighDiplomaRatio()//todo (1:20)
+    {
+        return true;
+    }
+
+    public bool ScientificMastersRatio()//todo (1:15)
+    {
+        return true;
+    }
+
+    public bool HumanitarianMastersRatio()//todo (1:20)
+    {
+        return true;
+    }
+    
+    public bool MainMedicalRatio()//todo (1:25)
+    {
+        return true;
+    }
+
+    public bool ResidencyRatio()//todo (1:8)
+    {
+        return true;
+    }
     
     public void VerifyArticle3()
     {
