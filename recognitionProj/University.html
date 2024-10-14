@@ -1,0 +1,30 @@
+﻿<form id="universityForm">
+    <input type="text" id="universityName" name="universityName" placeholder="University Name" />
+    <button type="submit">Submit</button>
+</form>
+
+<script>document.getElementById('universityForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const university = {
+    name: document.getElementById('Name').value,
+    // Add other fields as necessary. before we continue, lets understand what we are doing here
+  };
+
+  fetch('http://localhost:5000/api/save-university', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(university)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('University saved successfully');
+    } else {
+      alert('Error saving university');
+    }
+  })
+  .catch(error => console.error('Error:', error));
+});</script>
