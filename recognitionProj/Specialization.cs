@@ -7,7 +7,8 @@ public class Specialization
     private string _name;
     private string _type;
     private int _numOfStudents;
-    private int _numOfFreeTeachers;
+    private int _numOfFullTimeTeachers;//mutafare3'
+    private int _numOfPartTimeTeachers;//not mutafare3'
     private int _numOfOstadh;
     private int _numOfMusharek;
     private int _numOfOstadhMusa3ed;
@@ -15,12 +16,13 @@ public class Specialization
     private int _numOfMudaresMusa3ed;
     private int _numOfOtherTeachers;
 
-    public Specialization(string name, string type, int numOfStudents, int numOfFreeTeachers, int numOfOstadh, int numOfMusharek, int numOfOstadhMusa3ed, int numberOfLecturers, int numOfMudaresMusa3ed, int numOfOtherTeachers)
+    public Specialization(string name, string type, int numOfStudents, int numOfFullTimeTeachers,int numOfPartTimeTeachers , int numOfOstadh, int numOfMusharek, int numOfOstadhMusa3ed, int numberOfLecturers, int numOfMudaresMusa3ed, int numOfOtherTeachers)
     {
         _name = name;
         _type = type;
         _numOfStudents = numOfStudents;
-        _numOfFreeTeachers = numOfFreeTeachers;
+        _numOfFullTimeTeachers = numOfFullTimeTeachers;
+        _numOfPartTimeTeachers = numOfPartTimeTeachers;
         _numOfOstadh = numOfOstadh;
         _numOfMusharek = numOfMusharek;
         _numOfOstadhMusa3ed = numOfOstadhMusa3ed;
@@ -53,10 +55,16 @@ public class Specialization
         set => _numOfStudents = value;
     }
 
-    public int NumOfFreeTeachers
+    public int NumOfFullTimeTeachers
     {
-        get => _numOfFreeTeachers;
-        set => _numOfFreeTeachers = value;
+        get => _numOfFullTimeTeachers;
+        set => _numOfFullTimeTeachers = value;
+    }
+
+    public int NumOfPartTimeTeachers
+    {
+        get => _numOfPartTimeTeachers;
+        set => _numOfPartTimeTeachers = value;
     }
 
     public int NumOfOstadh
@@ -99,6 +107,6 @@ public class Specialization
 
     public override string ToString()
     {
-        return _name + " is a " + _type + " specialization with " + _numOfStudents + " students, " + _numOfFreeTeachers + " free teachers, " + _numOfOstadh + " Ostadh, " + _numOfMusharek + " Musharek, " + _numOfOstadhMusa3ed + " Ostadh Musa3ed, " + _numberOfLecturers + " lecturers, " + _numOfMudaresMusa3ed + " Mudares Musa3ed, and " + _numOfOtherTeachers + " other teachers.";
+        return _name + " is a " + _type + " specialization with " + _numOfStudents + " students, " + _numOfFullTimeTeachers + " free teachers, " + _numOfOstadh + " Ostadh, " + _numOfMusharek + " Musharek, " + _numOfOstadhMusa3ed + " Ostadh Musa3ed, " + _numberOfLecturers + " lecturers, " + _numOfMudaresMusa3ed + " Mudares Musa3ed, and " + _numOfOtherTeachers + " other teachers.";
     }
 }
