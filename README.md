@@ -6,6 +6,280 @@ todo:
 
 a. connect the microsoftsql database, create the tables, and access them from c# (ask chatgpt)
 
+    database::
+    AdmissionRules
+
+        InsID
+        AdmissionRule
+        AdmissionDegree
+
+    Library
+    
+        InsID
+        Area
+        Capacity
+        ArBooks
+        EnBooks
+        Papers
+        eBooks
+        eSubscription
+
+    StudySystem
+    
+        InsID
+        System
+
+    StudyDuration
+
+        InsID
+        DiplomaDegreeMIN
+        DiplomaMIN
+        BSC_DegreeMIN
+        BSC_MIN
+        HigherDiplomaDegreeMIN
+        HigherDiplomaMIN
+        MasterDegreeMIN
+        MasterMIN
+        PhD_DegreeMIN
+        PhD_MIN
+
+    Colleges
+    
+        InsID
+        CollegeID
+        CollegeName
+
+    Programes
+
+        InsID
+        ProgramID
+        CollegeID
+        CollegeName
+        ProgramName
+        Degree
+        YearsCount
+        HoursCount
+        StudySystem
+        StudyLang
+        RecDate
+
+    StudentsCount
+
+        InsID
+        ProgramID
+        ProgramName
+        First
+        Second
+        Third
+        Fourth
+        Fifth
+        Sixth
+        Total
+
+    HoursCount
+
+        InsID
+        ProgramID
+        ProgramName
+        TheoHours
+        PracHours
+
+    sysdiagrams
+
+        name
+        principal_id
+        diagram_id
+        version
+        definition
+
+    Staff
+
+        StaffID
+        InsID
+        ProgramID
+        ProgramName
+        Name
+        Major
+        Degree
+        DegreeDate
+        AcademicRank
+        Status
+        Nationality
+        UnivName
+
+    PhdStaff
+    
+        StaffID
+        InsID
+        ProgramID
+        ProgramName
+        Name
+        Major
+        Status
+
+    Hospitals
+
+        InsID
+        HospID
+        HospType
+        HospName
+        HospMajor
+
+    Labs
+
+        InsID
+        CollegeID
+        CollegeName
+        Comp
+        Eng
+        Med
+        PC
+        Total
+
+    Attachments
+
+        InsID
+        AttachID
+        AttachName
+        AttachDesc
+
+    PublicInfo
+
+        InsID
+        InsName
+        Provider
+        StartDate
+        SDateT
+        SDateNT
+        SupervisorID
+        Supervisor
+        PreName
+        PreDegree
+        PreMajor
+        Postal
+        Phone
+        Fax
+        Email
+        Website
+        Vision
+        Mission
+        Goals
+        InsValues
+        LastEditDate
+
+    AcademicInfo
+
+        InsID
+        InsTypeID
+        InsType
+        HighEdu_Rec
+        QualityDept_Rec
+        QualityDept_Attach
+        StudyLangCitizen
+        StudyLangInter
+        JointClass
+        StudySystem
+        MinHours
+        MaxHours
+        ResearchScopus
+        ResearchOthers
+        Practicing
+        StudyAttendance
+        StudentsMove
+        StudyAttendanceDesc
+        StudentsMoveDesc
+        DistanceLearning
+        MaxHoursDL
+        MaxYearsDL
+        MaxSemsDL
+        Diploma
+        DiplomaTest
+        HoursPercentage
+        SharedPrograms
+
+    Countries
+
+        CountryNO
+        CountryNameAR
+        CountryNameEN
+
+    USERS
+
+        InsID
+        InsName
+        InsCountry
+        Email
+        Password
+        VerificationCode
+        Verified
+
+    StudentsAndStuff
+
+        InsID
+        StudentCitizen
+        StudentInter
+        StudentJordan
+        StudentOverall
+        StaffProfessor
+        StaffCoProfessor
+        StaffAssistantProfessor
+        StaffLabSupervisor
+        StaffResearcher
+        StaffTeacher
+        StaffTeacherAssistant
+        StaffOthers
+
+    Percentage
+    
+        InsID
+        FullTimeProfessor_Student
+        PartTimeProfessor_Student
+        FullTimeAssociateProfessor_Student
+        PartTimeAssociateProfessor_Student
+        FullTimeAssistantProfessor_Student
+        PartTimeAssistantProfessor_Student
+        Student_FullTimeTeachers
+        Student_FullAndPartTimeTeachers
+        AssociateProfessor_FullTimeTeachers
+        AssistantProfessor_FullTimeTeachers
+        Professor_FullTimeTeachers
+        PhD_FullTimeTeachers
+        Professor_PartTimeTeachers
+        PhD_PartTimeTeachers
+
+    MedStaff
+
+        InsID
+        Med_Students
+        Med_Staff
+        Med_Professor
+        Med_CoProfessor
+        Med_AssistantProfessor
+        Med_lecturer
+        Med_Teacher
+        Med_TeacherAssistant
+        Med_FullTimelecturer
+        Den_Students
+        Den_Staff
+        Den_Professor
+        Den_CoProfessor
+        Den_AssistantProfessor
+        Den_lecturer
+        Den_Teacher
+        Den_TeacherAssistant
+        Den_FullTimelecturer
+
+    Infrastructure
+    
+        InsID
+        Area
+        Sites
+        Terr
+        Halls
+        Library
+        Labs
+        Build
+
 b. transfer data from https://rnji.mohe.gov.jo/
 
 c. process data 
