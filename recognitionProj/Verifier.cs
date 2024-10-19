@@ -84,46 +84,132 @@ public class Verifier
     //these functions will be used inside aticle 4 to calculate the ratios
     public bool ScientificBachelorRatio()//todo (1:25)
     {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type != "Scientific Bachelor")
+            {
+                //todo math
+            }
+        }
         return true;
     }
 
     public bool HumanitarianBachelorRatio()//todo (1:35)
     {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Humanitarian Bachelor")
+            {
+                //todo math
+            }
+        }
         return true;
     }
 
     public bool HumnamitarianPracticalBachelorRatio()//todo (1:25)
     {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if spec.Type == "Humanitarian Practical Bachelor")
+            {
+                //todo math
+                    
+                }
+            }
+        }
         return true;
     }
 
     public bool ScientificPracticalBachelorRatio()//todo (1:20)
     {
+        int doctorates;
+        int masters
+        int x;
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Scientific Practical Bachelor")
+            {
+            doctorates = 0;
+            masters = 0;
+            doctorates = s+spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
+            masters = spec.NumOfMudaresMusa3ed + spec.NumOfMudares
+            x = doctorate + Math.Min(doctorate, masters) + Math.Floor(doctorate * 0.1) + Math.Floor((doctorates + masters) / 2);
+            //i cannot unterstand the handwriting after this point
+            }
+
+    }
+
         return true;
     }
 
-    public bool HighDiplomaRatio()//todo (1:20)
+public bool HighDiplomaRatio() //todo (1:20)
+{
+    float ratio; // Add semicolon
+
+    foreach (Specialization spec in _uni.Specializations)
     {
-        return true;
+        if (spec.Type == "High Diploma")
+        {
+            ratio = (spec.NumOfOstadh + spec.NumOfOstadhMusharek) / spec.NumOfOstadhMusa3ed;
+            if (ratio >= 0.25)
+            {
+                return true; // Add semicolon
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
-    public bool ScientificMastersRatio()//todo (1:15)
+    
+}
+
+public bool ScientificMastersRatio()//todo (1:15)
     {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Scientific Masters")
+            {
+                //todo math
+            }
+        }
         return true;
     }
 
     public bool HumanitarianMastersRatio()//todo (1:20)
     {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Humanitarian Masters")
+            {
+                //todo math
+            }
+        }
         return true;
     }
     
     public bool MainMedicalRatio()//todo (1:25)
     {
+    foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Main Medical")
+            {
+                //todo math
+            }
+        }
         return true;
     }
 
     public bool ResidencyRatio()//todo (1:8)
     {
+    foreach(Specialization spec in _uni.Specializations)
+        {
+            if spec.Type == "Residency")
+            {
+                //todo math
+            }
+        }
         return true;
     }
 

@@ -11,12 +11,13 @@ public class Specialization
     private int _numOfPartTimeTeachers;//not mutafare3'
     private int _numOfOstadh;
     private int _numOfMusharek;
-    private int _numOfOstadhMusa3ed;
+    private int _numOfMusa3ed;
     private int _numberOfLecturers;
     private int _numOfMudaresMusa3ed;
+    private int _numOfMudares;
     private int _numOfOtherTeachers;
 
-    public Specialization(string name, string type, int numOfStudents, int numOfFullTimeTeachers,int numOfPartTimeTeachers , int numOfOstadh, int numOfMusharek, int numOfOstadhMusa3ed, int numberOfLecturers, int numOfMudaresMusa3ed, int numOfOtherTeachers)
+    public Specialization(string name, string type, int numOfStudents, int numOfFullTimeTeachers,int numOfPartTimeTeachers , int numOfOstadh, int numOfOstadhMusharek, int numOfOstadhMusa3ed, int numOfMusharek, int numOfMusa3ed, int numberOfLecturers, int numOfMudaresMusa3ed, int numOfMudares, int numOfOtherTeachers)
     {
         _name = name;
         _type = type;
@@ -24,10 +25,13 @@ public class Specialization
         _numOfFullTimeTeachers = numOfFullTimeTeachers;
         _numOfPartTimeTeachers = numOfPartTimeTeachers;
         _numOfOstadh = numOfOstadh;
+        _numOfOstadhMusharek = numOfOstadhMusharek;//
+        _numOfOstadhMusa3ed = numOfOstadhMusa3ed;//
         _numOfMusharek = numOfMusharek;
-        _numOfOstadhMusa3ed = numOfOstadhMusa3ed;
+        _numOfMusa3ed = numOfMusa3ed;
         _numberOfLecturers = numberOfLecturers;
         _numOfMudaresMusa3ed = numOfMudaresMusa3ed;
+        _numOfMudares = numOfMudares;
         _numOfOtherTeachers = numOfOtherTeachers;
     }
 
@@ -73,16 +77,28 @@ public class Specialization
         set => _numOfOstadh = value;
     }
 
-    public int NumOfMusharek
+    public int NumOfOstadhMusharek
     {
-        get => _numOfMusharek;
-        set => _numOfMusharek = value;
+        get => _numOfOstadhMusharek;
+        set => _numOfOstadhMusharek = value;
     }
 
     public int NumOfOstadhMusa3ed
     {
         get => _numOfOstadhMusa3ed;
         set => _numOfOstadhMusa3ed = value;
+    }
+
+    public int NumOfMusharek
+    {
+        get => _numOfMusharek;
+        set => _numOfMusharek = value;
+    }
+
+    public int NumOfMusa3ed
+    {
+        get => _numOfMusa3ed;
+        set => _numOfMusa3ed = value;
     }
 
     public int NumberOfLecturers
@@ -97,6 +113,12 @@ public class Specialization
         set => _numOfMudaresMusa3ed = value;
     }
 
+    public int NumOfMudares
+    {
+        get => _numOfMudares;
+        set => _numOfMudares = value;
+    }
+
     public int NumOfOtherTeachers
     {
         get => _numOfOtherTeachers;
@@ -105,8 +127,8 @@ public class Specialization
 
  
 
-    public override string ToString()
+   public override string ToString()
     {
-        return _name + " is a " + _type + " specialization with " + _numOfStudents + " students, " + _numOfFullTimeTeachers + " free teachers, " + _numOfOstadh + " Ostadh, " + _numOfMusharek + " Musharek, " + _numOfOstadhMusa3ed + " Ostadh Musa3ed, " + _numberOfLecturers + " lecturers, " + _numOfMudaresMusa3ed + " Mudares Musa3ed, and " + _numOfOtherTeachers + " other teachers.";
+        return _name + " " + _type + " " + _numOfStudents + " " + _numOfFullTimeTeachers + " " + _numOfPartTimeTeachers + " " + _numOfOstadh + " " + _numOfMusharek + " " + _numOfMusa3ed + " " + _numberOfLecturers + " " + _numOfMudaresMusa3ed + " " + _numOfMudares + " " + _numOfOtherTeachers;
     }
 }
