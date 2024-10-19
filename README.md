@@ -7,13 +7,13 @@ todo:
 a. connect the microsoftsql database, create the tables, and access them from c# (ask chatgpt)
 
     database::
-    AdmissionRules
+    AdmissionRules//unnecesary
 
-        InsID
-        AdmissionRule
-        AdmissionDegree
+        InsID//unnecesary
+        AdmissionRule//unnecesary
+        AdmissionDegree//unnecesary
 
-    Library
+    Library//Send in an excel file(because this field is small, we could make this manually)
     
         InsID
         Area
@@ -24,12 +24,12 @@ a. connect the microsoftsql database, create the tables, and access them from c#
         eBooks
         eSubscription
 
-    StudySystem
+    StudySystem// needed in the frontend that the uni needs to fill (تعليم عن بعد(
     
         InsID
         System
 
-    StudyDuration
+    StudyDuration/needed
 
         InsID
         DiplomaDegreeMIN
@@ -43,13 +43,13 @@ a. connect the microsoftsql database, create the tables, and access them from c#
         PhD_DegreeMIN
         PhD_MIN
 
-    Colleges
+    Colleges//send them as an excel file but no data processing will be made
     
         InsID
         CollegeID
         CollegeName
 
-    Programes
+    Programes//send them as an excel file but no data processing will be made
 
         InsID
         ProgramID
@@ -63,222 +63,241 @@ a. connect the microsoftsql database, create the tables, and access them from c#
         StudyLang
         RecDate
 
-    StudentsCount
+    StudentsCount//unneceary or excel sheet
 
-        InsID
-        ProgramID
-        ProgramName
-        First
-        Second
-        Third
-        Fourth
-        Fifth
-        Sixth
-        Total
+        InsID//unneceary or excel sheet
+        ProgramID//unneceary or excel sheet
+        ProgramName//unneceary or excel sheet
+        First//unneceary or excel sheet
+        Second//unneceary or excel sheet
+        Third//unneceary or excel sheet
+        Fourth//unneceary or excel sheet
+        Fifth//unneceary or excel sheet
+        Sixth//unneceary or excel sheet
+        Total//unneceary or excel sheet
 
-    HoursCount
+    HoursCount//unnecesary
 
-        InsID
-        ProgramID
-        ProgramName
-        TheoHours
-        PracHours
+        InsID//unnecesary
+        ProgramID//unnecesary
+        ProgramName//unnecesary
+        TheoHours//unnecesary
+        PracHours//unnecesary
 
-    sysdiagrams
+    sysdiagrams//unnecesary
 
-        name
-        principal_id
-        diagram_id
-        version
-        definition
+        name//unnecesary
+        principal_id//unnecesary
+        diagram_id//unnecesary
+        version//unnecesary
+        definition//unnecesary
 
-    Staff
+    Staff//excel sheet
 
-        StaffID
-        InsID
-        ProgramID
-        ProgramName
-        Name
-        Major
-        Degree
-        DegreeDate
-        AcademicRank
-        Status
-        Nationality
-        UnivName
+        StaffID//excel sheet
+        InsID//excel sheet
+        ProgramID//excel sheet
+        ProgramName//excel sheet
+        Name//excel sheet
+        Major//excel sheet
+        Degree//excel sheet
+        DegreeDate//excel sheet
+        AcademicRank//excel sheet
+        Status//excel sheet
+        Nationality//excel sheet
+        UnivName//excel sheet
 
-    PhdStaff
+    PhdStaff//excel sheet
     
-        StaffID
-        InsID
-        ProgramID
-        ProgramName
-        Name
-        Major
-        Status
+        StaffID//excel sheet
+        InsID//excel sheet
+        ProgramID//excel sheet
+        ProgramName//excel sheet
+        Name//excel sheet
+        Major//excel sheet
+        Status//excel sheet
 
-    Hospitals
+    Hospitals//add
 
-        InsID
-        HospID
-        HospType
-        HospName
-        HospMajor
+        InsID//add
+        HospID//add
+        HospType//add
+        HospName//add
+        HospMajor//add
 
-    Labs
+    Labs//excel
 
-        InsID
-        CollegeID
-        CollegeName
-        Comp
-        Eng
-        Med
-        PC
-        Total
+        InsID//excel
+        CollegeID//excel
+        CollegeName//excel
+        Comp//excel
+        Eng//excel
+        Med//excel
+        PC//excel
+        Total//excel
 
-    Attachments
+    Attachments//keep
 
-        InsID
-        AttachID
-        AttachName
-        AttachDesc
+        InsId//keep
+        AttachID//keep
+        AttachName//keep
+        AttachDesc//keep
+        url/keep
 
-    PublicInfo
+    PublicInfo/keep
 
-        InsID
-        InsName
-        Provider
-        StartDate
-        SDateT
-        SDateNT
-        SupervisorID
-        Supervisor
-        PreName
-        PreDegree
-        PreMajor
-        Postal
-        Phone
-        Fax
-        Email
-        Website
-        Vision
-        Mission
-        Goals
-        InsValues
-        LastEditDate
+        InsID/keep
+        InsName/keep
+        Provider/keep
+        StartDate/keep
+        SDateT/keep
+        SDateNT/keep
+        SupervisorID/keep
+        Supervisor/keep
+        PreName/keep
+        PreDegree/keep
+        PreMajor/keep
+        Postal/keep
+        Phone/keep
+        Fax/keep
+        Email/keep
+        Website/keep
+        Vision/keep
+        Mission/keep
+        Goals/keep
+        InsValues/keep/keep
+        LastEditDate/keep
 
-    AcademicInfo
+    AcademicInfo/important
 
-        InsID
-        InsTypeID
-        InsType
-        HighEdu_Rec
-        QualityDept_Rec
-        QualityDept_Attach
-        StudyLangCitizen
-        StudyLangInter
-        JointClass
-        StudySystem
-        MinHours
-        MaxHours
-        ResearchScopus
-        ResearchOthers
-        Practicing
-        StudyAttendance
-        StudentsMove
-        StudyAttendanceDesc
-        StudentsMoveDesc
-        DistanceLearning
-        MaxHoursDL
-        MaxYearsDL
-        MaxSemsDL
-        Diploma
-        DiplomaTest
-        HoursPercentage
-        SharedPrograms
+        InsID/important
+        InsTypeID/important
+        InsType/important
+        HighEdu_Rec/important
+        QualityDept_Rec/important
+        QualityDept_Attach/important
+        StudyLangCitizen/important
+        StudyLangInter/important
+        JointClass/important
+        StudySystem/important
+        MinHours/important
+        MaxHours/important
+        ResearchScopus/important
+        ResearchOthers/important
+        Practicing/important
+        StudyAttendance/important
+        StudentsMove/important
+        StudyAttendanceDesc/important
+        StudentsMoveDesc/important
+        DistanceLearning/important
+        MaxHoursDL/important
+        MaxYearsDL/important
+        MaxSemsDL/important
+        Diploma/important
+        DiplomaTest/important
+        HoursPercentage/important
+        SharedPrograms/important
 
-    Countries
+    Countries/keep untouched
 
-        CountryNO
-        CountryNameAR
-        CountryNameEN
+        CountryNO/keep untouched
+        CountryNameAR/keep untouched
+        CountryNameEN/keep untouched
 
-    USERS
+    USERS//whatever
 
-        InsID
-        InsName
-        InsCountry
-        Email
-        Password
-        VerificationCode
-        Verified
+        InsID//whatever
+        InsName//whatever
+        InsCountry//whatever
+        Email//whatever
+        Password//whatever
+        VerificationCode//whatever
+        Verified//whatever
 
-    StudentsAndStuff
-
-        InsID
-        StudentCitizen
-        StudentInter
-        StudentJordan
-        StudentOverall
-        StaffProfessor
-        StaffCoProfessor
-        StaffAssistantProfessor
-        StaffLabSupervisor
-        StaffResearcher
-        StaffTeacher
-        StaffTeacherAssistant
-        StaffOthers
-
-    Percentage
+    StudentsAndStuff/unchanged
+        InsID//unchanged
+        StudentCitizen//unchanged
+        StudentInter//unchanged
+        StudentJordan//unchanged
+        StudentOverall//unchanged
+        StaffProfessor//unchanged
+        StaffCoProfessor//unchanged
+        StaffAssistantProfessor/unchanged
+        StaffLabSupervisor/unchanged
+        StaffResearcher//unchanged
+        StaffTeacher//unchanged
+        StaffTeacherAssistant//unchanged
+        StaffOthers/unchanged
+    Percentage//unnecesary
     
-        InsID
-        FullTimeProfessor_Student
-        PartTimeProfessor_Student
-        FullTimeAssociateProfessor_Student
-        PartTimeAssociateProfessor_Student
-        FullTimeAssistantProfessor_Student
-        PartTimeAssistantProfessor_Student
-        Student_FullTimeTeachers
-        Student_FullAndPartTimeTeachers
-        AssociateProfessor_FullTimeTeachers
-        AssistantProfessor_FullTimeTeachers
-        Professor_FullTimeTeachers
-        PhD_FullTimeTeachers
-        Professor_PartTimeTeachers
-        PhD_PartTimeTeachers
+        InsID//unnecesary
+        FullTimeProfessor_Student//unnecesary
+        PartTimeProfessor_Student//unnecesary
+        FullTimeAssociateProfessor_Student//unnecesary
+        PartTimeAssociateProfessor_Student//unnecesary
+        FullTimeAssistantProfessor_Student//unnecesary
+        PartTimeAssistantProfessor_Student//unnecesary
+        Student_FullTimeTeachers//unnecesary
+        Student_FullAndPartTimeTeachers//unnecesary
+        AssociateProfessor_FullTimeTeachers//unnecesary
+        AssistantProfessor_FullTimeTeachers//unnecesary
+        Professor_FullTimeTeachers//unnecesary
+        PhD_FullTimeTeachers//unnecesary
+        Professor_PartTimeTeachers//unnecesary
+        PhD_PartTimeTeachers//unnecesary
 
-    MedStaff
+    MedStaff//excel
 
-        InsID
-        Med_Students
-        Med_Staff
-        Med_Professor
-        Med_CoProfessor
-        Med_AssistantProfessor
-        Med_lecturer
-        Med_Teacher
+        InsID//excel
+        Med_Students//excel
+        Med_Staff//excel
+        Med_Professor//excel
+        Med_CoProfessor//excel
+        Med_AssistantProfessor//excel
+        Med_lecturer//excel
+        Med_Teacher//excel
         Med_TeacherAssistant
         Med_FullTimelecturer
-        Den_Students
-        Den_Staff
+        Den_Students//excel
+        Den_Staff//excel
         Den_Professor
-        Den_CoProfessor
+        Den_CoProfessor//excel
         Den_AssistantProfessor
         Den_lecturer
-        Den_Teacher
-        Den_TeacherAssistant
+        Den_Teacher//excel
+        Den_TeacherAssistant//excel
         Den_FullTimelecturer
 
-    Infrastructure
+    Infrastructure/keep?
     
-        InsID
-        Area
-        Sites
-        Terr
-        Halls
-        Library
-        Labs
-        Build
+        InsID//keep
+        Area//keep
+        Sites//keep
+        Terr//keep
+        Halls//keep
+        Library//cancel
+        Labs//cancel
+        Build//keep or not?
+
+    acceptancerecord//new table
+        .instid
+         i.NoOfRecord
+        ii.Date
+        iii.Result
+        iv.Message
+
+      spec table
+      instid
+         i.Name
+        ii.Type
+        iii.NumOfStudents
+        iv.NumOfFreeTeachers
+        v.NumOfOstadh
+        vi.NumOfMusharek
+        vii.NumOfOstadhMusa3ed
+        viii.NumberOfLecturers
+        ix.NumOfMudaresMusa3ed
+        x.NumOfOtherTeachers      
 
 b. transfer data from https://rnji.mohe.gov.jo/
 
@@ -334,9 +353,9 @@ c. process data
         viii.NumberOfLecturers
         ix.NumOfMudaresMusa3ed
         x.NumOfOtherTeachers
-    e.SuggestionRecord
-        i.Date
-        ii.Message
+    e.SuggestionRecord//delete
+        i.Date//delete
+        ii.Message//delete
     f.DatabaseHandler
     g.Program.cs (main)
     h.Verifier
