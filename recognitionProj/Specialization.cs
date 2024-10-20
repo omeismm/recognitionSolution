@@ -10,6 +10,8 @@ public class Specialization
     private int _numOfFullTimeTeachers;//mutafare3'
     private int _numOfPartTimeTeachers;//not mutafare3'
     private int _numOfOstadh;
+    private int _numOfOstadhMusharek;
+    private int _numOfOstadhMusa3ed;
     private int _numOfMusharek;
     private int _numOfMusa3ed;
     private int _numberOfLecturers;

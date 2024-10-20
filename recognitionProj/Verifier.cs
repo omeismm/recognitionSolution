@@ -110,20 +110,20 @@ public class Verifier
     {
         foreach(Specialization spec in _uni.Specializations)
         {
-            if spec.Type == "Humanitarian Practical Bachelor")
+            if (spec.Type == "Humanitarian Practical Bachelor")
             {
                 //todo math
                     
                 }
             }
-        }
         return true;
     }
+        
 
     public bool ScientificPracticalBachelorRatio()//todo (1:20)
     {
         int doctorates;
-        int masters
+    int masters;
         int x;
         foreach(Specialization spec in _uni.Specializations)
         {
@@ -131,9 +131,9 @@ public class Verifier
             {
             doctorates = 0;
             masters = 0;
-            doctorates = s+spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
-            masters = spec.NumOfMudaresMusa3ed + spec.NumOfMudares
-            x = doctorate + Math.Min(doctorate, masters) + Math.Floor(doctorate * 0.1) + Math.Floor((doctorates + masters) / 2);
+            doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
+            masters = spec.NumOfMudaresMusa3ed + spec.NumOfMudares;
+            x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + Math.Floor((doctorates + masters) / 2);
             //i cannot unterstand the handwriting after this point
             }
 
@@ -142,30 +142,36 @@ public class Verifier
         return true;
     }
 
-public bool HighDiplomaRatio() //todo (1:20)
-{
-    float ratio; // Add semicolon
-
-    foreach (Specialization spec in _uni.Specializations)
+    public bool HighDiplomaRatio() //todo (1:20)
     {
-        if (spec.Type == "High Diploma")
+        foreach (Specialization spec in _uni.Specializations)
         {
-            ratio = (spec.NumOfOstadh + spec.NumOfOstadhMusharek) / spec.NumOfOstadhMusa3ed;
-            if (ratio >= 0.25)
+            if (spec.Type == "High Diploma")
             {
-                return true; // Add semicolon
-            }
-            else
-            {
-                return false;
+                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+
+                if (totalStaff == 0)
+                {
+                    return false; // No staff to calculate ratio
+                }
+
+                // Calculate ratios
+                float ostadhMusharekRatio = (float)(spec.NumOfOstadh + spec.NumOfOstadhMusharek) / totalStaff; // Combined Ostadh and OstadhMusharek ratio
+                float ostadhMusa3edRatio = (float)spec.NumOfOstadhMusa3ed / totalStaff; // OstadhMusa3ed ratio
+
+                // Ensure OstadhMusharek or Ostadh is at least 25% and OstadhMusa3ed is at most 75%
+                if (ostadhMusharekRatio < 0.25 || ostadhMusa3edRatio > 0.75)
+                {
+                    return false; // Violates the ratio conditions
+                }
             }
         }
+
+        return true; // All specializations meet the ratio requirements
     }
 
-    
-}
 
-public bool ScientificMastersRatio()//todo (1:15)
+    public bool ScientificMastersRatio()//todo (1:15)
     {
         foreach(Specialization spec in _uni.Specializations)
         {
@@ -205,7 +211,7 @@ public bool ScientificMastersRatio()//todo (1:15)
     {
     foreach(Specialization spec in _uni.Specializations)
         {
-            if spec.Type == "Residency")
+            if (spec.Type == "Residency")
             {
                 //todo math
             }
@@ -213,9 +219,50 @@ public bool ScientificMastersRatio()//todo (1:15)
         return true;
     }
 
-    
+    public bool DoctorateRatio() // todo(1:10) ratie
+    {
+        foreach (Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Doctorate")
+            {
+                // Total staff count, including NumOfOstadh, NumOfOstadhMusa3ed, and NumOfOstadhMusharek
+                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusa3ed + spec.NumOfOstadhMusharek;
 
-    
+                if (totalStaff == 0)
+                {
+                    return false; // If no staff, ratio can't be met
+                }
+
+                // Calculate the minimum and maximum limits based on ratios
+                int minNumOfOstadh = (int)Math.Ceiling(totalStaff * 0.50); // At least 50% for NumOfOstadh
+                int maxNumOfOstadhMusa3ed = (int)Math.Floor(totalStaff * 0.25); // At most 25% for NumOfOstadhMusa3ed
+
+                // Adjust NumOfOstadh to meet the minimum required
+                if (spec.NumOfOstadh < minNumOfOstadh)
+                {
+                    return false; // Not enough NumOfOstadh to meet the minimum requirement
+                }
+
+                // Adjust NumOfOstadhMusa3ed to meet the maximum allowed
+                if (spec.NumOfOstadhMusa3ed > maxNumOfOstadhMusa3ed)
+                {
+                    return false; // Too many NumOfOstadhMusa3ed compared to the allowed maximum
+                }
+
+                // Calculate the remaining staff that should be NumOfOstadhMusharek
+                int remainingStaff = totalStaff - spec.NumOfOstadh - spec.NumOfOstadhMusa3ed;
+                if (remainingStaff != spec.NumOfOstadhMusharek)
+                {
+                    return false; // Remaining staff doesn't match the expected NumOfOstadhMusharek count
+                }
+            }
+        }
+
+        // If all Doctorate specializations pass the checks, return true
+        return true;
+    }
+
+
     public void VerifyArticle3()
     {
         //i.Article 3
