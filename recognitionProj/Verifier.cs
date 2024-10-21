@@ -142,7 +142,7 @@ public class Verifier
         return true;
     }
 
-    public bool HighDiplomaRatio() //todo (1:20)
+    public bool HighDiplomaRatio() //todo (1:20) //page 13
     {
         foreach (Specialization spec in _uni.Specializations)
         {
@@ -170,26 +170,103 @@ public class Verifier
         return true; // All specializations meet the ratio requirements
     }
 
-
-    public bool ScientificMastersRatio()//todo (1:15)
+    //todo:btw for the masters, the pdf does not seperate between the scientific and humanitarian masters
+    public bool ScientificMastersRatio() //todo (1:15)//page 13
     {
-        foreach(Specialization spec in _uni.Specializations)
+        foreach (Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Scientific Masters")
             {
-                //todo math
+                // Calculate total staff
+                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+
+                if (totalStaff == 0)
+                {
+                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                }
+
+                // Calculate percentages
+                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+
+                // Ensure the ratios meet the requirements:
+                // 1. Ostadh >= 25%
+                // 2. OstadhMusa3ed <= 25%
+                // 3. Remaining staff should be OstadhMusharek
+
+                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+                {
+                    return false; // Ratio violation
+                }
+            }
+        }
+
+        return true; // All specializations meet the required ratios
+    }
+
+
+    public bool ScientificPracticalMastersRatio()//todo (1:15)//page 13
+    {
+        foreach(Specialization spec in _uni.Specializations)
+        {
+            if (spec.Type == "Scientific Practical Masters")
+            {
+                // Calculate total staff
+                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+
+                if (totalStaff == 0)
+                {
+                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                }
+
+                // Calculate percentages
+                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+
+                // Ensure the ratios meet the requirements:
+                // 1. Ostadh >= 25%
+                // 2. OstadhMusa3ed <= 25%
+                // 3. Remaining staff should be OstadhMusharek
+
+                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+                {
+                    return false; // Ratio violation
+                }
             }
         }
         return true;
     }
 
-    public bool HumanitarianMastersRatio()//todo (1:20)
+    public bool HumanitarianMastersRatio()//todo (1:20)//page 13
     {
         foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Masters")
             {
-                //todo math
+                // Calculate total staff
+                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+
+                if (totalStaff == 0)
+                {
+                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                }
+
+                // Calculate percentages
+                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+
+                // Ensure the ratios meet the requirements:
+                // 1. Ostadh >= 25%
+                // 2. OstadhMusa3ed <= 25%
+                // 3. Remaining staff should be OstadhMusharek
+
+                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+                {
+                    return false; // Ratio violation
+                }
             }
         }
         return true;
@@ -219,7 +296,7 @@ public class Verifier
         return true;
     }
 
-    public bool DoctorateRatio() // todo(1:10) ratie
+    public bool DoctorateRatio() // todo(1:10) ratio // page 13
     {
         foreach (Specialization spec in _uni.Specializations)
         {
