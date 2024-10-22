@@ -82,13 +82,20 @@ public class Verifier
 
     }
     //these functions will be used inside aticle 4 to calculate the ratios
-    public bool ScientificBachelorRatio()//todo (1:25)
+    public bool ScientificBachelorRatio()//todo (1:25)//page 11
     {
-        foreach(Specialization spec in _uni.Specializations)
+        int doctorates;
+        int masters;
+        float x;
+        foreach (Specialization spec in _uni.Specializations)
         {
             if (spec.Type != "Scientific Bachelor")
             {
-                //todo math
+                doctorates = 0;
+                masters = 0;
+                doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek + spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
+                x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
+                //todo more math
             }
         }
         return true;
@@ -124,7 +131,7 @@ public class Verifier
     {
         int doctorates;
     int masters;
-        int x;
+        float x;
         foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Scientific Practical Bachelor")
