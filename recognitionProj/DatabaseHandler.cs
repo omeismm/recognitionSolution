@@ -204,6 +204,60 @@ public class DatabaseHandler//this class is to create the connection to the data
         }
     }
 
+    public void InsertAcademicInfo(AcademicInfo academicInfo)
+    {
+        string tableName = "AcademicInfo";
+        string columns = "[InsID], [InsTypeID], [InsType], [HighEdu_Rec], [QualityDept_Rec], [StudyLangCitizen], [StudyLangInter], [JointClass], [StudySystem], [MinHours], [MaxHours], [ResearchScopus], [ResearchOthers], [Practicing], [StudyAttendance], [StudentsMove], [StudyAttendanceDesc], [StudentsMoveDesc], [DistanceLearning], [MaxHoursDL], [MaxYearsDL], [MaxSemsDL], [Diploma], [DiplomaTest], [HoursPercentage]";
+        string values = $"{academicInfo.InsID}, {academicInfo.InsTypeID}, '{academicInfo.InsType}', {academicInfo.HighEdu_Rec}, {academicInfo.QualityDept_Rec}, '{academicInfo.StudyLangCitizen}', '{academicInfo.StudyLangInter}', {academicInfo.JointClass}, '{academicInfo.StudySystem}', {academicInfo.MinHours}, {academicInfo.MaxHours}, '{academicInfo.ResearchScopus}', '{academicInfo.ResearchOthers}', {academicInfo.Practicing}, {academicInfo.StudyAttendance}, {academicInfo.StudentsMove}, '{academicInfo.StudyAttendanceDesc}', '{academicInfo.StudentsMoveDesc}', {academicInfo.DistanceLearning}, {academicInfo.MaxHoursDL}, {academicInfo.MaxYearsDL}, {academicInfo.MaxSemsDL}, {academicInfo.Diploma}, {academicInfo.DiplomaTest}, {academicInfo.HoursPercentage}";
+        InsertRecord(tableName, columns, values);
+    }
+
+    public AcademicInfo GetAcademicInfo(int insID)
+    {
+        string query = $"SELECT * FROM AcademicInfo WHERE InsID = {insID}";
+        DataTable dataTable = SelectRecords(query);
+
+        if (dataTable.Rows.Count > 0)
+        {
+            DataRow row = dataTable.Rows[0];
+
+            return new AcademicInfo
+            {
+                InsID = int.Parse(row["InsID"].ToString()),
+                InsTypeID = row["InsTypeID"] != DBNull.Value ? int.Parse(row["InsTypeID"].ToString()) : null,
+                InsType = row["InsType"].ToString(),
+                HighEdu_Rec = row["HighEdu_Rec"] != DBNull.Value ? int.Parse(row["HighEdu_Rec"].ToString()) : null,
+                QualityDept_Rec = row["QualityDept_Rec"] != DBNull.Value ? int.Parse(row["QualityDept_Rec"].ToString()) : null,
+                StudyLangCitizen = row["StudyLangCitizen"].ToString(),
+                StudyLangInter = row["StudyLangInter"].ToString(),
+                JointClass = row["JointClass"] != DBNull.Value ? int.Parse(row["JointClass"].ToString()) : null,
+                StudySystem = row["StudySystem"].ToString(),
+                MinHours = row["MinHours"] != DBNull.Value ? int.Parse(row["MinHours"].ToString()) : null,
+                MaxHours = row["MaxHours"] != DBNull.Value ? int.Parse(row["MaxHours"].ToString()) : null,
+                ResearchScopus = row["ResearchScopus"].ToString(),
+                ResearchOthers = row["ResearchOthers"].ToString(),
+                Practicing = row["Practicing"] != DBNull.Value ? int.Parse(row["Practicing"].ToString()) : null,
+                StudyAttendance = row["StudyAttendance"] != DBNull.Value ? int.Parse(row["StudyAttendance"].ToString()) : null,
+                StudentsMove = row["StudentsMove"] != DBNull.Value ? int.Parse(row["StudentsMove"].ToString()) : null,
+                StudyAttendanceDesc = row["StudyAttendanceDesc"].ToString(),
+                StudentsMoveDesc = row["StudentsMoveDesc"].ToString(),
+                DistanceLearning = row["DistanceLearning"] != DBNull.Value ? int.Parse(row["DistanceLearning"].ToString()) : null,
+                MaxHoursDL = row["MaxHoursDL"] != DBNull.Value ? int.Parse(row["MaxHoursDL"].ToString()) : null,
+                MaxYearsDL = row["MaxYearsDL"] != DBNull.Value ? int.Parse(row["MaxYearsDL"].ToString()) : null,
+                MaxSemsDL = row["MaxSemsDL"] != DBNull.Value ? int.Parse(row["MaxSemsDL"].ToString()) : null,
+                Diploma = row["Diploma"] != DBNull.Value ? int.Parse(row["Diploma"].ToString()) : null,
+                DiplomaTest = row["DiplomaTest"] != DBNull.Value ? int.Parse(row["DiplomaTest"].ToString()) : null,
+                HoursPercentage = row["HoursPercentage"] != DBNull.Value ? int.Parse(row["HoursPercentage"].ToString()) : null
+            };
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+
+
 
 
 
@@ -214,3 +268,4 @@ public class DatabaseHandler//this class is to create the connection to the data
     //we can customize and make our own methods to interact with the database laters
 
 }
+
