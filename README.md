@@ -286,7 +286,7 @@ a. connect the microsoftsql database, create the tables, and access them from c#
         iii.Result
         iv.Message
 
-      spec table
+      spec table                              
       instid
          i.Name
         ii.Type
@@ -297,7 +297,22 @@ a. connect the microsoftsql database, create the tables, and access them from c#
         vii.NumOfOstadhMusa3ed
         viii.NumberOfLecturers
         ix.NumOfMudaresMusa3ed
-        x.NumOfOtherTeachers      
+        x.NumOfOtherTeachers
+        CREATE TABLE [dbo].[Specializations](
+                    [InsID] [int] NOT NULL,
+                    [Name] [nvarchar](50) NOT NULL,
+                    [Type] [nvarchar](50) NOT NULL ,
+                    [NumStu] [int] NOT NULL ,
+                    [NumFreeTeachers][int] NOT NULL,
+                    [NumProf] [int] NOT NULL,
+                    [NumAssociative] [int] NOT NULL,
+                    [NumAssistant] [int] NOT NULL,
+                    [NumberLecturers] [int] NOT NULL,
+                    [NumAssisLecturer] [int] NOT NULL,
+                    [NumOtherTeachers] [int] NOT NULL,
+                    [SpecAttachName] [nvarchar](100) NOT NULL, ***new 
+                    [SpecAttachDesc] [nvarchar](100) NOT NULL   ***new
+                    )
 
 b. transfer data from https://rnji.mohe.gov.jo/
 
