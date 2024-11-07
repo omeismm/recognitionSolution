@@ -166,4 +166,22 @@ CREATE TABLE [dbo].[StudyDuration](
 	[MasterMIN] [nvarchar](50) NULL,
 	[PhD_DegreeMIN] [nvarchar](50) NULL,
 	[PhD_MIN] [nvarchar](50) NULL
-)
+CREATE TABLE [dbo].[Specializations](
+    [InsID] [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  -- Auto-incremented ID
+             -- Specialization Name
+      NOT NULL,         Specialization
+    [NumStu] [int] NOT NULL,                          -- Number of Students
+    [NumFullTimeTeachers] [int] NOT NULL,             -- Number of Full-Time Teachers (Mutafare3')
+    [NumPartTimeTeachers] [int] NOT NULL,             -- Number of Part-Time Teachers (Not Mutafare3')
+    [NumOstadh] [int] NOT NULL,                       -- Number of 'Ostadh' Professors
+    [NumOstadhMusharek] [int] NOT NULL,               -- Number of 'Ostadh Musharek' Professors
+    [NumOstadhMusa3ed] [int] NOT NULL,                -- Number of 'Ostadh Musa3ed' Professors
+    [NumMusharek] [int] NOT NULL,                     -- Number of 'Musharek' Professors
+    [NumMusa3ed] [int] NOT NULL,                      -- Number of 'Musa3ed' Professors
+    [NumberLecturers] [int] NOT NULL,                 -- Number of Lecturers
+    [NumMudaresMusa3ed] [int] NOT NULL,               -- Number of 'Mudares Musa3ed' Lecturers
+    [NumMudares] [int] NOT NULL,                      -- Number of 'Mudares' Lecturers
+    [NumOtherTeachers] [int] NOT NULL,                -- Number of Other Teachers
+    [SpecAttachName] [nvarchar](100) NOT NUL Specialization
+    [SpecAttachDesc] [nvarchar](100) NOT NULion for Specialization
+);
