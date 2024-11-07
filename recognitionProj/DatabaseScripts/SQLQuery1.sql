@@ -170,19 +170,20 @@ CREATE TABLE [dbo].[StudyDuration](
 CREATE TABLE [dbo].[Specializations](
 [InsID] [int] NOT NULL,
 [Name] [nvarchar](50) NOT NULL,
-[Type] [nvarchar](50) NOT NULL ,
-[NumStu] [int] NOT NULL ,
-[NumFreeTeachers][int] NOT NULL,
-[NumProf] [int] NOT NULL,
-[NumAssociative] [int] NOT NULL,
-[NumAssistant] [int] NOT NULL,
-[NumberLecturers] [int] NOT NULL,
-[NumAssisLecturer] [int] NOT NULL,
-[NumOtherTeachers] [int] NOT NULL,
+--[Type] [nvarchar](50) NOT NULL ,
+[NumStu] [int] NOT NULL , --عدد الطلاب
+[NumFreeTeachers][int] NOT NULL,--المتفرغين
+[NumProf] [int] NOT NULL,--أستاذ
+[NumAssociative] [int] NOT NULL,--مشارك
+[NumAssistant] [int] NOT NULL,--مساعد
+[NumberLecturers] [int] NOT NULL,--مدرس
+[NumAssisLecturer] [int] NOT NULL,--مدرس مساعد
+[NumOtherTeachers] [int] NOT NULL,آخرين
 [SpecAttachName] [nvarchar](100) NOT NULL,
 [SpecAttachDesc] [nvarchar](100) NOT NULL
 --[Acception] [int]
 )
+	
 CREATE TABLE [dbo].[ExcelAttach](
 [InsID] [int] NOT NULL,
 [AttachID] [int] IDENTITY(1,1) NOT NULL,
