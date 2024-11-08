@@ -1,75 +1,70 @@
-namespace recognitionProj
+﻿namespace recognitionProj
 {
     public class Specialization
     {
-        private string _name;
-        private string _type;
-        private int _numOfStudents;
-        private int _numOfFullTimeTeachers;
-        private int _numOfPartTimeTeachers;
-        private int _numOfOstadh;
-        private int _numOfOstadhMusharek;
-        private int _numOfOstadhMusa3ed;
-        private int _numOfMusharek;
-        private int _numOfMusa3ed;
-        private int _numberOfLecturers;
-        private int _numOfMudaresMusa3ed;
-        private int _numOfMudares;
-        private int _numOfOtherTeachers;
+        // Private fields corresponding to the SQL table
+        private int _insId; // معرف الكيان (Primary Key)
+        private string _type; // نوع الكيان
+        private int _numStu; // عدد الطلاب
+        private int _numFreeTeachers; // عدد المدرسين المتفرغين (Full-Time Teachers)
+        private int _numPartTimeTeachers; // عدد المدرسين غير المتفرغين (Part-Time Teachers)
+        private int _numProf; // عدد الأساتذة (Professors)
+        private int _numAssociative; // عدد الأساتذة المشاركين (Associate Professors)
+        private int _numAssistant; // عدد الأساتذة المساعدين (Assistant Professors)
+        private int _numMusharek; // عدد المشاركين (Musharek Professors)
+        private int _numMusa3ed; // عدد المساعدين (Musa3ed Professors)
+        private int _numberLecturers; // عدد المدرسين (Lecturers)
+        private int _numAssisLecturer; // عدد المدرسين المساعدين (Assistant Lecturers)
+        private int _numOtherTeachers; // عدد المدرسين الآخرين (Other Teachers)
+        private string _specAttachName; // اسم المرفق
+        private string _specAttachDesc; // وصف المرفق
 
-        // New fields for file upload
-        private string _specAttachName;
-        private string _specAttachDesc;
-
-        public Specialization(string name, string type, int numOfStudents, int numOfFullTimeTeachers, int numOfPartTimeTeachers,
-                              int numOfOstadh, int numOfOstadhMusharek, int numOfOstadhMusa3ed, int numOfMusharek, int numOfMusa3ed,
-                              int numberOfLecturers, int numOfMudaresMusa3ed, int numOfMudares, int numOfOtherTeachers,
+        // Constructor
+        public Specialization(int insId, string type, int numStu, int numFreeTeachers, int numPartTimeTeachers,
+                              int numProf, int numAssociative, int numAssistant, int numMusharek, int numMusa3ed,
+                              int numberLecturers, int numAssisLecturer, int numOtherTeachers,
                               string specAttachName, string specAttachDesc)
         {
-            _name = name;
+            _insId = insId;
             _type = type;
-            _numOfStudents = numOfStudents;
-            _numOfFullTimeTeachers = numOfFullTimeTeachers;
-            _numOfPartTimeTeachers = numOfPartTimeTeachers;
-            _numOfOstadh = numOfOstadh;
-            _numOfOstadhMusharek = numOfOstadhMusharek;
-            _numOfOstadhMusa3ed = numOfOstadhMusa3ed;
-            _numOfMusharek = numOfMusharek;
-            _numOfMusa3ed = numOfMusa3ed;
-            _numberOfLecturers = numberOfLecturers;
-            _numOfMudaresMusa3ed = numOfMudaresMusa3ed;
-            _numOfMudares = numOfMudares;
-            _numOfOtherTeachers = numOfOtherTeachers;
+            _numStu = numStu;
+            _numFreeTeachers = numFreeTeachers;
+            _numPartTimeTeachers = numPartTimeTeachers;
+            _numProf = numProf;
+            _numAssociative = numAssociative;
+            _numAssistant = numAssistant;
+            _numMusharek = numMusharek;
+            _numMusa3ed = numMusa3ed;
+            _numberLecturers = numberLecturers;
+            _numAssisLecturer = numAssisLecturer;
+            _numOtherTeachers = numOtherTeachers;
             _specAttachName = specAttachName;
             _specAttachDesc = specAttachDesc;
         }
 
-        // Properties for existing fields
-        public string Name { get => _name; set => _name = value; }
-        public string Type { get => _type; set => _type = value; }
-        public int NumOfStudents { get => _numOfStudents; set => _numOfStudents = value; }
-        public int NumOfFullTimeTeachers { get => _numOfFullTimeTeachers; set => _numOfFullTimeTeachers = value; }
-        public int NumOfPartTimeTeachers { get => _numOfPartTimeTeachers; set => _numOfPartTimeTeachers = value; }
-        public int NumOfOstadh { get => _numOfOstadh; set => _numOfOstadh = value; }
-        public int NumOfOstadhMusharek { get => _numOfOstadhMusharek; set => _numOfOstadhMusharek = value; }
-        public int NumOfOstadhMusa3ed { get => _numOfOstadhMusa3ed; set => _numOfOstadhMusa3ed = value; }
-        public int NumOfMusharek { get => _numOfMusharek; set => _numOfMusharek = value; }
-        public int NumOfMusa3ed { get => _numOfMusa3ed; set => _numOfMusa3ed = value; }
-        public int NumberOfLecturers { get => _numberOfLecturers; set => _numberOfLecturers = value; }
-        public int NumOfMudaresMusa3ed { get => _numOfMudaresMusa3ed; set => _numOfMudaresMusa3ed = value; }
-        public int NumOfMudares { get => _numOfMudares; set => _numOfMudares = value; }
-        public int NumOfOtherTeachers { get => _numOfOtherTeachers; set => _numOfOtherTeachers = value; }
+        // Properties
+        public int InsID { get => _insId; set => _insId = value; } // معرف الكيان
+        public string Type { get => _type; set => _type = value; } // نوع الكيان
+        public int NumStu { get => _numStu; set => _numStu = value; } // عدد الطلاب
+        public int NumFreeTeachers { get => _numFreeTeachers; set => _numFreeTeachers = value; } // عدد المدرسين المتفرغين
+        public int NumPartTimeTeachers { get => _numPartTimeTeachers; set => _numPartTimeTeachers = value; } // عدد المدرسين غير المتفرغين
+        public int NumProf { get => _numProf; set => _numProf = value; } // عدد الأساتذة
+        public int NumAssociative { get => _numAssociative; set => _numAssociative = value; } // عدد الأساتذة المشاركين
+        public int NumAssistant { get => _numAssistant; set => _numAssistant = value; } // عدد الأساتذة المساعدين
+        public int NumMusharek { get => _numMusharek; set => _numMusharek = value; } // عدد المشاركين
+        public int NumMusa3ed { get => _numMusa3ed; set => _numMusa3ed = value; } // عدد المساعدين
+        public int NumberLecturers { get => _numberLecturers; set => _numberLecturers = value; } // عدد المدرسين
+        public int NumAssisLecturer { get => _numAssisLecturer; set => _numAssisLecturer = value; } // عدد المدرسين المساعدين
+        public int NumOtherTeachers { get => _numOtherTeachers; set => _numOtherTeachers = value; } // عدد المدرسين الآخرين
+        public string SpecAttachName { get => _specAttachName; set => _specAttachName = value; } // اسم المرفق
+        public string SpecAttachDesc { get => _specAttachDesc; set => _specAttachDesc = value; } // وصف المرفق
 
-        // Properties for the new fields
-        public string SpecAttachName { get => _specAttachName; set => _specAttachName = value; }
-        public string SpecAttachDesc { get => _specAttachDesc; set => _specAttachDesc = value; }
-
-        // ToString method
+        // ToString method for debugging or display purposes
         public override string ToString()
         {
-            return $"{_name} {_type} {_numOfStudents} {_numOfFullTimeTeachers} {_numOfPartTimeTeachers} " +
-                   $"{_numOfOstadh} {_numOfMusharek} {_numOfMusa3ed} {_numberOfLecturers} {_numOfMudaresMusa3ed} " +
-                   $"{_numOfMudares} {_numOfOtherTeachers} {_specAttachName} {_specAttachDesc}";
+            return $"{_type} {_numStu} {_numFreeTeachers} {_numPartTimeTeachers} {_numProf} {_numAssociative} " +
+                   $"{_numAssistant} {_numMusharek} {_numMusa3ed} {_numberLecturers} {_numAssisLecturer} " +
+                   $"{_numOtherTeachers} {_specAttachName} {_specAttachDesc}";
         }
     }
 }

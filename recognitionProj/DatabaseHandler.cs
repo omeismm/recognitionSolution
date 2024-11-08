@@ -244,35 +244,32 @@ namespace recognitionProj
         public void InsertSpecialization(Specialization specialization)
         {
             string tableName = "Specializations";
-            string columns = "[Name], [Type], [NumOfStudents], [NumOfFullTimeTeachers], [NumOfPartTimeTeachers], [NumOfOstadh], [NumOfOstadhMusharek], [NumOfOstadhMusa3ed], [NumOfMusharek], [NumOfMusa3ed], [NumberOfLecturers], [NumOfMudaresMusa3ed], [NumOfMudares], [NumOfOtherTeachers], [SpecAttachName], [SpecAttachDesc]";
+            string columns = "[Type], [NumStu], [NumFreeTeachers], [NumPartTimeTeachers], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc]";
 
             string[] parameterNames = {
-        "@Name", "@Type", "@NumOfStudents", "@NumOfFullTimeTeachers", "@NumOfPartTimeTeachers",
-        "@NumOfOstadh", "@NumOfOstadhMusharek", "@NumOfOstadhMusa3ed", "@NumOfMusharek",
-        "@NumOfMusa3ed", "@NumberOfLecturers", "@NumOfMudaresMusa3ed", "@NumOfMudares",
-        "@NumOfOtherTeachers", "@SpecAttachName", "@SpecAttachDesc"
-    };
+                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf",
+                "@NumAssociative", "@NumAssistant", "@NumMusharek", "@NumMusa3ed",
+                "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers",
+                "@SpecAttachName", "@SpecAttachDesc"
+            };
 
             object[] values = {
-        specialization.Name, specialization.Type, specialization.NumOfStudents,
-        specialization.NumOfFullTimeTeachers, specialization.NumOfPartTimeTeachers,
-        specialization.NumOfOstadh, specialization.NumOfOstadhMusharek, specialization.NumOfOstadhMusa3ed,
-        specialization.NumOfMusharek, specialization.NumOfMusa3ed, specialization.NumberOfLecturers,
-        specialization.NumOfMudaresMusa3ed, specialization.NumOfMudares, specialization.NumOfOtherTeachers,
-        specialization.SpecAttachName, specialization.SpecAttachDesc
-    };
+                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers,
+                specialization.NumPartTimeTeachers, specialization.NumProf, specialization.NumAssociative,
+                specialization.NumAssistant, specialization.NumMusharek, specialization.NumMusa3ed,
+                specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
+                specialization.SpecAttachName, specialization.SpecAttachDesc
+            };
 
-            // Use the updated InsertRecord method with parameters
             InsertRecord(tableName, columns, parameterNames, values);
         }
 
-
-        // Fetch a specialization record by name
-        public Specialization GetSpecialization(string specName)
+        // Fetch a specialization record by InsID
+        public Specialization GetSpecialization(int insId)
         {
-            string query = $"SELECT * FROM Specializations WHERE [Name] = @Name";
-            string[] parameterNames = { "@Name" };
-            object[] values = { specName };
+            string query = $"SELECT * FROM Specializations WHERE [InsID] = @InsID";
+            string[] parameterNames = { "@InsID" };
+            object[] values = { insId };
 
             DataTable dataTable = SelectRecords(query, parameterNames, values);
 
@@ -281,20 +278,19 @@ namespace recognitionProj
                 DataRow row = dataTable.Rows[0];
 
                 return new Specialization(
-                    name: row["Name"].ToString(),
+                    insId: int.Parse(row["InsID"].ToString()),
                     type: row["Type"].ToString(),
-                    numOfStudents: int.Parse(row["NumOfStudents"].ToString()),
-                    numOfFullTimeTeachers: int.Parse(row["NumOfFullTimeTeachers"].ToString()),
-                    numOfPartTimeTeachers: int.Parse(row["NumOfPartTimeTeachers"].ToString()),
-                    numOfOstadh: int.Parse(row["NumOfOstadh"].ToString()),
-                    numOfOstadhMusharek: int.Parse(row["NumOfOstadhMusharek"].ToString()),
-                    numOfOstadhMusa3ed: int.Parse(row["NumOfOstadhMusa3ed"].ToString()),
-                    numOfMusharek: int.Parse(row["NumOfMusharek"].ToString()),
-                    numOfMusa3ed: int.Parse(row["NumOfMusa3ed"].ToString()),
-                    numberOfLecturers: int.Parse(row["NumberOfLecturers"].ToString()),
-                    numOfMudaresMusa3ed: int.Parse(row["NumOfMudaresMusa3ed"].ToString()),
-                    numOfMudares: int.Parse(row["NumOfMudares"].ToString()),
-                    numOfOtherTeachers: int.Parse(row["NumOfOtherTeachers"].ToString()),
+                    numStu: int.Parse(row["NumStu"].ToString()),
+                    numFreeTeachers: int.Parse(row["NumFreeTeachers"].ToString()),
+                    numPartTimeTeachers: int.Parse(row["NumPartTimeTeachers"].ToString()),
+                    numProf: int.Parse(row["NumProf"].ToString()),
+                    numAssociative: int.Parse(row["NumAssociative"].ToString()),
+                    numAssistant: int.Parse(row["NumAssistant"].ToString()),
+                    numMusharek: int.Parse(row["NumMusharek"].ToString()),
+                    numMusa3ed: int.Parse(row["NumMusa3ed"].ToString()),
+                    numberLecturers: int.Parse(row["NumberLecturers"].ToString()),
+                    numAssisLecturer: int.Parse(row["NumAssisLecturer"].ToString()),
+                    numOtherTeachers: int.Parse(row["NumOtherTeachers"].ToString()),
                     specAttachName: row["SpecAttachName"].ToString(),
                     specAttachDesc: row["SpecAttachDesc"].ToString()
                 );
@@ -305,33 +301,39 @@ namespace recognitionProj
             }
         }
 
+        
 
-        // Update an existing specialization record
+        // Update specialization record
         public void UpdateSpecialization(Specialization specialization)
         {
-            string tableName = "Specializations";
-            string setValues = "[Type] = @Type, [NumOfStudents] = @NumOfStudents, [NumOfFullTimeTeachers] = @NumOfFullTimeTeachers, [NumOfPartTimeTeachers] = @NumOfPartTimeTeachers, [NumOfOstadh] = @NumOfOstadh, [NumOfOstadhMusharek] = @NumOfOstadhMusharek, [NumOfOstadhMusa3ed] = @NumOfOstadhMusa3ed, [NumOfMusharek] = @NumOfMusharek, [NumOfMusa3ed] = @NumOfMusa3ed, [NumberOfLecturers] = @NumberOfLecturers, [NumOfMudaresMusa3ed] = @NumOfMudaresMusa3ed, [NumOfMudares] = @NumOfMudares, [NumOfOtherTeachers] = @NumOfOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc";
-
-            string condition = "[Name] = @Name";
+            string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
+                "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+                "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
+                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc WHERE [InsID] = @InsID";
 
             string[] parameterNames = {
-        "@Type", "@NumOfStudents", "@NumOfFullTimeTeachers", "@NumOfPartTimeTeachers",
-        "@NumOfOstadh", "@NumOfOstadhMusharek", "@NumOfOstadhMusa3ed", "@NumOfMusharek",
-        "@NumOfMusa3ed", "@NumberOfLecturers", "@NumOfMudaresMusa3ed", "@NumOfMudares",
-        "@NumOfOtherTeachers", "@SpecAttachName", "@SpecAttachDesc", "@Name"
-    };
+                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf", "@NumAssociative", "@NumAssistant",
+                "@NumMusharek", "@NumMusa3ed", "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers", "@SpecAttachName",
+                "@SpecAttachDesc", "@InsID"
+            };
 
             object[] values = {
-        specialization.Type, specialization.NumOfStudents, specialization.NumOfFullTimeTeachers,
-        specialization.NumOfPartTimeTeachers, specialization.NumOfOstadh,
-        specialization.NumOfOstadhMusharek, specialization.NumOfOstadhMusa3ed,
-        specialization.NumOfMusharek, specialization.NumOfMusa3ed, specialization.NumberOfLecturers,
-        specialization.NumOfMudaresMusa3ed, specialization.NumOfMudares, specialization.NumOfOtherTeachers,
-        specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.Name
-    };
+                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers, specialization.NumPartTimeTeachers,
+                specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant, specialization.NumMusharek,
+                specialization.NumMusa3ed, specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
+                specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.InsID
+            };
 
-            // Use the updated UpdateRecord method with parameters
-            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+            UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
+                "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+                "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
+                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc", "[InsID] = @InsID", parameterNames, values);
+        }
+
+        // Delete specialization record by InsID
+        public void DeleteSpecialization(int insId)
+        {
+            DeleteRecord("Specializations", $"[InsID] = {insId}");
         }
 
         // Additional methods for AcademicInfo and other records can follow the same pattern

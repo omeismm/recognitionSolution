@@ -1,4 +1,4 @@
-USE [master]
+﻿USE [master]
 GO
 
 CREATE DATABASE [RNJI] ON  PRIMARY 
@@ -167,21 +167,34 @@ CREATE TABLE [dbo].[StudyDuration](
 	[PhD_DegreeMIN] [nvarchar](50) NULL,
 	[PhD_MIN] [nvarchar](50) NULL
 CREATE TABLE [dbo].[Specializations](
-    [InsID] [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  -- Auto-incremented ID
-             -- Specialization Name
-      NOT NULL,         Specialization
-    [NumStu] [int] NOT NULL,                          -- Number of Students
-    [NumFullTimeTeachers] [int] NOT NULL,             -- Number of Full-Time Teachers (Mutafare3')
-    [NumPartTimeTeachers] [int] NOT NULL,             -- Number of Part-Time Teachers (Not Mutafare3')
-    [NumOstadh] [int] NOT NULL,                       -- Number of 'Ostadh' Professors
-    [NumOstadhMusharek] [int] NOT NULL,               -- Number of 'Ostadh Musharek' Professors
-    [NumOstadhMusa3ed] [int] NOT NULL,                -- Number of 'Ostadh Musa3ed' Professors
-    [NumMusharek] [int] NOT NULL,                     -- Number of 'Musharek' Professors
-    [NumMusa3ed] [int] NOT NULL,                      -- Number of 'Musa3ed' Professors
-    [NumberLecturers] [int] NOT NULL,                 -- Number of Lecturers
-    [NumMudaresMusa3ed] [int] NOT NULL,               -- Number of 'Mudares Musa3ed' Lecturers
-    [NumMudares] [int] NOT NULL,                      -- Number of 'Mudares' Lecturers
-    [NumOtherTeachers] [int] NOT NULL,                -- Number of Other Teachers
-    [SpecAttachName] [nvarchar](100) NOT NUL Specialization
-    [SpecAttachDesc] [nvarchar](100) NOT NULion for Specialization
+    [InsID] [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  -- معرف الكيان
+    [Type] [nvarchar](50) NOT NULL, -- نوع الكيان
+    [NumStu] [int] NOT NULL, -- عدد الطلاب
+    [NumFreeTeachers] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)
+    [NumPartTimeTeachers] [int] NOT NULL, -- عدد المدرسين غير المتفرغين (Part-Time Teachers)
+    [NumProf] [int] NOT NULL, -- عدد الأساتذة (Professors)
+    [NumAssociative] [int] NOT NULL, -- عدد الأساتذة المشاركين (Associate Professors)
+    [NumAssistant] [int] NOT NULL, -- عدد الأساتذة المساعدين (Assistant Professors)
+    [NumMusharek] [int] NOT NULL, -- عدد المشاركين (Musharek Professors)
+    [NumMusa3ed] [int] NOT NULL, -- عدد المساعدين (Musa3ed Professors)
+    [NumberLecturers] [int] NOT NULL, -- عدد المدرسين (Lecturers)
+    [NumAssisLecturer] [int] NOT NULL, -- عدد المدرسين المساعدين (Assistant Lecturers)
+    [NumOtherTeachers] [int] NOT NULL, -- عدد المدرسين الآخرين (Other Teachers)
+    [SpecAttachName] [nvarchar](100) NOT NULL, -- اسم المرفق
+    [SpecAttachDesc] [nvarchar](100) NOT NULL -- وصف المرفق
 );
+
+CREATE TABLE [dbo].[ExcelAttach](
+[InsID] [int] NOT NULL,
+[AttachID] [int] IDENTITY(1,1) NOT NULL,
+[AttachName] [nvarchar](100) NULL,
+[AttachDesc] [nvarchar](100) NULL,
+
+)
+CREATE TABLE [dbo].[AcceptanceRecord](
+[InsID] [int] NOT NULL,
+[RecordNo] [int] NOT NULL,
+[DateOfRecord][date] NOT NULL,
+[Result] [nvarchar] NOT NULL,
+[Message] [nvarchar](200),
+)
