@@ -4,20 +4,37 @@ using System.Data;
 
 namespace recognitionProj
 {
-    public class Countries
+    public class Countries // todo controller and db handler
     {
-        //use comments as reference to create this class
-//        CREATE TABLE[dbo].[Countries]
-//        (
+        private int _countryNO;
+        private string _countryNameAR;
+        private string _countryNameEN;
 
-//    [CountryNO][int] NOT NULL,
+        // Constructor
+        public Countries(int countryNO, string countryNameAR, string countryNameEN)
+        {
+            _countryNO = countryNO;
+            _countryNameAR = countryNameAR;
+            _countryNameEN = countryNameEN;
+        }
 
-//    [CountryNameAR] [nvarchar] (50) NULL,
-//	[CountryNameEN][nvarchar] (50) NULL,
-// CONSTRAINT[PK_Countries] PRIMARY KEY CLUSTERED
-//(
-//    [CountryNO] ASC
-//)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
-//) 
+        // Properties
+        public int CountryNO
+        {
+            get => _countryNO;
+            set => _countryNO = value;
+        }
+
+        public string CountryNameAR
+        {
+            get => _countryNameAR;
+            set => _countryNameAR = value;
+        }
+
+        public string CountryNameEN
+        {
+            get => _countryNameEN;
+            set => _countryNameEN = value;
+        }
     }
 }

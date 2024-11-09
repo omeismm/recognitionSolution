@@ -5,23 +5,53 @@ using System.Runtime.InteropServices;
 
 namespace recognitionProj
 {
-    public class Hospitals
+    public class Hospitals // todo controller and db handler
     {
-//        CREATE TABLE[dbo].[Hospitals]
-//        (
+        private int _insID;
+        private int _hospID;  // Identity column
+        private string _hospType;
+        private string _hospName;
+        private string _hospMajor;
 
-//    [InsID][int] NOT NULL,
+        // Constructor
+        public Hospitals(int insID, int hospID, string hospType, string hospName, string hospMajor)
+        {
+            _insID = insID;
+            _hospID = hospID;
+            _hospType = hospType;
+            _hospName = hospName;
+            _hospMajor = hospMajor;
+        }
 
-//    [HospID] [int] IDENTITY(1,1) NOT NULL,
+        // Properties
+        public int InsID
+        {
+            get => _insID;
+            set => _insID = value;
+        }
 
-//    [HospType] [nvarchar] (50) NULL,
-//	[HospName][nvarchar] (100) NULL,
-//	[HospMajor][nvarchar] (100) NULL,
-// CONSTRAINT[PK_Hospitals] PRIMARY KEY CLUSTERED
-//(
-//    [HospID] ASC
-//)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
-//) 
+        public int HospID
+        {
+            get => _hospID;
+            set => _hospID = value;
+        }
 
+        public string HospType
+        {
+            get => _hospType;
+            set => _hospType = value;
+        }
+
+        public string HospName
+        {
+            get => _hospName;
+            set => _hospName = value;
+        }
+
+        public string HospMajor
+        {
+            get => _hospMajor;
+            set => _hospMajor = value;
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace recognitionProj
+namespace recognitionProj 
 {
-    public class SuggestionRecord
+    public class SuggestionRecord//todo delete this class and all its references
     {
         private DateOnly _date;
         private string _suggestion;

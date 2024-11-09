@@ -1,28 +1,70 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Data;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace recognitionProj
 {
-    public class Users
+    public class Users // todo controller and db handler
     {
+        private int _insID;
+        private string _insName;
+        private string _insCountry;
+        private string _email;
+        private string _password;
+        private string _verificationCode;
+        private int? _verified;
 
-        //use comments as reference to create this class
-//        CREATE TABLE[dbo].[USERS]
-//        (
+        // Constructor
+        public Users(int insID, string insName, string insCountry, string email, string password, string verificationCode, int? verified)
+        {
+            _insID = insID;
+            _insName = insName;
+            _insCountry = insCountry;
+            _email = email;
+            _password = password;
+            _verificationCode = verificationCode;
+            _verified = verified;
+        }
 
-//    [InsID][int] IDENTITY(1,1) NOT NULL,
+        // Properties
+        public int InsID
+        {
+            get => _insID;
+            set => _insID = value;
+        }
 
-//    [InsName] [nvarchar] (100) NULL,
-//	[InsCountry][nvarchar] (50) NULL,
-//	[Email][nvarchar] (50) NULL,
-//	[Password][nvarchar] (50) NULL,
-//	[VerificationCode][nvarchar] (50) NULL,
-//	[Verified][int] NULL,
-// CONSTRAINT[PK_USERS] PRIMARY KEY CLUSTERED
-//(
-//    [InsID] ASC
-//)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]
-//)
+        public string InsName
+        {
+            get => _insName;
+            set => _insName = value;
+        }
+
+        public string InsCountry
+        {
+            get => _insCountry;
+            set => _insCountry = value;
+        }
+
+        public string Email
+        {
+            get => _email;
+            set => _email = value;
+        }
+
+        public string Password
+        {
+            get => _password;
+            set => _password = value;
+        }
+
+        public string VerificationCode
+        {
+            get => _verificationCode;
+            set => _verificationCode = value;
+        }
+
+        public int? Verified
+        {
+            get => _verified;
+            set => _verified = value;
+        }
     }
 }

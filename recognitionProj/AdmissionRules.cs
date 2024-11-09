@@ -1,18 +1,34 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace recognitionProj
+﻿namespace recognitionProj
 {
-    public class AdmissionRules
+    public class AdmissionRules //todo controller and db handler
     {
+        private int _insID;
+        private string _admissionRule;
+        private string _admissionDegree;
 
-        //use comments as reference to create this class
-//        CREATE TABLE[dbo].[AdmissionRules]
-//        (
+        public AdmissionRules(int insID, string admissionRule, string admissionDegree)
+        {
+            _insID = insID;
+            _admissionRule = admissionRule;
+            _admissionDegree = admissionDegree;
+        }
 
-//    [InsID][int] NOT NULL,
+        public int InsID
+        {
+            get => _insID;
+            set => _insID = value;
+        }
 
-//    [AdmissionRule] [nvarchar] (100) NULL,
-//	[AdmissionDegree][nvarchar] (50) NULL
-//) 
+        public string AdmissionRule
+        {
+            get => _admissionRule;
+            set => _admissionRule = value;
+        }
+
+        public string AdmissionDegree
+        {
+            get => _admissionDegree;
+            set => _admissionDegree = value;
+        }
     }
 }

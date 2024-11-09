@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class PublicInfo//todo: the database saving function
+    public class PublicInfo//todo: the database saving function and controller
     {
         private int _insID;
         private string _insName;

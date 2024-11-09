@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Data;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace recognitionProj
 {
-    public class Attachments // todo controller and db handler
+    public class ExcelAttach // todo controller and db handler
     {
         private int _insID;
-        private int _attachID;  // Identity column
+        private int _attachID;
         private string _attachName;
         private string _attachDesc;
 
         // Constructor
-        public Attachments(int insID, int attachID, string attachName, string attachDesc)
+        public ExcelAttach(int insID, int attachID, string attachName, string attachDesc)
         {
             _insID = insID;
             _attachID = attachID;

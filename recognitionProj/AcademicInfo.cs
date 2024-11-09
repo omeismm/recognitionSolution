@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class AcademicInfo
+    public class AcademicInfo// todo controller and db handler
     {
         private int _insID;
         private int? _insTypeID;

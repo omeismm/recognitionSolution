@@ -2,18 +2,45 @@
 
 namespace recognitionProj
 {
-    public class Pictures
+    public class Pictures // todo controller and db handler
     {
-        //use comments as reference to create this class
-//        CREATE TABLE[dbo].[Pictures]
-//        (
+        private int _insID;
+        private int _attachID;  // Identity column
+        private string _attachName;
+        private string _attachDesc;
 
-//    [InsID][int] NOT NULL,
+        // Constructor
+        public Pictures(int insID, int attachID, string attachName, string attachDesc)
+        {
+            _insID = insID;
+            _attachID = attachID;
+            _attachName = attachName;
+            _attachDesc = attachDesc;
+        }
 
-//    [AttachID] [int] IDENTITY(1,1) NOT NULL,
+        // Properties
+        public int InsID
+        {
+            get => _insID;
+            set => _insID = value;
+        }
 
-//    [AttachName] [nvarchar] (100) NULL,
-//	[AttachDesc][nvarchar] (100) NULL
-//) 
+        public int AttachID
+        {
+            get => _attachID;
+            set => _attachID = value;
+        }
+
+        public string AttachName
+        {
+            get => _attachName;
+            set => _attachName = value;
+        }
+
+        public string AttachDesc
+        {
+            get => _attachDesc;
+            set => _attachDesc = value;
+        }
     }
 }
