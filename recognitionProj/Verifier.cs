@@ -149,7 +149,7 @@ public class Verifier
         return true;
     }
 
-    public bool HighDiplomaRatio() //todo (1:20) //page 13
+    public bool HighDiplomaRatio() //todo (1:20) //page 13 // todo change from boolean to green orange red
     {
         foreach (Specialization spec in _uni.Specializations)
         {
@@ -171,12 +171,18 @@ public class Verifier
                 {
                     return false; // Violates the ratio conditions
                 }
+                else
+                {
+                    if (spec.NumStu / totalStaff > 20)
+                    {
+                        return false; // Violates the student to staff ratio
+                    }
+                }
             }
-        }
 
+        }
         return true; // All specializations meet the ratio requirements
     }
-
     //todo:btw for the masters, the pdf does not seperate between the scientific and humanitarian masters
     public bool ScientificMastersRatio() //todo (1:15)//page 13
     {
