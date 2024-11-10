@@ -178,7 +178,7 @@ namespace recognitionProj
                 "@QSRank", "@OtherRank", "@NumOfScopusResearches", "@ScopusFrom", "@ScopusTo", "@Infrastructure", "@OtherInfo", "@AcceptanceRecord",
                 "@SuggestionRecord", "@Specializations", "@Accepted"
             };
-            //todo red lines here, fix
+            //todo red lines here, fix AND REMOVE SUGGESTIOR RECORD
             object[] values = new object[]
             {
                 university.Name, university.EntryDate, university.Supervisor, university.Country, university.City, university.Address,
@@ -247,14 +247,14 @@ namespace recognitionProj
             string columns = "[Type], [NumStu], [NumFreeTeachers], [NumPartTimeTeachers], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc]";
 
             string[] parameterNames = {
-                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf",
+                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf",//TODO RENAME TEACHERS TO PROFS
                 "@NumAssociative", "@NumAssistant", "@NumMusharek", "@NumMusa3ed",
                 "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers",
                 "@SpecAttachName", "@SpecAttachDesc"
             };
 
             object[] values = {
-                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers,
+                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers,//TODO RENAME TEACHERS TO PROFS
                 specialization.NumPartTimeTeachers, specialization.NumProf, specialization.NumAssociative,
                 specialization.NumAssistant, specialization.NumMusharek, specialization.NumMusa3ed,
                 specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
@@ -281,8 +281,8 @@ namespace recognitionProj
                     insId: int.Parse(row["InsID"].ToString()),
                     type: row["Type"].ToString(),
                     numStu: int.Parse(row["NumStu"].ToString()),
-                    numFreeTeachers: int.Parse(row["NumFreeTeachers"].ToString()),
-                    numPartTimeTeachers: int.Parse(row["NumPartTimeTeachers"].ToString()),
+                    numFreeTeachers: int.Parse(row["NumFreeTeachers"].ToString()),//TODO RENAME TEACHERS TO PROFS
+                    numPartTimeTeachers: int.Parse(row["NumPartTimeTeachers"].ToString()),//TODO RENAME TEACHERS TO PROFS
                     numProf: int.Parse(row["NumProf"].ToString()),
                     numAssociative: int.Parse(row["NumAssociative"].ToString()),
                     numAssistant: int.Parse(row["NumAssistant"].ToString()),
@@ -305,25 +305,25 @@ namespace recognitionProj
 
         // Update specialization record
         public void UpdateSpecialization(Specialization specialization)
-        {
+        {//TODO RENAME TEACHERS TO PROFS
             string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
                 "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
                 "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
                 "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc WHERE [InsID] = @InsID";
-
+            //TODO RENAME TEACHERS TO PROFS
             string[] parameterNames = {
                 "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf", "@NumAssociative", "@NumAssistant",
                 "@NumMusharek", "@NumMusa3ed", "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers", "@SpecAttachName",
                 "@SpecAttachDesc", "@InsID"
             };
-
+            //TODO RENAME TEACHERS TO PROFS
             object[] values = {
                 specialization.Type, specialization.NumStu, specialization.NumFreeTeachers, specialization.NumPartTimeTeachers,
                 specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant, specialization.NumMusharek,
                 specialization.NumMusa3ed, specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
                 specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.InsID
             };
-
+            //TODO RENAME TEACHERS TO PROFS
             UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
                 "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
                 "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +

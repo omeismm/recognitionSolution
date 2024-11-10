@@ -167,7 +167,7 @@ CREATE TABLE [dbo].[StudyDuration](
 	[PhD_DegreeMIN] [nvarchar](50) NULL,
 	[PhD_MIN] [nvarchar](50) NULL
 CREATE TABLE [dbo].[Specializations](
-    [InsID] [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  -- معرف الكيان
+    [InsID] [int] NOT NULL ,  -- معرف الكيان
     [Type] [nvarchar](50) NOT NULL, -- نوع الكيان
     [NumStu] [int] NOT NULL, -- عدد الطلاب
     [NumFreeTeachers] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)

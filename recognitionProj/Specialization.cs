@@ -2,12 +2,12 @@
 {
     public class Specialization
     {
-        // Private fields corresponding to the SQL table
+        // Private fields corresponding to the SQL table BACKING FIELDS
         private int _insId; // معرف الكيان (Primary Key)
         private string _type; // نوع الكيان
         private int _numStu; // عدد الطلاب
-        private int _numFreeTeachers; // عدد المدرسين المتفرغين (Full-Time Teachers)
-        private int _numPartTimeTeachers; // عدد المدرسين غير المتفرغين (Part-Time Teachers)
+        private int _numFreeTeachers; // عدد المدرسين المتفرغين (Full-Time Teachers) TODO RENAME WITH PROF
+        private int _numPartTimeTeachers; // عدد المدرسين غير المتفرغين (Part-Time Teachers) TODO RENAME WITH PROF
         private int _numProf; // عدد الأساتذة (Professors)
         private int _numAssociative; // عدد الأساتذة المشاركين (Associate Professors)
         private int _numAssistant; // عدد الأساتذة المساعدين (Assistant Professors)
