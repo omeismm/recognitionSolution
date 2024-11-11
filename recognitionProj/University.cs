@@ -2,6 +2,7 @@
 
 public class University
 {
+    private int _id;//todo make this a primary key
     private string _name;
     private DateOnly _entryDate;
     private string _supervisor;
@@ -28,12 +29,13 @@ public class University
     private string _infrastructure;
     private string _otherInfo;
     private AcceptanceRecord[] _acceptanceRecords;
-    private SuggestionRecord[] _suggestionRecords;
+    private SuggestionRecord[] _suggestionRecords;//todo delete this everywhere
     private Specialization[] _specializations;//i added this even though its not on the readme
     private bool _accepted;
 
-    public University(string name, DateOnly entryDate, string supervisor, string country, string city, string address, string website, DateOnly creationDate, DateOnly studentAcceptanceDate, DateOnly startDate, string type, string language, string educationType, string[] availableDegrees, string hoursSystem, string[] faculties, int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches, int scopusFrom, int scopusTo, string infrastructure, string otherInfo, AcceptanceRecord[] acceptanceRecords, SuggestionRecord[] suggestionRecords, Specialization[] specializations , bool accepted)
+    public University(int id,string name, DateOnly entryDate, string supervisor, string country, string city, string address, string website, DateOnly creationDate, DateOnly studentAcceptanceDate, DateOnly startDate, string type, string language, string educationType, string[] availableDegrees, string hoursSystem, string[] faculties, int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches, int scopusFrom, int scopusTo, string infrastructure, string otherInfo, AcceptanceRecord[] acceptanceRecords, SuggestionRecord[] suggestionRecords, Specialization[] specializations , bool accepted)
     {
+        _id = id;
         _name = name;
         _entryDate = entryDate;
         _supervisor = supervisor;
@@ -65,6 +67,11 @@ public class University
         _accepted = accepted;
     }
 
+    public int Id
+    {
+        get => _id;
+        set => _id = value;
+    }
     public string Name
     {
         get => _name;

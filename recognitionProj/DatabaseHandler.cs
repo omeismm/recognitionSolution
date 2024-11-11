@@ -168,7 +168,7 @@ namespace recognitionProj
         // Insert University using parameterized query
         public void InsertUniversity(University university)
         {
-            string tableName = "Universities";
+            string tableName = "Universities";//todo deal with the primary key
             string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord, Specializations, Accepted";
 
             string[] parameterNames = new string[]
@@ -203,7 +203,7 @@ namespace recognitionProj
             {
                 DataRow row = dataTable.Rows[0];
 
-                return new University(
+                return new University(//todo deal with the primary key
                     name: row["Name"].ToString(),
                     entryDate: DateOnly.Parse(row["EntryDate"].ToString()),
                     supervisor: row["Supervisor"].ToString(),

@@ -9,7 +9,7 @@ namespace RecognitionProj.Controllers
     public class UniversityController : ControllerBase
     {
         // In-memory list to store universities temporarily (for demonstration purposes)
-        private static List<University> universities = new List<University>();
+        private static List<University> _universityList = new List<University>();  // Renamed to avoid conflicts
 
         // POST: api/university/save
         [HttpPost("save")]
@@ -21,7 +21,7 @@ namespace RecognitionProj.Controllers
             }
 
             // Add the university object to the list (simulating saving to a database)
-            universities.Add(university);
+            _universityList.Add(university);
 
             // Return success response
             return Ok(new { success = true, message = "University saved successfully." });
@@ -32,7 +32,35 @@ namespace RecognitionProj.Controllers
         public IActionResult GetAllUniversities()
         {
             // Return all the universities (simulating retrieval from a database)
-            return Ok(universities);
+            return Ok(_universityList);
+        }
+
+        // GET: api/university/get/{id}
+        [HttpGet("get/{id}")]
+        public IActionResult GetUniversityById(int id)
+        {
+            var university = _universityList.Find(u => u.Id == id);
+            if (university == null)
+            {
+                return NotFound(new { success = false, message = "University not found." });
+            }
+
+            return Ok(university);
+        }
+
+        // DELETE: api/university/delete/{id}
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteUniversity(int id)
+        {
+            var university = _universityList.Find(u => u.Id == id);
+            if (university == null)
+            {
+                return NotFound(new { success = false, message = "University not found." });
+            }
+
+            _universityList.Remove(university);
+
+            return Ok(new { success = true, message = "University deleted successfully." });
         }
     }
 }

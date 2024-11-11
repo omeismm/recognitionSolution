@@ -1,6 +1,6 @@
 ﻿namespace recognitionProj
 {
-    public class AdmissionRules //todo controller and db handler
+    public class AdmissionRules //todo controller and db handler// or delete
     {
         private int _insID;
         private string _admissionRule;
