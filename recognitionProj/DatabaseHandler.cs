@@ -618,6 +618,512 @@ namespace recognitionProj
 
             return hospitalsList;
         }
+        public void InsertInfrastructure(Infrastructure infrastructure)
+        {
+            string tableName = "Infrastructure";
+            string columns = "[InsID], [Area], [Sites], [Terr], [Halls], [Library], [LabsAttach], [Build]";
+
+            string[] parameterNames = { "@InsID", "@Area", "@Sites", "@Terr", "@Halls", "@Library", "@LabsAttach", "@Build" };
+            object[] values = { infrastructure.InsID, infrastructure.Area, infrastructure.Sites, infrastructure.Terr, infrastructure.Halls, infrastructure.Library, infrastructure.LabsAttach, infrastructure.Build };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdateInfrastructure(Infrastructure infrastructure)
+        {
+            string tableName = "Infrastructure";
+
+            // Columns to update
+            string setValues = "[Area] = @Area, [Sites] = @Sites, [Terr] = @Terr, [Halls] = @Halls, [Library] = @Library, [LabsAttach] = @LabsAttach, [Build] = @Build";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = { "@Area", "@Sites", "@Terr", "@Halls", "@Library", "@LabsAttach", "@Build", "@InsID" };
+            object[] values = { infrastructure.Area, infrastructure.Sites, infrastructure.Terr, infrastructure.Halls, infrastructure.Library, infrastructure.LabsAttach, infrastructure.Build, infrastructure.InsID };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeleteInfrastructure(int insID)
+        {
+            string tableName = "Infrastructure";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public void InsertLibrary(Library library)
+        {
+            string tableName = "Library";
+            string columns = "[InsID], [Area], [Capacity], [ArBooks], [EnBooks], [Papers], [EBooks], [ESubscription]";
+
+            string[] parameterNames = { "@InsID", "@Area", "@Capacity", "@ArBooks", "@EnBooks", "@Papers", "@EBooks", "@ESubscription" };
+            object[] values = { library.InsID, library.Area, library.Capacity, library.ArBooks, library.EnBooks, library.Papers, library.EBooks, library.ESubscription };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdateLibrary(Library library)
+        {
+            string tableName = "Library";
+
+            // Columns to update
+            string setValues = "[Area] = @Area, [Capacity] = @Capacity, [ArBooks] = @ArBooks, [EnBooks] = @EnBooks, [Papers] = @Papers, [EBooks] = @EBooks, [ESubscription] = @ESubscription";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = { "@Area", "@Capacity", "@ArBooks", "@EnBooks", "@Papers", "@EBooks", "@ESubscription", "@InsID" };
+            object[] values = { library.Area, library.Capacity, library.ArBooks, library.EnBooks, library.Papers, library.EBooks, library.ESubscription, library.InsID };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeleteLibrary(int insID)
+        {
+            string tableName = "Library";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<Library> GetAllLibraries()
+        {
+            string query = "SELECT [InsID], [Area], [Capacity], [ArBooks], [EnBooks], [Papers], [EBooks], [ESubscription] FROM Library";
+            DataTable resultTable = SelectRecords(query);
+
+            List<Library> libraryList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                int? area = row["Area"] != DBNull.Value ? Convert.ToInt32(row["Area"]) : (int?)null;
+                int? capacity = row["Capacity"] != DBNull.Value ? Convert.ToInt32(row["Capacity"]) : (int?)null;
+                int? arBooks = row["ArBooks"] != DBNull.Value ? Convert.ToInt32(row["ArBooks"]) : (int?)null;
+                int? enBooks = row["EnBooks"] != DBNull.Value ? Convert.ToInt32(row["EnBooks"]) : (int?)null;
+                int? papers = row["Papers"] != DBNull.Value ? Convert.ToInt32(row["Papers"]) : (int?)null;
+                int? eBooks = row["EBooks"] != DBNull.Value ? Convert.ToInt32(row["EBooks"]) : (int?)null;
+                int? eSubscription = row["ESubscription"] != DBNull.Value ? Convert.ToInt32(row["ESubscription"]) : (int?)null;
+
+                libraryList.Add(new Library(insID, area, capacity, arBooks, enBooks, papers, eBooks, eSubscription));
+            }
+
+            return libraryList;
+        }
+        public void InsertPicture(Pictures picture)
+        {
+            string tableName = "Pictures";
+            string columns = "[InsID], [AttachName], [AttachDesc]";
+
+            string[] parameterNames = { "@InsID", "@AttachName", "@AttachDesc" };
+            object[] values = { picture.InsID, picture.AttachName, picture.AttachDesc };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdatePicture(Pictures picture)
+        {
+            string tableName = "Pictures";
+
+            // Columns to update
+            string setValues = "[AttachName] = @AttachName, [AttachDesc] = @AttachDesc";
+
+            // Condition for which record to update (based on AttachID)
+            string condition = "[AttachID] = @AttachID";
+
+            string[] parameterNames = { "@AttachName", "@AttachDesc", "@AttachID" };
+            object[] values = { picture.AttachName, picture.AttachDesc, picture.AttachID };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeletePicture(int attachID)
+        {
+            string tableName = "Pictures";
+
+            // Condition for which record to delete (based on AttachID)
+            string condition = "[AttachID] = @AttachID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<Pictures> GetAllPictures()
+        {
+            string query = "SELECT [InsID], [AttachID], [AttachName], [AttachDesc] FROM Pictures";
+            DataTable resultTable = SelectRecords(query);
+
+            List<Pictures> pictureList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                int attachID = Convert.ToInt32(row["AttachID"]);
+                string attachName = row["AttachName"].ToString();
+                string attachDesc = row["AttachDesc"].ToString();
+
+                pictureList.Add(new Pictures(insID, attachID, attachName, attachDesc));
+            }
+
+            return pictureList;
+        }
+        public void InsertPublicInfo(PublicInfo publicInfo)
+        {
+            string tableName = "PublicInfo";
+            string columns = "[InsID], [InsName], [Provider], [StartDate], [SDateT], [SDateNT], [SupervisorID], [Supervisor], " +
+                             "[PreName], [PreDegree], [PreMajor], [Postal], [Phone], [Fax], [Email], [Website], [Vision], " +
+                             "[Mission], [Goals], [InsValues], [LastEditDate]";
+
+            string[] parameterNames = {
+        "@InsID", "@InsName", "@Provider", "@StartDate", "@SDateT", "@SDateNT", "@SupervisorID", "@Supervisor",
+        "@PreName", "@PreDegree", "@PreMajor", "@Postal", "@Phone", "@Fax", "@Email", "@Website", "@Vision",
+        "@Mission", "@Goals", "@InsValues", "@LastEditDate"
+    };
+
+            object[] values = {
+        publicInfo.InsID, publicInfo.InsName, publicInfo.Provider, publicInfo.StartDate, publicInfo.SDateT,
+        publicInfo.SDateNT, publicInfo.SupervisorID, publicInfo.Supervisor, publicInfo.PreName, publicInfo.PreDegree,
+        publicInfo.PreMajor, publicInfo.Postal, publicInfo.Phone, publicInfo.Fax, publicInfo.Email, publicInfo.Website,
+        publicInfo.Vision, publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate
+    };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdatePublicInfo(PublicInfo publicInfo)
+        {
+            string tableName = "PublicInfo";
+
+            // Columns to update
+            string setValues = "[InsName] = @InsName, [Provider] = @Provider, [StartDate] = @StartDate, [SDateT] = @SDateT, " +
+                               "[SDateNT] = @SDateNT, [SupervisorID] = @SupervisorID, [Supervisor] = @Supervisor, " +
+                               "[PreName] = @PreName, [PreDegree] = @PreDegree, [PreMajor] = @PreMajor, [Postal] = @Postal, " +
+                               "[Phone] = @Phone, [Fax] = @Fax, [Email] = @Email, [Website] = @Website, [Vision] = @Vision, " +
+                               "[Mission] = @Mission, [Goals] = @Goals, [InsValues] = @InsValues, [LastEditDate] = @LastEditDate";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = {
+        "@InsName", "@Provider", "@StartDate", "@SDateT", "@SDateNT", "@SupervisorID", "@Supervisor", "@PreName",
+        "@PreDegree", "@PreMajor", "@Postal", "@Phone", "@Fax", "@Email", "@Website", "@Vision", "@Mission",
+        "@Goals", "@InsValues", "@LastEditDate", "@InsID"
+    };
+
+            object[] values = {
+        publicInfo.InsName, publicInfo.Provider, publicInfo.StartDate, publicInfo.SDateT, publicInfo.SDateNT,
+        publicInfo.SupervisorID, publicInfo.Supervisor, publicInfo.PreName, publicInfo.PreDegree, publicInfo.PreMajor,
+        publicInfo.Postal, publicInfo.Phone, publicInfo.Fax, publicInfo.Email, publicInfo.Website, publicInfo.Vision,
+        publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate, publicInfo.InsID
+    };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeletePublicInfo(int insID)
+        {
+            string tableName = "PublicInfo";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<PublicInfo> GetAllPublicInfo()
+        {
+            string query = "SELECT [InsID], [InsName], [Provider], [StartDate], [SDateT], [SDateNT], [SupervisorID], [Supervisor], " +
+                           "[PreName], [PreDegree], [PreMajor], [Postal], [Phone], [Fax], [Email], [Website], [Vision], " +
+                           "[Mission], [Goals], [InsValues], [LastEditDate] FROM PublicInfo";
+            DataTable resultTable = SelectRecords(query);
+
+            List<PublicInfo> publicInfoList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                string insName = row["InsName"].ToString();
+                string provider = row["Provider"].ToString();
+                string startDate = row["StartDate"].ToString();
+                string sDateT = row["SDateT"].ToString();
+                string sDateNT = row["SDateNT"].ToString();
+                int? supervisorID = row["SupervisorID"] != DBNull.Value ? Convert.ToInt32(row["SupervisorID"]) : null;
+                string supervisor = row["Supervisor"].ToString();
+                string preName = row["PreName"].ToString();
+                string preDegree = row["PreDegree"].ToString();
+                string preMajor = row["PreMajor"].ToString();
+                string postal = row["Postal"].ToString();
+                string phone = row["Phone"].ToString();
+                string fax = row["Fax"].ToString();
+                string email = row["Email"].ToString();
+                string website = row["Website"].ToString();
+                string vision = row["Vision"].ToString();
+                string mission = row["Mission"].ToString();
+                string goals = row["Goals"].ToString();
+                string insValues = row["InsValues"].ToString();
+                string lastEditDate = row["LastEditDate"].ToString();
+
+                publicInfoList.Add(new PublicInfo(insID, insName, provider, startDate, sDateT, sDateNT, supervisorID, supervisor,
+                                                  preName, preDegree, preMajor, postal, phone, fax, email, website, vision,
+                                                  mission, goals, insValues, lastEditDate));
+            }
+
+            return publicInfoList;
+        }
+        public void InsertStudentsAndStuff(StudentsAndStuff studentsAndStuff)
+        {
+            string tableName = "StudentsAndStuff";
+            string columns = "[InsID], [StudentCitizen], [StudentInter], [StudentJordan], [StudentOverall], [StaffProfessor], " +
+                             "[StaffCoProfessor], [StaffAssistantProfessor], [StaffLabSupervisor], [StaffResearcher], " +
+                             "[StaffTeacher], [StaffTeacherAssistant], [StaffOthers]";
+
+            string[] parameterNames = {
+        "@InsID", "@StudentCitizen", "@StudentInter", "@StudentJordan", "@StudentOverall", "@StaffProfessor",
+        "@StaffCoProfessor", "@StaffAssistantProfessor", "@StaffLabSupervisor", "@StaffResearcher", "@StaffTeacher",
+        "@StaffTeacherAssistant", "@StaffOthers"
+    };
+
+            object[] values = {
+        studentsAndStuff.InsID, studentsAndStuff.StudentCitizen, studentsAndStuff.StudentInter, studentsAndStuff.StudentJordan,
+        studentsAndStuff.StudentOverall, studentsAndStuff.StaffProfessor, studentsAndStuff.StaffCoProfessor,
+        studentsAndStuff.StaffAssistantProfessor, studentsAndStuff.StaffLabSupervisor, studentsAndStuff.StaffResearcher,
+        studentsAndStuff.StaffTeacher, studentsAndStuff.StaffTeacherAssistant, studentsAndStuff.StaffOthers
+    };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdateStudentsAndStuff(StudentsAndStuff studentsAndStuff)
+        {
+            string tableName = "StudentsAndStuff";
+
+            // Columns to update
+            string setValues = "[StudentCitizen] = @StudentCitizen, [StudentInter] = @StudentInter, [StudentJordan] = @StudentJordan, " +
+                               "[StudentOverall] = @StudentOverall, [StaffProfessor] = @StaffProfessor, [StaffCoProfessor] = @StaffCoProfessor, " +
+                               "[StaffAssistantProfessor] = @StaffAssistantProfessor, [StaffLabSupervisor] = @StaffLabSupervisor, " +
+                               "[StaffResearcher] = @StaffResearcher, [StaffTeacher] = @StaffTeacher, [StaffTeacherAssistant] = @StaffTeacherAssistant, " +
+                               "[StaffOthers] = @StaffOthers";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = {
+        "@StudentCitizen", "@StudentInter", "@StudentJordan", "@StudentOverall", "@StaffProfessor", "@StaffCoProfessor",
+        "@StaffAssistantProfessor", "@StaffLabSupervisor", "@StaffResearcher", "@StaffTeacher", "@StaffTeacherAssistant",
+        "@StaffOthers", "@InsID"
+    };
+
+            object[] values = {
+        studentsAndStuff.StudentCitizen, studentsAndStuff.StudentInter, studentsAndStuff.StudentJordan, studentsAndStuff.StudentOverall,
+        studentsAndStuff.StaffProfessor, studentsAndStuff.StaffCoProfessor, studentsAndStuff.StaffAssistantProfessor,
+        studentsAndStuff.StaffLabSupervisor, studentsAndStuff.StaffResearcher, studentsAndStuff.StaffTeacher,
+        studentsAndStuff.StaffTeacherAssistant, studentsAndStuff.StaffOthers, studentsAndStuff.InsID
+    };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeleteStudentsAndStuff(int insID)
+        {
+            string tableName = "StudentsAndStuff";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<StudentsAndStuff> GetAllStudentsAndStuff()
+        {
+            string query = "SELECT [InsID], [StudentCitizen], [StudentInter], [StudentJordan], [StudentOverall], [StaffProfessor], " +
+                           "[StaffCoProfessor], [StaffAssistantProfessor], [StaffLabSupervisor], [StaffResearcher], [StaffTeacher], " +
+                           "[StaffTeacherAssistant], [StaffOthers] FROM StudentsAndStuff";
+            DataTable resultTable = SelectRecords(query);
+
+            List<StudentsAndStuff> studentsAndStuffList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                int? studentCitizen = row["StudentCitizen"] != DBNull.Value ? Convert.ToInt32(row["StudentCitizen"]) : null;
+                int? studentInter = row["StudentInter"] != DBNull.Value ? Convert.ToInt32(row["StudentInter"]) : null;
+                int? studentJordan = row["StudentJordan"] != DBNull.Value ? Convert.ToInt32(row["StudentJordan"]) : null;
+                int? studentOverall = row["StudentOverall"] != DBNull.Value ? Convert.ToInt32(row["StudentOverall"]) : null;
+                int? staffProfessor = row["StaffProfessor"] != DBNull.Value ? Convert.ToInt32(row["StaffProfessor"]) : null;
+                int? staffCoProfessor = row["StaffCoProfessor"] != DBNull.Value ? Convert.ToInt32(row["StaffCoProfessor"]) : null;
+                int? staffAssistantProfessor = row["StaffAssistantProfessor"] != DBNull.Value ? Convert.ToInt32(row["StaffAssistantProfessor"]) : null;
+                int? staffLabSupervisor = row["StaffLabSupervisor"] != DBNull.Value ? Convert.ToInt32(row["StaffLabSupervisor"]) : null;
+                int? staffResearcher = row["StaffResearcher"] != DBNull.Value ? Convert.ToInt32(row["StaffResearcher"]) : null;
+                int? staffTeacher = row["StaffTeacher"] != DBNull.Value ? Convert.ToInt32(row["StaffTeacher"]) : null;
+                int? staffTeacherAssistant = row["StaffTeacherAssistant"] != DBNull.Value ? Convert.ToInt32(row["StaffTeacherAssistant"]) : null;
+                int? staffOthers = row["StaffOthers"] != DBNull.Value ? Convert.ToInt32(row["StaffOthers"]) : null;
+
+                studentsAndStuffList.Add(new StudentsAndStuff(insID, studentCitizen, studentInter, studentJordan, studentOverall,
+                                                              staffProfessor, staffCoProfessor, staffAssistantProfessor, staffLabSupervisor,
+                                                              staffResearcher, staffTeacher, staffTeacherAssistant, staffOthers));
+            }
+
+            return studentsAndStuffList;
+        }
+        public void InsertStudyDuration(StudyDuration studyDuration)
+        {
+            string tableName = "StudyDuration";
+            string columns = "[InsID], [DiplomaDegreeMIN], [DiplomaMIN], [BSCDegreeMIN], [BSCMIN], [HigherDiplomaDegreeMIN], " +
+                             "[HigherDiplomaMIN], [MasterDegreeMIN], [MasterMIN], [PhDDegreeMIN], [PhDMIN]";
+
+            string[] parameterNames = {
+        "@InsID", "@DiplomaDegreeMIN", "@DiplomaMIN", "@BSCDegreeMIN", "@BSCMIN", "@HigherDiplomaDegreeMIN",
+        "@HigherDiplomaMIN", "@MasterDegreeMIN", "@MasterMIN", "@PhDDegreeMIN", "@PhDMIN"
+    };
+
+            object[] values = {
+        studyDuration.InsID, studyDuration.DiplomaDegreeMIN, studyDuration.DiplomaMIN, studyDuration.BSCDegreeMIN,
+        studyDuration.BSCMIN, studyDuration.HigherDiplomaDegreeMIN, studyDuration.HigherDiplomaMIN,
+        studyDuration.MasterDegreeMIN, studyDuration.MasterMIN, studyDuration.PhDDegreeMIN, studyDuration.PhDMIN
+    };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdateStudyDuration(StudyDuration studyDuration)
+        {
+            string tableName = "StudyDuration";
+
+            // Columns to update
+            string setValues = "[DiplomaDegreeMIN] = @DiplomaDegreeMIN, [DiplomaMIN] = @DiplomaMIN, [BSCDegreeMIN] = @BSCDegreeMIN, " +
+                               "[BSCMIN] = @BSCMIN, [HigherDiplomaDegreeMIN] = @HigherDiplomaDegreeMIN, [HigherDiplomaMIN] = @HigherDiplomaMIN, " +
+                               "[MasterDegreeMIN] = @MasterDegreeMIN, [MasterMIN] = @MasterMIN, [PhDDegreeMIN] = @PhDDegreeMIN, [PhDMIN] = @PhDMIN";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = {
+        "@DiplomaDegreeMIN", "@DiplomaMIN", "@BSCDegreeMIN", "@BSCMIN", "@HigherDiplomaDegreeMIN", "@HigherDiplomaMIN",
+        "@MasterDegreeMIN", "@MasterMIN", "@PhDDegreeMIN", "@PhDMIN", "@InsID"
+    };
+
+            object[] values = {
+        studyDuration.DiplomaDegreeMIN, studyDuration.DiplomaMIN, studyDuration.BSCDegreeMIN, studyDuration.BSCMIN,
+        studyDuration.HigherDiplomaDegreeMIN, studyDuration.HigherDiplomaMIN, studyDuration.MasterDegreeMIN,
+        studyDuration.MasterMIN, studyDuration.PhDDegreeMIN, studyDuration.PhDMIN, studyDuration.InsID
+    };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeleteStudyDuration(int insID)
+        {
+            string tableName = "StudyDuration";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<StudyDuration> GetAllStudyDurations()
+        {
+            string query = "SELECT [InsID], [DiplomaDegreeMIN], [DiplomaMIN], [BSCDegreeMIN], [BSCMIN], [HigherDiplomaDegreeMIN], " +
+                           "[HigherDiplomaMIN], [MasterDegreeMIN], [MasterMIN], [PhDDegreeMIN], [PhDMIN] FROM StudyDuration";
+            DataTable resultTable = SelectRecords(query);
+
+            List<StudyDuration> studyDurationList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                string diplomaDegreeMIN = row["DiplomaDegreeMIN"].ToString();
+                string diplomaMIN = row["DiplomaMIN"].ToString();
+                string bscDegreeMIN = row["BSCDegreeMIN"].ToString();
+                string bscMIN = row["BSCMIN"].ToString();
+                string higherDiplomaDegreeMIN = row["HigherDiplomaDegreeMIN"].ToString();
+                string higherDiplomaMIN = row["HigherDiplomaMIN"].ToString();
+                string masterDegreeMIN = row["MasterDegreeMIN"].ToString();
+                string masterMIN = row["MasterMIN"].ToString();
+                string phdDegreeMIN = row["PhDDegreeMIN"].ToString();
+                string phdMIN = row["PhDMIN"].ToString();
+
+                studyDurationList.Add(new StudyDuration(insID, diplomaDegreeMIN, diplomaMIN, bscDegreeMIN, bscMIN,
+                                                        higherDiplomaDegreeMIN, higherDiplomaMIN, masterDegreeMIN, masterMIN,
+                                                        phdDegreeMIN, phdMIN));
+            }
+
+            return studyDurationList;
+        }
+        public void InsertUser(Users user)
+        {
+            string tableName = "Users";
+            string columns = "[InsID], [InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified]";
+
+            string[] parameterNames = {
+        "@InsID", "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified"
+    };
+
+            object[] values = {
+        user.InsID, user.InsName, user.InsCountry, user.Email, user.Password, user.VerificationCode, user.Verified
+    };
+
+            // Call the InsertRecord method of the DatabaseHandler
+            InsertRecord(tableName, columns, parameterNames, values);
+        }
+        public void UpdateUser(Users user)
+        {
+            string tableName = "Users";
+
+            // Columns to update
+            string setValues = "[InsName] = @InsName, [InsCountry] = @InsCountry, [Email] = @Email, [Password] = @Password, " +
+                               "[VerificationCode] = @VerificationCode, [Verified] = @Verified";
+
+            // Condition for which record to update (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            string[] parameterNames = {
+        "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified", "@InsID"
+    };
+
+            object[] values = {
+        user.InsName, user.InsCountry, user.Email, user.Password, user.VerificationCode, user.Verified, user.InsID
+    };
+
+            // Call the UpdateRecord method of the DatabaseHandler
+            UpdateRecord(tableName, setValues, condition, parameterNames, values);
+        }
+        public void DeleteUser(int insID)
+        {
+            string tableName = "Users";
+
+            // Condition for which record to delete (based on InsID)
+            string condition = "[InsID] = @InsID";
+
+            // Call the DeleteRecord method of the DatabaseHandler
+            DeleteRecord(tableName, condition);
+        }
+        public List<Users> GetAllUsers()
+        {
+            string query = "SELECT [InsID], [InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified] FROM Users";
+            DataTable resultTable = SelectRecords(query);
+
+            List<Users> usersList = new();
+
+            foreach (DataRow row in resultTable.Rows)
+            {
+                int insID = Convert.ToInt32(row["InsID"]);
+                string insName = row["InsName"].ToString();
+                string insCountry = row["InsCountry"].ToString();
+                string email = row["Email"].ToString();
+                string password = row["Password"].ToString();
+                string verificationCode = row["VerificationCode"].ToString();
+                int? verified = row["Verified"] != DBNull.Value ? Convert.ToInt32(row["Verified"]) : (int?)null;
+
+                usersList.Add(new Users(insID, insName, insCountry, email, password, verificationCode, verified));
+            }
+
+            return usersList;
+        }
 
     }
 }
