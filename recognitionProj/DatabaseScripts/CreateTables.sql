@@ -166,22 +166,24 @@ CREATE TABLE [dbo].[StudyDuration](
 	[MasterMIN] [nvarchar](50) NULL,
 	[PhD_DegreeMIN] [nvarchar](50) NULL,
 	[PhD_MIN] [nvarchar](50) NULL
+	);
 CREATE TABLE [dbo].[Specializations](
     [InsID] [int] NOT NULL ,  -- معرف الكيان
     [Type] [nvarchar](50) NOT NULL, -- نوع الكيان
     [NumStu] [int] NOT NULL, -- عدد الطلاب
-    [NumFreeTeachers] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)
-    [NumPartTimeTeachers] [int] NOT NULL, -- عدد المدرسين غير المتفرغين (Part-Time Teachers)
+    [NumFreeProf] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)
+    [NumPartTimeProf] [int] NOT NULL, -- عدد المدرسين غير المتفرغين (Part-Time Teachers)
     [NumProf] [int] NOT NULL, -- عدد الأساتذة (Professors)
     [NumAssociative] [int] NOT NULL, -- عدد الأساتذة المشاركين (Associate Professors)
     [NumAssistant] [int] NOT NULL, -- عدد الأساتذة المساعدين (Assistant Professors)
-    [NumMusharek] [int] NOT NULL, -- عدد المشاركين (Musharek Professors)
-    [NumMusa3ed] [int] NOT NULL, -- عدد المساعدين (Musa3ed Professors)
+    --[NumMusharek] [int] NOT NULL, -- عدد المشاركين (Musharek Professors)
+    --[NumMusa3ed] [int] NOT NULL, -- عدد المساعدين (Musa3ed Professors)
     [NumberLecturers] [int] NOT NULL, -- عدد المدرسين (Lecturers)
     [NumAssisLecturer] [int] NOT NULL, -- عدد المدرسين المساعدين (Assistant Lecturers)
     [NumOtherTeachers] [int] NOT NULL, -- عدد المدرسين الآخرين (Other Teachers)
     [SpecAttachName] [nvarchar](100) NOT NULL, -- اسم المرفق
-    [SpecAttachDesc] [nvarchar](100) NOT NULL -- وصف المرفق
+    [SpecAttachDesc] [nvarchar](100) NOT NULL, -- وصف المرفق
+	[Color] [int] NOT NULL, -- red for no, orange for partial, green for full
 );
 
 CREATE TABLE [dbo].[ExcelAttach](

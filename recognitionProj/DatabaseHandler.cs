@@ -244,21 +244,21 @@ namespace recognitionProj
         public void InsertSpecialization(Specialization specialization)
         {
             string tableName = "Specializations";
-            string columns = "[Type], [NumStu], [NumFreeTeachers], [NumPartTimeTeachers], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc]";
+            string columns = "[Type], [NumStu], [NumFreeProf], [NumPartTimeProf], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color]";
 
             string[] parameterNames = {
-                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf",//TODO RENAME TEACHERS TO PROFS
-                "@NumAssociative", "@NumAssistant", "@NumMusharek", "@NumMusa3ed",
+                "@Type", "@NumStu", "@NumFreeProf", "@NumPartTimeProf", "@NumProf",//
+                "@NumAssociative", "@NumAssistant", 
                 "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers",
-                "@SpecAttachName", "@SpecAttachDesc"
+                "@SpecAttachName", "@SpecAttachDesc", "@Color"
             };
 
             object[] values = {
-                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers,//TODO RENAME TEACHERS TO PROFS
-                specialization.NumPartTimeTeachers, specialization.NumProf, specialization.NumAssociative,
-                specialization.NumAssistant, specialization.NumMusharek, specialization.NumMusa3ed,
+                specialization.Type, specialization.NumStu, specialization.NumFreeProf,//
+                specialization.NumPartTimeProf, specialization.NumProf, specialization.NumAssociative,
+                specialization.NumAssistant, 
                 specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
-                specialization.SpecAttachName, specialization.SpecAttachDesc
+                specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.Color
             };
 
             InsertRecord(tableName, columns, parameterNames, values);
@@ -281,18 +281,19 @@ namespace recognitionProj
                     insId: int.Parse(row["InsID"].ToString()),
                     type: row["Type"].ToString(),
                     numStu: int.Parse(row["NumStu"].ToString()),
-                    numFreeTeachers: int.Parse(row["NumFreeTeachers"].ToString()),//TODO RENAME TEACHERS TO PROFS
-                    numPartTimeTeachers: int.Parse(row["NumPartTimeTeachers"].ToString()),//TODO RENAME TEACHERS TO PROFS
+                    numFreeProf: int.Parse(row["NumFreeProf"].ToString()),//
+                    numPartTimeProf: int.Parse(row["NumPartTimeProf"].ToString()),//
                     numProf: int.Parse(row["NumProf"].ToString()),
                     numAssociative: int.Parse(row["NumAssociative"].ToString()),
                     numAssistant: int.Parse(row["NumAssistant"].ToString()),
-                    numMusharek: int.Parse(row["NumMusharek"].ToString()),
-                    numMusa3ed: int.Parse(row["NumMusa3ed"].ToString()),
+                    //numMusharek: int.Parse(row["NumMusharek"].ToString()),
+                    //numMusa3ed: int.Parse(row["NumMusa3ed"].ToString()),
                     numberLecturers: int.Parse(row["NumberLecturers"].ToString()),
                     numAssisLecturer: int.Parse(row["NumAssisLecturer"].ToString()),
                     numOtherTeachers: int.Parse(row["NumOtherTeachers"].ToString()),
                     specAttachName: row["SpecAttachName"].ToString(),
                     specAttachDesc: row["SpecAttachDesc"].ToString()
+                    color: int.Parse(row["Color"].ToString())
                 );
             }
             else
@@ -305,29 +306,29 @@ namespace recognitionProj
 
         // Update specialization record
         public void UpdateSpecialization(Specialization specialization)
-        {//TODO RENAME TEACHERS TO PROFS
-            string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
-                "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
-                "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
-                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc WHERE [InsID] = @InsID";
-            //TODO RENAME TEACHERS TO PROFS
+        {//
+            string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu, [NumFreeProf] = @NumFreeProf, " +
+                "[NumPartTimeProf] = @NumPartTimeProf, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+                "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
+                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc , [Color] = @Color WHERE [InsID] = @InsID";
+            //
             string[] parameterNames = {
-                "@Type", "@NumStu", "@NumFreeTeachers", "@NumPartTimeTeachers", "@NumProf", "@NumAssociative", "@NumAssistant",
-                "@NumMusharek", "@NumMusa3ed", "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers", "@SpecAttachName",
-                "@SpecAttachDesc", "@InsID"
+                "@Type", "@NumStu", "@NumFreeProf", "@NumPartTimeProf", "@NumProf", "@NumAssociative", "@NumAssistant",
+                 "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers", "@SpecAttachName",
+                "@SpecAttachDesc", "@InsID", "@Color"
             };
-            //TODO RENAME TEACHERS TO PROFS
+            //
             object[] values = {
-                specialization.Type, specialization.NumStu, specialization.NumFreeTeachers, specialization.NumPartTimeTeachers,
-                specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant, specialization.NumMusharek,
-                specialization.NumMusa3ed, specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
-                specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.InsID
+                specialization.Type, specialization.NumStu, specialization.NumFreeProf, specialization.NumPartTimeProf,
+                specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant,
+                specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
+                specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.InsID, specialization.Color
             };
-            //TODO RENAME TEACHERS TO PROFS
-            UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu, [NumFreeTeachers] = @NumFreeTeachers, " +
-                "[NumPartTimeTeachers] = @NumPartTimeTeachers, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
-                "[NumMusharek] = @NumMusharek, [NumMusa3ed] = @NumMusa3ed, [NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
-                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc", "[InsID] = @InsID", parameterNames, values);
+            //
+            UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu, [NumFreeProf] = @NumFreeProf, " +
+                "[NumPartTimeProf] = @NumPartTimeProf, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+                "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
+                "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc,[Color]=@Color", "[InsID] = @InsID", parameterNames, values);
         }
 
         // Delete specialization record by InsID

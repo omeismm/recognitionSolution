@@ -82,6 +82,7 @@ public class Verifier
 
     }
     //these functions will be used inside aticle 4 to calculate the ratios
+    //todo make them return 0 1 or 2 based on the color . not boolean
     public bool ScientificBachelorRatio()//todo (1:25)//page 11
     {
         int doctorates;
