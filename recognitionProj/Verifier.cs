@@ -83,7 +83,7 @@ public class Verifier
     }
     //these functions will be used inside aticle 4 to calculate the ratios
     //todo make them return 0 1 or 2 based on the color . not boolean
-    public bool ScientificBachelorRatio()//todo (1:25)//page 11
+    public void ScientificBachelorRatio()//todo (1:25)//page 11
     {
         int doctorates;
         int masters;
@@ -94,41 +94,50 @@ public class Verifier
             {
                 doctorates = 0;
                 masters = 0;
-                doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek + spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
+                doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek + spec.NumOfMusa3ed + spec.NumberLecturers;//lecturers must be full time
                 x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
                 //todo more math
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
         }
-        return true;
+       
     }
 
-    public bool HumanitarianBachelorRatio()//todo (1:35)
+    public void HumanitarianBachelorRatio()//todo (1:35)
     {
         foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Bachelor")
             {
                 //todo math
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
         }
-        return true;
+        
     }
 
-    public bool HumnamitarianPracticalBachelorRatio()//todo (1:25)
+    public void HumnamitarianPracticalBachelorRatio()//todo (1:25)
     {
         foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Practical Bachelor")
             {
                 //todo math
-                    
-                }
+
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
-        return true;
+            }
+     
     }
         
 
-    public bool ScientificPracticalBachelorRatio()//todo (1:20)
+    public void ScientificPracticalBachelorRatio()//todo (1:20)
     {
         int doctorates;
     int masters;
@@ -139,18 +148,20 @@ public class Verifier
             {
             doctorates = 0;
             masters = 0;
-            doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberOfLecturers;//lecturers must be full time
+            doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberLecturers;//lecturers must be full time
             masters = spec.NumOfMudaresMusa3ed + spec.NumOfMudares;
             x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + Math.Floor((doctorates + masters) / 2);
-            //i cannot unterstand the handwriting after this point
+                //i cannot unterstand the handwriting after this point
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
 
     }
 
-        return true;
     }
 
-    public bool HighDiplomaRatio() //todo (1:20) //page 13 // todo change from boolean to green orange red
+    public void HighDiplomaRatio() //todo (1:20) //page 13 // todo change from boolean to green orange red
     {
         foreach (Specialization spec in _uni.Specializations)
         {
@@ -160,7 +171,8 @@ public class Verifier
 
                 if (totalStaff == 0)
                 {
-                    return false; // No staff to calculate ratio
+                    spec.Color = 0; // No staff to calculate ratio
+                    return; //break out of function
                 }
 
                 // Calculate ratios
@@ -170,22 +182,35 @@ public class Verifier
                 // Ensure OstadhMusharek or Ostadh is at least 25% and OstadhMusa3ed is at most 75%
                 if (ostadhMusharekRatio < 0.25 || ostadhMusa3edRatio > 0.75)
                 {
-                    return false; // Violates the ratio conditions
+                    spec.Color = 0; // Violates the ratio conditions
+                    return; //break out of function
                 }
                 else
                 {
-                    if (spec.NumStu / totalStaff > 20)
+                    float studentToStaffRatio = (float)spec.NumStu / totalStaff;
+                    if (studentToStaffRatio > 20)
                     {
-                        return false; // Violates the student to staff ratio
+                        if (studentToStaffRatio <= 22) // lenient by 10%
+                        {
+                            spec.Color = 1; // Close to meeting the ratio
+                            return;
+                        }
+                        else
+                        {
+                            spec.Color = 0; // Violates the student to staff ratio
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        spec.Color = 2; // Meets the ratio conditions
                     }
                 }
             }
-
         }
-        return true; // All specializations meet the ratio requirements
     }
     //todo:btw for the masters, the pdf does not seperate between the scientific and humanitarian masters
-    public bool ScientificMastersRatio() //todo (1:15)//page 13
+    public void ScientificMastersRatio() //todo (1:15)//page 13
     {
         foreach (Specialization spec in _uni.Specializations)
         {
@@ -196,7 +221,8 @@ public class Verifier
 
                 if (totalStaff == 0)
                 {
-                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                    spec.Color = 0; // Avoid division by zero and ensure there's staff to calculate ratios
+                    return; //break out of function
                 }
 
                 // Calculate percentages
@@ -211,16 +237,22 @@ public class Verifier
 
                 if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
                 {
-                    return false; // Ratio violation
+                    spec.Color=0; // Ratio violation
+                    return; //break out of function
+                }
+                else
+                {   //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
+                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
                 }
             }
         }
 
-        return true; // All specializations meet the required ratios
+        
     }
 
 
-    public bool ScientificPracticalMastersRatio()//todo (1:15)//page 13
+    public void ScientificPracticalMastersRatio()//todo (1:15)//page 13
     {
         foreach(Specialization spec in _uni.Specializations)
         {
@@ -231,7 +263,8 @@ public class Verifier
 
                 if (totalStaff == 0)
                 {
-                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                    spec.Color = 0; // Avoid division by zero and ensure there's staff to calculate ratios
+                    return; //break out of function
                 }
 
                 // Calculate percentages
@@ -246,14 +279,20 @@ public class Verifier
 
                 if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
                 {
-                    return false; // Ratio violation
+                    spec.Color=0; // Ratio violation
+                }
+                else
+                {
+                    //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
+                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
                 }
             }
         }
-        return true;
+    
     }
 
-    public bool HumanitarianMastersRatio()//todo (1:20)//page 13
+    public void HumanitarianMastersRatio()//todo (1:20)//page 13
     {
         foreach(Specialization spec in _uni.Specializations)
         {
@@ -264,7 +303,8 @@ public class Verifier
 
                 if (totalStaff == 0)
                 {
-                    return false; // Avoid division by zero and ensure there's staff to calculate ratios
+                    spec.Color=0; // Avoid division by zero and ensure there's staff to calculate ratios
+                    return; //break out of function
                 }
 
                 // Calculate percentages
@@ -279,38 +319,51 @@ public class Verifier
 
                 if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
                 {
-                    return false; // Ratio violation
+                    spec.Color=0; // Ratio violation
                 }
+                else
+                {
+                    //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
+                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
+                }
+
             }
         }
-        return true;
+        
     }
     
-    public bool MainMedicalRatio()//todo (1:25)
+    public void MainMedicalRatio()//todo (1:25)
     {
     foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Main Medical")
             {
                 //todo math
+
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
         }
-        return true;
+        
     }
 
-    public bool ResidencyRatio()//todo (1:8)
+    public void ResidencyRatio()//todo (1:8)
     {
     foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Residency")
             {
-                //todo math
+                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
         }
-        return true;
+        
     }
 
-    public bool DoctorateRatio() // todo(1:10) ratio // page 13
+    public void DoctorateRatio() // todo(1:10) ratio // page 13
     {
         foreach (Specialization spec in _uni.Specializations)
         {
@@ -321,7 +374,8 @@ public class Verifier
 
                 if (totalStaff == 0)
                 {
-                    return false; // If no staff, ratio can't be met
+                    spec.Color = 0; // If no staff, ratio can't be met
+                    return; //break out of function
                 }
 
                 // Calculate the minimum and maximum limits based on ratios
@@ -331,26 +385,32 @@ public class Verifier
                 // Adjust NumOfOstadh to meet the minimum required
                 if (spec.NumOfOstadh < minNumOfOstadh)
                 {
-                    return false; // Not enough NumOfOstadh to meet the minimum requirement
+                    spec.Color = 0; // Not enough NumOfOstadh to meet the minimum requirement
+                    return;
                 }
 
                 // Adjust NumOfOstadhMusa3ed to meet the maximum allowed
                 if (spec.NumOfOstadhMusa3ed > maxNumOfOstadhMusa3ed)
                 {
-                    return false; // Too many NumOfOstadhMusa3ed compared to the allowed maximum
+                    spec.Color = 0; // Too many NumOfOstadhMusa3ed compared to the allowed maximum
+                    return;
                 }
 
                 // Calculate the remaining staff that should be NumOfOstadhMusharek
                 int remainingStaff = totalStaff - spec.NumOfOstadh - spec.NumOfOstadhMusa3ed;
                 if (remainingStaff != spec.NumOfOstadhMusharek)
                 {
-                    return false; // Remaining staff doesn't match the expected NumOfOstadhMusharek count
+                    spec.Color = 0; // Remaining staff doesn't match the expected NumOfOstadhMusharek count
+                    return;
                 }
+                //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
+                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
+                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
+
         }
 
-        // If all Doctorate specializations pass the checks, return true
-        return true;
+        
     }
 
 
