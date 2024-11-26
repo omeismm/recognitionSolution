@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Metrics;
 using static System.Formats.Asn1.AsnWriter;
 using System.Reflection;
@@ -90,16 +90,21 @@ public class Verifier
         float x;
         foreach (Specialization spec in _uni.Specializations)
         {
-            if (spec.Type != "Scientific Bachelor")
+            if (spec.Type == "Scientific Bachelor")
             {
                 doctorates = 0;
-                masters = 0;
-                doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek + spec.NumOfMusa3ed + spec.NumberLecturers;//lecturers must be full time
+                
+                
+               doctorates = /*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time
                 x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
-                //todo more math
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+                if (spec.NumStu / x >= 1 / 25)//this color is green, meaning the specialization meets the ratio
+                    spec.Color = 2;
+                else if (spec.NumStu / x >= 1 / (25+0.2*25))//this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 1;
+                else 
+                    spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
+                
+                
             }
         }
        
@@ -107,14 +112,22 @@ public class Verifier
 
     public void HumanitarianBachelorRatio()//todo (1:35)
     {
-        foreach(Specialization spec in _uni.Specializations)
+        int doctorates;
+        float x;
+        foreach (Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Bachelor")
             {
-                //todo math
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+                doctorates = 0;
+                doctorates = /*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time
+                x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
+
+                if (spec.NumStu / x >= 1 / 35)//this color is green, meaning the specialization meets the ratio
+                    spec.Color = 2;
+                else if (spec.NumStu / x >= 1 / (35 + 0.2 * 35))//this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 1;
+                else
+                    spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
         }
         
@@ -122,40 +135,59 @@ public class Verifier
 
     public void HumnamitarianPracticalBachelorRatio()//todo (1:25)
     {
-        foreach(Specialization spec in _uni.Specializations)
+        double doctorates;
+        double masters;
+        double x;
+        double overtime;
+        foreach (Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Practical Bachelor")
             {
-                //todo math
-
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+                doctorates = 0;
+                masters = 0;
+                doctorates =/*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;
+                masters = spec.NumberLecturers + spec.NumAssisLecturer;
+                overtime = Math.Min(doctorates, Math.Floor((doctorates + masters) / 2));
+                x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + overtime;
+                //i cannot unterstand the handwriting after this point
+                if (spec.NumStu / x >= 1 / 25)//this color is green, meaning the specialization meets the ratio
+                    spec.Color = 2;
+                else if (spec.NumStu / x >= 1 / (25 + 0.2 * 25))//this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 1;
+                else
+                    spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
             }
      
     }
         
-
+    
     public void ScientificPracticalBachelorRatio()//todo (1:20)
     {
-        int doctorates;
-    int masters;
-        float x;
+        double doctorates;
+        double masters;
+        double x;
+        double overtime;
         foreach(Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Scientific Practical Bachelor")
             {
             doctorates = 0;
             masters = 0;
-            doctorates = doctorates + spec.NumOfOstadh + spec.NumOfMusharek +spec.NumOfMusa3ed + spec.NumberLecturers;//lecturers must be full time
-            masters = spec.NumOfMudaresMusa3ed + spec.NumOfMudares;
-            x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + Math.Floor((doctorates + masters) / 2);
+                doctorates =/*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;
+            masters = spec.NumberLecturers + spec.NumAssisLecturer;
+                overtime = Math.Min(doctorates ,Math.Floor((doctorates + masters) / 2) );
+            x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + overtime;
                 //i cannot unterstand the handwriting after this point
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+                if (spec.NumStu / x >= 1 / 20)//this color is green, meaning the specialization meets the ratio
+                    spec.Color = 2;
+                else if (spec.NumStu / x >= 1 / (20 + 0.2 * 20))//this color is orange, meaning the specialization is close to meeting the ratio
+                    spec.Color = 1;
+                else
+                    spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
+
+        }
 
     }
 
