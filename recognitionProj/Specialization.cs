@@ -19,12 +19,15 @@
         private string _specAttachName; // اسم المرفق
         private string _specAttachDesc; // وصف المرفق
         private int _color;
+        private int _numPhdHolders;
+        private int? _practicalHours;
+        private int? _theoreticalHours;
 
         // Constructor
         public Specialization(int insId, string type, int numStu, int numFreeProf, int numPartTimeProf,
                               int numProf, int numAssociative, int numAssistant, /*int numMusharek, int numMusa3ed*/
                               int numberLecturers, int numAssisLecturer, int numOtherTeachers,
-                              string specAttachName, string specAttachDesc,int color)
+                              string specAttachName, string specAttachDesc,int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
         {
             _insId = insId;
             _type = type;
@@ -42,6 +45,9 @@
             _specAttachName = specAttachName;
             _specAttachDesc = specAttachDesc;
             _color = color;
+            _numPhdHolders = numPhdHolders;
+            _practicalHours = practicalHours;
+            _theoreticalHours = theoreticalHours;
         }
 
         // Properties
@@ -61,13 +67,17 @@
         public string SpecAttachName { get => _specAttachName; set => _specAttachName = value; } // اسم المرفق
         public string SpecAttachDesc { get => _specAttachDesc; set => _specAttachDesc = value; } // وصف المرفق
 
+        public int NumPhdHolders { get => _numPhdHolders; set => _numPhdHolders = value; }
+        public int? PracticalHours { get => _practicalHours; set => _practicalHours = value; }
+
+        public int? TheoreticalHours { get => _theoreticalHours; set => _theoreticalHours = value; }
         public int Color { get => _color; set => _color = value; }
         // ToString method for debugging or display purposes
         public override string ToString()
         {
             return $"{_type} {_numStu} {_numFreeProf} {_numPartTimeProf} {_numProf} {_numAssociative} " +
                    $"{_numAssistant}  {_numberLecturers} {_numAssisLecturer} " +
-                   $"{_numOtherTeachers} {_specAttachName} {_specAttachDesc} {_color}";
+                   $"{_numOtherTeachers} {_specAttachName} {_specAttachDesc} {_color} {_numPhdHolders} {_practicalHours} {_theoreticalHours}";
         }
     }
 }

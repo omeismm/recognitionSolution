@@ -81,6 +81,31 @@ public class Verifier
         set => _verified = value;
 
     }
+    public int PracticalHoursRatioColor(Specialization spec)
+    {
+        if (spec.PracticalHours == null || spec.TheoreticalHours == null)
+        {
+            return 0; // No practical or theoretical hours specified
+        }
+
+        double P = spec.PracticalHours ?? 0;
+        double T = spec.TheoreticalHours ?? 0;
+        double requiredPracticalHours = T; // To achieve a 50% practical ratio
+
+        if (P >= requiredPracticalHours)
+        {
+            return 2; // Practical hours meet or exceed 50% ratio
+        }
+        else if (P >= 0.8 * requiredPracticalHours)
+        {
+            return 1; // Practical hours are within 20% of required amount
+        }
+        else
+        {
+            return 0; // Does not meet criteria
+        }
+    }
+
     //these functions will be used inside aticle 4 to calculate the ratios
     //todo make them return 0 1 or 2 based on the color . not boolean
     public void ScientificBachelorRatio()//todo (1:25)//page 11
@@ -139,10 +164,13 @@ public class Verifier
         double masters;
         double x;
         double overtime;
+        
         foreach (Specialization spec in _uni.Specializations)
         {
             if (spec.Type == "Humanitarian Practical Bachelor")
             {
+                //todo, use PracticalHoursRatioColor
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
                 doctorates = 0;
                 masters = 0;
                 doctorates =/*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;
@@ -172,7 +200,9 @@ public class Verifier
         {
             if (spec.Type == "Scientific Practical Bachelor")
             {
-            doctorates = 0;
+                //todo, use PracticalHoursRatioColor
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
+                doctorates = 0;
             masters = 0;
                 doctorates =/*freephHolders + */ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;
             masters = spec.NumberLecturers + spec.NumAssisLecturer;
@@ -191,7 +221,7 @@ public class Verifier
 
     }
 
-    }
+    
 
     public void HighDiplomaRatio() //todo (1:20) //page 13 // todo change from boolean to green orange red
     {
@@ -222,7 +252,7 @@ public class Verifier
                     float studentToStaffRatio = (float)spec.NumStu / totalStaff;
                     if (studentToStaffRatio > 20)
                     {
-                        if (studentToStaffRatio <= 22) // lenient by 10%
+                        if (studentToStaffRatio <= 24) // lenient by 20%
                         {
                             spec.Color = 1; // Close to meeting the ratio
                             return;
@@ -290,6 +320,8 @@ public class Verifier
         {
             if (spec.Type == "Scientific Practical Masters")
             {
+                //todo, use PracticalHoursRatioColor
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
                 // Calculate total staff
                 int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
 

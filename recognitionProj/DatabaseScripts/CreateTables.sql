@@ -184,6 +184,9 @@ CREATE TABLE [dbo].[Specializations](
     [SpecAttachName] [nvarchar](100) NOT NULL, -- اسم المرفق
     [SpecAttachDesc] [nvarchar](100) NOT NULL, -- وصف المرفق
 	[Color] [int] NOT NULL, -- red for no, orange for partial, green for full
+	[NumPhdHolders] [int] NOT NULL, -- عدد حملة الدكتوراه
+	[PracticalHours] [int] NOT NULL, -- عدد ساعات التدريب العملي
+	[TheoreticalHours] [int] NOT NULL, -- عدد ساعات التدريس النظري
 );
 
 CREATE TABLE [dbo].[ExcelAttach](
