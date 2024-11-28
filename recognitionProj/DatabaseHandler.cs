@@ -1061,15 +1061,22 @@ namespace recognitionProj
         public void InsertUser(Users user)
         {
             string tableName = "Users";
-            string columns = "[InsID], [InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified]";
+            string columns = "[InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified], [Clearance], [Speciality]";
 
             string[] parameterNames = {
-        "@InsID", "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified"
-    };
+                "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified", "@Clearance", "@Speciality"
+            };
 
             object[] values = {
-        user.InsID, user.InsName, user.InsCountry, user.Email, user.Password, user.VerificationCode, user.Verified
-    };
+                user.InsName ?? (object)DBNull.Value,
+                user.InsCountry ?? (object)DBNull.Value,
+                user.Email ?? (object)DBNull.Value,
+                user.Password ?? (object)DBNull.Value,
+                user.VerificationCode ?? (object)DBNull.Value,
+                user.Verified ?? (object)DBNull.Value,
+                user.Clearance,
+                user.Speciality ?? (object)DBNull.Value
+            };
 
             // Call the InsertRecord method of the DatabaseHandler
             InsertRecord(tableName, columns, parameterNames, values);
@@ -1080,18 +1087,26 @@ namespace recognitionProj
 
             // Columns to update
             string setValues = "[InsName] = @InsName, [InsCountry] = @InsCountry, [Email] = @Email, [Password] = @Password, " +
-                               "[VerificationCode] = @VerificationCode, [Verified] = @Verified";
+                               "[VerificationCode] = @VerificationCode, [Verified] = @Verified , [Clearance] = @Clearance, [Speciality] = @Speciality";
 
             // Condition for which record to update (based on InsID)
             string condition = "[InsID] = @InsID";
 
             string[] parameterNames = {
-        "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified", "@InsID"
-    };
+                "@InsName", "@InsCountry", "@Email", "@Password", "@VerificationCode", "@Verified", "@Clearance", "@Speciality", "@InsID"
+            };
 
             object[] values = {
-        user.InsName, user.InsCountry, user.Email, user.Password, user.VerificationCode, user.Verified, user.InsID
-    };
+                user.InsName ?? (object)DBNull.Value,
+                user.InsCountry ?? (object)DBNull.Value,
+                user.Email ?? (object)DBNull.Value,
+                user.Password ?? (object)DBNull.Value,
+                user.VerificationCode ?? (object)DBNull.Value,
+                user.Verified ?? (object)DBNull.Value,
+                user.Clearance,
+                user.Speciality ?? (object)DBNull.Value,
+                user.InsID
+            };
 
             // Call the UpdateRecord method of the DatabaseHandler
             UpdateRecord(tableName, setValues, condition, parameterNames, values);
@@ -1108,7 +1123,7 @@ namespace recognitionProj
         }
         public List<Users> GetAllUsers()
         {
-            string query = "SELECT [InsID], [InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified] FROM Users";
+            string query = "SELECT [InsID], [InsName], [InsCountry], [Email], [Password], [VerificationCode], [Verified], [Clearance], [Speciality] FROM Users";
             DataTable resultTable = SelectRecords(query);
 
             List<Users> usersList = new();
@@ -1116,14 +1131,16 @@ namespace recognitionProj
             foreach (DataRow row in resultTable.Rows)
             {
                 int insID = Convert.ToInt32(row["InsID"]);
-                string insName = row["InsName"].ToString();
-                string insCountry = row["InsCountry"].ToString();
-                string email = row["Email"].ToString();
-                string password = row["Password"].ToString();
-                string verificationCode = row["VerificationCode"].ToString();
+                string insName = row["InsName"]?.ToString() ?? string.Empty;
+                string insCountry = row["InsCountry"]?.ToString() ?? string.Empty;
+                string email = row["Email"]?.ToString() ?? string.Empty;
+                string password = row["Password"]?.ToString() ?? string.Empty;
+                string verificationCode = row["VerificationCode"]?.ToString() ?? string.Empty;
                 int? verified = row["Verified"] != DBNull.Value ? Convert.ToInt32(row["Verified"]) : (int?)null;
+                int clearance = row["Clearance"] != DBNull.Value ? Convert.ToInt32(row["Clearance"]) : 0;
+                string speciality = row["Speciality"]?.ToString() ?? string.Empty;
 
-                usersList.Add(new Users(insID, insName, insCountry, email, password, verificationCode, verified));
+                usersList.Add(new Users(insID, insName, insCountry, email, password, verificationCode, verified, clearance, speciality));
             }
 
             return usersList;

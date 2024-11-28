@@ -127,6 +127,8 @@ CREATE TABLE [dbo].[USERS](
 	[Password] [nvarchar](50) NULL,
 	[VerificationCode] [nvarchar](50) NULL,
 	[Verified] [int] NULL,
+	[Clearance] [int] NOT NULL,
+	[Speciality] [nvarchar](50) NULL,
  CONSTRAINT [PK_USERS] PRIMARY KEY CLUSTERED 
 (
 	[InsID] ASC

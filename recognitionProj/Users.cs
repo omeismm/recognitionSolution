@@ -11,9 +11,11 @@ namespace recognitionProj
         private string _password;
         private string _verificationCode;
         private int? _verified;
+        private int _clearance;//0 for university, 1 for supervisor, 2 for master admin
+        private string _speciality;//to distribute the supervisors to the universities
 
         // Constructor
-        public Users(int insID, string insName, string insCountry, string email, string password, string verificationCode, int? verified)
+        public Users(int insID, string insName, string insCountry, string email, string password, string verificationCode, int? verified, int clearance, string speciality)
         {
             _insID = insID;
             _insName = insName;
@@ -22,7 +24,10 @@ namespace recognitionProj
             _password = password;
             _verificationCode = verificationCode;
             _verified = verified;
+            _clearance = clearance;
+            _speciality = speciality;
         }
+        
 
         // Properties
         public int InsID
@@ -65,6 +70,16 @@ namespace recognitionProj
         {
             get => _verified;
             set => _verified = value;
+        }
+        public int Clearance
+        {
+            get => _clearance;
+            set => _clearance = value;
+        }
+        public string Speciality
+        {
+            get => _speciality;
+            set => _speciality = value;
         }
     }
 }
