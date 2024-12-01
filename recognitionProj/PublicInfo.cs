@@ -23,11 +23,63 @@
         private string _goals;
         private string _insValues;
         private string _lastEditDate;
+        //from here on are the new fields that are based on the university class but
+        //todo make sure to add the new fields to the db handler and the controller and the database
+        private DateOnly _entryDate;
+
+        public DateOnly EntryDate
+        {
+            get => _entryDate;
+            set => _entryDate = value;
+        }
+        private string _country;
+
+        public string Country
+        {
+            get => _country;
+            set => _country = value;
+        }
+        private string _city;
+
+        public string City
+        {
+            get => _city;
+            set => _city = value;
+        }
+        private string _address;
+
+        public string Address
+        {
+            get => _address;
+            set => _address = value;
+        }
+        private DateOnly _creationDate;
+
+        public DateOnly CreationDate
+        {
+            get => _creationDate;
+            set => _creationDate = value;
+        }
+        private DateOnly _studentAcceptanceDate;
+
+        public DateOnly StudentAcceptanceDate
+        {
+            get => _studentAcceptanceDate;
+            set => _studentAcceptanceDate = value;
+        }
+        private string _otherInfo;
+
+        public string OtherInfo
+        {
+            get => _otherInfo;
+            set => _otherInfo = value;
+        }
 
         public PublicInfo(int insID, string insName, string provider, string startDate, string sDateT, string sDateNT,
                           int? supervisorID, string supervisor, string preName, string preDegree, string preMajor,
                           string postal, string phone, string fax, string email, string website, string vision,
-                          string mission, string goals, string insValues, string lastEditDate)
+                          string mission, string goals, string insValues, string lastEditDate, DateOnly entryDate, string country, string city, string address,
+                  DateOnly creationDate, DateOnly studentAcceptanceDate, string otherInfo)
         {
             _insID = insID;
             _insName = insName;
@@ -50,6 +102,15 @@
             _goals = goals;
             _insValues = insValues;
             _lastEditDate = lastEditDate;
+            // Existing assignments...
+            //todo add the new fields to the db handler and the controller and the database
+            _entryDate = entryDate;
+            _country = country;
+            _city = city;
+            _address = address;
+            _creationDate = creationDate;
+            _studentAcceptanceDate = studentAcceptanceDate;
+            _otherInfo = otherInfo;
         }
 
         public int InsID

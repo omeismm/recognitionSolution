@@ -1,39 +1,40 @@
 ﻿namespace recognitionProj;
 
-public class University
+public class University//todo delete this class or maybe keep it as reference to look at the fields
 {
-    private int _id;//todo make this a primary key
-    private string _name;
-    private DateOnly _entryDate;
-    private string _supervisor;
-    private string _country;
-    private string _city;
-    private string _address;
-    private string _website;
-    private DateOnly _creationDate;
-    private DateOnly _studentAcceptanceDate;
-    private DateOnly _startDate;
-    private string _type;
-    private string _language;
-    private string _educationType;
-    private string[] _availableDegrees;
-    private string _hoursSystem;
-    private string[] _faculties;//this might be unnecesary
-    private int _arwuRank;
-    private int _theRank;
-    private int _qsRank;
-    private string _otherRank;
-    private int _numOfScopusResearches;
-    private int _scopusFrom;
-    private int _scopusTo;
-    private string _infrastructure;
-    private string _otherInfo;
-    private AcceptanceRecord[] _acceptanceRecords;
-    private SuggestionRecord[] _suggestionRecords;//todo delete this everywhere
-    private Specialization[] _specializations;//i added this even though its not on the readme
-    private bool _accepted;
+    private int _id; // Mapped to _insID in both AcademicInfo and PublicInfo
+    private string _name; // Mapped to _insName in PublicInfo
+    private DateOnly _entryDate; // Mapped to _entryDate in PublicInfo
+    private string _supervisor; // Mapped to _supervisor in PublicInfo
+    private string _country; // Mapped to _country in PublicInfo
+    private string _city; // Mapped to _city in PublicInfo
+    private string _address; // Mapped to _address in PublicInfo
+    private string _website; // Mapped to _website in PublicInfo
+    private DateOnly _creationDate; // Mapped to _creationDate in PublicInfo
+    private DateOnly _studentAcceptanceDate; // Mapped to _studentAcceptanceDate in PublicInfo
+    private DateOnly _startDate; // Mapped to _startDate in PublicInfo
+    private string _type; // Mapped to _insType in AcademicInfo
+    private string _language; // Mapped to _studyLangCitizen and _studyLangInter in AcademicInfo
+    private string _educationType; // Mapped to _educationType in AcademicInfo
+    private string[] _availableDegrees; // Mapped to _availableDegrees in AcademicInfo
+    private string _hoursSystem; // Mapped to _studySystem in AcademicInfo
+    private string[] _faculties; // Mapped to _faculties in AcademicInfo
+    private int _arwuRank; // Mapped to _arwuRank in AcademicInfo
+    private int _theRank; // Mapped to _theRank in AcademicInfo
+    private int _qsRank; // Mapped to _qsRank in AcademicInfo
+    private string _otherRank; // Mapped to _otherRank in AcademicInfo
+    private int _numOfScopusResearches; // Mapped to _numOfScopusResearches in AcademicInfo
+    private int _scopusFrom; // Mapped to _scopusFrom in AcademicInfo
+    private int _scopusTo; // Mapped to _scopusTo in AcademicInfo
+    private string _infrastructure; // Mapped to _infrastructure in AcademicInfo
+    private string _otherInfo; // Mapped to _otherInfo in PublicInfo
+    private AcceptanceRecord[] _acceptanceRecords; // Mapped to _acceptanceRecords in AcademicInfo
+    private SuggestionRecord[] _suggestionRecords; // Deleted as per comment in University class
+    private Specialization[] _specializations; // Mapped to _specializations in AcademicInfo
+    private bool _accepted; // Mapped to _accepted in AcademicInfo
 
-    public University(int id,string name, DateOnly entryDate, string supervisor, string country, string city, string address, string website, DateOnly creationDate, DateOnly studentAcceptanceDate, DateOnly startDate, string type, string language, string educationType, string[] availableDegrees, string hoursSystem, string[] faculties, int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches, int scopusFrom, int scopusTo, string infrastructure, string otherInfo, AcceptanceRecord[] acceptanceRecords, SuggestionRecord[] suggestionRecords, Specialization[] specializations , bool accepted)
+
+public University(int id,string name, DateOnly entryDate, string supervisor, string country, string city, string address, string website, DateOnly creationDate, DateOnly studentAcceptanceDate, DateOnly startDate, string type, string language, string educationType, string[] availableDegrees, string hoursSystem, string[] faculties, int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches, int scopusFrom, int scopusTo, string infrastructure, string otherInfo, AcceptanceRecord[] acceptanceRecords, SuggestionRecord[] suggestionRecords, Specialization[] specializations , bool accepted)
     {
         _id = id;
         _name = name;

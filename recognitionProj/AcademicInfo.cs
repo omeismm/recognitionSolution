@@ -27,13 +27,110 @@
         private int? _diploma;
         private int? _diplomaTest;
         private int? _hoursPercentage;
+        //from here on are the new fields that are based on the university class but
+        //todo make sure to add the new fields to the db handler and the controller and the database
+
+        private string _educationType;
+
+        public string EducationType
+        {
+            get => _educationType;
+            set => _educationType = value;
+        }
+        private string[] _availableDegrees;
+
+        public string[] AvailableDegrees
+        {
+            get => _availableDegrees;
+            set => _availableDegrees = value;
+        }
+        private string[] _faculties;
+
+        public string[] Faculties
+        {
+            get => _faculties;
+            set => _faculties = value;
+        }
+        private int _arwuRank;
+
+        public int ARWURank
+        {
+            get => _arwuRank;
+            set => _arwuRank = value;
+        }
+        private int _theRank;
+
+        public int THERank
+        {
+            get => _theRank;
+            set => _theRank = value;
+        }
+        private int _qsRank;
+
+        public int QSRank
+        {
+            get => _qsRank;
+            set => _qsRank = value;
+        }
+        private string _otherRank;
+
+        public string OtherRank
+        {
+            get => _otherRank;
+            set => _otherRank = value;
+        }
+        private int _numOfScopusResearches;
+
+        public int NumOfScopusResearches
+        {
+            get => _numOfScopusResearches;
+            set => _numOfScopusResearches = value;
+        }
+        private int _scopusFrom;
+
+        public int ScopusFrom
+        {
+            get => _scopusFrom;
+            set => _scopusFrom = value;
+        }
+        private int _scopusTo;
+
+        public int ScopusTo
+        {
+            get => _scopusTo;
+            set => _scopusTo = value;
+        }
+        private string _infrastructure;
+
+        public string Infrastructure
+        {
+            get => _infrastructure;
+            set => _infrastructure = value;
+        }
+        private Specialization[] _specializations;
+
+        public Specialization[] Specializations
+        {
+            get => _specializations;
+            set => _specializations = value;
+        }
+        private bool _accepted;
+
+        public bool Accepted
+        {
+            get => _accepted;
+            set => _accepted = value;
+        }
+
 
         public AcademicInfo(int insID, int? insTypeID, string insType, int? highEduRec, int? qualityDeptRec,
                             string studyLangCitizen, string studyLangInter, int? jointClass, string studySystem,
                             int? minHours, int? maxHours, string researchScopus, string researchOthers,
                             int? practicing, int? studyAttendance, int? studentsMove, string studyAttendanceDesc,
                             string studentsMoveDesc, int? distanceLearning, int? maxHoursDL, int? maxYearsDL,
-                            int? maxSemsDL, int? diploma, int? diplomaTest, int? hoursPercentage)
+                            int? maxSemsDL, int? diploma, int? diplomaTest, int? hoursPercentage, string educationType, string[] availableDegrees, string[] faculties,
+                    int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches,
+                    int scopusFrom, int scopusTo, string infrastructure, Specialization[] specializations, bool accepted)
         {
             _insID = insID;
             _insTypeID = insTypeID;
@@ -60,6 +157,22 @@
             _diploma = diploma;
             _diplomaTest = diplomaTest;
             _hoursPercentage = hoursPercentage;
+            // Existing assignments...
+            //todo make sure to add the new fields to the db handler and the controller and the database
+
+            _educationType = educationType;
+            _availableDegrees = availableDegrees;
+            _faculties = faculties;
+            _arwuRank = arwuRank;
+            _theRank = theRank;
+            _qsRank = qsRank;
+            _otherRank = otherRank;
+            _numOfScopusResearches = numOfScopusResearches;
+            _scopusFrom = scopusFrom;
+            _scopusTo = scopusTo;
+            _infrastructure = infrastructure;
+            _specializations = specializations;
+            _accepted = accepted;
         }
 
         public int InsID
