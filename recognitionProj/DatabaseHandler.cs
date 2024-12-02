@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace recognitionProj
 {
@@ -800,19 +801,20 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
             string tableName = "PublicInfo";
             string columns = "[InsID], [InsName], [Provider], [StartDate], [SDateT], [SDateNT], [SupervisorID], [Supervisor], " +
                              "[PreName], [PreDegree], [PreMajor], [Postal], [Phone], [Fax], [Email], [Website], [Vision], " +
-                             "[Mission], [Goals], [InsValues], [LastEditDate]";
+                             "[Mission], [Goals], [InsValues], [LastEditDate], [EntryDate], [Country], [City], [Address], [CreationDate], [StudentAcceptanceDate], [OtherInfo]";
 
             string[] parameterNames = {
         "@InsID", "@InsName", "@Provider", "@StartDate", "@SDateT", "@SDateNT", "@SupervisorID", "@Supervisor",
         "@PreName", "@PreDegree", "@PreMajor", "@Postal", "@Phone", "@Fax", "@Email", "@Website", "@Vision",
-        "@Mission", "@Goals", "@InsValues", "@LastEditDate"
+        "@Mission", "@Goals", "@InsValues", "@LastEditDate", "@EntryDate", "@Country", "@City", "@Address", "@CreationDate", "@StudentAcceptanceDate", "@OtherInfo"
     };
 
             object[] values = {
         publicInfo.InsID, publicInfo.InsName, publicInfo.Provider, publicInfo.StartDate, publicInfo.SDateT,
         publicInfo.SDateNT, publicInfo.SupervisorID, publicInfo.Supervisor, publicInfo.PreName, publicInfo.PreDegree,
         publicInfo.PreMajor, publicInfo.Postal, publicInfo.Phone, publicInfo.Fax, publicInfo.Email, publicInfo.Website,
-        publicInfo.Vision, publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate
+        publicInfo.Vision, publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate,
+        publicInfo.EntryDate, publicInfo.Country, publicInfo.City, publicInfo.Address, publicInfo.CreationDate, publicInfo.StudentAcceptanceDate, publicInfo.OtherInfo
     };
 
             // Call the InsertRecord method of the DatabaseHandler
@@ -827,7 +829,9 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
                                "[SDateNT] = @SDateNT, [SupervisorID] = @SupervisorID, [Supervisor] = @Supervisor, " +
                                "[PreName] = @PreName, [PreDegree] = @PreDegree, [PreMajor] = @PreMajor, [Postal] = @Postal, " +
                                "[Phone] = @Phone, [Fax] = @Fax, [Email] = @Email, [Website] = @Website, [Vision] = @Vision, " +
-                               "[Mission] = @Mission, [Goals] = @Goals, [InsValues] = @InsValues, [LastEditDate] = @LastEditDate";
+                               "[Mission] = @Mission, [Goals] = @Goals, [InsValues] = @InsValues, [LastEditDate] = @LastEditDate" +
+                               "[EntryDate] = @EntryDate, [Country] = @Country, [City] = @City, [Address] = @Address, [CreationDate] = @CreationDate, [StudentAcceptanceDate] = @StudentAcceptanceDate, [OtherInfo] = @OtherInfo";
+
 
             // Condition for which record to update (based on InsID)
             string condition = "[InsID] = @InsID";
@@ -835,14 +839,15 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
             string[] parameterNames = {
         "@InsName", "@Provider", "@StartDate", "@SDateT", "@SDateNT", "@SupervisorID", "@Supervisor", "@PreName",
         "@PreDegree", "@PreMajor", "@Postal", "@Phone", "@Fax", "@Email", "@Website", "@Vision", "@Mission",
-        "@Goals", "@InsValues", "@LastEditDate", "@InsID"
+        "@Goals", "@InsValues", "@LastEditDate", "@InsID", "@EntryDate", "@Country", "@City", "@Address", "@CreationDate", "@StudentAcceptanceDate", "@OtherInfo", "@InsID"
     };
 
             object[] values = {
         publicInfo.InsName, publicInfo.Provider, publicInfo.StartDate, publicInfo.SDateT, publicInfo.SDateNT,
         publicInfo.SupervisorID, publicInfo.Supervisor, publicInfo.PreName, publicInfo.PreDegree, publicInfo.PreMajor,
         publicInfo.Postal, publicInfo.Phone, publicInfo.Fax, publicInfo.Email, publicInfo.Website, publicInfo.Vision,
-        publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate, publicInfo.InsID
+        publicInfo.Mission, publicInfo.Goals, publicInfo.InsValues, publicInfo.LastEditDate, publicInfo.InsID,
+        publicInfo.EntryDate, publicInfo.Country, publicInfo.City, publicInfo.Address, publicInfo.CreationDate, publicInfo.StudentAcceptanceDate, publicInfo.OtherInfo, publicInfo.InsID
     };
 
             // Call the UpdateRecord method of the DatabaseHandler
@@ -862,7 +867,7 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
         {
             string query = "SELECT [InsID], [InsName], [Provider], [StartDate], [SDateT], [SDateNT], [SupervisorID], [Supervisor], " +
                            "[PreName], [PreDegree], [PreMajor], [Postal], [Phone], [Fax], [Email], [Website], [Vision], " +
-                           "[Mission], [Goals], [InsValues], [LastEditDate] FROM PublicInfo";
+                           "[Mission], [Goals], [InsValues], [LastEditDate] , [EntryDate], [Country], [City], [Address], [CreationDate], [StudentAcceptanceDate], [OtherInfo] FROM PublicInfo";
             DataTable resultTable = SelectRecords(query);
 
             List<PublicInfo> publicInfoList = new();
@@ -890,10 +895,24 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
                 string goals = row["Goals"].ToString();
                 string insValues = row["InsValues"].ToString();
                 string lastEditDate = row["LastEditDate"].ToString();
+                
+                //todo, when finishing, check if the date is being translated properly everywhere
+                
+                
+                    DateOnly entryDate = DateOnly.ParseExact(row["EntryDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    string country = row["Country"].ToString();
+                    string city = row["City"].ToString();
+                    string address = row["Address"].ToString();
+                    DateOnly creationDate = DateOnly.ParseExact(row["CreationDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    DateOnly studentAcceptanceDate = DateOnly.ParseExact(row["StudentAcceptanceDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+                 
+                
+                string otherInfo = row["OtherInfo"].ToString();
 
                 publicInfoList.Add(new PublicInfo(insID, insName, provider, startDate, sDateT, sDateNT, supervisorID, supervisor,
                                                   preName, preDegree, preMajor, postal, phone, fax, email, website, vision,
-                                                  mission, goals, insValues, lastEditDate));
+                                                  mission, goals, insValues, lastEditDate, entryDate, country, city, address, creationDate, studentAcceptanceDate, otherInfo));
             }
 
             return publicInfoList;

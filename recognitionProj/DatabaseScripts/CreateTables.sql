@@ -70,7 +70,15 @@ CREATE TABLE [dbo].[PublicInfo](
 	[Mission] [nvarchar](100) NULL,
 	[Goals] [nvarchar](100) NULL,/*Targeted Obj*/
 	[InsValues] [nvarchar](100) NULL,
-	[LastEditDate] [nvarchar](50) NULL
+	[LastEditDate] [nvarchar](50) NULL,
+	/*continue from here*/
+	[EntryDate] [date] NULL,
+	[Country] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Address] [nvarchar](50) NULL,
+	[CreationDate] [date] NULL,
+	[StudentAcceptanceDate] [date] NULL,
+	[OtherInfo] [nvarchar](max) NULL,
 ) 
 
 
