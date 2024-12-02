@@ -107,13 +107,14 @@
             get => _infrastructure;
             set => _infrastructure = value;
         }
-        private Specialization[] _specializations;
+        //private Specialization[] _specializations;
 
-        public Specialization[] Specializations
-        {
-            get => _specializations;
-            set => _specializations = value;
-        }
+        //public Specialization[] Specializations
+        //{
+        //    get => _specializations;
+        //    set => _specializations = value;
+        //}
+        //deleted because in the database it is a separate table that is linked by institution id
         private bool _accepted;
 
         public bool Accepted
@@ -130,7 +131,7 @@
                             string studentsMoveDesc, int? distanceLearning, int? maxHoursDL, int? maxYearsDL,
                             int? maxSemsDL, int? diploma, int? diplomaTest, int? hoursPercentage, string educationType, string[] availableDegrees, string[] faculties,
                     int arwuRank, int theRank, int qsRank, string otherRank, int numOfScopusResearches,
-                    int scopusFrom, int scopusTo, string infrastructure, Specialization[] specializations, bool accepted)
+                    int scopusFrom, int scopusTo, string infrastructure, /*Specialization[] specializations,*/ bool accepted)
         {
             _insID = insID;
             _insTypeID = insTypeID;
@@ -171,7 +172,7 @@
             _scopusFrom = scopusFrom;
             _scopusTo = scopusTo;
             _infrastructure = infrastructure;
-            _specializations = specializations;
+            //_specializations = specializations;
             _accepted = accepted;
         }
 

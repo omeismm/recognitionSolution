@@ -30,7 +30,7 @@ public class University//todo delete this class or maybe keep it as reference to
     private string _otherInfo; // Mapped to _otherInfo in PublicInfo
     private AcceptanceRecord[] _acceptanceRecords; // Mapped to _acceptanceRecords in AcademicInfo
     private SuggestionRecord[] _suggestionRecords; // Deleted as per comment in University class
-    private Specialization[] _specializations; // Mapped to _specializations in AcademicInfo
+    private Specialization[] _specializations; // deleted because in the database it is a separate table that is linked by institution id
     private bool _accepted; // Mapped to _accepted in AcademicInfo
 
 

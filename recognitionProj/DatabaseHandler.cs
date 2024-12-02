@@ -347,13 +347,13 @@ namespace recognitionProj
             string columns = "[InsID], [InsTypeID], [InsType], [HighEdu_Rec], [QualityDept_Rec], [StudyLangCitizen], [StudyLangInter], [JointClass], " +
                              "[StudySystem], [MinHours], [MaxHours], [ResearchScopus], [ResearchOthers], [Practicing], [StudyAttendance], " +
                              "[StudentsMove], [StudyAttendanceDesc], [StudentsMoveDesc], [DistanceLearning], [MaxHoursDL], [MaxYearsDL], " +
-                             "[MaxSemsDL], [Diploma], [DiplomaTest], [HoursPercentage]";
+                             "[MaxSemsDL], [Diploma], [DiplomaTest], [HoursPercentage], [EducationType], [AvailableDegrees], [Faculties], [ARWURank], [THERank], [QSRank], [OtherRank], [NumOfScopusResearches], [ScopusFrom], [ScopusTo], [Infrastructure],[Accepted]";
 
             string[] parameterNames = {
         "@InsID", "@InsTypeID", "@InsType", "@HighEdu_Rec", "@QualityDept_Rec", "@StudyLangCitizen", "@StudyLangInter", "@JointClass",
         "@StudySystem", "@MinHours", "@MaxHours", "@ResearchScopus", "@ResearchOthers", "@Practicing", "@StudyAttendance", "@StudentsMove",
         "@StudyAttendanceDesc", "@StudentsMoveDesc", "@DistanceLearning", "@MaxHoursDL", "@MaxYearsDL", "@MaxSemsDL", "@Diploma",
-        "@DiplomaTest", "@HoursPercentage"
+        "@DiplomaTest", "@HoursPercentage", "@EducationType", "@AvailableDegrees", "@Faculties", "@ARWURank", "@THERank", "@QSRank", "@OtherRank", "@NumOfScopusResearches", "@ScopusFrom", "@ScopusTo", "@Infrastructure", "@Accepted"
     };
 
             object[] values = {
@@ -362,7 +362,7 @@ namespace recognitionProj
         academicInfo.MinHours, academicInfo.MaxHours, academicInfo.ResearchScopus, academicInfo.ResearchOthers, academicInfo.Practicing,
         academicInfo.StudyAttendance, academicInfo.StudentsMove, academicInfo.StudyAttendanceDesc, academicInfo.StudentsMoveDesc,
         academicInfo.DistanceLearning, academicInfo.MaxHoursDL, academicInfo.MaxYearsDL, academicInfo.MaxSemsDL, academicInfo.Diploma,
-        academicInfo.DiplomaTest, academicInfo.HoursPercentage
+        academicInfo.DiplomaTest, academicInfo.HoursPercentage, academicInfo.EducationType, string.Join(',', academicInfo.AvailableDegrees),
     };
 
             InsertRecord(tableName, columns, parameterNames, values);
@@ -404,7 +404,21 @@ namespace recognitionProj
                     maxSemsDL: row["MaxSemsDL"] != DBNull.Value ? (int?)int.Parse(row["MaxSemsDL"].ToString()) : null,
                     diploma: row["Diploma"] != DBNull.Value ? (int?)int.Parse(row["Diploma"].ToString()) : null,
                     diplomaTest: row["DiplomaTest"] != DBNull.Value ? (int?)int.Parse(row["DiplomaTest"].ToString()) : null,
-                    hoursPercentage: row["HoursPercentage"] != DBNull.Value ? (int?)int.Parse(row["HoursPercentage"].ToString()) : null
+                    hoursPercentage: row["HoursPercentage"] != DBNull.Value ? (int?)int.Parse(row["HoursPercentage"].ToString()) : null,
+                    educationType: row["EducationType"].ToString(),
+                    availableDegrees: row["AvailableDegrees"].ToString().Split(','),
+                    faculties: row["Faculties"].ToString().Split(','),
+arwuRank: row["ARWURank"] != DBNull.Value ? int.Parse(row["ARWURank"].ToString() ?? "0") : 0,
+theRank: row["THERank"] != DBNull.Value ? int.Parse(row["THERank"].ToString() ?? "0") : 0,
+qsRank: row["QSRank"] != DBNull.Value ? int.Parse(row["QSRank"].ToString() ?? "0") : 0,
+otherRank: row["OtherRank"].ToString(),
+numOfScopusResearches: row["NumOfScopusResearches"] != DBNull.Value ? int.Parse(row["NumOfScopusResearches"].ToString() ?? "0") : 0,
+scopusFrom: row["ScopusFrom"] != DBNull.Value ? int.Parse(row["ScopusFrom"].ToString() ?? "0") : 0,
+scopusTo: row["ScopusTo"] != DBNull.Value ? int.Parse(row["ScopusTo"].ToString() ?? "0") : 0,
+infrastructure: row["Infrastructure"].ToString(),
+accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString() ?? "false") : false
+
+
                 );
             }
             else
@@ -422,7 +436,10 @@ namespace recognitionProj
                                "[MinHours] = @MinHours, [MaxHours] = @MaxHours, [ResearchScopus] = @ResearchScopus, [ResearchOthers] = @ResearchOthers, " +
                                "[Practicing] = @Practicing, [StudyAttendance] = @StudyAttendance, [StudentsMove] = @StudentsMove, [StudyAttendanceDesc] = @StudyAttendanceDesc, " +
                                "[StudentsMoveDesc] = @StudentsMoveDesc, [DistanceLearning] = @DistanceLearning, [MaxHoursDL] = @MaxHoursDL, [MaxYearsDL] = @MaxYearsDL, " +
-                               "[MaxSemsDL] = @MaxSemsDL, [Diploma] = @Diploma, [DiplomaTest] = @DiplomaTest, [HoursPercentage] = @HoursPercentage";
+                               "[MaxSemsDL] = @MaxSemsDL, [Diploma] = @Diploma, [DiplomaTest] = @DiplomaTest, [HoursPercentage] = @HoursPercentage, [EducationType] = @EducationType, " +
+                               "[AvailableDegrees] = @AvailableDegrees, [Faculties] = @Faculties, [ARWURank] = @ARWURank, [THERank] = @THERank, [QSRank] = @QSRank, " +
+                               "[OtherRank] = @OtherRank, [NumOfScopusResearches] = @NumOfScopusResearches, [ScopusFrom] = @ScopusFrom, [ScopusTo] = @ScopusTo, " +
+                               "[Infrastructure] = @Infrastructure, [Accepted] = @Accepted";
 
             // Define the condition (which record to update)
             string condition = "[InsID] = @InsID";
@@ -432,7 +449,8 @@ namespace recognitionProj
         "@InsTypeID", "@InsType", "@HighEdu_Rec", "@QualityDept_Rec", "@StudyLangCitizen", "@StudyLangInter", "@JointClass",
         "@StudySystem", "@MinHours", "@MaxHours", "@ResearchScopus", "@ResearchOthers", "@Practicing", "@StudyAttendance",
         "@StudentsMove", "@StudyAttendanceDesc", "@StudentsMoveDesc", "@DistanceLearning", "@MaxHoursDL", "@MaxYearsDL",
-        "@MaxSemsDL", "@Diploma", "@DiplomaTest", "@HoursPercentage", "@InsID"
+        "@MaxSemsDL", "@Diploma", "@DiplomaTest", "@HoursPercentage", "@EducationType", "@AvailableDegrees", "@Faculties",
+        "@ARWURank", "@THERank", "@QSRank", "@OtherRank", "@NumOfScopusResearches", "@ScopusFrom", "@ScopusTo", "@Infrastructure", "@Accepted", "@InsID"
     };
 
             // Set the values for each parameter
@@ -442,7 +460,9 @@ namespace recognitionProj
         academicInfo.ResearchScopus, academicInfo.ResearchOthers, academicInfo.Practicing, academicInfo.StudyAttendance,
         academicInfo.StudentsMove, academicInfo.StudyAttendanceDesc, academicInfo.StudentsMoveDesc, academicInfo.DistanceLearning,
         academicInfo.MaxHoursDL, academicInfo.MaxYearsDL, academicInfo.MaxSemsDL, academicInfo.Diploma, academicInfo.DiplomaTest,
-        academicInfo.HoursPercentage, academicInfo.InsID
+        academicInfo.HoursPercentage, academicInfo.EducationType, string.Join(',', academicInfo.AvailableDegrees), string.Join(',', academicInfo.Faculties),
+        academicInfo.ARWURank, academicInfo.THERank, academicInfo.QSRank, academicInfo.OtherRank, academicInfo.NumOfScopusResearches,
+        academicInfo.ScopusFrom, academicInfo.ScopusTo, academicInfo.Infrastructure, academicInfo.Accepted, academicInfo.InsID
     };
 
             // Call the UpdateRecord method with the appropriate parameters

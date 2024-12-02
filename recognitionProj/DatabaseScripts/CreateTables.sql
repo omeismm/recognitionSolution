@@ -33,9 +33,22 @@ CREATE TABLE [dbo].[AcademicInfo](
 	[MaxSemsDL] [int] NULL,
 	[Diploma] [int] NULL,
 	[DiplomaTest] [int] NULL,
-	[HoursPercentage] [int] NULL,
-	/*[SharedPrograms] [int] NULL*/
-) 
+	[HoursPercentage] [int] NULL
+	/*[SharedPrograms] [int] NULL*/,
+	[EducationType] [nvarchar](50) NULL,
+	[AvailableDegrees] [nvarchar](max) NULL,
+	[Faculties] [nvarchar](max) NULL,
+	[ARWURank] [int] NULL,
+	[THERank] [int] NULL,
+	[QSRank] [int] NULL,
+	[OtherRank] [nvarchar](50) NULL,
+	[NumOfScopusResearches] [int] NULL,
+	[ScopusFrom] [int] NULL,
+	[ScopusTo] [int] NULL,
+	/*note that specializations are in a separate table*/
+	[Infrastructure] [nvarchar](max) NULL,
+	[Accepted] [bit] NULL
+)
 CREATE TABLE [dbo].[PublicInfo](
 	[InsID] [int] NOT NULL,
 	[InsName] [nvarchar](100) NULL,
