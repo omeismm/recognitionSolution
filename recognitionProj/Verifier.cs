@@ -229,7 +229,7 @@ public class Verifier
         {
             if (spec.Type == "High Diploma")
             {
-                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+                int totalStaff = spec.NumProf + spec.NumAssociative + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -238,8 +238,8 @@ public class Verifier
                 }
 
                 // Calculate ratios
-                float ostadhMusharekRatio = (float)(spec.NumOfOstadh + spec.NumOfOstadhMusharek) / totalStaff; // Combined Ostadh and OstadhMusharek ratio
-                float ostadhMusa3edRatio = (float)spec.NumOfOstadhMusa3ed / totalStaff; // OstadhMusa3ed ratio
+                float ostadhMusharekRatio = (float)(spec.NumProf + spec.NumAssociative) / totalStaff; // Combined Ostadh and OstadhMusharek ratio
+                float ostadhMusa3edRatio = (float)spec.NumAssistant / totalStaff; // OstadhMusa3ed ratio
 
                 // Ensure OstadhMusharek or Ostadh is at least 25% and OstadhMusa3ed is at most 75%
                 if (ostadhMusharekRatio < 0.25 || ostadhMusa3edRatio > 0.75)
@@ -279,7 +279,7 @@ public class Verifier
             if (spec.Type == "Scientific Masters")
             {
                 // Calculate total staff
-                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -288,9 +288,9 @@ public class Verifier
                 }
 
                 // Calculate percentages
-                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+                float ostadhPercentage = (float)spec.NumProf / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
                 // 1. Ostadh >= 25%
@@ -323,7 +323,7 @@ public class Verifier
                 //todo, use PracticalHoursRatioColor
                 int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
                 // Calculate total staff
-                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -332,9 +332,9 @@ public class Verifier
                 }
 
                 // Calculate percentages
-                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+                float ostadhPercentage = (float)spec.NumProf / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
                 // 1. Ostadh >= 25%
@@ -363,7 +363,7 @@ public class Verifier
             if (spec.Type == "Humanitarian Masters")
             {
                 // Calculate total staff
-                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusharek + spec.NumOfOstadhMusa3ed;
+                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -372,9 +372,9 @@ public class Verifier
                 }
 
                 // Calculate percentages
-                float ostadhPercentage = (float)spec.NumOfOstadh / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumOfOstadhMusa3ed / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumOfOstadhMusharek / totalStaff;
+                float ostadhPercentage = (float)spec.NumProf / totalStaff;
+                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
+                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
                 // 1. Ostadh >= 25%
@@ -433,8 +433,8 @@ public class Verifier
         {
             if (spec.Type == "Doctorate")
             {
-                // Total staff count, including NumOfOstadh, NumOfOstadhMusa3ed, and NumOfOstadhMusharek
-                int totalStaff = spec.NumOfOstadh + spec.NumOfOstadhMusa3ed + spec.NumOfOstadhMusharek;
+                // Total staff count, including NumProf, NumAssistant, and NumAssistant
+                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -443,28 +443,28 @@ public class Verifier
                 }
 
                 // Calculate the minimum and maximum limits based on ratios
-                int minNumOfOstadh = (int)Math.Ceiling(totalStaff * 0.50); // At least 50% for NumOfOstadh
-                int maxNumOfOstadhMusa3ed = (int)Math.Floor(totalStaff * 0.25); // At most 25% for NumOfOstadhMusa3ed
+                int minNumProf = (int)Math.Ceiling(totalStaff * 0.50); // At least 50% for NumProf
+                int maxNumAssistant = (int)Math.Floor(totalStaff * 0.25); // At most 25% for NumAssistant
 
-                // Adjust NumOfOstadh to meet the minimum required
-                if (spec.NumOfOstadh < minNumOfOstadh)
+                // Adjust NumProf to meet the minimum required
+                if (spec.NumProf < minNumProf)
                 {
-                    spec.Color = 0; // Not enough NumOfOstadh to meet the minimum requirement
+                    spec.Color = 0; // Not enough NumProf to meet the minimum requirement
                     return;
                 }
 
-                // Adjust NumOfOstadhMusa3ed to meet the maximum allowed
-                if (spec.NumOfOstadhMusa3ed > maxNumOfOstadhMusa3ed)
+                // Adjust NumAssistant to meet the maximum allowed
+                if (spec.NumAssistant > maxNumAssistant)
                 {
-                    spec.Color = 0; // Too many NumOfOstadhMusa3ed compared to the allowed maximum
+                    spec.Color = 0; // Too many NumAssistant compared to the allowed maximum
                     return;
                 }
 
-                // Calculate the remaining staff that should be NumOfOstadhMusharek
-                int remainingStaff = totalStaff - spec.NumOfOstadh - spec.NumOfOstadhMusa3ed;
-                if (remainingStaff != spec.NumOfOstadhMusharek)
+                // Calculate the remaining staff that should be NumAssistant
+                int remainingStaff = totalStaff - spec.NumProf - spec.NumAssistant;
+                if (remainingStaff != spec.NumAssistant)
                 {
-                    spec.Color = 0; // Remaining staff doesn't match the expected NumOfOstadhMusharek count
+                    spec.Color = 0; // Remaining staff doesn't match the expected NumAssistant count
                     return;
                 }
                 //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think

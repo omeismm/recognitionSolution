@@ -167,80 +167,80 @@ namespace recognitionProj
         }
 
         // Insert University using parameterized query
-        public void InsertUniversity(University university)
-        {
-            string tableName = "Universities";//todo deal with the primary key
-            string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord, Specializations, Accepted";
+        //public void InsertUniversity(University university)
+        //{
+        //    string tableName = "Universities";//todo deal with the primary key
+        //    string columns = "Name, EntryDate, Supervisor, Country, City, Address, Website, CreationDate, StudentAcceptanceDate, StartDate, Type, Language, EducationType, AvailableDegrees, HoursSystem, Faculties, ARWURank, THERank, QSRank, OtherRank, NumOfScopusResearches, ScopusFrom, ScopusTo, Infrastructure, OtherInfo, AcceptanceRecord, SuggestionRecord, Specializations, Accepted";
 
-            string[] parameterNames = new string[]
-            {
-                "@Name", "@EntryDate", "@Supervisor", "@Country", "@City", "@Address", "@Website", "@CreationDate", "@StudentAcceptanceDate",
-                "@StartDate", "@Type", "@Language", "@EducationType", "@AvailableDegrees", "@HoursSystem", "@Faculties", "@ARWURank", "@THERank",
-                "@QSRank", "@OtherRank", "@NumOfScopusResearches", "@ScopusFrom", "@ScopusTo", "@Infrastructure", "@OtherInfo", "@AcceptanceRecord",
-                "@SuggestionRecord", "@Specializations", "@Accepted"
-            };
-            //todo red lines here, fix AND REMOVE SUGGESTIOR RECORD
-            object[] values = new object[]
-            {
-                university.Name, university.EntryDate, university.Supervisor, university.Country, university.City, university.Address,
-                university.Website, university.CreationDate, university.StudentAcceptanceDate, university.StartDate, university.Type,
-                university.Language, university.EducationType, string.Join(',', university.AvailableDegrees), university.HoursSystem,
-                string.Join(',', university.Faculties), university.ARWURank, university.THERank, university.QSRank, university.OtherRank,
-                university.NumOfScopusResearches, university.ScopusFrom, university.ScopusTo, university.Infrastructure, university.OtherInfo,
-                JsonConvert.SerializeObject(university.AcceptanceRecord), JsonConvert.SerializeObject(university.SuggestionRecord),
-                JsonConvert.SerializeObject(university.Specializations), university.Accepted
-            };
+        //    string[] parameterNames = new string[]
+        //    {
+        //        "@Name", "@EntryDate", "@Supervisor", "@Country", "@City", "@Address", "@Website", "@CreationDate", "@StudentAcceptanceDate",
+        //        "@StartDate", "@Type", "@Language", "@EducationType", "@AvailableDegrees", "@HoursSystem", "@Faculties", "@ARWURank", "@THERank",
+        //        "@QSRank", "@OtherRank", "@NumOfScopusResearches", "@ScopusFrom", "@ScopusTo", "@Infrastructure", "@OtherInfo", "@AcceptanceRecord",
+        //        "@SuggestionRecord", "@Specializations", "@Accepted"
+        //    };
+        //    //todo red lines here, fix AND REMOVE SUGGESTIOR RECORD
+        //    object[] values = new object[]
+        //    {
+        //        university.Name, university.EntryDate, university.Supervisor, university.Country, university.City, university.Address,
+        //        university.Website, university.CreationDate, university.StudentAcceptanceDate, university.StartDate, university.Type,
+        //        university.Language, university.EducationType, string.Join(',', university.AvailableDegrees), university.HoursSystem,
+        //        string.Join(',', university.Faculties), university.ARWURank, university.THERank, university.QSRank, university.OtherRank,
+        //        university.NumOfScopusResearches, university.ScopusFrom, university.ScopusTo, university.Infrastructure, university.OtherInfo,
+        //        JsonConvert.SerializeObject(university.AcceptanceRecord), JsonConvert.SerializeObject(university.SuggestionRecord),
+        //        JsonConvert.SerializeObject(university.Specializations), university.Accepted
+        //    };
 
-            InsertRecord(tableName, columns, parameterNames, values);
-        }
+        //    InsertRecord(tableName, columns, parameterNames, values);
+        //}
 
-        // Retrieve University
-        public University GetUniversity(string uniName)
-        {
-            string query = $"SELECT * FROM Universities WHERE Name = @Name";
-            DataTable dataTable = SelectRecords(query);
+        //// Retrieve University
+        //public University GetUniversity(string uniName)
+        //{
+        //    string query = $"SELECT * FROM Universities WHERE Name = @Name";
+        //    DataTable dataTable = SelectRecords(query);
 
-            if (dataTable.Rows.Count > 0)
-            {
-                DataRow row = dataTable.Rows[0];
+        //    if (dataTable.Rows.Count > 0)
+        //    {
+        //        DataRow row = dataTable.Rows[0];
 
-                return new University(//todo deal with the primary key
-                    name: row["Name"].ToString(),
-                    entryDate: DateOnly.Parse(row["EntryDate"].ToString()),
-                    supervisor: row["Supervisor"].ToString(),
-                    country: row["Country"].ToString(),
-                    city: row["City"].ToString(),
-                    address: row["Address"].ToString(),
-                    website: row["Website"].ToString(),
-                    creationDate: DateOnly.Parse(row["CreationDate"].ToString()),
-                    studentAcceptanceDate: DateOnly.Parse(row["StudentAcceptanceDate"].ToString()),
-                    startDate: DateOnly.Parse(row["StartDate"].ToString()),
-                    type: row["Type"].ToString(),
-                    language: row["Language"].ToString(),
-                    educationType: row["EducationType"].ToString(),
-                    availableDegrees: row["AvailableDegrees"].ToString().Split(','),
-                    hoursSystem: row["HoursSystem"].ToString(),
-                    faculties: row["Faculties"].ToString().Split(','),
-                    arwuRank: int.Parse(row["ARWURank"].ToString()),
-                    theRank: int.Parse(row["THERank"].ToString()),
-                    qsRank: int.Parse(row["QSRank"].ToString()),
-                    otherRank: row["OtherRank"].ToString(),
-                    numOfScopusResearches: int.Parse(row["NumOfScopusResearches"].ToString()),
-                    scopusFrom: int.Parse(row["ScopusFrom"].ToString()),
-                    scopusTo: int.Parse(row["ScopusTo"].ToString()),
-                    infrastructure: row["Infrastructure"].ToString(),
-                    otherInfo: row["OtherInfo"].ToString(),
-                    acceptanceRecords: JsonConvert.DeserializeObject<AcceptanceRecord[]>(row["AcceptanceRecord"].ToString()),
-                    suggestionRecords: JsonConvert.DeserializeObject<SuggestionRecord[]>(row["SuggestionRecord"].ToString()),
-                    specializations: JsonConvert.DeserializeObject<Specialization[]>(row["Specializations"].ToString()),
-                    accepted: bool.Parse(row["Accepted"].ToString())
-                );
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //        return new University(//todo deal with the primary key
+        //            name: row["Name"].ToString(),
+        //            entryDate: DateOnly.Parse(row["EntryDate"].ToString()),
+        //            supervisor: row["Supervisor"].ToString(),
+        //            country: row["Country"].ToString(),
+        //            city: row["City"].ToString(),
+        //            address: row["Address"].ToString(),
+        //            website: row["Website"].ToString(),
+        //            creationDate: DateOnly.Parse(row["CreationDate"].ToString()),
+        //            studentAcceptanceDate: DateOnly.Parse(row["StudentAcceptanceDate"].ToString()),
+        //            startDate: DateOnly.Parse(row["StartDate"].ToString()),
+        //            type: row["Type"].ToString(),
+        //            language: row["Language"].ToString(),
+        //            educationType: row["EducationType"].ToString(),
+        //            availableDegrees: row["AvailableDegrees"].ToString().Split(','),
+        //            hoursSystem: row["HoursSystem"].ToString(),
+        //            faculties: row["Faculties"].ToString().Split(','),
+        //            arwuRank: int.Parse(row["ARWURank"].ToString()),
+        //            theRank: int.Parse(row["THERank"].ToString()),
+        //            qsRank: int.Parse(row["QSRank"].ToString()),
+        //            otherRank: row["OtherRank"].ToString(),
+        //            numOfScopusResearches: int.Parse(row["NumOfScopusResearches"].ToString()),
+        //            scopusFrom: int.Parse(row["ScopusFrom"].ToString()),
+        //            scopusTo: int.Parse(row["ScopusTo"].ToString()),
+        //            infrastructure: row["Infrastructure"].ToString(),
+        //            otherInfo: row["OtherInfo"].ToString(),
+        //            acceptanceRecords: JsonConvert.DeserializeObject<AcceptanceRecord[]>(row["AcceptanceRecord"].ToString()),
+        //            suggestionRecords: JsonConvert.DeserializeObject<SuggestionRecord[]>(row["SuggestionRecord"].ToString()),
+        //            specializations: JsonConvert.DeserializeObject<Specialization[]>(row["Specializations"].ToString()),
+        //            accepted: bool.Parse(row["Accepted"].ToString())
+        //        );
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
         // Insert a new specialization record
         public void InsertSpecialization(Specialization specialization)
         {
