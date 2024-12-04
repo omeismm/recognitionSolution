@@ -691,12 +691,8 @@
                         </div>
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
-                            <form id="teacherHighDiplomaForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
+                            <form id="teacherHighDiplomaForm" action="/api/specialization/save" method="post" enctype="multipart/form-data"><!--todo debug-->
 
-                                <!-- Visible, Uneditable Type Field -->
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -760,6 +756,7 @@
                                 </div>
 
                                 <!-- File Upload Field -->
+                            <!--todo fix the controller to deal with this attachment-->
                                 <div class="form-row">
                                     <label for="SpecAttachName">Special Attachment:</label>
                                     <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
@@ -781,10 +778,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherDiplomaForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -868,10 +862,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherResidencyForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -954,10 +945,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherMedicalForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1040,10 +1028,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherScientificBachelorForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1127,10 +1112,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherHumnamitarianPracticalBachelorForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1213,10 +1195,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherScientificPracticalBachelorForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1299,10 +1278,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherScientificMastersForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+ 
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1385,10 +1361,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherScientificPracticalMastersForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1471,10 +1444,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherHumanitarianMastersForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
-                                <!-- Visible, Uneditable Type Field -->
+   
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1557,9 +1527,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherDoctorateForm">
-                                <!-- Hidden InsId Field -->
-                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
-                                <!-- TODO: add the value of the institution ID here -->
+
                                 <!-- Visible, Uneditable Type Field -->
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
