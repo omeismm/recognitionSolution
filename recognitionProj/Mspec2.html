@@ -624,20 +624,23 @@
                 <div id="page-content-wrapper">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                         <div id="navbarSupportedContent" class="collapse navbar-collapse"
-                            style="float:right !important;">
-                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;" "="">
-                        
-                        <li class=" nav-item li_Lang">
-                                <a id="lnkLogout" href="javascript:__doPostBack('ctl00$lnkLogout','')"><i
-                                        class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                             style="float:right !important;">
+                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;" "=" ">
+
+                                <li class=" nav-item li_Lang">
+                                    <a id="lnkLogout" href="javascript:__doPostBack('ctl00$lnkLogout','')">
+                                        <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                                    </a>
                                 </li>
                                 <li class="nav-item li_Lang">
-                                    <a id="lnkAR" title="Arabic" href="javascript:__doPostBack('ctl00$lnkAR','')"><img
-                                            src="attachments_files/jo.jpg" width="22px"> </a>
+                                    <a id="lnkAR" title="Arabic" href="javascript:__doPostBack('ctl00$lnkAR','')">
+                                        <img src="attachments_files/jo.jpg" width="22px">
+                                    </a>
                                 </li>
                                 <li class="nav-item li_Lang">
-                                    <a id="lnkEN" title="English" href="javascript:__doPostBack('ctl00$lnkEN','')"><img
-                                            src="attachments_files/uk.jpg" width="22px"></a>
+                                    <a id="lnkEN" title="English" href="javascript:__doPostBack('ctl00$lnkEN','')">
+                                        <img src="attachments_files/uk.jpg" width="22px">
+                                    </a>
                                 </li>
 
                             </ul>
@@ -660,20 +663,20 @@
                             margin-bottom: 15px;
                         }
 
-                        /* Ensure all form controls are aligned nicely */
-                        .form-row label {
-                            flex: 1 0 20%;
-                            /* Label width */
-                            margin-bottom: 5px;
-                            align-self: center;
-                        }
+                            /* Ensure all form controls are aligned nicely */
+                            .form-row label {
+                                flex: 1 0 20%;
+                                /* Label width */
+                                margin-bottom: 5px;
+                                align-self: center;
+                            }
 
-                        .form-row input {
-                            flex: 1 0 70%;
-                            /* Input field takes up remaining space */
-                            min-width: 250px;
-                            /* Ensures the input does not shrink too much */
-                        }
+                            .form-row input {
+                                flex: 1 0 70%;
+                                /* Input field takes up remaining space */
+                                min-width: 250px;
+                                /* Ensures the input does not shrink too much */
+                            }
                     </style>
 
                     <div class="container">
@@ -683,73 +686,84 @@
                     <!-- Expandable Section for Teacher Information -->
                     <div class="person">
                         <div class="person-header"
-                            style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
                             High Diploma
                         </div>
                         <div class="person-content"
-                            style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
-                            <form id="teacherForm">
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherHighDiplomaForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="High Diploma" readonly>
+                                </div>
+
                                 <div class="form-row">
                                     <label for="NumStu">Number of Students:</label>
                                     <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                        placeholder="Enter number of students" required>
+                                           placeholder="Enter number of students" required>
 
                                     <label for="NumFreeProfessors">Number of Free Professors:</label>
                                     <input type="number" id="NumFreeProfessors" name="NumFreeProffesor"
-                                        class="form-control" placeholder="Enter number of free Professors" required>
+                                           class="form-control" placeholder="Enter number of free Professors" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
                                     <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
-                                        class="form-control" placeholder="Enter number of part-time Professors" required>
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
 
                                     <label for="NumProf">Number of Professors:</label>
                                     <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                        placeholder="Enter number of professors" required>
+                                           placeholder="Enter number of professors" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumAssociative">Number of Associative Professors:</label>
                                     <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
-                                        placeholder="Enter number of associative professors" required>
+                                           placeholder="Enter number of associative professors" required>
 
                                     <label for="NumAssistant">Number of Assistant Professors:</label>
                                     <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                        placeholder="Enter number of assistant professors" required>
+                                           placeholder="Enter number of assistant professors" required>
                                 </div>
 
-                                <div class="form-row">
-                                    <label for="NumMusharek">Number of Musharek:</label>
-                                    <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-                                        placeholder="Enter number of Musharek" required>
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+               placeholder="Enter number of Musharek" required>
 
-                                    <label for="NumMusa3ed">Number of Musa3ed:</label>
-                                    <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-                                        placeholder="Enter number of Musa3ed" required>
-                                </div>
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+               placeholder="Enter number of Musa3ed" required>
+    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
                                     <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                        class="form-control" placeholder="Enter number of lecturers" required>
+                                           class="form-control" placeholder="Enter number of lecturers" required>
 
                                     <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
                                     <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                        class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumOtherTeachers">Number of Other Teachers:</label>
                                     <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                        class="form-control" placeholder="Enter number of other teachers" required>
+                                           class="form-control" placeholder="Enter number of other teachers" required>
                                 </div>
 
                                 <!-- File Upload Field -->
                                 <div class="form-row">
                                     <label for="SpecAttachName">Special Attachment:</label>
                                     <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
-                                        accept=".pdf,.doc,.docx" required>
+                                           accept=".pdf,.doc,.docx" required>
                                 </div>
 
                                 <!-- Submit Button -->
@@ -760,73 +774,860 @@
 
                     <div class="person">
                         <div class="person-header"
-                            style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
                             Diploma
+
                         </div>
                         <div class="person-content"
-                            style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
-                            <form id="teacherForm">
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherDiplomaForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Diploma" readonly>
+                                </div>
+
                                 <div class="form-row">
                                     <label for="NumStu">Number of Students:</label>
                                     <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                        placeholder="Enter number of students" required>
+                                           placeholder="Enter number of students" required>
 
                                     <label for="NumFreeProfessors">Number of Free Professors:</label>
                                     <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
-                                        class="form-control" placeholder="Enter number of free Professors" required>
+                                           class="form-control" placeholder="Enter number of free Professors" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
                                     <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
-                                        class="form-control" placeholder="Enter number of part-time Professors" required>
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
 
                                     <label for="NumProf">Number of Professors:</label>
                                     <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                        placeholder="Enter number of professors" required>
+                                           placeholder="Enter number of professors" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumAssociative">Number of Associative Professors:</label>
                                     <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
-                                        placeholder="Enter number of associative professors" required>
+                                           placeholder="Enter number of associative professors" required>
 
                                     <label for="NumAssistant">Number of Assistant Professors:</label>
                                     <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                        placeholder="Enter number of assistant professors" required>
+                                           placeholder="Enter number of assistant professors" required>
                                 </div>
 
-                                <div class="form-row">
-                                    <label for="NumMusharek">Number of Musharek:</label>
-                                    <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-                                        placeholder="Enter number of Musharek" required>
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+               placeholder="Enter number of Musharek" required>
 
-                                    <label for="NumMusa3ed">Number of Musa3ed:</label>
-                                    <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-                                        placeholder="Enter number of Musa3ed" required>
-                                </div>
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+               placeholder="Enter number of Musa3ed" required>
+    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
                                     <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                        class="form-control" placeholder="Enter number of lecturers" required>
+                                           class="form-control" placeholder="Enter number of lecturers" required>
 
                                     <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
                                     <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                        class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
                                 </div>
 
                                 <div class="form-row">
                                     <label for="NumOtherTeachers">Number of Other Teachers:</label>
                                     <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                        class="form-control" placeholder="Enter number of other teachers" required>
+                                           class="form-control" placeholder="Enter number of other teachers" required>
                                 </div>
 
                                 <!-- File Upload Field -->
                                 <div class="form-row">
                                     <label for="SpecAttachName">Special Attachment:</label>
                                     <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
-                                        accept=".pdf,.doc,.docx" required>
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Residency (Hospital Works)
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherResidencyForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Residency" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Main Medical
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherMedicalForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Main Medical" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Scientific Bachelor
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherScientificBachelorForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Scientific Practical Bachelor" readonly>
+                                </div>
+                                <div class="form-row">
+
+
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Humnamitarian Practical Bachelor
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherHumnamitarianPracticalBachelorForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Humnamitarian Practical Bachelor" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Scientific Practical Bachelor
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherScientificPracticalBachelorForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Scientific Practical Bachelor" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Scientific Masters
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherScientificMastersForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Scientific Masters" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Scientific Practical Masters
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherScientificPracticalMastersForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Scientific Practical Masters" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button todo connect to backend-->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Humanitarian Masters
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherHumanitarianMastersForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Humanitarian Masters" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProffesor"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <div class="person-header"
+                             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                            Doctorate
+                        </div>
+                        <div class="person-content"
+                             style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+                            <form id="teacherDoctorateForm">
+                                <!-- Hidden InsId Field -->
+                                <input type="hidden" id="InsId" name="InsId" value="your_ins_id_value_here">
+                                <!-- TODO: add the value of the institution ID here -->
+                                <!-- Visible, Uneditable Type Field -->
+                                <div class="form-row">
+                                    <label for="Type">Type:</label>
+                                    <input type="text" id="Type" name="Type" class="form-control"
+                                           value="Doctorate" readonly>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumStu">Number of Students:</label>
+                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                           placeholder="Enter number of students" required>
+
+                                    <label for="NumFreeProfessors">Number of Free Professors:</label>
+                                    <input type="number" id="NumFreeProfessors" name="NumFreeProfessors"
+                                           class="form-control" placeholder="Enter number of free Professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
+                                    <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                                           class="form-control" placeholder="Enter number of part-time Professors" required>
+
+                                    <label for="NumProf">Number of Professors:</label>
+                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                           placeholder="Enter number of professors" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumAssociative">Number of Associative Professors:</label>
+                                    <input type="number" id="NumAssociative" name="NumAssociative" class="form-control"
+                                           placeholder="Enter number of associative professors" required>
+
+                                    <label for="NumAssistant">Number of Assistant Professors:</label>
+                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                           placeholder="Enter number of assistant professors" required>
+                                </div>
+
+                                <!--<div class="form-row">
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+            placeholder="Enter number of Musharek" required>
+
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+            placeholder="Enter number of Musa3ed" required>
+    </div>-->
+
+                                <div class="form-row">
+                                    <label for="NumberLecturers">Number of Lecturers:</label>
+                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                           class="form-control" placeholder="Enter number of lecturers" required>
+
+                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                           class="form-control" placeholder="Enter number of assistant lecturers" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                           class="form-control" placeholder="Enter number of other teachers" required>
+                                </div>
+
+                                <!-- File Upload Field -->
+                                <div class="form-row">
+                                    <label for="SpecAttachName">Special Attachment:</label>
+                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                                           accept=".pdf,.doc,.docx" required>
                                 </div>
 
                                 <!-- Submit Button todo connect to backend-->

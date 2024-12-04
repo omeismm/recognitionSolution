@@ -81,7 +81,7 @@ public class Verifier
         set => _verified = value;
 
     }
-    public int PracticalHoursRatioColor(Specialization spec)
+    public int PracticalHoursRatioColor(Specialization spec)//helper function for the practical specialization hours ratio
     {
         if (spec.PracticalHours == null || spec.TheoreticalHours == null)
         {
