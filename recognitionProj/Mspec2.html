@@ -565,6 +565,7 @@
             <script src="attachments_files/bootstrap.js" type="text/javascript"></script>
             <script src="attachments_files/respond.js" type="text/javascript"></script>
             <script src="attachments_files/WebFormsJs" type="text/javascript"></script>
+            <script src="attachments_files/specializationFetching.js" type="text/javascript"></script>
             <script type="text/javascript">
                 //<![CDATA[
                 function WebForm_OnSubmit() {
@@ -688,11 +689,12 @@
                         <div class="person-header"
                              style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
                             High Diploma
+                            <!-- Color Indicator: Initially no color; will be updated by JS -->
+                            <span id="highDiplomaColorIndicator" class="color-indicator"></span>
                         </div>
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
-                            <form id="teacherHighDiplomaForm" action="/api/specialization/save" method="post" enctype="multipart/form-data"><!--todo debug-->
-
+                            <form id="teacherHighDiplomaForm" action="/api/specialization/save" method="post" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -730,14 +732,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-               placeholder="Enter number of Musharek" required>
+                <label for="NumMusharek">Number of Musharek:</label>
+                <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                       placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-               placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                <label for="NumMusa3ed">Number of Musa3ed:</label>
+                <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                       placeholder="Enter number of Musa3ed" required>
+            </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -756,13 +758,12 @@
                                 </div>
 
                                 <!-- File Upload Field -->
-                            <!--todo fix the controller to deal with this attachment-->
+                                <!--todo fix the controller to deal with this attachment-->
                                 <!--<div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment:</label>
-                                    <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
-                                           accept=".pdf,.doc,.docx" required>
-                                </div>-->
-
+                <label for="SpecAttachName">Special Attachment:</label>
+                <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+                       accept=".pdf,.doc,.docx" required>
+            </div>-->
                                 <!-- Submit Button -->
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>

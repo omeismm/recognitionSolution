@@ -31,10 +31,10 @@ public class Program
 
         while (true)
         {
-             specController.GetSpecializationByType("High Diploma");
+            specController.GetSpecializationByType("High Diploma");
             verifier.HighDiplomaRatio(SpecializationList[0]);
             Console.WriteLine(SpecializationList[0].Color);
-            //todo, make a controller for the color and send it back to the frontend
+            specController.SaveSpecialization(SpecializationList[0]);
         }
     }
 }
