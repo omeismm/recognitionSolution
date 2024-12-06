@@ -11,7 +11,7 @@ namespace recognitionProj;
 
 public class Verifier
 {
-    private University _uni;
+    
     private List<string> _message;
     private bool _verified;
     private bool _Article3;
@@ -20,9 +20,9 @@ public class Verifier
     private bool _Article6;
     private bool _Article7;
 
-    public Verifier(University uni)
+    public Verifier()
     {
-        _uni = uni;
+        
         _message = new List<string>();
         _verified = false;
         _Article3 = false;
@@ -39,11 +39,6 @@ public class Verifier
         set => _message = value;
     }
 
-    public University Uni
-    {
-        get => _uni;
-        set => _uni = value;
-    }
 
     public bool Article3
     {
@@ -108,13 +103,12 @@ public class Verifier
 
     //these functions will be used inside aticle 4 to calculate the ratios
     //todo make them return 0 1 or 2 based on the color . not boolean
-    public void ScientificBachelorRatio()//todo (1:25)//page 11
+    public void ScientificBachelorRatio(Specialization spec)//todo (1:25)//page 11
     {
         int doctorates;
         int masters;
         float x;
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Scientific Bachelor")
             {
                 doctorates = 0;
@@ -131,16 +125,15 @@ public class Verifier
                 
                 
             }
-        }
+        
        
     }
 
-    public void HumanitarianBachelorRatio()//todo (1:35)
+    public void HumanitarianBachelorRatio(Specialization spec)//todo (1:35)
     {
         int doctorates;
         float x;
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Humanitarian Bachelor")
             {
                 doctorates = 0;
@@ -154,19 +147,18 @@ public class Verifier
                 else
                     spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
-        }
+        
         
     }
 
-    public void HumnamitarianPracticalBachelorRatio()//todo (1:25)
+    public void HumnamitarianPracticalBachelorRatio(Specialization spec)//todo (1:25)
     {
         double doctorates;
         double masters;
         double x;
         double overtime;
         
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Humanitarian Practical Bachelor")
             {
                 //todo, use PracticalHoursRatioColor
@@ -185,19 +177,18 @@ public class Verifier
                 else
                     spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
-            }
+            
      
     }
         
     
-    public void ScientificPracticalBachelorRatio()//todo (1:20)
+    public void ScientificPracticalBachelorRatio(Specialization spec)//todo (1:20)
     {
         double doctorates;
         double masters;
         double x;
         double overtime;
-        foreach(Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Scientific Practical Bachelor")
             {
                 //todo, use PracticalHoursRatioColor
@@ -217,16 +208,15 @@ public class Verifier
                     spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
             }
 
-        }
+        
 
     }
 
     
 
-    public void HighDiplomaRatio() //todo (1:20) //page 13 // todo change from boolean to green orange red
+    public void HighDiplomaRatio(Specialization spec) //todo (1:20) //page 13 // todo change from boolean to green orange red
     {
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "High Diploma")
             {
                 int totalStaff = spec.NumProf + spec.NumAssociative + spec.NumAssistant;
@@ -269,13 +259,12 @@ public class Verifier
                     }
                 }
             }
-        }
+        
     }
     //todo:btw for the masters, the pdf does not seperate between the scientific and humanitarian masters
-    public void ScientificMastersRatio() //todo (1:15)//page 13
+    public void ScientificMastersRatio(Specialization spec) //todo (1:15)//page 13
     {
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Scientific Masters")
             {
                 // Calculate total staff
@@ -308,16 +297,15 @@ public class Verifier
                     spec.Color = 2; // this color is green, meaning the specialization meets the ratio
                 }
             }
-        }
+        
 
         
     }
 
 
-    public void ScientificPracticalMastersRatio()//todo (1:15)//page 13
+    public void ScientificPracticalMastersRatio(Specialization spec)//todo (1:15)//page 13
     {
-        foreach(Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Scientific Practical Masters")
             {
                 //todo, use PracticalHoursRatioColor
@@ -352,14 +340,13 @@ public class Verifier
                     spec.Color = 2; // this color is green, meaning the specialization meets the ratio
                 }
             }
-        }
+        
     
     }
 
-    public void HumanitarianMastersRatio()//todo (1:20)//page 13
+    public void HumanitarianMastersRatio(Specialization spec)//todo (1:20)//page 13
     {
-        foreach(Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Humanitarian Masters")
             {
                 // Calculate total staff
@@ -393,14 +380,13 @@ public class Verifier
                 }
 
             }
-        }
+        
         
     }
     
-    public void MainMedicalRatio()//todo (1:25)
+    public void MainMedicalRatio(Specialization spec)//todo (1:25)
     {
-    foreach(Specialization spec in _uni.Specializations)
-        {
+    
             if (spec.Type == "Main Medical")
             {
                 //todo math
@@ -409,28 +395,26 @@ public class Verifier
                 spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
                 spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
-        }
+        
         
     }
 
-    public void ResidencyRatio()//todo (1:8)
+    public void ResidencyRatio(Specialization spec)//todo (1:8)
     {
-    foreach(Specialization spec in _uni.Specializations)
-        {
+    
             if (spec.Type == "Residency")
             {
                 spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
                 spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
                 spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
-        }
+        
         
     }
 
-    public void DoctorateRatio() // todo(1:10) ratio // page 13
+    public void DoctorateRatio(Specialization spec) // todo(1:10) ratio // page 13
     {
-        foreach (Specialization spec in _uni.Specializations)
-        {
+        
             if (spec.Type == "Doctorate")
             {
                 // Total staff count, including NumProf, NumAssistant, and NumAssistant
@@ -472,7 +456,7 @@ public class Verifier
                 spec.Color = 2; //this color is green, meaning the specialization meets the ratio
             }
 
-        }
+        
 
         
     }
@@ -555,9 +539,9 @@ public class Verifier
     //Platform for live and lon live information
     }
 
-    public void VerifyArticle6()
+    public void VerifyArticle6(AcademicInfo aca)
     {
-        if (_uni.ARWURank >= 700 && _uni.QSRank >= 500 && _uni.THERank >= 500)
+        if (aca.ARWURank >= 700 && aca.QSRank >= 500 && aca.THERank >= 500)
         {
             _Article6 = true;
         }
@@ -569,17 +553,18 @@ public class Verifier
     //accepted in home country ministry of higher edu for middle diploma
     }
 
-    public void Verify()
+    public Boolean Verify(AcademicInfo aca)//note that this function might need updating like what happened with article 6. any variable we need to check for should be passed as a parameter
     {
         this.VerifyArticle3();
         this.VerifyArticle4();
         this.VerifyArticle5();
-        this.VerifyArticle6();
+        this.VerifyArticle6(aca);
         this.VerifyArticle7();
         if (_Article3 && _Article4 && _Article5 &&  _Article7 || _Article6)
         {
-            _verified = true;
+            return true;
         }
+        return false;
     }
 
 

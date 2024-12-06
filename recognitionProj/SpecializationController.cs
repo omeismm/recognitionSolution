@@ -8,10 +8,10 @@ namespace RecognitionProj.Controllers
     [Route("api/[controller]")]
     public class SpecializationController : ControllerBase
     {
-        // In-memory list to store specializations temporarily (for demonstration purposes)
+        // In-memory list to store specializations temporarily 
         private static List<Specialization> _specializationList = new List<Specialization>();
-
-        // POST: api/specialization/save
+        public List<Specialization> SpecializationList{get => _specializationList; set => _specializationList = value; }//in order to access the list from the test
+                                                                                                                        // POST: api/specialization/save
         [HttpPost("save")]
         public IActionResult SaveSpecialization([FromBody] Specialization specialization)
         {

@@ -10,8 +10,9 @@ public class Program
 
         //var connectionString = "Host=my_host;Username=my_user;Password=my_pw;Database=my_db";//placeholders
         //DatabaseHandler dbHandler = new(connectionString);
-        SpecializationController controller = new SpecializationController();
+        SpecializationController specController = new SpecializationController();
         //dbHandler.Query("SELECT * FROM my_table");//placeholder query
+        Verifier verifier = new Verifier();
         for (int i = 0; i < 10; i++)
         {
             //hello world
@@ -25,9 +26,15 @@ public class Program
             UseShellExecute = true
         });
 
+        //in memory list to store specializations temporarily
+        List<Specialization> SpecializationList = specController.SpecializationList;
+
         while (true)
         {
-            // Keep the program running
+             specController.GetSpecializationByType("High Diploma");
+            verifier.HighDiplomaRatio(SpecializationList[0]);
+            Console.WriteLine(SpecializationList[0].Color);
+            //todo, make a controller for the color and send it back to the frontend
         }
     }
 }
