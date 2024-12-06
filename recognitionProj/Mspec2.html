@@ -565,7 +565,7 @@
             <script src="attachments_files/bootstrap.js" type="text/javascript"></script>
             <script src="attachments_files/respond.js" type="text/javascript"></script>
             <script src="attachments_files/WebFormsJs" type="text/javascript"></script>
-            <script src="attachments_files/specializationFetching.js" type="text/javascript"></script>
+            
             <script type="text/javascript">
                 //<![CDATA[
                 function WebForm_OnSubmit() {
@@ -587,39 +587,48 @@
                 <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
                     <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
                         <span id="lblName"
-                            style="color: rgb(153, 0, 51); font-size: medium; --darkreader-inline-color: #ff6196;"
-                            data-darkreader-inline-color="">university</span>
+                              style="color: rgb(153, 0, 51); font-size: medium; --darkreader-inline-color: #ff6196;"
+                              data-darkreader-inline-color="">university</span>
                     </div>
                     <div class="list-group list-group-flush" style="width: max-content;">
                         <a href="https://rnji.mohe.gov.jo/Site/InstructionsRNJI"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-atlas"></i>&nbsp;&nbsp;
-                            Instructions and Requirements </a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-atlas"></i>&nbsp;&nbsp;
+                            Instructions and Requirements
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/PublicInfo"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info </a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/AcademicInfo"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/AdmissionRequirements"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
+                        </a>
 
                         <a href="https://rnji.mohe.gov.jo/Site/Infrastructure"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/Library"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-book-reader"></i>&nbsp;&nbsp;Library</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/Attach"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/Pictures"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
+                        </a>
                         <a href="https://rnji.mohe.gov.jo/Site/Submit" id="submit"
-                            class="list-group-item list-group-item-action bg-light"><i
-                                class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application</a>
+                           class="list-group-item list-group-item-action bg-light">
+                            <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
+                        </a>
                     </div>
                 </div>
                 <div id="page-content-wrapper">
@@ -732,14 +741,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-                <label for="NumMusharek">Number of Musharek:</label>
-                <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-                       placeholder="Enter number of Musharek" required>
+        <label for="NumMusharek">Number of Musharek:</label>
+        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+               placeholder="Enter number of Musharek" required>
 
-                <label for="NumMusa3ed">Number of Musa3ed:</label>
-                <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-                       placeholder="Enter number of Musa3ed" required>
-            </div>-->
+        <label for="NumMusa3ed">Number of Musa3ed:</label>
+        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+               placeholder="Enter number of Musa3ed" required>
+    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -760,11 +769,12 @@
                                 <!-- File Upload Field -->
                                 <!--todo fix the controller to deal with this attachment-->
                                 <!--<div class="form-row">
-                <label for="SpecAttachName">Special Attachment:</label>
-                <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
-                       accept=".pdf,.doc,.docx" required>
-            </div>-->
+        <label for="SpecAttachName">Special Attachment:</label>
+        <input type="file" id="SpecAttachName" name="SpecAttachName" class="form-control"
+               accept=".pdf,.doc,.docx" required>
+    </div>-->
                                 <!-- Submit Button -->
+                                <!-- todo i think we need to change this button because it still is based on the old code-->
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>
                         </div>
@@ -817,14 +827,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-               placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                               placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-               placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                               placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -901,14 +911,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -984,14 +994,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1068,14 +1078,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1151,14 +1161,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1234,14 +1244,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1279,7 +1289,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherScientificMastersForm">
- 
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1317,14 +1327,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1400,14 +1410,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1445,7 +1455,7 @@
                         <div class="person-content"
                              style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                             <form id="teacherHumanitarianMastersForm">
-   
+
                                 <div class="form-row">
                                     <label for="Type">Type:</label>
                                     <input type="text" id="Type" name="Type" class="form-control"
@@ -1483,14 +1493,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1567,14 +1577,14 @@
                                 </div>
 
                                 <!--<div class="form-row">
-        <label for="NumMusharek">Number of Musharek:</label>
-        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
-            placeholder="Enter number of Musharek" required>
+                        <label for="NumMusharek">Number of Musharek:</label>
+                        <input type="number" id="NumMusharek" name="NumMusharek" class="form-control"
+                            placeholder="Enter number of Musharek" required>
 
-        <label for="NumMusa3ed">Number of Musa3ed:</label>
-        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
-            placeholder="Enter number of Musa3ed" required>
-    </div>-->
+                        <label for="NumMusa3ed">Number of Musa3ed:</label>
+                        <input type="number" id="NumMusa3ed" name="NumMusa3ed" class="form-control"
+                            placeholder="Enter number of Musa3ed" required>
+                    </div>-->
 
                                 <div class="form-row">
                                     <label for="NumberLecturers">Number of Lecturers:</label>
@@ -1600,6 +1610,7 @@
                                 </div>
 
                                 <!-- Submit Button todo connect to backend-->
+                                
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             </form>
                         </div>
@@ -1614,8 +1625,8 @@
                         });
                     });
                 </script>
-
-
+                <!-- my javascript that handles the form retrieval -->
+                <script src="attachments_files/specializationFetching.js" type="text/javascript"></script>
 
             </div>
             </div>

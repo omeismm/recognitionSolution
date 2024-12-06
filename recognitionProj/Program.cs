@@ -27,13 +27,13 @@ public class Program
         });
 
         //in memory list to store specializations temporarily
-        List<Specialization> SpecializationList = specController.SpecializationList;
+        List<Specialization> SpecializationList = new List<Specialization>();
 
         while (true)
         {
             specController.GetSpecializationByType("High Diploma");
-            verifier.HighDiplomaRatio(SpecializationList[0]);
-            Console.WriteLine(SpecializationList[0].Color);
+            SpecializationList = specController.SpecializationList;
+            Console.WriteLine(SpecializationList[0].Color);//todo fix this so the highdiploma comes out of the controller and into the main
             specController.SaveSpecialization(SpecializationList[0]);
         }
     }
