@@ -7,8 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\attachments_files\all.css" />
+    <Content Remove="wwwroot\attachments_files\bootstrap.css" />
+    <Content Remove="wwwroot\attachments_files\bootstrap.js" />
+    <Content Remove="wwwroot\attachments_files\jo.jpg" />
+    <Content Remove="wwwroot\attachments_files\jquery-3.6.0.js" />
+    <Content Remove="wwwroot\attachments_files\MsAjaxJs" />
+    <Content Remove="wwwroot\attachments_files\respond.js" />
+    <Content Remove="wwwroot\attachments_files\simple-sidebar.css" />
+    <Content Remove="wwwroot\attachments_files\Site.css" />
+    <Content Remove="wwwroot\attachments_files\specializationFetching.js" />
+    <Content Remove="wwwroot\attachments_files\uk.jpg" />
+    <Content Remove="wwwroot\attachments_files\WebFormsJs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\attachments_files\all.css" />
+    <None Include="wwwroot\attachments_files\bootstrap.css" />
+    <None Include="wwwroot\attachments_files\bootstrap.js" />
+    <None Include="wwwroot\attachments_files\jo.jpg" />
+    <None Include="wwwroot\attachments_files\jquery-3.6.0.js" />
+    <None Include="wwwroot\attachments_files\MsAjaxJs" />
+    <None Include="wwwroot\attachments_files\respond.js" />
+    <None Include="wwwroot\attachments_files\simple-sidebar.css" />
+    <None Include="wwwroot\attachments_files\Site.css" />
+    <None Include="wwwroot\attachments_files\specializationFetching.js" />
+    <None Include="wwwroot\attachments_files\uk.jpg" />
+    <None Include="wwwroot\attachments_files\WebFormsJs" />
+    <None Include="wwwroot\Mspec3.html" />
   </ItemGroup>
 
 </Project>
