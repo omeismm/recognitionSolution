@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/acceptancerecord/save
         [HttpPost("save")]
-        public IActionResult SaveAcceptanceRecord([FromBody] AcceptanceRecord acceptanceRecord)
+        public IActionResult SaveAcceptanceRecord([FromForm] AcceptanceRecord acceptanceRecord)
         {
             if (acceptanceRecord == null)
             {

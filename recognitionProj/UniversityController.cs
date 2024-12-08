@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/university/save
         [HttpPost("save")]
-        public IActionResult SaveUniversity([FromBody] University university)
+        public IActionResult SaveUniversity([FromForm] University university)
         {
             if (university == null)
             {

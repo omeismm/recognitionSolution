@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/hospitals/save
         [HttpPost("save")]
-        public IActionResult SaveHospital([FromBody] Hospitals hospital)
+        public IActionResult SaveHospital([FromForm] Hospitals hospital)
         {
             if (hospital == null)
             {

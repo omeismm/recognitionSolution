@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/infrastructure/save
         [HttpPost("save")]
-        public IActionResult SaveInfrastructureInfo([FromBody] Infrastructure infrastructureInfo)
+        public IActionResult SaveInfrastructureInfo([FromForm] Infrastructure infrastructureInfo)
         {
             if (infrastructureInfo == null)
             {

@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/academicinfo/save
         [HttpPost("save")]
-        public IActionResult SaveAcademicInfo([FromBody] AcademicInfo academicInfo)
+        public IActionResult SaveAcademicInfo([FromForm] AcademicInfo academicInfo)
         {
             if (academicInfo == null)
             {

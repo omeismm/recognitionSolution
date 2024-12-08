@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/library/save
         [HttpPost("save")]
-        public IActionResult SaveLibraryInfo([FromBody] Library libraryInfo)
+        public IActionResult SaveLibraryInfo([FromForm] Library libraryInfo)
         {
             if (libraryInfo == null)
             {

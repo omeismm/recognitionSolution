@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/pictures/save
         [HttpPost("save")]
-        public IActionResult SavePictureInfo([FromBody] Pictures pictureInfo)
+        public IActionResult SavePictureInfo([FromForm] Pictures pictureInfo)
         {
             if (pictureInfo == null)
             {
