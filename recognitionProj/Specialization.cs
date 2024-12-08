@@ -27,7 +27,7 @@
         public Specialization(int insId, string type, int numStu, int numFreeProf, int numPartTimeProf,
                               int numProf, int numAssociative, int numAssistant, /*int numMusharek, int numMusa3ed*/
                               int numberLecturers, int numAssisLecturer, int numOtherTeachers,
-                              string specAttachName, string specAttachDesc,int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
+                              string specAttachName, string specAttachDesc, int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
         {
             _insId = insId;
             _type = type;
@@ -49,6 +49,8 @@
             _practicalHours = practicalHours;
             _theoreticalHours = theoreticalHours;
         }
+        public Specialization() { }
+        
 
         // Properties
         public int InsID { get => _insId; set => _insId = value; } // معرف الكيان
