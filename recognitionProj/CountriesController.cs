@@ -14,7 +14,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/countries/save
         [HttpPost("save")]
-        public IActionResult SaveCountry([FromForm] string country)
+        public IActionResult SaveCountry([FromBody] string country)
         {
             if (string.IsNullOrEmpty(country))
             {

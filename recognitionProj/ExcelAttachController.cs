@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
 
         // POST: api/excelattach/save
         [HttpPost("save")]
-        public IActionResult SaveExcelAttachment([FromForm] ExcelAttachment excelAttachment)
+        public IActionResult SaveExcelAttachment([FromBody] ExcelAttachment excelAttachment)
         {
             if (excelAttachment == null)
             {
