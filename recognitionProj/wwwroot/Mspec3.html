@@ -134,7 +134,7 @@
                 <div class="person-content"
                      style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
                     <!-- Form now has no action or method attributes -->
-                    <form id="teacherHighDiplomaForm">
+                    <form id="teacherHighDiplomaForm" enctype="multipart/form-data">
                         <div class="form-row">
                             <label for="Type">Type:</label>
                             <input type="text" id="Type" name="Type" class="form-control" value="High Diploma" readonly>
@@ -145,14 +145,14 @@
                             <input type="number" id="NumStu" name="NumStu" class="form-control"
                                    placeholder="Enter number of students" required>
 
-                            <label for="NumFreeProfessors">Number of Free Professors:</label>
-                            <input type="number" id="NumFreeProfessors" name="NumFreeProfessor"
+                            <label for="NumFreeProf">Number of Free Professors:</label>
+                            <input type="number" id="NumFreeProf" name="NumFreeProf"
                                    class="form-control" placeholder="Enter number of free Professors" required>
                         </div>
 
                         <div class="form-row">
-                            <label for="NumPartTimeProfessors">Number of Part-Time Professors:</label>
-                            <input type="number" id="NumPartTimeProfessors" name="NumPartTimeProfessors"
+                            <label for="NumPartTimeProf">Number of Part-Time Professors:</label>
+                            <input type="number" id="NumPartTimeProf" name="NumPartTimeProf"
                                    class="form-control" placeholder="Enter number of part-time Professors" required>
 
                             <label for="NumProf">Number of Professors:</label>
@@ -187,15 +187,29 @@
                         </div>
 
                         <div class="form-row">
-                            <label for="SpecAttachName">(TEMPORARY)Special Attachment Name: (TEMPORARY)</label>
+                            <label for="SpecAttachName">Special Attachment Name:</label>
                             <input type="text" id="SpecAttachName" name="SpecAttachName" class="form-control" placeholder="Enter special attachment name">
 
-                            <label for="SpecAttachDesc">(TEMPORARY)Special Attachment Description: (TEMPORARY)</label>
+                            <label for="SpecAttachDesc">Special Attachment Description:</label>
                             <input type="text" id="SpecAttachDesc" name="SpecAttachDesc" class="form-control" placeholder="Enter special attachment description">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="InsID">Institution ID:</label>
+                            <input type="number" id="InsID" name="InsID" class="form-control" value="0" readonly>
+
+                            <label for="PracticalHours">Practical Hours:</label>
+                            <input type="number" id="PracticalHours" name="PracticalHours" class="form-control" value="0" readonly>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="TheoreticalHours">Theoretical Hours:</label>
+                            <input type="number" id="TheoreticalHours" name="TheoreticalHours" class="form-control" value="0" readonly>
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
+
                 </div>
             </div>
 

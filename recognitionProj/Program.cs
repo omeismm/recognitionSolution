@@ -33,8 +33,9 @@ var result = specController.GetSpecializationByType("High Diploma");
 if (result is OkObjectResult okResult 
     && okResult.Value is List<Specialization> specializations 
     && specializations.Count > 0)
-{
+{ 
     var highDiplomaSpec = specializations[0];
+    
     Console.WriteLine(highDiplomaSpec.Color);
 
     specController.SaveSpecialization(highDiplomaSpec);

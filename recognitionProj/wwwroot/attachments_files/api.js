@@ -4,18 +4,11 @@
     // Gather the form data
     const formData = new FormData(this);
 
-    // Convert formData to a plain object if needed
-    // Or send directly if the API accepts form-data
-    // For JSON, you'd convert formData to a JS object and then to JSON.
-    let object = {};
-    formData.forEach((value, key) => { object[key] = value });
-
+    // Send the formData directly
     const response = await fetch('/api/specialization/save', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(object)
+        body: formData
+        // No need to set headers, fetch will handle Content-Type for multipart/form-data
     });
 
     if (response.ok) {

@@ -16,8 +16,8 @@
         private int _numberLecturers; // عدد المدرسين (Lecturers)
         private int _numAssisLecturer; // عدد المدرسين المساعدين (Assistant Lecturers)
         private int _numOtherTeachers; // عدد المدرسين الآخرين (Other Teachers)
-        private string _specAttachName; // اسم المرفق
-        private string _specAttachDesc; // وصف المرفق
+        private string? _specAttachName; // اسم المرفق
+        private string? _specAttachDesc; // وصف المرفق
         private int _color;
         private int _numPhdHolders;
         private int? _practicalHours;
@@ -27,7 +27,7 @@
         public Specialization(int insId, string type, int numStu, int numFreeProf, int numPartTimeProf,
                               int numProf, int numAssociative, int numAssistant, /*int numMusharek, int numMusa3ed*/
                               int numberLecturers, int numAssisLecturer, int numOtherTeachers,
-                              string specAttachName, string specAttachDesc, int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
+                              string? specAttachName, string? specAttachDesc, int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
         {
             _insId = insId;
             _type = type;
@@ -66,8 +66,8 @@
         public int NumberLecturers { get => _numberLecturers; set => _numberLecturers = value; } // عدد المدرسين
         public int NumAssisLecturer { get => _numAssisLecturer; set => _numAssisLecturer = value; } // عدد المدرسين المساعدين
         public int NumOtherTeachers { get => _numOtherTeachers; set => _numOtherTeachers = value; } // عدد المدرسين الآخرين
-        public string SpecAttachName { get => _specAttachName; set => _specAttachName = value; } // اسم المرفق
-        public string SpecAttachDesc { get => _specAttachDesc; set => _specAttachDesc = value; } // وصف المرفق
+        public string? SpecAttachName { get => _specAttachName; set => _specAttachName = value; } // اسم المرفق
+        public string? SpecAttachDesc { get => _specAttachDesc; set => _specAttachDesc = value; } // وصف المرفق
 
         public int NumPhdHolders { get => _numPhdHolders; set => _numPhdHolders = value; }
         public int? PracticalHours { get => _practicalHours; set => _practicalHours = value; }

@@ -13,7 +13,7 @@ namespace RecognitionProj.Controllers
         public List<Specialization> SpecializationList{get => _specializationList; set => _specializationList = value; }//in order to access the list from the test
                                                                                                                         // POST: api/specialization/save
         [HttpPost("save")]
-        public IActionResult SaveSpecialization([FromForm] Specialization specialization)
+        public IActionResult SaveSpecialization([FromBody] Specialization specialization)
         {
             if (specialization == null)
             {

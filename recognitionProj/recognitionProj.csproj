@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\attachments_files\all.css" />
+    <Content Remove="wwwroot\attachments_files\api.js" />
     <Content Remove="wwwroot\attachments_files\bootstrap.css" />
     <Content Remove="wwwroot\attachments_files\bootstrap.js" />
     <Content Remove="wwwroot\attachments_files\jo.jpg" />
@@ -28,6 +29,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\attachments_files\all.css" />
+    <None Include="wwwroot\attachments_files\api.js" />
     <None Include="wwwroot\attachments_files\bootstrap.css" />
     <None Include="wwwroot\attachments_files\bootstrap.js" />
     <None Include="wwwroot\attachments_files\jo.jpg" />
