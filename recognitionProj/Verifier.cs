@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace recognitionProj;
 
@@ -85,13 +86,13 @@ public class Verifier
 
         double P = spec.PracticalHours ?? 0;
         double T = spec.TheoreticalHours ?? 0;
-        double requiredPracticalHours = T; // To achieve a 50% practical ratio
+        double requiredPracticalHours = (P+T)/2; // To achieve a 50% practical ratio
 
         if (P >= requiredPracticalHours)
         {
             return 2; // Practical hours meet or exceed 50% ratio
         }
-        else if (P >= 0.8 * requiredPracticalHours)
+        else if (P >= 0.8* requiredPracticalHours)
         {
             return 1; // Practical hours are within 20% of required amount
         }
@@ -103,10 +104,10 @@ public class Verifier
 
     //these functions will be used inside aticle 4 to calculate the ratios
     //todo make them return 0 1 or 2 based on the color . not boolean
-    public void ScientificBachelorRatio(Specialization spec)//todo (1:25)//page 11
+    public void ScientificBachelorRatio(Specialization spec)
     {
         int doctorates;
-        int masters;
+        
         float x;
         
             if (spec.Type == "Scientific Bachelor")
@@ -129,7 +130,7 @@ public class Verifier
        
     }
 
-    public void HumanitarianBachelorRatio(Specialization spec)//todo (1:35)
+    public void HumanitarianBachelorRatio(Specialization spec)
     {
         int doctorates;
         float x;
@@ -151,7 +152,7 @@ public class Verifier
         
     }
 
-    public void HumnamitarianPracticalBachelorRatio(Specialization spec)//todo (1:25)
+    public void HumnamitarianPracticalBachelorRatio(Specialization spec)
     {
         double doctorates;
         double masters;
@@ -162,7 +163,15 @@ public class Verifier
             if (spec.Type == "Humanitarian Practical Bachelor")
             {
                 //todo, use PracticalHoursRatioColor
-                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);
+                if (PracHoursRatioColor == 0)
+                {
+                spec.Color = 0;
+                return;
+
+                }
+            
+
                 doctorates = 0;
                 masters = 0;
                 doctorates = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
@@ -176,13 +185,24 @@ public class Verifier
                     spec.Color = 1;
                 else
                     spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
-            }
+
+                if (spec.Color == 2)
+                {
+                    if (PracHoursRatioColor == 1)
+                    {
+                        spec.Color = 1;
+                        return;
+
+                    }
+
+                }
+        }
             
      
     }
         
     
-    public void ScientificPracticalBachelorRatio(Specialization spec)//todo (1:20)
+    public void ScientificPracticalBachelorRatio(Specialization spec)
     {
         double doctorates;
         double masters;
@@ -192,8 +212,14 @@ public class Verifier
             if (spec.Type == "Scientific Practical Bachelor")
             {
                 //todo, use PracticalHoursRatioColor
-                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
-                doctorates = 0;
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);
+                if (PracHoursRatioColor == 0)
+                {
+                    spec.Color = 0;
+                    return;
+
+                }
+            doctorates = 0;
             masters = 0;
                 doctorates = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
                 masters = spec.NumberLecturers + spec.NumAssisLecturer;
@@ -206,15 +232,25 @@ public class Verifier
                     spec.Color = 1;
                 else
                     spec.Color = 0;//this color is red, meaning the specialization does not meet the ratio
-            }
+                if (spec.Color == 2)
+                {
+                    if (PracHoursRatioColor == 1)
+                    {
+                        spec.Color = 1;
+                        return;
+
+                    }
+
+                }
+        }
 
         
 
     }
 
     
-
-    public void HighDiplomaRatio(Specialization spec) //todo (1:20) //page 13 // todo change from boolean to green orange red
+        
+    public void HighDiplomaRatio(Specialization spec) 
     {
         
             if (spec.Type == "High Diploma")
@@ -228,11 +264,11 @@ public class Verifier
                 }
 
                 // Calculate ratios
-                float ostadhMusharekRatio = (float)(spec.NumProf + spec.NumAssociative) / totalStaff; // Combined Ostadh and OstadhMusharek ratio
-                float ostadhMusa3edRatio = (float)spec.NumAssistant / totalStaff; // OstadhMusa3ed ratio
+                float ProfAssoratio = (float)(spec.NumProf + spec.NumAssociative) / totalStaff; // Combined Ostadh and OstadhMusharek ratio
+                float Assistandtratio = (float)spec.NumAssistant / totalStaff; // OstadhMusa3ed ratio
 
                 // Ensure OstadhMusharek or Ostadh is at least 25% and OstadhMusa3ed is at most 75%
-                if (ostadhMusharekRatio < 0.25 || ostadhMusa3edRatio > 0.75)
+                if (ProfAssoratio < 0.25 || Assistandtratio > 0.75)
                 {
                     spec.Color = 0; // Violates the ratio conditions
                     return; //break out of function
@@ -262,7 +298,7 @@ public class Verifier
         
     }
     //todo:btw for the masters, the pdf does not seperate between the scientific and humanitarian masters
-    public void ScientificMastersRatio(Specialization spec) //todo (1:15)//page 13
+    public void ScientificMastersRatio(Specialization spec) 
     {
         
             if (spec.Type == "Scientific Masters")
@@ -277,41 +313,63 @@ public class Verifier
                 }
 
                 // Calculate percentages
-                float ostadhPercentage = (float)spec.NumProf / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
+                float profRatio = (float)spec.NumProf / totalStaff;
+                float assosiativeRatio = (float)spec.NumAssistant / totalStaff;
+                float assistantRatio = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
                 // 1. Ostadh >= 25%
                 // 2. OstadhMusa3ed <= 25%
                 // 3. Remaining staff should be OstadhMusharek
 
-                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+                if (profRatio < 0.25 || assistantRatio > 0.25 )//may cause a problem
                 {
                     spec.Color=0; // Ratio violation
                     return; //break out of function
                 }
                 else
-                {   //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
-                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
+                 {
+                    float studentToStaffRatio = (float)spec.NumStu / totalStaff;
+                    if (studentToStaffRatio > 15)
+                    {
+                        if (studentToStaffRatio <= 18) // lenient by 20%
+                        {
+                            spec.Color = 1; // Close to meeting the ratio
+                            return;
+                        }
+                        else
+                        {
+                            spec.Color = 0; // Violates the student to staff ratio
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        spec.Color = 2; // Meets the ratio conditions
+                    }
                 }
-            }
+        }
         
 
         
     }
 
 
-    public void ScientificPracticalMastersRatio(Specialization spec)//todo (1:15)//page 13
+    public void ScientificPracticalMastersRatio(Specialization spec)
     {
         
             if (spec.Type == "Scientific Practical Masters")
             {
                 //todo, use PracticalHoursRatioColor
-                int PracHoursRatioColor = PracticalHoursRatioColor(spec);// todo use this
-                // Calculate total staff
-                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
+                int PracHoursRatioColor = PracticalHoursRatioColor(spec);
+                if (PracHoursRatioColor == 0)
+                {
+                    spec.Color = 0;
+                    return;
+
+                }
+            // Calculate total staff
+            int totalStaff = spec.NumProf + spec.NumAssociative + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -320,31 +378,56 @@ public class Verifier
                 }
 
                 // Calculate percentages
-                float ostadhPercentage = (float)spec.NumProf / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
+                float profRatio = (float)spec.NumProf / totalStaff;
+                float associateRatio = (float)spec.NumAssistant / totalStaff;
+                float assisRatio = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
                 // 1. Ostadh >= 25%
                 // 2. OstadhMusa3ed <= 25%
                 // 3. Remaining staff should be OstadhMusharek
 
-                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+                if (profRatio < 0.25 || assisRatio > 0.25 ) //May cause a problem.
                 {
                     spec.Color=0; // Ratio violation
                 }
                 else
                 {
-                    //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
-                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
+                float studentToStaffRatio = (float)spec.NumStu / totalStaff;
+                if (studentToStaffRatio > 16.5)
+                {
+                    if (studentToStaffRatio <= 16.5+(0.2*1.65)) // lenient by 20%
+                    {
+                        spec.Color = 1; // Close to meeting the ratio
+                        return;
+                    }
+                    else
+                    {
+                        spec.Color = 0; // Violates the student to staff ratio
+                        return;
+                    }
                 }
-            }
+                    else
+                    {
+                        spec.Color = 2; // Meets the ratio conditions
+                    }
+                }
+                if (spec.Color == 2)
+                {
+                    if (PracHoursRatioColor == 1)
+                    {
+                        spec.Color = 1;
+                        return;
+
+                    }
+
+                }
+        }
         
     
     }
 
-    public void HumanitarianMastersRatio(Specialization spec)//todo (1:20)//page 13
+    public void HumanitarianMastersRatio(Specialization spec)
     {
         
             if (spec.Type == "Humanitarian Masters")
@@ -358,67 +441,139 @@ public class Verifier
                     return; //break out of function
                 }
 
-                // Calculate percentages
-                float ostadhPercentage = (float)spec.NumProf / totalStaff;
-                float ostadhMusa3edPercentage = (float)spec.NumAssistant / totalStaff;
-                float ostadhMusharekPercentage = (float)spec.NumAssistant / totalStaff;
+            // Calculate percentages
+            float profRatio = (float)spec.NumProf / totalStaff;
+            float associateRatio = (float)spec.NumAssistant / totalStaff;
+            float assisRatio = (float)spec.NumAssistant / totalStaff;
 
-                // Ensure the ratios meet the requirements:
-                // 1. Ostadh >= 25%
-                // 2. OstadhMusa3ed <= 25%
-                // 3. Remaining staff should be OstadhMusharek
 
-                if (ostadhPercentage < 0.25 || ostadhMusa3edPercentage > 0.25 || (ostadhPercentage + ostadhMusa3edPercentage + ostadhMusharekPercentage != 1))
+            // Ensure the ratios meet the requirements:
+            // 1. Ostadh >= 25%
+            // 2. OstadhMusa3ed <= 25%
+            // 3. Remaining staff should be OstadhMusharek
+
+            if (profRatio < 0.25 || assisRatio > 0.25 ) //may cause a problem
                 {
                     spec.Color=0; // Ratio violation
                 }
                 else
                 {
-                    //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
-                    spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                    spec.Color = 2; // this color is green, meaning the specialization meets the ratio
+                    float studentToStaffRatio = (float)spec.NumStu / totalStaff;
+                    if (studentToStaffRatio > 22)
+                    {
+                        if (studentToStaffRatio <= 22 +(0.2*22)) // lenient by 20%
+                        {
+                            spec.Color = 1; // Close to meeting the ratio
+                            return;
+                        }
+                        else
+                        {
+                            spec.Color = 0; // Violates the student to staff ratio
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        spec.Color = 2; // Meets the ratio conditions
+                    }
                 }
 
-            }
+        }
         
         
     }
     
-    public void MainMedicalRatio(Specialization spec)//todo (1:25)
+    public void MainMedicalRatio(Specialization spec)
     {
-    
+        
             if (spec.Type == "Main Medical")
             {
                 //todo math
-
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+            float totalStaff = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssistant + spec.NumAssociative;
+            float masters = spec.NumberLecturers + spec.NumAssisLecturer;
+            if (masters / totalStaff > 1.2)
+            {
+                spec.Color = 0;
+                return ;
             }
+            else
+            {
+                float studentToStaffRatio = (float)spec.NumStu / totalStaff;
+                if (studentToStaffRatio > 25)
+                {
+                    if (studentToStaffRatio <= 30) // lenient by 20%
+                    {
+                        spec.Color = 1; // Close to meeting the ratio
+                        return;
+                    }
+                    else
+                    {
+                        spec.Color = 0; // Violates the student to staff ratio
+                        return;
+                    }
+                }
+                else
+                {
+                    spec.Color = 2; // Meets the ratio conditions
+                }
+            }
+        }
         
         
     }
 
-    public void ResidencyRatio(Specialization spec)//todo (1:8)
+    public void ResidencyRatio(Specialization spec)
     {
     
             if (spec.Type == "Residency")
             {
-                spec.Color = 0; //this color is red, meaning the specialization does not meet the ratio
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
+            float totalStaff =  spec.NumFreeProf + spec.NumAssistant + spec.NumAssociative;
+            float masters = spec.NumberLecturers;
+            if (masters / totalStaff > 1.2)
+            {
+                spec.Color = 0;
+                return;
             }
+            else
+            {
+              double   studentToStaffRatio=1;
+                if (totalStaff < 50)
+                    studentToStaffRatio = (double)spec.NumStu / (1.25 * totalStaff);
+                else if (totalStaff >= 50 && totalStaff < 100)
+                    studentToStaffRatio =(double) spec.NumStu / (1.25 * 50 + 1.35*(totalStaff - 50));
+                else
+                    studentToStaffRatio = (double)spec.NumStu / (1.25 * 50 + 1.35 * 50  + 1.5*(totalStaff-100));
+                if (studentToStaffRatio > 25)
+
+                {
+                    if (studentToStaffRatio <= 30) // lenient by 20%
+                    {
+                        spec.Color = 1; // Close to meeting the ratio
+                        return;
+                    }
+                    else
+                    {
+                        spec.Color = 0; // Violates the student to staff ratio
+                        return;
+                    }
+                }
+                else
+                {
+                    spec.Color = 2; // Meets the ratio conditions
+                }
+            }
+        }
         
         
     }
 
-    public void DoctorateRatio(Specialization spec) // todo(1:10) ratio // page 13
+    public void DoctorateRatio(Specialization spec) 
     {
         
             if (spec.Type == "Doctorate")
             {
                 // Total staff count, including NumProf, NumAssistant, and NumAssistant
-                int totalStaff = spec.NumProf + spec.NumAssistant + spec.NumAssistant;
+                double totalStaff = spec.NumProf + spec.NumAssociative + spec.NumAssistant;
 
                 if (totalStaff == 0)
                 {
@@ -426,35 +581,41 @@ public class Verifier
                     return; //break out of function
                 }
 
-                // Calculate the minimum and maximum limits based on ratios
-                int minNumProf = (int)Math.Ceiling(totalStaff * 0.50); // At least 50% for NumProf
-                int maxNumAssistant = (int)Math.Floor(totalStaff * 0.25); // At most 25% for NumAssistant
+                
 
                 // Adjust NumProf to meet the minimum required
-                if (spec.NumProf < minNumProf)
+                if (spec.NumProf/totalStaff<0.5)
                 {
                     spec.Color = 0; // Not enough NumProf to meet the minimum requirement
                     return;
                 }
 
                 // Adjust NumAssistant to meet the maximum allowed
-                if (spec.NumAssistant > maxNumAssistant)
+                if (spec.NumAssistant /totalStaff>0.25)
                 {
                     spec.Color = 0; // Too many NumAssistant compared to the allowed maximum
                     return;
                 }
-
-                // Calculate the remaining staff that should be NumAssistant
-                int remainingStaff = totalStaff - spec.NumProf - spec.NumAssistant;
-                if (remainingStaff != spec.NumAssistant)
+    
+                  double  studentToStaffRatio = spec.NumStu / totalStaff;
+                if (studentToStaffRatio > 15)
                 {
-                    spec.Color = 0; // Remaining staff doesn't match the expected NumAssistant count
-                    return;
+                    if (studentToStaffRatio <= 18) // lenient by 20%
+                    {
+                        spec.Color = 1; // Close to meeting the ratio
+                        return;
+                    }
+                    else
+                    {
+                        spec.Color = 0; // Violates the student to staff ratio
+                        return;
+                    }
                 }
-                //todo math still. i did not read what is needed but we should see if the student to staff ratio is met i think
-                spec.Color = 1; //this color is orange, meaning the specialization is close to meeting the ratio
-                spec.Color = 2; //this color is green, meaning the specialization meets the ratio
-            }
+                else
+                {
+                    spec.Color = 2; // Meets the ratio conditions
+                }
+        }
 
         
 
