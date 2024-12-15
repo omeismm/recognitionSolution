@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expandable Forms</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 800px;
+                margin: 50px auto;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .person {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .person-header {
+                padding: 15px 20px;
+                cursor: pointer;
+                position: relative;
+                transition: background-color 0.3s;
+            }
+
+            .person-header:hover {
+                background-color: #f9f9f9;
+            }
+
+            .person-header::after {
+                content: '\25BC';
+                /* Down arrow */
+                position: absolute;
+                right: 20px;
+                transition: transform 0.3s;
+            }
+
+            .person-header.active::after {
+                transform: rotate(180deg);
+                /* Up arrow */
+            }
+
+            .person-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                padding: 0 20px;
+                background-color: #fafafa;
+            }
+
+            .person-content.active {
+                padding: 20px;
+                max-height: 500px;
+                /* Adjust as needed */
+                transition: max-height 0.5s ease-in;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            form label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            form input,
+            form textarea {
+                margin-bottom: 15px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            form button {
+                width: 100px;
+                padding: 10px;
+                background-color: #4285F4;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            form button:hover {
+                background-color: #357ae8;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h2 style="text-align:center; padding:20px 0; border-bottom:1px solid #ddd;">Expandable Forms</h2>
+
+            <div class="person">
+                <div class="person-header">John Doe</div>
+                <div class="person-content">
+                    <form>
+                        <label for="name-john">Name:</label>
+                        <input type="text" id="name-john" name="name" placeholder="Your Name" required>
+
+                        <label for="email-john">Email:</label>
+                        <input type="email" id="email-john" name="email" placeholder="Your Email" required>
+
+                        <label for="message-john">Message:</label>
+                        <textarea id="message-john" name="message" rows="4" placeholder="Your Message"
+                            required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="person">
+                <div class="person-header">Jane Smith</div>
+                <div class="person-content">
+                    <form>
+                        <label for="name-jane">Name:</label>
+                        <input type="text" id="name-jane" name="name" placeholder="Your Name" required>
+
+                        <label for="email-jane">Email:</label>
+                        <input type="email" id="email-jane" name="email" placeholder="Your Email" required>
+
+                        <label for="message-jane">Message:</label>
+                        <textarea id="message-jane" name="message" rows="4" placeholder="Your Message"
+                            required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Add more persons as needed -->
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const headers = document.querySelectorAll('.person-header');
+
+                headers.forEach(header => {
+                    header.addEventListener('click', function () {
+                        // Toggle active class on header
+                        this.classList.toggle('active');
+
+                        // Toggle active class on content
+                        const content = this.nextElementSibling;
+                        content.classList.toggle('active');
+
+                        // Optionally, close other open contents
+                        headers.forEach(otherHeader => {
+                            if (otherHeader !== this) {
+                                otherHeader.classList.remove('active');
+                                otherHeader.nextElementSibling.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+    </body>
+
+</html>

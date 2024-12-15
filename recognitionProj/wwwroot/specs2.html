@@ -1,0 +1,96 @@
+<div class="container">
+    <h2 style="text-align:center; padding:20px 0; border-bottom:1px solid #ddd;">Expandable Specialization Form</h2>
+
+    <!-- Expandable Section for Specialization Information -->
+    <div class="person">
+        <div class="person-header"
+            style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+            Specialization Information
+        </div>
+        <div class="person-content" style="display:none; padding:15px; border:1px solid #ddd; border-top:none;">
+            <form id="specializationForm">
+                <div class="form-row">
+                    <label for="type">Type:</label>
+                    <input type="text" id="type" name="type" class="form-control" placeholder="Enter Type" required>
+
+                    <label for="numStu">Number of Students:</label>
+                    <input type="number" id="numStu" name="numStu" class="form-control"
+                        placeholder="Enter number of students" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="numFreeTeachers">Number of Full-Time Teachers:</label>
+                    <input type="number" id="numFreeTeachers" name="numFreeTeachers" class="form-control"
+                        placeholder="Enter number of full-time teachers" required>
+
+                    <label for="numPartTimeTeachers">Number of Part-Time Teachers:</label>
+                    <input type="number" id="numPartTimeTeachers" name="numPartTimeTeachers" class="form-control"
+                        placeholder="Enter number of part-time teachers" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="numProf">Number of Professors:</label>
+                    <input type="number" id="numProf" name="numProf" class="form-control"
+                        placeholder="Enter number of professors" required>
+
+                    <label for="numAssociative">Number of Associate Professors:</label>
+                    <input type="number" id="numAssociative" name="numAssociative" class="form-control"
+                        placeholder="Enter number of associate professors" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="numAssistant">Number of Assistant Professors:</label>
+                    <input type="number" id="numAssistant" name="numAssistant" class="form-control"
+                        placeholder="Enter number of assistant professors" required>
+
+                    <label for="numMusharek">Number of Musharek Professors:</label>
+                    <input type="number" id="numMusharek" name="numMusharek" class="form-control"
+                        placeholder="Enter number of Musharek professors" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="numMusa3ed">Number of Musa3ed Professors:</label>
+                    <input type="number" id="numMusa3ed" name="numMusa3ed" class="form-control"
+                        placeholder="Enter number of Musa3ed professors" required>
+
+                    <label for="numberLecturers">Number of Lecturers:</label>
+                    <input type="number" id="numberLecturers" name="numberLecturers" class="form-control"
+                        placeholder="Enter number of lecturers" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="numAssisLecturer">Number of Assistant Lecturers:</label>
+                    <input type="number" id="numAssisLecturer" name="numAssisLecturer" class="form-control"
+                        placeholder="Enter number of assistant lecturers" required>
+
+                    <label for="numOtherTeachers">Number of Other Teachers:</label>
+                    <input type="number" id="numOtherTeachers" name="numOtherTeachers" class="form-control"
+                        placeholder="Enter number of other teachers" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="specAttachName">Attachment Name:</label>
+                    <input type="text" id="specAttachName" name="specAttachName" class="form-control"
+                        placeholder="Enter attachment name" required>
+
+                    <label for="attachmentDesc">Attachment Description:</label>
+                    <input type="text" id="attachmentDesc" name="attachmentDesc" class="form-control"
+                        placeholder="Enter attachment description" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to toggle the expandable content -->
+<script>
+    document.querySelectorAll('.person-header').forEach(header => {
+        header.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+        });
+    });
+</script>
