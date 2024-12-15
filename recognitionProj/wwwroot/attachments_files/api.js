@@ -1,18 +1,27 @@
 ﻿document.getElementById('teacherHighDiplomaForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Prevent the default form submission
 
+    // Gather the form data into an object
     const formData = new FormData(this);
+    let object = {};
+    formData.forEach((value, key) => {
+        object[key] = value;
+    });
 
+    // Send as JSON since [FromBody] expects JSON
     const response = await fetch('/api/specialization/save', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(object)
     });
 
     if (response.ok) {
         const jsonResponse = await response.json();
         console.log(jsonResponse);
 
-        // Show a popup with the corresponding color
+        // Show a popup with an emoji indicating the color
         let message;
         switch (jsonResponse.color) {
             case 0:
@@ -29,9 +38,9 @@
                 break;
         }
 
-        alert(message); // Display the popup
+        alert(message);
     } else {
         console.error('Error submitting form');
-        alert('Error submitting form');
+        alert('Error submitting form because of' + response.statusText);
     }
 });
