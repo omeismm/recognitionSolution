@@ -2,10 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using RecognitionProj.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using recognitionProj;
+using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +14,17 @@ builder.Services.AddControllers();
 // Register Verifier as a singleton or transient service so it can be injected
 builder.Services.AddSingleton<Verifier>();
 
+// Register DatabaseHandler and pass connection string from configuration
+// First, read the connection string from appsettings.json or environment variables
+
+var connectionString = "Server=SAIF\\SQLEXPRESS;Database=master;Integrated Security=True;";
+
+
+
+
+
+builder.Services.AddSingleton(new DatabaseHandler(connectionString));
+
 var app = builder.Build();
 
 // Assign a known URL
@@ -22,9 +32,6 @@ app.Urls.Add("http://localhost:5000");
 
 // Map controller endpoints
 app.MapControllers();
-
-// Remove old direct usage of specController and verifier here for the ratio logic
-// Because we will now run ratio logic inside SaveSpecialization after receiving the POST request
 
 // Print "Hello World!" once
 Console.WriteLine("Hello World!");
