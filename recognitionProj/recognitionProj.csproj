@@ -39,6 +39,7 @@
     <None Include="wwwroot\attachments_files\Site.css" />
     <None Include="wwwroot\attachments_files\uk.jpg" />
     <None Include="wwwroot\attachments_files\WebFormsJs" />
+    <None Include="wwwroot\ms3.html" />
     <None Include="wwwroot\Mspec3.html" />
   </ItemGroup>
 
