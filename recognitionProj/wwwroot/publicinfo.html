@@ -209,206 +209,184 @@
 </head>
 
 <body id="body" style="direction:ltr;">
+    <!-- Removed ASP.NET form, viewstate and postback code -->
+    <!-- You can now use a simple HTML form pointing to your API endpoint -->
 
-    <!-- Normal HTML form without ASP.NET specifics -->
-    <form method="post" action="#">
-
-        <div class="d-flex" id="wrapper">
-            <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
-                <div class="sidebar-heading" style="padding:5px 15px;max-width: fit-content;">
-                    <span style="color: rgb(153, 0, 51); font-size: medium;">university</span>
-                </div>
-                <div class="list-group list-group-flush" style="width: max-content;">
-                    <a href="https://rnji.mohe.gov.jo/Site/InstructionsRNJI" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PublicInfo" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/AcademicInfo" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/AdmissionRequirements" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/StudyingDuration" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clock"></i>&nbsp;&nbsp;Studying Duration
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/College" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-university"></i>&nbsp;&nbsp;Faculties
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Programes" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;Programes
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/StudentsCount" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-graduate"></i>&nbsp;&nbsp;Number of Students
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/HoursCount" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-stopwatch"></i>&nbsp;&nbsp;Number of Hours
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Percentage" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-sort-amount-down"></i>&nbsp;&nbsp;Percentages
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/TeachingStaff" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-tie"></i>&nbsp;&nbsp;Teaching Staff
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PhDTeachingStaff" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-friends"></i>&nbsp;&nbsp;PhD Holders
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PhDCollege" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clinic-medical"></i>&nbsp;&nbsp;Medicine Faculties
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Hospitals" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-stethoscope"></i>&nbsp;&nbsp;Hospitals
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Infrastructure" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Labs" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-bong"></i>&nbsp;&nbsp;Labratories
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Library" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Attach" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Pictures" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Submit" id="submit" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
-                    </a>
-                </div>
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;">university</span>
             </div>
-
-            <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
-                            <li class="nav-item li_Lang">
-                                <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
-                            </li>
-                            <li class="nav-item li_Lang">
-                                <a id="lnkAR" title="Arabic" href="#">
-                                    <img src="publicinfo_files/jo.jpg" width="22px">
-                                </a>
-                            </li>
-                            <li class="nav-item li_Lang">
-                                <a id="lnkEN" title="English" href="#">
-                                    <img src="publicinfo_files/uk.jpg" width="22px">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="container-fluid">
-                    <br>
-                    <input type="submit" value="Save" class="btn btn-primary btnSave" style="float:right !important;">
-
-                    <table class="table table-responsive table-hover table-bordered">
-                        <tr>
-                            <td><span>Name of Institution</span><span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter institution name"></td>
-                        </tr>
-                        <tr>
-                            <td><span>Party Forwarding Form</span><span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter forwarding party"></td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-responsive table-hover table-bordered">
-                        <tr>
-                            <td><span>Founding Date</span><span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                        </tr>
-                        <tr>
-                            <td><span>Date of Conventional Academic Offerings</span></td>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                        </tr>
-                        <tr>
-                            <td><span>Date of non-conventional Program Offerings</span></td>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                        </tr>
-                        <tr>
-                            <td><span>Official Entity Possessing Oversight Rights</span></td>
-                            <td>
-                                <select class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Governmental</option>
-                                    <option value="2">Private</option>
-                                    <option value="3">Independent</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-responsive table-hover table-bordered center">
-                        <tr>
-                            <th colspan="3">Information of President of Institution</th>
-                        </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>Highest Academic Degree</td>
-                            <td>Major Area of Study</td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="President's Name"></td>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="President's Degree"></td>
-                            <td><input type="text" maxlength="50" class="form-control" placeholder="President's Major"></td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-responsive table-hover table-bordered">
-                        <tr>
-                            <th colspan="2" class="center">Contact Information</th>
-                        </tr>
-                        <tr>
-                            <td>Mailing Full Address<span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Full address"></td>
-                        </tr>
-                        <tr>
-                            <td>Direct Phone Number<span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="50" class="form-control long" placeholder="Phone number"></td>
-                        </tr>
-                        <tr>
-                            <td>Fax Number<span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="50" class="form-control long" placeholder="Fax number"></td>
-                        </tr>
-                        <tr>
-                            <td>Email Address<span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="50" class="form-control long" placeholder="Email address"></td>
-                        </tr>
-                        <tr>
-                            <td>Institutional Web Address<span class="StarSpan"> *</span></td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Website URL"></td>
-                        </tr>
-                        <tr>
-                            <td>Institutional Vision Statement</td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Vision statement"></td>
-                        </tr>
-                        <tr>
-                            <td>Institutional Mission Statement</td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Mission statement"></td>
-                        </tr>
-                        <tr>
-                            <td>Institutional Targetted Objectives</td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Objectives"></td>
-                        </tr>
-                        <tr>
-                            <td>Institutional Values</td>
-                            <td><input type="text" maxlength="80" class="form-control long" placeholder="Values"></td>
-                        </tr>
-                        <tr>
-                            <td>Last Date Website Updated</td>
-                            <td><input type="text" maxlength="50" class="form-control long" placeholder="dd/MM/yyyy"></td>
-                        </tr>
-                    </table>
-
-                    <br><br>
-                </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="http://localhost:5000/instructionsRNJI.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
+                </a>
+                <a href="http://localhost:5000/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
+                </a>
+                <a href="http://localhost:5000/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
+                </a>
+                <a href="http://localhost:5000/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
+                </a>
+                <a href="http://localhost:5000/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
+                </a>
+                <a href="http://localhost:5000/librar.htmly"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
+                </a>
+                <!-- Removed Attach link if not needed -->
+                <!-- <a href="https://rnji.mohe.gov.jo/Site/Attach" class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
+                </a> -->
+                <a href="http://localhost:5000/pictures.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
+                </a>
+                <!--todo the above html file-->
+                <a href="http://localhost:5000/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
             </div>
         </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkAR" title="Arabic" href="#">
+                                <img src="publicinfo_files/jo.jpg" width="22px">
+                            </a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkEN" title="English" href="#">
+                                <img src="publicinfo_files/uk.jpg" width="22px">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <br>
+                <input type="submit" value="Save" class="btn btn-primary btnSave" style="float:right !important;">
+
+                <table class="table table-responsive table-hover table-bordered">
+                    <tr>
+                        <td><span>Name of Institution</span><span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter institution name"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Party Forwarding Form</span><span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter forwarding party"></td>
+                    </tr>
+                </table>
+
+                <table class="table table-responsive table-hover table-bordered">
+                    <tr>
+                        <td><span>Founding Date</span><span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Date of Conventional Academic Offerings</span></td>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Date of non-conventional Program Offerings</span></td>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
+                    </tr>
+                    <tr>
+                        <td><span>Official Entity Possessing Oversight Rights</span></td>
+                        <td>
+                            <select class="form-control">
+                                <option value="-1" selected>--Choose--</option>
+                                <option value="1">Governmental</option>
+                                <option value="2">Private</option>
+                                <option value="3">Independent</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-responsive table-hover table-bordered center">
+                    <tr>
+                        <th colspan="3">Information of President of Institution</th>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>Highest Academic Degree</td>
+                        <td>Major Area of Study</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Name"></td>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Degree"></td>
+                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Major"></td>
+                    </tr>
+                </table>
+
+                <table class="table table-responsive table-hover table-bordered">
+                    <tr>
+                        <th colspan="2" class="center">Contact Information</th>
+                    </tr>
+                    <tr>
+                        <td>Mailing Full Address<span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Full address"></td>
+                    </tr>
+                    <tr>
+                        <td>Direct Phone Number<span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Phone number"></td>
+                    </tr>
+                    <tr>
+                        <td>Fax Number<span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Fax number"></td>
+                    </tr>
+                    <tr>
+                        <td>Email Address<span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Email address"></td>
+                    </tr>
+                    <tr>
+                        <td>Institutional Web Address<span class="StarSpan"> *</span></td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Website URL"></td>
+                    </tr>
+                    <tr>
+                        <td>Institutional Vision Statement</td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Vision statement"></td>
+                    </tr>
+                    <tr>
+                        <td>Institutional Mission Statement</td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Mission statement"></td>
+                    </tr>
+                    <tr>
+                        <td>Institutional Targetted Objectives</td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Objectives"></td>
+                    </tr>
+                    <tr>
+                        <td>Institutional Values</td>
+                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Values"></td>
+                    </tr>
+                    <tr>
+                        <td>Last Date Website Updated</td>
+                        <td><input type="text" maxlength="50" class="form-control long" placeholder="dd/MM/yyyy"></td>
+                    </tr>
+                </table>
+
+                <br><br>
+            </div>
+        </div>
+    </div>
     </form>
 
 </body>

@@ -205,133 +205,111 @@
 </head>
 
 <body id="body" style="direction:ltr;">
+    <!-- Removed ASP.NET form, viewstate and postback code -->
+    <!-- You can now use a simple HTML form pointing to your API endpoint -->
 
-    <!-- Converted to a normal HTML form without ASP.NET specifics -->
-    <form method="post" action="#">
-
-        <div class="d-flex" id="wrapper">
-            <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
-                <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content;">
-                    <span style="color: rgb(153, 0, 51); font-size: medium;">university</span>
-                </div>
-                <div class="list-group list-group-flush" style="width:max-content;">
-                    <a href="https://rnji.mohe.gov.jo/Site/InstructionsRNJI" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PublicInfo" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/AcademicInfo" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/AdmissionRequirements" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/StudyingDuration" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clock"></i>&nbsp;&nbsp;Studying Duration
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/College" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-university"></i>&nbsp;&nbsp;Faculties
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Programes" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;Programes
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/StudentsCount" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-graduate"></i>&nbsp;&nbsp;Number of Students
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/HoursCount" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-stopwatch"></i>&nbsp;&nbsp;Number of Hours
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Percentage" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-sort-amount-down"></i>&nbsp;&nbsp;Percentages
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/TeachingStaff" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-tie"></i>&nbsp;&nbsp;Teaching Staff
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PhDTeachingStaff" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-user-friends"></i>&nbsp;&nbsp;PhD Holders
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/PhDCollege" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-clinic-medical"></i>&nbsp;&nbsp;Medicine Faculties
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Hospitals" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-stethoscope"></i>&nbsp;&nbsp;Hospitals
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Infrastructure" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Labs" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-bong"></i>&nbsp;&nbsp;Labratories
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Library" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Attach" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Pictures" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
-                    </a>
-                    <a href="https://rnji.mohe.gov.jo/Site/Submit" id="submit" class="list-group-item list-group-item-action bg-light">
-                        <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
-                    </a>
-                </div>
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;">university</span>
             </div>
-
-            <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
-                            <li class="nav-item li_Lang">
-                                <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
-                            </li>
-                            <li class="nav-item li_Lang">
-                                <a id="lnkAR" title="Arabic" href="#"><img src="submit_files/jo.jpg" width="22px"></a>
-                            </li>
-                            <li class="nav-item li_Lang">
-                                <a id="lnkEN" title="English" href="#"><img src="submit_files/uk.jpg" width="22px"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="container-fluid">
-                    <style type="text/css">
-                        td {
-                            width: fit-content !important;
-                        }
-                    </style>
-
-                    <div class="panel panel-primary" style="margin:1%;">
-                        <div class="panel-heading">Submit Application</div>
-                        <div class="panel-body">
-                            <span class="StarSpan">*</span><strong>&nbsp;&nbsp;Make sure all fields followed by (*) are very important to be filled.</strong><br>
-                            <span class="StarSpan">*</span><strong>&nbsp;&nbsp;Make sure all data are correct and complete, otherwise it will not be considered.</strong><br>
-                            <span class="StarSpan">*</span><strong>&nbsp;&nbsp;After submitting the application, you cannot add or modify data.</strong><br><br><br>
-
-                            <table class="table table-responsive table-hover table-bordered">
-                                <tr>
-                                    <td>Applicant Name<span class="StarSpan"> *</span></td>
-                                    <td><input type="text" maxlength="50" class="form-control" placeholder="Your Name" required></td>
-                                    <td>Work Place<span class="StarSpan"> *</span></td>
-                                    <td><input type="text" maxlength="50" class="form-control" placeholder="Your Workplace" required></td>
-                                    <td>Email<span class="StarSpan"> *</span></td>
-                                    <td><input type="email" maxlength="50" class="form-control" placeholder="Your Email" required></td>
-                                </tr>
-                            </table>
-
-                            <br>
-                            <input type="checkbox" required><strong>&nbsp;&nbsp;I acknowledge that all data are correct.</strong>
-                            <br><br>
-                            <input type="submit" value="Submit" class="btn btn-primary"><br><br>
-                        </div>
-                        <div class="panel-body">
-                            <span style="color:green; font-weight:bold;"></span>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="http://localhost:5000/instructionsRNJI.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
+                </a>
+                <a href="http://localhost:5000/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
+                </a>
+                <a href="http://localhost:5000/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
+                </a>
+                <a href="http://localhost:5000/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
+                </a>
+                <a href="http://localhost:5000/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
+                </a>
+                <a href="http://localhost:5000/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
+                </a>
+                <!-- Removed Attach link if not needed -->
+                <!-- <a href="https://rnji.mohe.gov.jo/Site/Attach" class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
+                </a> -->
+                <a href="http://localhost:5000/pictures.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
+                </a>
+                <!--todo the above html file-->
+                <a href="http://localhost:5000/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
             </div>
         </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkAR" title="Arabic" href="#"><img src="submit_files/jo.jpg" width="22px"></a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkEN" title="English" href="#"><img src="submit_files/uk.jpg" width="22px"></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <style type="text/css">
+                    td {
+                        width: fit-content !important;
+                    }
+                </style>
+
+                <div class="panel panel-primary" style="margin:1%;">
+                    <div class="panel-heading">Submit Application</div>
+                    <div class="panel-body">
+                        <span class="StarSpan">*</span><strong>&nbsp;&nbsp;Make sure all fields followed by (*) are very important to be filled.</strong><br>
+                        <span class="StarSpan">*</span><strong>&nbsp;&nbsp;Make sure all data are correct and complete, otherwise it will not be considered.</strong><br>
+                        <span class="StarSpan">*</span><strong>&nbsp;&nbsp;After submitting the application, you cannot add or modify data.</strong><br><br><br>
+
+                        <table class="table table-responsive table-hover table-bordered">
+                            <tr>
+                                <td>Applicant Name<span class="StarSpan"> *</span></td>
+                                <td><input type="text" maxlength="50" class="form-control" placeholder="Your Name" required></td>
+                                <td>Work Place<span class="StarSpan"> *</span></td>
+                                <td><input type="text" maxlength="50" class="form-control" placeholder="Your Workplace" required></td>
+                                <td>Email<span class="StarSpan"> *</span></td>
+                                <td><input type="email" maxlength="50" class="form-control" placeholder="Your Email" required></td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <input type="checkbox" required><strong>&nbsp;&nbsp;I acknowledge that all data are correct.</strong>
+                        <br><br>
+                        <input type="submit" value="Submit" class="btn btn-primary"><br><br>
+                    </div>
+                    <div class="panel-body">
+                        <span style="color:green; font-weight:bold;"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </form>
 
 </body>
