@@ -199,8 +199,7 @@ CREATE TABLE [dbo].[Specializations](
     [NumProf] [int] NOT NULL, -- عدد الأساتذة (Professors)
     [NumAssociative] [int] NOT NULL, -- عدد الأساتذة المشاركين (Associate Professors)
     [NumAssistant] [int] NOT NULL, -- عدد الأساتذة المساعدين (Assistant Professors)
-    --[NumMusharek] [int] NOT NULL, -- عدد المشاركين (Musharek Professors)
-    --[NumMusa3ed] [int] NOT NULL, -- عدد المساعدين (Musa3ed Professors)
+    [NumProfPractice] [int],
     [NumberLecturers] [int] NOT NULL, -- عدد المدرسين (Lecturers)
     [NumAssisLecturer] [int] NOT NULL, -- عدد المدرسين المساعدين (Assistant Lecturers)
     [NumOtherTeachers] [int] NOT NULL, -- عدد المدرسين الآخرين (Other Teachers)
