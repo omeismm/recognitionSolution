@@ -289,7 +289,6 @@ namespace recognitionProj
                     numAssistant: int.Parse(row["NumAssistant"].ToString()),
                     //numMusharek: int.Parse(row["NumMusharek"].ToString()),
                     //numMusa3ed: int.Parse(row["NumMusa3ed"].ToString()),
-                    numProfPractice: int.Parse(row["NumProfPractice"].ToString()),
                     numberLecturers: int.Parse(row["NumberLecturers"].ToString()),
                     numAssisLecturer: int.Parse(row["NumAssisLecturer"].ToString()),
                     numOtherTeachers: int.Parse(row["NumOtherTeachers"].ToString()),
