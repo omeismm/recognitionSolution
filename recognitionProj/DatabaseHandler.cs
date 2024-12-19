@@ -1,4 +1,4 @@
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System.Data;
 using Newtonsoft.Json;
 using System.Globalization;
@@ -245,18 +245,19 @@ namespace recognitionProj
         public void InsertSpecialization(Specialization specialization)
         {
             string tableName = "Specializations";
-            string columns = "[Type], [NumStu], [NumFreeProf], [NumPartTimeProf], [NumProf], [NumAssociative], [NumAssistant],[NumProfPractice], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color] [NumPhdHolders] [PracticalHours] [TheoreticalHours]";
+            string columns = "[Type], [NumStu], [NumFreeProf], [NumPartTimeProf], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color] [NumPhdHolders] [PracticalHours] [TheoreticalHours]";
 
             string[] parameterNames = {
                 "@Type", "@NumStu", "@NumFreeProf", "@NumPartTimeProf", "@NumProf",//
-                "@NumAssociative", "@NumAssistant","@NumProfPractice",
+                "@NumAssociative", "@NumAssistant", 
+                "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers",
                 "@SpecAttachName", "@SpecAttachDesc", "@Color", "@NumPhdHolders", "@PracticalHours", "@TheoreticalHours"
             };
 
             object[] values = {
                 specialization.Type, specialization.NumStu, specialization.NumFreeProf,//
                 specialization.NumPartTimeProf, specialization.NumProf, specialization.NumAssociative,
-                specialization.NumAssistant,specialization.NumProfPractice,
+                specialization.NumAssistant, 
                 specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
                 specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.Color , specialization.NumPhdHolders, specialization.PracticalHours, specialization.TheoreticalHours
             };
@@ -306,7 +307,7 @@ namespace recognitionProj
             }
         }
 
-
+        
 
         // Update specialization record
         public void UpdateSpecialization(Specialization specialization)
@@ -895,19 +896,19 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
                 string goals = row["Goals"].ToString();
                 string insValues = row["InsValues"].ToString();
                 string lastEditDate = row["LastEditDate"].ToString();
-
+                
                 //todo, when finishing, check if the date is being translated properly everywhere
+                
+                
+                    DateOnly entryDate = DateOnly.ParseExact(row["EntryDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    string country = row["Country"].ToString();
+                    string city = row["City"].ToString();
+                    string address = row["Address"].ToString();
+                    DateOnly creationDate = DateOnly.ParseExact(row["CreationDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    DateOnly studentAcceptanceDate = DateOnly.ParseExact(row["StudentAcceptanceDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
-
-                DateOnly entryDate = DateOnly.ParseExact(row["EntryDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                string country = row["Country"].ToString();
-                string city = row["City"].ToString();
-                string address = row["Address"].ToString();
-                DateOnly creationDate = DateOnly.ParseExact(row["CreationDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                DateOnly studentAcceptanceDate = DateOnly.ParseExact(row["StudentAcceptanceDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-
-
+                 
+                
                 string otherInfo = row["OtherInfo"].ToString();
 
                 publicInfoList.Add(new PublicInfo(insID, insName, provider, startDate, sDateT, sDateNT, supervisorID, supervisor,
