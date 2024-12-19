@@ -1,4 +1,4 @@
-namespace recognitionProj
+﻿namespace recognitionProj
 {
     public class Specialization
     {
@@ -11,7 +11,8 @@ namespace recognitionProj
         private int _numProf; // عدد الأساتذة (Professors)
         private int _numAssociative; // عدد الأساتذة المشاركين (Associate Professors)
         private int _numAssistant; // عدد الأساتذة المساعدين (Assistant Professors)
-        private int _numProfPractice;// أستاذ ممارس
+        //private int _numMusharek; // عدد المشاركين (Musharek Professors)
+        //private int _numMusa3ed; // عدد المساعدين (Musa3ed Professors)
         private int _numberLecturers; // عدد المدرسين (Lecturers)
         private int _numAssisLecturer; // عدد المدرسين المساعدين (Assistant Lecturers)
         private int _numOtherTeachers; // عدد المدرسين الآخرين (Other Teachers)
@@ -24,7 +25,7 @@ namespace recognitionProj
 
         // Constructor
         public Specialization(int insId, string type, int numStu, int numFreeProf, int numPartTimeProf,
-                              int numProf, int numAssociative, int numAssistant,int numProfPractice, 
+                              int numProf, int numAssociative, int numAssistant, /*int numMusharek, int numMusa3ed*/
                               int numberLecturers, int numAssisLecturer, int numOtherTeachers,
                               string? specAttachName, string? specAttachDesc, int color, int numPhdHolders, int? practicalHours, int? theoreticalHours)
         {
@@ -36,7 +37,8 @@ namespace recognitionProj
             _numProf = numProf;
             _numAssociative = numAssociative;
             _numAssistant = numAssistant;
-            _numProfPractice = numProfPractice;
+            //_numMusharek = numMusharek;
+            //_numMusa3ed = numMusa3ed;
             _numberLecturers = numberLecturers;
             _numAssisLecturer = numAssisLecturer;
             _numOtherTeachers = numOtherTeachers;
@@ -61,7 +63,6 @@ namespace recognitionProj
         public int NumAssistant { get => _numAssistant; set => _numAssistant = value; } // عدد الأساتذة المساعدين
         //public int NumMusharek { get => _numMusharek; set => _numMusharek = value; } // عدد المشاركين
         //public int NumMusa3ed { get => _numMusa3ed; set => _numMusa3ed = value; } // عدد المساعدين
-        public int NumProfPractice { get => _numProfPractice; set =>_numProfPractice = value; }
         public int NumberLecturers { get => _numberLecturers; set => _numberLecturers = value; } // عدد المدرسين
         public int NumAssisLecturer { get => _numAssisLecturer; set => _numAssisLecturer = value; } // عدد المدرسين المساعدين
         public int NumOtherTeachers { get => _numOtherTeachers; set => _numOtherTeachers = value; } // عدد المدرسين الآخرين
@@ -77,7 +78,7 @@ namespace recognitionProj
         public override string ToString()
         {
             return $"{_type} {_numStu} {_numFreeProf} {_numPartTimeProf} {_numProf} {_numAssociative} " +
-                   $"{_numAssistant} {_numProfPractice}  {_numberLecturers} {_numAssisLecturer} " +
+                   $"{_numAssistant}  {_numberLecturers} {_numAssisLecturer} " +
                    $"{_numOtherTeachers} {_specAttachName} {_specAttachDesc} {_color} {_numPhdHolders} {_practicalHours} {_theoreticalHours}";
         }
     }
