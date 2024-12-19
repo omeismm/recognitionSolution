@@ -12,13 +12,13 @@ namespace RecognitionProj.Controllers
         public List<Specialization> SpecializationList { get => _specializationList; set => _specializationList = value; }
 
         private readonly Verifier _verifier;
-        private readonly DatabaseHandler _databaseHandler;
+        //private readonly DatabaseHandler _databaseHandler;
 
         // Inject Verifier and DatabaseHandler via constructor
-        public SpecializationController(Verifier verifier, DatabaseHandler databaseHandler)
+        public SpecializationController(Verifier verifier/*, DatabaseHandler databaseHandler*/)
         {
             _verifier = verifier;
-            _databaseHandler = databaseHandler;
+            //_databaseHandler = databaseHandler;
         }
     
 
@@ -38,7 +38,7 @@ namespace RecognitionProj.Controllers
             _specializationList.Add(specialization);
           
          
-             _databaseHandler.InsertSpecialization(specialization);
+             //_databaseHandler.InsertSpecialization(specialization);
 
             // Return the entire specialization object so the frontend can see the updated Color
             return Ok(specialization);
