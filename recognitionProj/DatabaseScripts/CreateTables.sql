@@ -194,9 +194,9 @@ CREATE TABLE [dbo].[Specializations](
     [InsID] [int] NOT NULL ,  -- معرف الكيان
     [Type] [nvarchar](50) NOT NULL, -- نوع الكيان
     [NumStu] [int] NOT NULL, -- عدد الطلاب
-    [NumFreeProf] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)
-    [NumPartTimeProf] [int] NOT NULL, -- عدد المدرسين غير المتفرغين (Part-Time Teachers)
-    [NumProf] [int] NOT NULL, -- عدد الأساتذة (Professors)
+    [NumProf] [int] NOT NULL, -- عدد المدرسين المتفرغين (Full-Time Teachers)
+    --[NumPartTimeProf] [int] NOT NULL, -- عدد المدرسين غير المتفرغين (Part-Time Teachers)
+    --[NumProf] [int] NOT NULL, -- عدد الأساتذة (Professors)
     [NumAssociative] [int] NOT NULL, -- عدد الأساتذة المشاركين (Associate Professors)
     [NumAssistant] [int] NOT NULL, -- عدد الأساتذة المساعدين (Assistant Professors)
     [NumProfPractice] [int],
