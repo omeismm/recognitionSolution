@@ -245,7 +245,7 @@ namespace recognitionProj
         public void InsertSpecialization(Specialization specialization)
         {
             string tableName = "Specializations";
-            string columns = "[Type], [NumStu], [NumProf], [NumAssociative], [NumAssistant],[NumProfPractice], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color] [NumPhdHolders] [PracticalHours] [TheoreticalHours]";
+            string columns = "[Type], [NumStu], [NumProf], [NumAssociative], [NumAssistant],[NumProfPractice], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] , [Color], [NumPhdHolders], [PracticalHours] ,[TheoreticalHours]";
 
             string[] parameterNames = {
                 "@Type", "@NumStu",  "@NumProf",//
@@ -311,7 +311,7 @@ namespace recognitionProj
         public void UpdateSpecialization(Specialization specialization)
         {//
             string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu,  " +
-                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice " +
+                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice, " +
                 "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
                 "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc , [Color] = @Color , [NumPhdHolders] = @NumPhdHolders, [PracticalHours] = @PracticalHours, [TheoreticalHours] = @TheoreticalHours WHERE [InsID] = @InsID";
             //
@@ -329,7 +329,7 @@ namespace recognitionProj
             };
             //
             UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu,  " +
-                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice  " +
+                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice,  " +
                 "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
                 "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc,[Color]=@Color ,[NumPhdHolders]=@NumPhdHolders,[PracticalHours]=@PracticalHours,[TheoreticalHours]=@TheoreticalHours", "[InsID] = @InsID", parameterNames, values);
         }
