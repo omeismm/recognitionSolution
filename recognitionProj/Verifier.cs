@@ -115,7 +115,7 @@ public class Verifier
                 doctorates = 0;
                 
                 
-               doctorates = spec.NumPhdHolders+ spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time,phdholders must be full time
+               doctorates = spec.NumPhdHolders+ spec.NumProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time,phdholders must be full time
                 x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
                 if (spec.NumStu / x >= 1 / 25)//this color is green, meaning the specialization meets the ratio
                     spec.Color = 2;
@@ -138,7 +138,7 @@ public class Verifier
             if (spec.Type == "Humanitarian Bachelor")
             {
                 doctorates = 0;
-                doctorates = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time, phdholders must be full time
+                doctorates = spec.NumPhdHolders + spec.NumProf + spec.NumAssociative + spec.NumAssistant;//lecturers must be full time, phdholders must be full time
                 x = (float)(doctorates + 0.1 * doctorates + 0.2 * doctorates);
 
                 if (spec.NumStu / x >= 1 / 35)//this color is green, meaning the specialization meets the ratio
@@ -174,7 +174,7 @@ public class Verifier
 
                 doctorates = 0;
                 masters = 0;
-                doctorates = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
+                doctorates = spec.NumPhdHolders + spec.NumProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
                 masters = spec.NumberLecturers + spec.NumAssisLecturer;
                 overtime = Math.Min(doctorates, Math.Floor((doctorates + masters) / 2));
                 x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + overtime;
@@ -221,7 +221,7 @@ public class Verifier
                 }
             doctorates = 0;
             masters = 0;
-                doctorates = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
+                doctorates = spec.NumPhdHolders + spec.NumProf + spec.NumAssociative + spec.NumAssistant;//phdholders must be full time
                 masters = spec.NumberLecturers + spec.NumAssisLecturer;
                 overtime = Math.Min(doctorates ,Math.Floor((doctorates + masters) / 2) );
             x = doctorates + Math.Min(doctorates, masters) + Math.Floor(doctorates * 0.1) + overtime;
@@ -489,7 +489,7 @@ public class Verifier
             if (spec.Type == "Main Medical")
             {
                 //todo math
-            float totalStaff = spec.NumPhdHolders + spec.NumFreeProf + spec.NumAssistant + spec.NumAssociative;
+            float totalStaff = spec.NumPhdHolders + spec.NumProf + spec.NumAssistant + spec.NumAssociative;
             float masters = spec.NumberLecturers + spec.NumAssisLecturer;
             if (masters / totalStaff > 1.2)
             {
@@ -527,7 +527,7 @@ public class Verifier
     
             if (spec.Type == "Residency")
             {
-            float totalStaff =  spec.NumFreeProf + spec.NumAssistant + spec.NumAssociative;
+            float totalStaff =  spec.NumProf + spec.NumAssistant + spec.NumAssociative;
             float masters = spec.NumberLecturers;
             if (masters / totalStaff > 1.2)
             {
