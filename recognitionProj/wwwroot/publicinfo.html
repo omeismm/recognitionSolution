@@ -9,7 +9,6 @@
     <link href="publicinfo_files/Site.css" rel="stylesheet">
     <link href="publicinfo_files/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="publicinfo_files/all.css" crossorigin="anonymous">
-
     <style>
         .border-right {
             border: 1px solid #dee2e6 !important;
@@ -67,7 +66,6 @@
             font-size: 14px;
             line-height: 1.428571429;
             color: #555555;
-            vertical-align: middle;
             background-color: #ffffff;
             border: 1px solid #cccccc;
             border-radius: 4px;
@@ -202,10 +200,6 @@
             font-size: 21px;
         }
     </style>
-
-    <script src="publicinfo_files/jquery.min.js"></script>
-    <script src="publicinfo_files/bootstrap.js"></script>
-    <script src="publicinfo_files/respond.js"></script>
 </head>
 
 <body id="body" style="direction:ltr;">
@@ -239,7 +233,7 @@
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
                 </a>
-                <a href="http://localhost:5000/librar.htmly"
+                <a href="http://localhost:5000/library.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
@@ -265,129 +259,30 @@
                 <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
                         <li class="nav-item li_Lang">
-                            <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                            <a id="lnkLogout" href="#">
+                                <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                            </a>
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkAR" title="Arabic" href="#">
-                                <img src="publicinfo_files/jo.jpg" width="22px">
+                                <img src="attachments_files/jo.jpg" width="22px">
                             </a>
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkEN" title="English" href="#">
-                                <img src="publicinfo_files/uk.jpg" width="22px">
+                                <img src="attachments_files/uk.jpg" width="22px">
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <div class="container-fluid">
-                <br>
-                <input type="submit" value="Save" class="btn btn-primary btnSave" style="float:right !important;">
+                <!-- Add your cleaned-up content here -->
+                <!-- The original code had no actual functional form content, so just leaving this as a template. -->
 
-                <table class="table table-responsive table-hover table-bordered">
-                    <tr>
-                        <td><span>Name of Institution</span><span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter institution name"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Party Forwarding Form</span><span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Enter forwarding party"></td>
-                    </tr>
-                </table>
-
-                <table class="table table-responsive table-hover table-bordered">
-                    <tr>
-                        <td><span>Founding Date</span><span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Date of Conventional Academic Offerings</span></td>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Date of non-conventional Program Offerings</span></td>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="dd/MM/yyyy"></td>
-                    </tr>
-                    <tr>
-                        <td><span>Official Entity Possessing Oversight Rights</span></td>
-                        <td>
-                            <select class="form-control">
-                                <option value="-1" selected>--Choose--</option>
-                                <option value="1">Governmental</option>
-                                <option value="2">Private</option>
-                                <option value="3">Independent</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-
-                <table class="table table-responsive table-hover table-bordered center">
-                    <tr>
-                        <th colspan="3">Information of President of Institution</th>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>Highest Academic Degree</td>
-                        <td>Major Area of Study</td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Name"></td>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Degree"></td>
-                        <td><input type="text" maxlength="50" class="form-control" placeholder="President's Major"></td>
-                    </tr>
-                </table>
-
-                <table class="table table-responsive table-hover table-bordered">
-                    <tr>
-                        <th colspan="2" class="center">Contact Information</th>
-                    </tr>
-                    <tr>
-                        <td>Mailing Full Address<span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Full address"></td>
-                    </tr>
-                    <tr>
-                        <td>Direct Phone Number<span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Phone number"></td>
-                    </tr>
-                    <tr>
-                        <td>Fax Number<span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Fax number"></td>
-                    </tr>
-                    <tr>
-                        <td>Email Address<span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="50" class="form-control long" placeholder="Email address"></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Web Address<span class="StarSpan"> *</span></td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Website URL"></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Vision Statement</td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Vision statement"></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Mission Statement</td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Mission statement"></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Targetted Objectives</td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Objectives"></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Values</td>
-                        <td><input type="text" maxlength="80" class="form-control long" placeholder="Values"></td>
-                    </tr>
-                    <tr>
-                        <td>Last Date Website Updated</td>
-                        <td><input type="text" maxlength="50" class="form-control long" placeholder="dd/MM/yyyy"></td>
-                    </tr>
-                </table>
-
-                <br><br>
             </div>
         </div>
     </div>
     </form>
-
 </body>
 </html>

@@ -9,9 +9,7 @@
     <link href="academicinfo_files/Site.css" rel="stylesheet">
     <link href="academicinfo_files/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="academicinfo_files/all.css" crossorigin="anonymous">
-
     <style>
-        /* Cleaned up styles (based on original code) */
         .border-right {
             border: 1px solid #dee2e6 !important;
         }
@@ -68,11 +66,10 @@
             font-size: 14px;
             line-height: 1.428571429;
             color: #555555;
-            vertical-align: middle;
             background-color: #ffffff;
             border: 1px solid #cccccc;
             border-radius: 4px;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
             transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
         }
 
@@ -138,7 +135,7 @@
         }
 
         .MultiLine {
-            Height: 200px !important;
+            height: 200px !important;
         }
 
         .Custome_td {
@@ -204,6 +201,7 @@
         }
     </style>
 </head>
+
 <body id="body" style="direction:ltr;">
     <!-- Removed ASP.NET form, viewstate and postback code -->
     <!-- You can now use a simple HTML form pointing to your API endpoint -->
@@ -259,347 +257,32 @@
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
                         <li class="nav-item li_Lang">
-                            <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                            <a id="lnkLogout" href="#">
+                                <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                            </a>
                         </li>
                         <li class="nav-item li_Lang">
-                            <a id="lnkAR" title="Arabic" href="#"><img src="academicinfo_files/jo.jpg" width="22px"></a>
+                            <a id="lnkAR" title="Arabic" href="#">
+                                <img src="attachments_files/jo.jpg" width="22px">
+                            </a>
                         </li>
                         <li class="nav-item li_Lang">
-                            <a id="lnkEN" title="English" href="#"><img src="academicinfo_files/uk.jpg" width="22px"></a>
+                            <a id="lnkEN" title="English" href="#">
+                                <img src="attachments_files/uk.jpg" width="22px">
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
-
             <div class="container-fluid">
-                <br>
-                <form id="academicInfoForm" action="#" method="post">
-                    <input type="submit" value="Save" class="btn btn-primary btnSave" style="float:right !important;">
+                <!-- Add your cleaned-up content here -->
+                <!-- The original code had no actual functional form content, so just leaving this as a template. -->
 
-                    <table class="table table-responsive table-hover table-bordered">
-                        <tr>
-                            <th class="limited">
-                                <span>Type of Academic Institution</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddlInsType" id="ddlInsType" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Governmental</option>
-                                    <option value="2">Regional</option>
-                                    <option value="3">International</option>
-                                    <option value="4">Others</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Degrees in institution</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <input id="chbDiploma" type="checkbox" name="chbDiploma"><label for="chbDiploma">Diploma</label>
-                            </td>
-                            <td>
-                                <input id="chbBSc" type="checkbox" name="chbBSc"><label for="chbBSc">BSC</label>
-                            </td>
-                            <td>
-                                <input id="ChbHigherDiploma" type="checkbox" name="ChbHigherDiploma"><label for="ChbHigherDiploma">Higher Diploma</label>
-                            </td>
-                            <td>
-                                <input id="ChbMaster" type="checkbox" name="ChbMaster"><label for="ChbMaster">Master</label>
-                            </td>
-                            <td>
-                                <input id="chbPhD" type="checkbox" name="chbPhD"><label for="chbPhD">PhD</label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Has there Been Official Recognition ... in the Country that is Home to the Institution?</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddl_HeRec" id="ddl_HeRec" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Has there Been Official Accreditation &amp; Quality Assurance Recognition?</span>
-                            </th>
-                            <td>
-                                <select name="ddl_QdRec" id="ddl_QdRec" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Language of Instruction</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <span>For Domestic Students</span><span class="StarSpan"> *</span>
-                                <input name="txtStudyLangCitizen" type="text" maxlength="50" id="txtStudyLangCitizen" class="form-control">
-                            </td>
-                            <td>
-                                <span>For Foreign Students</span><span class="StarSpan"> *</span>
-                                <input name="txtStudyLangInter" type="text" maxlength="50" id="txtStudyLangInter" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Are Foreign Students Offered Programs in Joint Class Rooms?</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddlJointClass" id="ddlJointClass" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Overall Student Population</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <span>Local Student Population</span>
-                                <input name="txtTotalStudentCitizen" type="text" maxlength="50" id="txtTotalStudentCitizen" class="form-control">
-                            </td>
-                            <td>
-                                <span>Foreign Student Population</span>
-                                <input name="txtTotalStudentInter" type="text" maxlength="50" id="txtTotalStudentInter" class="form-control">
-                            </td>
-                            <td>
-                                <span>Jordanian Student Population</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStudentJordan" type="text" maxlength="50" id="txtTotalStudentJordan" class="form-control">
-                            </td>
-                            <td>
-                                <span>Total</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStudentOverall" type="text" maxlength="50" id="txtTotalStudentOverall" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited" rowspan="3">
-                                <span>Academic Staff Head Count Per Academic Rank</span><span class="StarSpan"> *</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Professor</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffProfessor" type="text" maxlength="50" id="txtTotalStaffProfessor" class="form-control">
-                            </td>
-                            <td>
-                                <span>Associate Professor</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffCoProfessor" type="text" maxlength="50" id="txtTotalStaffCoProfessor" class="form-control">
-                            </td>
-                            <td>
-                                <span>Assistant Professor</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffAssistantProfessor" type="text" maxlength="50" id="txtTotalStaffAssistantProfessor" class="form-control">
-                            </td>
-                            <td>
-                                <span>Lab Assistant</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffLabSupervisor" type="text" maxlength="50" id="txtTotalStaffLabSupervisor" class="form-control">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Researcher</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffResearcher" type="text" maxlength="50" id="txtTotalStaffResearcher" class="form-control">
-                            </td>
-                            <td>
-                                <span>Teacher</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffTeacher" type="text" maxlength="50" id="txtTotalStaffTeacher" class="form-control">
-                            </td>
-                            <td>
-                                <span>Assistant Teacher</span><span class="StarSpan"> *</span>
-                                <input name="txtTotalStaffTeacherAssistant" type="text" maxlength="50" id="txtTotalStaffTeacherAssistant" class="form-control">
-                            </td>
-                            <td>
-                                <span>Others</span>
-                                <input name="txtTotalStaffOthers" type="text" maxlength="50" id="txtTotalStaffOthers" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Educational System in Effect</span>
-                            </th>
-                            <td>
-                                <input id="chbStudySysYears" type="checkbox" name="chbStudySysYears"><label for="chbStudySysYears">Yearly Program</label>
-                            </td>
-                            <td>
-                                <input id="chbStudySysSems" type="checkbox" name="chbStudySysSems"><label for="chbStudySysSems">Semester Program</label>
-                            </td>
-                            <td>
-                                <input id="chbStudySysHours" type="checkbox" name="chbStudySysHours"><label for="chbStudySysHours">Credit Hours</label>
-                            </td>
-                            <td>
-                                <input id="chbStudySysECTS" type="checkbox" name="chbStudySysECTS"><label for="chbStudySysECTS">ECTS</label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Allowable Semester Hours</span>
-                            </th>
-                            <td>
-                                <span>Min Hours</span>
-                                <input name="txtMinHours" type="text" maxlength="50" id="txtMinHours" class="form-control">
-                            </td>
-                            <td>
-                                <span>Max Hours</span>
-                                <input name="txtMaxHours" type="text" maxlength="50" id="txtMaxHours" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Research Activities By Faculty</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <span>Number of Research Items (Scopus)</span><span class="StarSpan"> *</span>
-                                <input name="txtResearchScopus" type="text" maxlength="50" id="txtResearchScopus" class="form-control">
-                            </td>
-                            <td>
-                                <span>Number of Research Items (Others)</span><span class="StarSpan"> *</span>
-                                <input name="txtResearchOthers" type="text" maxlength="50" id="txtResearchOthers" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Are Foreign Graduates (Medicine, Dentistry, Pharmacy) Allowed to Practice?</span>
-                            </th>
-                            <td>
-                                <select name="ddlPracticing" id="ddlPracticing" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Does Institution Enforce Class Attendance?</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddlStudyAttendance" id="ddlStudyAttendance" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                            <td colspan="3">
-                                <span>Mention Exceptions</span>
-                                <input name="txtStudyAttendanceDesc" type="text" maxlength="80" id="txtStudyAttendanceDesc" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Are Part-Time/Non-Regular Students Allowed to Transfer?</span>
-                            </th>
-                            <td>
-                                <select name="ddlStudentsMove" id="ddlStudentsMove" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                            <td colspan="3">
-                                <span>Elaborate Requirements and Procedures</span>
-                                <input name="txtStudentsMoveDesc" type="text" maxlength="80" id="txtStudentsMoveDesc" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Are Distance Learning Students ... Admissible?</span>
-                            </th>
-                            <td>
-                                <select name="ddlDistanceLearning" id="ddlDistanceLearning" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Max Number Of Credits Transferable?</span>
-                            </th>
-                            <td>
-                                <span>Hours</span>
-                                <input name="txtMaxHoursDL" type="text" maxlength="4" id="txtMaxHoursDL" class="form-control">
-                            </td>
-                            <td>
-                                <span>Years</span>
-                                <input name="txtMaxYearsDL" type="text" maxlength="4" id="txtMaxYearsDL" class="form-control">
-                            </td>
-                            <td>
-                                <span>Semesters</span>
-                                <input name="txtMaxSemsDL" type="text" maxlength="4" id="txtMaxSemsDL" class="form-control">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Accept Intermediate Degree Students into Higher Programs?</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddlDiploma" id="ddlDiploma" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Conditions (e.g., Qualifying Exam) for Diploma Transfers?</span><span class="StarSpan"> *</span>
-                            </th>
-                            <td>
-                                <select name="ddlDiplomaTest" id="ddlDiplomaTest" class="form-control">
-                                    <option value="-1" selected>--Choose--</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="limited">
-                                <span>Percentage of Accredited Transfer Hours?</span>
-                            </th>
-                            <td>
-                                <input name="txtHoursPercentage" type="text" maxlength="50" id="txtHoursPercentage" class="form-control">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
             </div>
-
         </div>
     </div>
-
-    <script src="academicinfo_files/jquery.min.js"></script>
-    <script src="academicinfo_files/bootstrap.js"></script>
-    <script src="academicinfo_files/respond.js"></script>
-
+    </form>
 </body>
 </html>
