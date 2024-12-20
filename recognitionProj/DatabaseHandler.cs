@@ -245,19 +245,19 @@ namespace recognitionProj
         public void InsertSpecialization(Specialization specialization)
         {
             string tableName = "Specializations";
-            string columns = "[Type], [NumStu], [NumFreeProf], [NumPartTimeProf], [NumProf], [NumAssociative], [NumAssistant], [NumMusharek], [NumMusa3ed], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color] [NumPhdHolders] [PracticalHours] [TheoreticalHours]";
+            string columns = "[Type], [NumStu], [NumProf], [NumAssociative], [NumAssistant],[NumProfPractice], [NumberLecturers], [NumAssisLecturer], [NumOtherTeachers], [SpecAttachName], [SpecAttachDesc] [Color] [NumPhdHolders] [PracticalHours] [TheoreticalHours]";
 
             string[] parameterNames = {
-                "@Type", "@NumStu", "@NumFreeProf", "@NumPartTimeProf", "@NumProf",//
-                "@NumAssociative", "@NumAssistant", 
+                "@Type", "@NumStu",  "@NumProf",//
+                "@NumAssociative", "@NumAssistant", "@NumProfPractice",
                 "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers",
                 "@SpecAttachName", "@SpecAttachDesc", "@Color", "@NumPhdHolders", "@PracticalHours", "@TheoreticalHours"
             };
 
             object[] values = {
-                specialization.Type, specialization.NumStu, specialization.NumFreeProf,//
-                specialization.NumPartTimeProf, specialization.NumProf, specialization.NumAssociative,
-                specialization.NumAssistant, 
+                specialization.Type, specialization.NumStu,
+                specialization.NumProf, specialization.NumAssociative,
+                specialization.NumAssistant,specialization.NumProfPractice, 
                 specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
                 specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.Color , specialization.NumPhdHolders, specialization.PracticalHours, specialization.TheoreticalHours
             };
@@ -282,11 +282,10 @@ namespace recognitionProj
                     insId: int.Parse(row["InsID"].ToString()),
                     type: row["Type"].ToString(),
                     numStu: int.Parse(row["NumStu"].ToString()),
-                    numFreeProf: int.Parse(row["NumFreeProf"].ToString()),//
-                    numPartTimeProf: int.Parse(row["NumPartTimeProf"].ToString()),//
                     numProf: int.Parse(row["NumProf"].ToString()),
                     numAssociative: int.Parse(row["NumAssociative"].ToString()),
                     numAssistant: int.Parse(row["NumAssistant"].ToString()),
+                    numProfPractice : int.Parse(row["NumProfPractice"].ToString()),
                     //numMusharek: int.Parse(row["NumMusharek"].ToString()),
                     //numMusa3ed: int.Parse(row["NumMusa3ed"].ToString()),
                     numberLecturers: int.Parse(row["NumberLecturers"].ToString()),
@@ -311,26 +310,26 @@ namespace recognitionProj
         // Update specialization record
         public void UpdateSpecialization(Specialization specialization)
         {//
-            string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu, [NumFreeProf] = @NumFreeProf, " +
-                "[NumPartTimeProf] = @NumPartTimeProf, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+            string query = $"UPDATE Specializations SET [Type] = @Type, [NumStu] = @NumStu,  " +
+                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice " +
                 "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
                 "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc , [Color] = @Color , [NumPhdHolders] = @NumPhdHolders, [PracticalHours] = @PracticalHours, [TheoreticalHours] = @TheoreticalHours WHERE [InsID] = @InsID";
             //
             string[] parameterNames = {
-                "@Type", "@NumStu", "@NumFreeProf", "@NumPartTimeProf", "@NumProf", "@NumAssociative", "@NumAssistant",
+                "@Type", "@NumStu", "@NumProf", "@NumAssociative", "@NumAssistant","@NumProfPractice",
                  "@NumberLecturers", "@NumAssisLecturer", "@NumOtherTeachers", "@SpecAttachName",
                 "@SpecAttachDesc", "@InsID", "@Color" , "@NumPhdHolders", "@PracticalHours", "@TheoreticalHours"
             };
             //
             object[] values = {
-                specialization.Type, specialization.NumStu, specialization.NumFreeProf, specialization.NumPartTimeProf,
-                specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant,
+                specialization.Type, specialization.NumStu, 
+                specialization.NumProf, specialization.NumAssociative, specialization.NumAssistant,specialization.NumProfPractice,
                 specialization.NumberLecturers, specialization.NumAssisLecturer, specialization.NumOtherTeachers,
                 specialization.SpecAttachName, specialization.SpecAttachDesc, specialization.InsID, specialization.Color , specialization.NumPhdHolders, specialization.PracticalHours, specialization.TheoreticalHours
             };
             //
-            UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu, [NumFreeProf] = @NumFreeProf, " +
-                "[NumPartTimeProf] = @NumPartTimeProf, [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant, " +
+            UpdateRecord("Specializations", "[Type] = @Type, [NumStu] = @NumStu,  " +
+                " [NumProf] = @NumProf, [NumAssociative] = @NumAssociative, [NumAssistant] = @NumAssistant,[NumProfPractice]=@NumProfPractice  " +
                 "[NumberLecturers] = @NumberLecturers, [NumAssisLecturer] = @NumAssisLecturer, " +
                 "[NumOtherTeachers] = @NumOtherTeachers, [SpecAttachName] = @SpecAttachName, [SpecAttachDesc] = @SpecAttachDesc,[Color]=@Color ,[NumPhdHolders]=@NumPhdHolders,[PracticalHours]=@PracticalHours,[TheoreticalHours]=@TheoreticalHours", "[InsID] = @InsID", parameterNames, values);
         }
