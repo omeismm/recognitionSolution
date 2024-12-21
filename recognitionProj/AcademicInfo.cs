@@ -301,5 +301,7 @@
             get => _hoursPercentage;
             set => _hoursPercentage = value;
         }
+
+        
     }
 }
