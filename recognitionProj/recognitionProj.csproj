@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\academicinfo_files\api.js" />
+    <Content Remove="wwwroot\infrastructure_files\api.js" />
+    <Content Remove="wwwroot\library_files\api.js" />
     <Content Remove="wwwroot\pictures_files\all.css" />
     <Content Remove="wwwroot\pictures_files\api.js" />
     <Content Remove="wwwroot\pictures_files\bootstrap.css" />
@@ -32,6 +34,7 @@
     <Content Remove="wwwroot\attachments_files\Site.css" />
     <Content Remove="wwwroot\attachments_files\uk.jpg" />
     <Content Remove="wwwroot\attachments_files\WebFormsJs" />
+    <Content Remove="wwwroot\publicinfo_files\api.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +44,8 @@
 
   <ItemGroup>
     <None Include="wwwroot\academicinfo_files\api.js" />
+    <None Include="wwwroot\infrastructure_files\api.js" />
+    <None Include="wwwroot\library_files\api.js" />
     <None Include="wwwroot\pictures_files\all.css" />
     <None Include="wwwroot\pictures_files\api.js" />
     <None Include="wwwroot\pictures_files\bootstrap.css" />
@@ -67,6 +72,7 @@
     <None Include="wwwroot\attachments_files\WebFormsJs" />
     <None Include="wwwroot\ms3.html" />
     <None Include="wwwroot\Mspec3.html" />
+    <None Include="wwwroot\publicinfo_files\api.js" />
   </ItemGroup>
 
 </Project>
