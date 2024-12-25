@@ -10,7 +10,6 @@
     <link href="attachments_files/Site.css" rel="stylesheet">
     <link href="attachments_files/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="attachments_files/all.css" crossorigin="anonymous">
-
     <style>
         .border-right {
             border: 1px solid #dee2e6 !important;
@@ -34,26 +33,6 @@
         .tableForAdmissinReqView {
             width: max-content !important;
             margin: 0 15px 0 15px;
-        }
-
-        .verylong {
-            width: 822px !important;
-        }
-
-        .long {
-            width: 650px !important;
-        }
-
-        .Meduim {
-            width: 400px !important;
-        }
-
-        .Small {
-            width: 280px !important;
-        }
-
-        .VerySmall {
-            width: 50px !important;
         }
 
         .form-control,
@@ -93,16 +72,6 @@
             border: solid #dddddd 2px !important;
         }
 
-        .tbody > tr:hover > td,
-        .table-hover > tbody > tr:hover > th {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        .limited {
-            width: 300px !important;
-        }
-
         td {
             width: 250px !important;
         }
@@ -118,45 +87,12 @@
             background-color: #ddfdf0;
         }
 
-        .auto {
-            width: auto !important;
-        }
-
-        .ddl_H,
-        [disabled] {
-            height: 45px !important;
-        }
-
-        .cusom_GRID_AR {
-            margin-left: 20px !important;
-        }
-
-        .HeadOfTableLong {
-            font-weight: 400;
-            background-color: #ddfdf0;
-            width: auto !important;
-        }
-
-        .MultiLine {
-            Height: 200px !important;
-        }
-
-        .Custome_td {
-            width: 700px !important;
-            font-weight: 700;
-        }
-
         .list-group {
             font-weight: 500;
         }
 
         .li_Lang {
             padding: 10px;
-        }
-
-        .dropdown-menu {
-            min-width: 100px !important;
-            text-align: center !important;
         }
 
         a {
@@ -201,39 +137,11 @@
     <script src="attachments_files/bootstrap.js"></script>
     <script src="attachments_files/respond.js"></script>
 
-    <script type="text/javascript">
-        function triggerFileUpload(file1) {
-            document.getElementById(file1).click();
-        }
-
-        function ClearFileUploadControl(file1, ErrorLab) {
-            var errorL = document.getElementById(ErrorLab);
-            errorL.value = '';
-            document.getElementById(file1).value = ''
-        }
-
-        function checkfilesize(ufile, ErrorLab) {
-            var aspFileUpload = document.getElementById(ufile);
-            var errorL = document.getElementById(ErrorLab);
-            var numBytes = aspFileUpload.files[0].size;
-            errorL.value = numBytes;
-            var source = aspFileUpload.value;
-        }
-
-        function noAction() {
-        }
-
-        function SetTarget() {
-            document.forms[0].target = "_blank";
-        }
-    </script>
 </head>
 
 <body id="body" style="direction:ltr;">
-    <!-- Removed ASP.NET form, viewstate and postback code -->
-    <!-- You can now use a simple HTML form pointing to your API endpoint -->
-
     <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
         <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
             <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
                 <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;">university</span>
@@ -241,7 +149,6 @@
             <div class="list-group list-group-flush" style="width: max-content;">
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <!--todo the above html file-->
                     <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
@@ -268,44 +175,51 @@
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
-
-                <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                <a href="http://localhost:5000/attachments.html"
+                   class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/pictures.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
-                <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
                 </a>
-                <!--todo the above html file-->
             </div>
         </div>
 
+        <!-- Main Content -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
                         <li class="nav-item li_Lang">
-                            <a id="lnkLogout" href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a>
+                            <a id="lnkLogout" href="#">
+                                <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                            </a>
                         </li>
                         <li class="nav-item li_Lang">
-                            <a id="lnkAR" title="Arabic" href="#"><img src="attachments_files/jo.jpg" width="22px"></a>
+                            <a id="lnkAR" title="Arabic" href="#">
+                                <img src="attachments_files/jo.jpg" width="22px">
+                            </a>
                         </li>
                         <li class="nav-item li_Lang">
-                            <a id="lnkEN" title="English" href="#"><img src="attachments_files/uk.jpg" width="22px"></a>
+                            <a id="lnkEN" title="English" href="#">
+                                <img src="attachments_files/uk.jpg" width="22px">
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
+
+            <!-- Instructions + File Upload Form -->
             <div class="container-fluid">
                 <br>
-                <div id="ContentPlaceHolder1_PerRow" class="row col-12"
-                     style="display:flex !important;flex-direction:row-reverse !important;">
+                <div class="row col-12" style="display:flex !important;flex-direction:row-reverse !important;">
 
+                    <!-- Left Column: Instructions Table -->
                     <div class="col-sm-4">
                         <table class="table table-responsive table-hover table-bordered">
                             <tr>
@@ -323,15 +237,16 @@
                                     <span>* Student Guide as Pertains to Institution.</span><br><br>
                                     <span>* Course Descriptions for Academic Programs.</span><br><br>
                                     <span>* Authenticated (Notarized/Certified) Copies of Signed Agreements and/or MoUs.</span><br><br>
-                                    <span>* Trainig contracts for hospitals</span><br><br>
+                                    <span>* Training contracts for hospitals</span><br><br>
                                     <span>* Other Documents.</span>
                                 </td>
                             </tr>
                         </table>
                     </div>
 
+                    <!-- Right Column: New File Upload Section -->
                     <div class="col-sm-8">
-                        <table class="table table-responsive table-hover table-bordered" style="width: 100% !important">
+                        <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
                             <tr>
                                 <th colspan="2" class="center">
                                     <span>Files Upload</span>
@@ -339,18 +254,39 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="file" id="FileUpload" class="form-control" style="width: inherit;" accept=".pdf,.doc,.docx" onchange="checkfilesize('FileUpload', 'ErrorFile')">
-                                    <br>
-                                    <span>Subject</span><span class="StarSpan"> *</span>
-                                    <input type="text" id="txtAttDesc" class="form-control" style="width: inherit;" placeholder="Enter subject">
-                                    <br>
-                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                    <!-- New file-upload form -->
+                                    <form id="fileUploadForm"
+                                          action="/api/attachments/upload"
+                                          method="POST"
+                                          enctype="multipart/form-data">
+                                        <!-- Single file input (or multiple if you prefer) -->
+                                        <label for="FileUpload">Select File (PDF, DOC, DOCX):</label>
+                                        <input type="file"
+                                               id="FileUpload"
+                                               name="uploadedFile"
+                                               class="form-control"
+                                               accept=".pdf,.doc,.docx"
+                                               required>
+
+                                        <br>
+
+                                        <label for="txtAttDesc">Subject<span class="StarSpan"> *</span></label>
+                                        <input type="text"
+                                               id="txtAttDesc"
+                                               name="subject"
+                                               class="form-control"
+                                               placeholder="Enter subject"
+                                               required>
+                                        <br>
+
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </form>
+
+                                    <!-- Placeholder for listing previously uploaded files -->
                                     <br><br>
-                                    <input type="text" readonly="readonly" id="ErrorFile" style="display: none;">
-                                    <br>
-                                    <div>
-                                        <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
-                                            <tr style="color: white; background-color: #990000; font-weight: bold;">
+                                    <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
+                                        <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                            <tr>
                                                 <th>#</th>
                                                 <th>Subject</th>
                                                 <th>File Name</th>
@@ -358,23 +294,25 @@
                                                 <th>Download</th>
                                                 <th>Delete</th>
                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- For now, we just show "No Data Found !" or dynamically load from the server. -->
                                             <tr>
                                                 <td colspan="6">No Data Found !</td>
                                             </tr>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+
                                 </td>
                             </tr>
                         </table>
                     </div>
 
                 </div>
-
-
-            </div>
-        </div>
-    </div>
-    </form>
-
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
+    <!-- Optional script for handling the file upload with AJAX (if desired) -->
+    <!-- <script src="attachments_files/api.js"></script> -->
 </body>
 </html>

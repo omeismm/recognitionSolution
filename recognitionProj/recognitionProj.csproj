@@ -59,4 +59,8 @@
     <None Include="wwwroot\publicinfo_files\api.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+
 </Project>
