@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login - RNJI</title>
+    <link href="login_files/bootstrap.css" rel="stylesheet">
+    <script src="login_files/api.js"></script>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2>Login</h2>
+        <div id="loginError" style="color:red; display:none;"></div>
+
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+
+            <!-- New field for VerificationCode -->
+            <div class="mb-3">
+                <label for="verificationCode">Verification Code<span class="StarSpan"> *</span></label>
+                <input type="text" id="verificationCode" class="form-control" required placeholder="Enter verification code">
+            </div>
+
+            the email is admin@admin.com and the password is admin and the verification code is abc123
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+
+</body>
+</html>
