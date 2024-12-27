@@ -3,63 +3,115 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-//BTW THIS HAS NOTHING TO DO WITH THE ATTACHMENTS CLASS
-//BTW THIS HAS NOTHING TO DO WITH THE ATTACHMENTS CLASS
-//BTW THIS HAS NOTHING TO DO WITH THE ATTACHMENTS CLASS
-//BTW THIS HAS NOTHING TO DO WITH THE ATTACHMENTS CLASS
-//BTW THIS HAS NOTHING TO DO WITH THE ATTACHMENTS CLASS
+using System.Collections.Generic;
+
 namespace RecognitionProj.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class AttachmentsController : ControllerBase
     {
+        private readonly string _baseUploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+
         // POST: api/attachments/upload
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile([FromForm] IFormFile uploadedFile, [FromForm] string subject)
         {
-            // Basic checks
             if (uploadedFile == null || uploadedFile.Length == 0)
             {
                 return BadRequest(new { success = false, message = "No file was uploaded." });
             }
 
-            // This subject parameter is from the <input type="text" name="subject"> in the HTML
             if (string.IsNullOrWhiteSpace(subject))
             {
                 return BadRequest(new { success = false, message = "Subject is required." });
             }
 
+            var institutionId = Request.Headers["InstitutionID"].ToString();
+            if (string.IsNullOrEmpty(institutionId))
+            {
+                return BadRequest(new { success = false, message = "Institution ID is required." });
+            }
+
             try
             {
-                // Example: Save the file to the local "Uploads" folder (ensure it exists or create it)
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-                if (!Directory.Exists(uploadPath))
+                var institutionFolder = Path.Combine(_baseUploadPath, institutionId);
+                if (!Directory.Exists(institutionFolder))
                 {
-                    Directory.CreateDirectory(uploadPath);
+                    Directory.CreateDirectory(institutionFolder);
                 }
 
-                // Create a unique filename; you could also keep the original name
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(uploadedFile.FileName);
-                var filePath = Path.Combine(uploadPath, fileName);
+                var fileName = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + $", {subject}" + Path.GetExtension(uploadedFile.FileName);
+                var filePath = Path.Combine(institutionFolder, fileName);
 
-                // Save the file
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(stream);
                 }
 
-                // Here you could store `subject` and `fileName` in a database, etc.
-
-                // Return success
-                return Ok(new { success = true, message = "File uploaded successfully." });
+                return Ok(new { success = true, fileName, subject });
             }
             catch (Exception ex)
             {
-                // Log the exception, then return error
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    new { success = false, message = "File upload failed.", detail = ex.Message });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { success = false, message = ex.Message });
             }
+        }
+
+        // GET: api/attachments/list
+        [HttpGet("list")]
+        public IActionResult GetFiles()
+        {
+            var institutionId = Request.Headers["InstitutionID"].ToString();
+            if (string.IsNullOrEmpty(institutionId))
+            {
+                return BadRequest(new { success = false, message = "Institution ID is required." });
+            }
+
+            var institutionFolder = Path.Combine(_baseUploadPath, institutionId);
+            if (!Directory.Exists(institutionFolder))
+            {
+                return Ok(new { success = true, files = new List<object>() });
+            }
+
+            var files = Directory.GetFiles(institutionFolder);
+            var fileList = new List<object>();
+
+            foreach (var file in files)
+            {
+                fileList.Add(new
+                {
+                    Name = Path.GetFileName(file),
+                    Path = $"/api/attachments/view?filePath={Uri.EscapeDataString(file)}"
+                });
+            }
+
+            return Ok(new { success = true, files = fileList });
+        }
+
+        // GET: api/attachments/view
+        [HttpGet("view")]
+        public IActionResult ViewFile(string filePath)
+        {
+            if (!System.IO.File.Exists(filePath))
+            {
+                return NotFound(new { success = false, message = "File not found." });
+            }
+
+            var mimeType = "application/octet-stream";
+            return PhysicalFile(filePath, mimeType);
+        }
+
+        // DELETE: api/attachments/delete
+        //todo: CHECK IF THIS WORKS
+        [HttpDelete("delete")]
+        public IActionResult DeleteFile(string filePath)
+        {
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+                return Ok(new { success = true });
+            }
+            return NotFound(new { success = false, message = "File not found." });
         }
     }
 }
