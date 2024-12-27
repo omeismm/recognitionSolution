@@ -183,10 +183,10 @@
             <div class="main-container">
                 <div class="d-flex flex-column align-items-start gap-3 my-4">
                     <button id="openBachelorBtn" class="btn btn-primary w-25">Bachelor’s Programs</button>
+                    <button id="openMedicalBtn" class="btn btn-warning w-25">Medical</button>
                     <button id="openHighDiplomaBtn" class="btn btn-secondary w-25">High Diploma</button>
                     <button id="openMastersBtn" class="btn btn-success w-25">Master’s Programs</button>
-                    <button id="openMedicalBtn" class="btn btn-warning w-25">Primary Medical</button>
-                    <button id="openResidencyBtn" class="btn btn-danger w-25">Residency Medical</button>
+
                     <button id="openPhdBtn" class="btn btn-info w-25">PhD Programs</button>
                 </div>
             </div>
@@ -278,11 +278,13 @@
                             <button type="button" class="btn-close medicalParentClose" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Select Medical Form:</p>
-                            <button id="openMainMedicalBtn" class="btn btn-secondary w-100">
+                            <button id="openMainMedicalBtn" class="btn btn-secondary w-100 mb-2">
                                 Primary Medical
                                 Form
                             </button>
+
+                             <button id="openResidencyBtn2" class="btn btn-secondary w-100 mb-2">Residency Form</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -297,10 +299,7 @@
                             <button type="button" class="btn-close residencyParentClose"
                                     aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <p>Select Residency Form:</p>
-                            <button id="openResidencyBtn2" class="btn btn-secondary w-100">Residency Form</button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -1359,10 +1358,7 @@
             backdrop: 'static',
             keyboard: false
         });
-        const residencyParentModal = new bootstrap.Modal(document.getElementById('residencyParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
+        
         const phdParentModal = new bootstrap.Modal(document.getElementById('phdParentModal'), {
             backdrop: 'static',
             keyboard: false
@@ -1427,9 +1423,7 @@
         document.getElementById('openMedicalBtn').addEventListener('click', () => {
             medicalParentModal.show();
         });
-        document.getElementById('openResidencyBtn').addEventListener('click', () => {
-            residencyParentModal.show();
-        });
+      
         document.getElementById('openPhdBtn').addEventListener('click', () => {
             phdParentModal.show();
         });
@@ -1447,9 +1441,7 @@
         document.querySelector('.medicalParentClose').addEventListener('click', () => {
             medicalParentModal.hide();
         });
-        document.querySelector('.residencyParentClose').addEventListener('click', () => {
-            residencyParentModal.hide();
-        });
+    
         document.querySelector('.phdParentClose').addEventListener('click', () => {
             phdParentModal.hide();
         });
