@@ -1,4 +1,4 @@
-﻿document.getElementById('teacherHighDiplomaForm').addEventListener('submit', async function (e) {
+﻿document.getElementById('HighDiplomaForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Prevent the default form submission
 
     // Gather the form data into an object

@@ -20,7 +20,7 @@ namespace RecognitionProj.Controllers
             _verifier = verifier;
             //_databaseHandler = databaseHandler;
         }
-    
+
 
         // POST: api/specialization/save
         [HttpPost("save")]
@@ -32,11 +32,12 @@ namespace RecognitionProj.Controllers
             }
 
             // Run the ratio logic before adding or after adding
+            if (specialization.Type == "High Diploma"){
             _verifier.HighDiplomaRatio(specialization);
 
             // Add the specialization object to the list
             _specializationList.Add(specialization);
-          
+        }
          
              //_databaseHandler.InsertSpecialization(specialization);
 
