@@ -379,7 +379,7 @@ public class Verifier
 
                 // Calculate percentages
                 float profRatio = (float)spec.NumProf / totalStaff;
-                float associateRatio = (float)spec.NumAssistant / totalStaff;
+                float associateRatio = (float)spec.NumAssociative / totalStaff;
                 float assisRatio = (float)spec.NumAssistant / totalStaff;
 
                 // Ensure the ratios meet the requirements:
