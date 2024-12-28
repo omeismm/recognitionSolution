@@ -34,7 +34,7 @@ namespace RecognitionProj.Controllers
             // Run the ratio logic before adding or after adding
             if (specialization.Type == "Scientific Bachelor")
             {
-            _verifier.HighDiplomaRatio(specialization);
+            _verifier.ScientificBachelorRatio(specialization);
 
             // Add the specialization object to the list
             _specializationList.Add(specialization);
@@ -45,7 +45,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Humanitarian Bachelor")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.HumanitarianBachelorRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -56,7 +56,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Scientific Practical Bachelor")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.ScientificPracticalBachelorRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -67,7 +67,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Humanitarian Practical Bachelor")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.HumnamitarianPracticalBachelorRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -89,7 +89,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Scientific Masters")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.ScientificMastersRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -100,7 +100,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Scientific Practical Masters")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.ScientificPracticalMastersRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -111,7 +111,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Humanitarian Masters")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.HumanitarianMastersRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -122,7 +122,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Main Medical")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.MainMedicalRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -133,7 +133,7 @@ namespace RecognitionProj.Controllers
             }
             if (specialization.Type == "Residency")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.ResidencyRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
@@ -145,7 +145,7 @@ namespace RecognitionProj.Controllers
            
             if (specialization.Type == "Doctorate")
             {
-                _verifier.HighDiplomaRatio(specialization);
+                _verifier.DoctorateRatio(specialization);
 
                 // Add the specialization object to the list
                 _specializationList.Add(specialization);
