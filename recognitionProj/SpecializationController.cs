@@ -20,7 +20,7 @@ namespace RecognitionProj.Controllers
             _verifier = verifier;
             //_databaseHandler = databaseHandler;
         }
-    
+
 
         // POST: api/specialization/save
         [HttpPost("save")]
@@ -32,15 +32,129 @@ namespace RecognitionProj.Controllers
             }
 
             // Run the ratio logic before adding or after adding
-            _verifier.HighDiplomaRatio(specialization);
+            if (specialization.Type == "Scientific Bachelor")
+            {
+            _verifier.ScientificBachelorRatio(specialization);
 
             // Add the specialization object to the list
             _specializationList.Add(specialization);
-          
-         
-             //_databaseHandler.InsertSpecialization(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
 
-            // Return the entire specialization object so the frontend can see the updated Color
+                // Return the entire specialization object so the frontend can see the updated Color
+                
+            }
+            if (specialization.Type == "Humanitarian Bachelor")
+            {
+                _verifier.HumanitarianBachelorRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "Scientific Practical Bachelor")
+            {
+                _verifier.ScientificPracticalBachelorRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "Humanitarian Practical Bachelor")
+            {
+                _verifier.HumnamitarianPracticalBachelorRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "High Diploma")
+            {
+                _verifier.HighDiplomaRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+                
+            }
+            if (specialization.Type == "Scientific Masters")
+            {
+                _verifier.ScientificMastersRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+                
+            }
+            if (specialization.Type == "Scientific Practical Masters")
+            {
+                _verifier.ScientificPracticalMastersRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "Humanitarian Masters")
+            {
+                _verifier.HumanitarianMastersRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "Main Medical")
+            {
+                _verifier.MainMedicalRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+            if (specialization.Type == "Residency")
+            {
+                _verifier.ResidencyRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+           
+            if (specialization.Type == "Doctorate")
+            {
+                _verifier.DoctorateRatio(specialization);
+
+                // Add the specialization object to the list
+                _specializationList.Add(specialization);
+                //_databaseHandler.InsertSpecialization(specialization);
+
+                // Return the entire specialization object so the frontend can see the updated Color
+
+            }
+
             return Ok(specialization);
         }
 
