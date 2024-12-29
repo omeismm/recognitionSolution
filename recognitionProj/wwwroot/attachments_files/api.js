@@ -1,4 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+    // 1. Get the Institution ID from localStorage
     const institutionId = localStorage.getItem('InsID');
     if (!institutionId) {
         console.warn("No Institution ID found. Redirecting to login...");
@@ -6,65 +7,85 @@
         return;
     }
 
+    // 2. Select relevant DOM elements
     const fileUploadForm = document.getElementById('fileUploadForm');
     const filesTableBody = document.querySelector('table.FilesGRD tbody');
 
     /**
-     * Fetch and display the list of uploaded files.
+     * 3. Fetch the list of files from the server
+     *    /api/attachments/list
+     *    The server will return JSON with an array of files, each having:
+     *       {
+     *         Name: "FileName.pdf", 
+     *         Subject: "Subject from file name", 
+     *         Path: "/uploads/{institutionId}/attachments/FileName.pdf",
+     *         DeletePath: "/api/attachments/delete?filePath=/uploads/{institutionId}/attachments/FileName.pdf"
+     *       }
      */
-    const loadFiles = async () => {
-        console.log("Fetching files for Institution ID:", institutionId);
+    async function loadFiles() {
         try {
             const response = await fetch('/api/attachments/list', {
                 headers: { 'InstitutionID': institutionId },
             });
-
             if (!response.ok) {
-                console.error('Failed to fetch files. Status:', response.status, response.statusText);
+                console.error('Failed to fetch files:', response.statusText);
                 return;
             }
 
             const data = await response.json();
-            console.log("Files received from server:", data);
-
             filesTableBody.innerHTML = "";
 
+            // If there are no files, show "No Data Found!"
             if (!data.files || data.files.length === 0) {
-                console.warn("No files found for Institution ID:", institutionId);
                 filesTableBody.innerHTML = "<tr><td colspan='6'>No Data Found!</td></tr>";
                 return;
             }
 
+            // 4. For each file in the response, build a table row
             data.files.forEach((file, index) => {
-                console.log(`Processing file #${index + 1}:`, file);
-
+                /*
+                  Each file object has:
+                    file.Name       => "01_CH1 - Control Systems Basics, tst.pdf"
+                    file.Subject    => "tst"  (extracted from filename)
+                    file.Path       => "/uploads/9999/attachments/01_CH1 - Control Systems Basics, tst.pdf"
+                    file.DeletePath => "/api/attachments/delete?filePath=/uploads/9999/attachments/01_CH1 - Control Systems Basics, tst.pdf"
+                */
                 const fileName = file.Name || "Unknown";
                 const subject = file.Subject || "N/A";
-                const path = file.Path || "#";
+                const viewOrDownloadURL = file.Path || "#";
+                const deleteURL = file.DeletePath || "#";
 
+                // Create a new row
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${index + 1}</td>
                     <td>${subject}</td>
                     <td>${fileName}</td>
-                    <td><a href="${path}" target="_blank">View</a></td>
-                    <td><a href="${path}" download>Download</a></td>
-                    <td><button data-file="${path}" class="delete-btn btn btn-danger btn-sm">Delete</button></td>
+                    <!-- "View" opens the file URL in a new tab -->
+                    <td><a href="${viewOrDownloadURL}" target="_blank">View</a></td>
+                    <!-- "Download" uses the same URL but triggers a download -->
+                    <td><a href="${viewOrDownloadURL}" download>Download</a></td>
+                    <!-- "Delete" button sends DELETE to file.DeletePath -->
+                    <td>
+                      <button data-file="${deleteURL}" class="delete-btn btn btn-danger btn-sm">
+                        Delete
+                      </button>
+                    </td>
                 `;
                 filesTableBody.appendChild(tr);
             });
         } catch (error) {
             console.error('Error loading files:', error);
         }
-    };
+    }
 
     /**
-     * Handle file upload.
+     * 5. Handle file uploads
+     *    POST /api/attachments/upload
+     *    with the file and subject in FormData
      */
     fileUploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        console.log("Uploading file...");
         const formData = new FormData(fileUploadForm);
 
         try {
@@ -77,13 +98,11 @@
             });
 
             if (response.ok) {
-                const result = await response.json();
-                console.log("File uploaded successfully:", result);
                 alert('File uploaded successfully!');
+                // Reload the file list to show the new file
                 loadFiles();
             } else {
                 const error = await response.json();
-                console.error('Error uploading file:', error);
                 alert(`Error uploading file: ${error.message}`);
             }
         } catch (error) {
@@ -92,25 +111,21 @@
     });
 
     /**
-     * Handle file deletion.
+     * 6. Handle file deletion clicks
+     *    DELETE /api/attachments/delete?filePath=...
      */
     filesTableBody.addEventListener('click', async (e) => {
         if (e.target.classList.contains('delete-btn')) {
-            const filePath = e.target.dataset.file;
-            console.log("Deleting file:", filePath);
+            const deletePath = e.target.dataset.file; // e.g. "/api/attachments/delete?filePath=/uploads/9999/attachments/SomeFile.pdf"
+            console.log("Attempting to DELETE file at:", deletePath);
 
             try {
-                const response = await fetch(`/api/attachments/delete?filePath=${encodeURIComponent(filePath)}`, {
-                    method: 'DELETE',
-                });
-
+                const response = await fetch(deletePath, { method: 'DELETE' });
                 if (response.ok) {
-                    console.log("File deleted successfully:", filePath);
                     alert('File deleted successfully!');
                     loadFiles();
                 } else {
                     const error = await response.json();
-                    console.error('Error deleting file:', error);
                     alert(`Error deleting file: ${error.message}`);
                 }
             } catch (error) {
@@ -119,6 +134,6 @@
         }
     });
 
-    // Initial load of files.
+    // 7. Load the files for the first time
     loadFiles();
 });

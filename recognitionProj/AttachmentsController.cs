@@ -12,7 +12,7 @@ namespace RecognitionProj.Controllers
     [Route("api/[controller]")]
     public class AttachmentsController : ControllerBase
     {
-        private readonly string _baseUploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+        private readonly string _baseUploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
 
         // POST: api/attachments/upload
         [HttpPost("upload")]
@@ -37,7 +37,8 @@ namespace RecognitionProj.Controllers
 
             try
             {
-                var institutionFolder = Path.Combine(_baseUploadPath, institutionId);
+                // Create folder path: wwwroot/uploads/{InstitutionID}/attachments
+                var institutionFolder = Path.Combine(_baseUploadPath, institutionId, "attachments");
                 if (!Directory.Exists(institutionFolder))
                 {
                     Directory.CreateDirectory(institutionFolder);
@@ -62,32 +63,23 @@ namespace RecognitionProj.Controllers
             }
         }
 
-
         // GET: api/attachments/list
         [HttpGet("list")]
         public IActionResult GetFiles()
         {
             var institutionId = Request.Headers["InstitutionID"].ToString();
-            Debug.WriteLine($"[GetFiles] Institution ID: {institutionId}");
-
             if (string.IsNullOrEmpty(institutionId))
             {
-                Debug.WriteLine("[GetFiles] Institution ID is missing.");
                 return BadRequest(new { success = false, message = "Institution ID is required." });
             }
 
-            var institutionFolder = Path.Combine(_baseUploadPath, institutionId);
-            Debug.WriteLine($"[GetFiles] Institution Folder Path: {institutionFolder}");
-
-            if (!Directory.Exists(institutionFolder))
+            var attachmentsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", institutionId, "attachments");
+            if (!Directory.Exists(attachmentsFolder))
             {
-                Debug.WriteLine("[GetFiles] Institution folder does not exist.");
                 return Ok(new { success = true, files = new List<object>() });
             }
 
-            var files = Directory.GetFiles(institutionFolder);
-            Debug.WriteLine($"[GetFiles] Found {files.Length} file(s).");
-
+            var files = Directory.GetFiles(attachmentsFolder);
             var fileList = new List<object>();
 
             foreach (var file in files)
@@ -96,13 +88,12 @@ namespace RecognitionProj.Controllers
                 var splitFileName = fileName.Split(", ");
                 var subject = splitFileName.Length > 1 ? splitFileName[1].Replace(Path.GetExtension(fileName), "") : "N/A";
 
-                Debug.WriteLine($"[GetFiles] File: {fileName}, Subject: {subject}");
-
                 fileList.Add(new
                 {
                     Name = fileName,
                     Subject = subject,
-                    Path = $"/api/attachments/view?filePath={Uri.EscapeDataString(file)}"
+                    Path = $"/uploads/{institutionId}/attachments/{fileName}", // Correct public path
+                    DeletePath = $"/api/attachments/delete?filePath=/uploads/{institutionId}/attachments/{Uri.EscapeDataString(fileName)}" // Delete endpoint
                 });
             }
 
@@ -110,38 +101,32 @@ namespace RecognitionProj.Controllers
         }
 
 
-
-
-        // GET: api/attachments/view
-        [HttpGet("view")]
-        public IActionResult ViewFile(string filePath)
+        // DELETE: api/attachments/delete
+        [HttpDelete("delete")]
+        public IActionResult DeleteFile([FromQuery] string filePath)
         {
-            if (!System.IO.File.Exists(filePath))
+            if (string.IsNullOrWhiteSpace(filePath))
             {
-                return NotFound(new { success = false, message = "File not found." });
+                return BadRequest(new { success = false, message = "File path is required." });
             }
 
-            var mimeType = "application/octet-stream";
-            return PhysicalFile(filePath, mimeType);
-        }
+            // If filePath = "/uploads/{InsID}/attachments/SomeFile.pdf"
+            var physicalPath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "wwwroot",
+                filePath.TrimStart('/')
+            );
 
-        // DELETE: api/attachments/delete
-        //todo: CHECK IF THIS WORKS
-        [HttpDelete("delete")]
-        public IActionResult DeleteFile(string filePath)
-        {
-            Debug.WriteLine($"[DeleteFile] Deleting file: {filePath}");
-
-            if (System.IO.File.Exists(filePath))
+            if (System.IO.File.Exists(physicalPath))
             {
-                System.IO.File.Delete(filePath);
-                Debug.WriteLine("[DeleteFile] File deleted successfully.");
+                System.IO.File.Delete(physicalPath);
                 return Ok(new { success = true });
             }
 
-            Debug.WriteLine("[DeleteFile] File not found.");
             return NotFound(new { success = false, message = "File not found." });
         }
+
+
 
     }
 }

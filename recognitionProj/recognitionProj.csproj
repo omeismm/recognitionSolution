@@ -66,10 +66,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Uploads\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="wwwroot\login.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

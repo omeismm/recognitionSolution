@@ -27,14 +27,20 @@ builder.Services.AddSingleton<Verifier>();
 
 var app = builder.Build();
 
+// Serve static files (for files in wwwroot like /uploads)
+app.UseStaticFiles();
+
+// Enable routing
+app.UseRouting();
+
 // Assign a known URL
 app.Urls.Add("http://localhost:5000");
 
 // Map controller endpoints
 app.MapControllers();
 
-// Print "Hello World!" once
-Console.WriteLine("Hello World!");
+// Log that the application has started
+Console.WriteLine("Server is running at http://localhost:5000");
 
 // UseStaticFiles for serving Mspec3.html and other static files
 app.UseStaticFiles();
