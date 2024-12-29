@@ -50,10 +50,10 @@
                     file.Path       => "/uploads/9999/attachments/01_CH1 - Control Systems Basics, tst.pdf"
                     file.DeletePath => "/api/attachments/delete?filePath=/uploads/9999/attachments/01_CH1 - Control Systems Basics, tst.pdf"
                 */
-                const fileName = file.Name || "Unknown";
-                const subject = file.Subject || "N/A";
-                const viewOrDownloadURL = file.Path || "#";
-                const deleteURL = file.DeletePath || "#";
+                const fileName = file.name || "Unknown";
+                const subject = file.subject || "N/A";
+                const viewOrDownloadURL = file.path || "#";
+                const deleteURL = file.deletePath || "#";
 
                 // Create a new row
                 const tr = document.createElement('tr');
