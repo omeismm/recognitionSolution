@@ -106,7 +106,7 @@ public class Verifier
     //todo make them return 0 1 or 2 based on the color . not boolean
     public void ScientificBachelorRatio(Specialization spec)
     {
-        double doctorates;
+        double doctorates=0;
         
         double x;
         
@@ -132,7 +132,7 @@ public class Verifier
 
     public void HumanitarianBachelorRatio(Specialization spec)
     {
-        double doctorates;
+        double doctorates=0;
         float x;
         
             if (spec.Type == "Humanitarian Bachelor")
