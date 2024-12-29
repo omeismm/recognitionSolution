@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="General_Info_Files/simple-sidebar.css" rel="stylesheet">
+    <link href="General_Info_Files/all.css" rel="stylesheet">
+    <link href="General_Info_Files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="General_Info_Files/Site.css" crossorigin="anonymous">
+
+    <style>
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .form-container {
+            margin: 20px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .form-box {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .delete-btn {
+            margin-top: 5px;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+            .delete-btn:hover {
+                background-color: #c82333;
+            }
+
+        .note {
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .form-title {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+            .submit-btn:hover {
+                background-color: #0056b3;
+            }
+
+        @media (min-width: 768px) {
+            .navbar-nav {
+                float: right;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body id="body" style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;">university</span>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="http://localhost:5000/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
+                </a>
+                <a href="http://localhost:5000/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
+                </a>
+
+                <a href="http://localhost:5000/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
+                </a>
+                <a href="http://localhost:5000/generalinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
+                </a>
+                <a href="http://localhost:5000/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
+                </a>
+                <a href="http://localhost:5000/Mspec3.html" class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Specialization Information
+                </a>
+                <a href="http://localhost:5000/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
+                </a>
+                <a href="http://localhost:5000/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
+                </a>
+                <a href="http://localhost:5000/attachments.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
+                </a>
+                <a href="http://localhost:5000/pictures.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
+                </a>
+                <a href="http://localhost:5000/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                            </a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkAR" title="Arabic" href="#">
+                                <img src="attachments_files/jo.jpg" width="22px">
+                            </a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkEN" title="English" href="#">
+                                <img src="attachments_files/uk.jpg" width="22px">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Forms for Uploading Files -->
+            <form class="form-container" action="/upload_all" method="post" enctype="multipart/form-data">
+                <div class="form-box">
+                    <div class="form-title">Faculties</div>
+                    <div class="note">Please upload the file containing details about the faculties.</div>
+                    <div class="form-group">
+                        <label for="faculties" class="form-label">
+                            Faculties <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" id="faculties" name="faculties" class="form-control"
+                               accept=".xls,.xlsx,.csv" required>
+                        <button type="button" class="delete-btn"
+                                onclick="document.getElementById('faculties').value = ''">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <div class="form-title">Programs</div>
+                    <div class="note">Please upload the file containing details about the programs offered.</div>
+                    <div class="form-group">
+                        <label for="programs" class="form-label">Programs <span class="text-danger">*</span></label>
+                        <input type="file" id="programs" name="programs" class="form-control"
+                               accept=".xls,.xlsx,.csv" required>
+                        <button type="button" class="delete-btn"
+                                onclick="document.getElementById('programs').value = ''">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <div class="form-title">Number of the Students</div>
+                    <div class="note">Please upload the file containing the number of students.</div>
+                    <div class="form-group">
+                        <label for="students" class="form-label">
+                            Number of the Students <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" id="students" name="students" class="form-control"
+                               accept=".xls,.xlsx,.csv" required>
+                        <button type="button" class="delete-btn"
+                                onclick="document.getElementById('students').value = ''">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <div class="form-title">Teaching Staff</div>
+                    <div class="note">Please upload the file containing details about the teaching staff.</div>
+                    <div class="form-group">
+                        <label for="staff" class="form-label">
+                            Teaching Staff <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" id="staff" name="staff" class="form-control" accept=".xls,.xlsx,.csv"
+                               required>
+                        <button type="button" class="delete-btn"
+                                onclick="document.getElementById('staff').value = ''">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit All</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

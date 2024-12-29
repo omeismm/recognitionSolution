@@ -8,6 +8,14 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\academicinfo_files\api.js" />
+    <Content Remove="wwwroot\General_Info_Files\all.css" />
+    <Content Remove="wwwroot\General_Info_Files\api.js" />
+    <Content Remove="wwwroot\General_Info_Files\bootstrap.css" />
+    <Content Remove="wwwroot\General_Info_Files\jo.jpg" />
+    <Content Remove="wwwroot\General_Info_Files\MsAjaxJs" />
+    <Content Remove="wwwroot\General_Info_Files\simple-sidebar.css" />
+    <Content Remove="wwwroot\General_Info_Files\Site.css" />
+    <Content Remove="wwwroot\General_Info_Files\uk.jpg" />
     <Content Remove="wwwroot\login_files\api.js" />
     <Content Remove="wwwroot\infrastructure_files\api.js" />
     <Content Remove="wwwroot\library_files\api.js" />
@@ -41,6 +49,14 @@
 
   <ItemGroup>
     <None Include="wwwroot\academicinfo_files\api.js" />
+    <None Include="wwwroot\General_Info_Files\all.css" />
+    <None Include="wwwroot\General_Info_Files\api.js" />
+    <None Include="wwwroot\General_Info_Files\bootstrap.css" />
+    <None Include="wwwroot\General_Info_Files\jo.jpg" />
+    <None Include="wwwroot\General_Info_Files\MsAjaxJs" />
+    <None Include="wwwroot\General_Info_Files\simple-sidebar.css" />
+    <None Include="wwwroot\General_Info_Files\Site.css" />
+    <None Include="wwwroot\General_Info_Files\uk.jpg" />
     <None Include="wwwroot\login_files\api.js" />
     <None Include="wwwroot\infrastructure_files\api.js" />
     <None Include="wwwroot\library_files\api.js" />
