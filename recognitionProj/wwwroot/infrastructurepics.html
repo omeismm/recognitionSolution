@@ -10,8 +10,7 @@
     <link href="infrastructurepics_files/Site.css" rel="stylesheet">
     <link href="infrastructurepics_files/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="infrastructurepics_files/all.css" crossorigin="anonymous">
-    
-    
+
 
     <style>
         .border-right {
@@ -38,26 +37,6 @@
             margin: 0 15px 0 15px;
         }
 
-        .verylong {
-            width: 822px !important;
-        }
-
-        .long {
-            width: 650px !important;
-        }
-
-        .Meduim {
-            width: 400px !important;
-        }
-
-        .Small {
-            width: 280px !important;
-        }
-
-        .VerySmall {
-            width: 50px !important;
-        }
-
         .form-control,
         [disabled] {
             font-weight: 600;
@@ -74,7 +53,7 @@
             background-color: #ffffff;
             border: 1px solid #cccccc;
             border-radius: 4px;
-            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
             transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
         }
 
@@ -95,16 +74,6 @@
             border: solid #dddddd 2px !important;
         }
 
-        .tbody > tr:hover > td,
-        .table-hover > tbody > tr:hover > th {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        .limited {
-            width: 300px !important;
-        }
-
         td {
             width: 250px !important;
         }
@@ -120,45 +89,12 @@
             background-color: #ddfdf0;
         }
 
-        .auto {
-            width: auto !important;
-        }
-
-        .ddl_H,
-        [disabled] {
-            height: 45px !important;
-        }
-
-        .cusom_GRID_AR {
-            margin-left: 20px !important;
-        }
-
-        .HeadOfTableLong {
-            font-weight: 400;
-            background-color: #ddfdf0;
-            width: auto !important;
-        }
-
-        .MultiLine {
-            Height: 200px !important;
-        }
-
-        .Custome_td {
-            width: 700px !important;
-            font-weight: 700;
-        }
-
         .list-group {
             font-weight: 500;
         }
 
         .li_Lang {
             padding: 10px;
-        }
-
-        .dropdown-menu {
-            min-width: 100px !important;
-            text-align: center !important;
         }
 
         a {
@@ -177,13 +113,6 @@
             background-color: #428bca !important;
             background-image: none !important;
             color: white !important;
-        }
-
-        .SucIframe {
-            width: 300px;
-            height: 80px;
-            border-radius: 15px;
-            border: none;
         }
 
         .FilesGRD {
@@ -206,26 +135,12 @@
         }
     </style>
 
-    <script src="infrastructurepics_files/jquery-3.6.0.js"></script>
-    <script src="infrastructurepics_files/bootstrap.js"></script>
-    <script src="infrastructurepics_files/respond.js"></script>
-    <script type="text/javascript">
-        function checkfilesize(ufile, ErrorLab) {
-            var aspFileUpload = document.getElementById(ufile);
-            var errorL = document.getElementById(ErrorLab);
-            if (aspFileUpload.files.length > 0) {
-                var numBytes = aspFileUpload.files[0].size;
-                errorL.value = numBytes;
-            }
-        }
-    </script>
+
 </head>
 
 <body id="body" style="direction:ltr;">
-    <!-- Removed ASP.NET form, viewstate and postback code -->
-    <!-- You can now use a simple HTML form pointing to your API endpoint -->
-
     <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
         <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
             <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
                 <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;">university</span>
@@ -233,14 +148,13 @@
             <div class="list-group list-group-flush" style="width: max-content;">
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <!--todo the above html file-->
                     <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
                 </a>
-                <a href="http://localhost:5000/academicinfo.html.html"
+                <a href="http://localhost:5000/academicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
                 </a>
@@ -264,25 +178,25 @@
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
-                <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                <a href="http://localhost:5000/attatchments.html"
+                   class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
-                <a href="http://localhost:5000/pictures.html"
+                <a href="http://localhost:5000/infrastructurepics.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
-                <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
                 </a>
-                <!--todo the above html file-->
             </div>
         </div>
 
+        <!-- Main Content -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
                         <li class="nav-item li_Lang">
                             <a id="lnkLogout" href="#">
@@ -302,33 +216,56 @@
                     </ul>
                 </div>
             </nav>
+
+            <!-- Instructions + File Upload Form -->
             <div class="container-fluid">
                 <br>
-                <div class="row" style="display:flex !important;flex-direction:row-reverse !important;">
-                    <div class="col-sm-6">
-                        <!-- Left side if needed -->
-                    </div>
-                    <div class="col-sm-6">
-                        <table class="table table-responsive table-hover table-bordered" style="width:100% !important">
+                <div class="row col-12" style="display:flex !important;flex-direction:row-reverse !important;">
+
+                    
+
+                    <!-- Right Column: New File Upload Section -->
+                    <div class="col-sm-8">
+                        <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
                             <tr>
                                 <th colspan="2" class="center">
-                                    <span>Upload Pictures</span>
+                                    <span>Pictures Upload</span>
                                 </th>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="file" id="FileUpload" class="form-control" style="width: inherit;" accept=".jpg,.jpeg,.png" onchange="checkfilesize('FileUpload', 'ErrorFile')">
+                                    <!-- New file-upload form -->
+                                    <form id="fileUploadForm"
+                                          action="/api/infrastructurepics/upload"
+                                          method="POST"
+                                          enctype="multipart/form-data">
+                                        <!-- Single file input (or multiple if you prefer) -->
+                                        <label for="FileUpload">Select Picture (PNG, JPG, JPEG):</label>
+                                        <input type="file"
+                                               id="FileUpload"
+                                               name="uploadedFile"
+                                               class="form-control"
+                                               accept=".png,.jpg,.jpeg"
+                                               required />
+
+
+                                        <label for="txtAttDesc">Subject<span class="StarSpan"> *</span></label>
+                                        <input type="text"
+                                               id="txtAttDesc"
+                                               name="subject"
+                                               class="form-control"
+                                               placeholder="Enter subject"
+                                               required>
+                                        <br>
+
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </form>
+
+                                    <!-- Placeholder for listing previously uploaded files -->
                                     <br><br>
-                                    <span>Subject</span><span class="StarSpan"> *</span>
-                                    <input type="text" id="txtAttDesc" class="form-control" style="width: inherit;" placeholder="Enter picture subject">
-                                    <br>
-                                    <button type="submit" class="btn btn-primary">Upload Picture</button>
-                                    <br><br>
-                                    <input type="text" readonly="readonly" id="ErrorFile" style="display: none;">
-                                    <br>
-                                    <div>
-                                        <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
-                                            <tr style="color: white; background-color: #990000; font-weight: bold;">
+                                    <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
+                                        <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                            <tr>
                                                 <th>#</th>
                                                 <th>Subject</th>
                                                 <th>Picture Name</th>
@@ -336,21 +273,26 @@
                                                 <th>Download</th>
                                                 <th>Delete</th>
                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- For now, we just show "No Data Found !" or dynamically load from the server. -->
                                             <tr>
                                                 <td colspan="6">No Data Found !</td>
                                             </tr>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
+
                                 </td>
                             </tr>
                         </table>
                     </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
-    </form>
+                </div>
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
     <script src="login_files/auth.js"></script>
+    <script src="infrastructurepics_files/api.js"></script>
+
 </body>
 </html>

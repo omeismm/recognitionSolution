@@ -10,11 +10,11 @@ namespace RecognitionProj.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AttachmentsController : ControllerBase
+    public class InfrastructurePicsController : ControllerBase
     {
         private readonly string _baseUploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
 
-        // POST: api/attachments/upload
+        // POST: api/infrastructurepics/upload
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile([FromForm] IFormFile uploadedFile, [FromForm] string subject)
         {
@@ -25,14 +25,11 @@ namespace RecognitionProj.Controllers
                 Debug.WriteLine("[UploadFile] No file uploaded.");
                 return BadRequest(new { success = false, message = "No file was uploaded." });
             }
-            var allowedExtensions = new HashSet<string> { ".pdf", ".doc", ".docx" };
-            var ext = Path.GetExtension(uploadedFile.FileName).ToLowerInvariant();
 
-            if (!allowedExtensions.Contains(ext))
+            if (!uploadedFile.ContentType.StartsWith("image/"))
             {
-                return BadRequest(new { success = false, message = "Only PDF, DOC, or DOCX files are allowed." });
+                return BadRequest(new { success = false, message = "Only image files allowed." });
             }
-
 
             Debug.WriteLine($"[UploadFile] File name: {uploadedFile.FileName}, Subject: {subject}");
 
@@ -45,8 +42,8 @@ namespace RecognitionProj.Controllers
 
             try
             {
-                // Create folder path: wwwroot/uploads/{InstitutionID}/attachments
-                var institutionFolder = Path.Combine(_baseUploadPath, institutionId, "attachments");
+                // Create folder path: wwwroot/uploads/{InstitutionID}/infrastructurepics
+                var institutionFolder = Path.Combine(_baseUploadPath, institutionId, "infrastructurepics");
                 if (!Directory.Exists(institutionFolder))
                 {
                     Directory.CreateDirectory(institutionFolder);
@@ -71,7 +68,7 @@ namespace RecognitionProj.Controllers
             }
         }
 
-        // GET: api/attachments/list
+        // GET: api/infrastructurepics/list
         [HttpGet("list")]
         public IActionResult GetFiles()
         {
@@ -81,13 +78,13 @@ namespace RecognitionProj.Controllers
                 return BadRequest(new { success = false, message = "Institution ID is required." });
             }
 
-            var attachmentsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", institutionId, "attachments");
-            if (!Directory.Exists(attachmentsFolder))
+            var infrastructurepicsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", institutionId, "infrastructurepics");
+            if (!Directory.Exists(infrastructurepicsFolder))
             {
                 return Ok(new { success = true, files = new List<object>() });
             }
 
-            var files = Directory.GetFiles(attachmentsFolder);
+            var files = Directory.GetFiles(infrastructurepicsFolder);
             var fileList = new List<object>();
 
             foreach (var file in files)
@@ -100,8 +97,8 @@ namespace RecognitionProj.Controllers
                 {
                     Name = fileName,
                     Subject = subject,
-                    Path = $"/uploads/{institutionId}/attachments/{fileName}", // Correct public path
-                    DeletePath = $"/api/attachments/delete?filePath=/uploads/{institutionId}/attachments/{Uri.EscapeDataString(fileName)}" // Delete endpoint
+                    Path = $"/uploads/{institutionId}/infrastructurepics/{fileName}", // Correct public path
+                    DeletePath = $"/api/infrastructurepics/delete?filePath=/uploads/{institutionId}/infrastructurepics/{Uri.EscapeDataString(fileName)}" // Delete endpoint
                 });
             }
 
@@ -109,7 +106,7 @@ namespace RecognitionProj.Controllers
         }
 
 
-        // DELETE: api/attachments/delete
+        // DELETE: api/infrastructurepics/delete
         [HttpDelete("delete")]
         public IActionResult DeleteFile([FromQuery] string filePath)
         {
@@ -118,7 +115,7 @@ namespace RecognitionProj.Controllers
                 return BadRequest(new { success = false, message = "File path is required." });
             }
 
-            // If filePath = "/uploads/{InsID}/attachments/SomeFile.pdf"
+            // If filePath = "/uploads/{InsID}/infrastructurepics/SomeFile.pdf"
             var physicalPath = Path.Combine(
                 Directory.GetCurrentDirectory(),
                 "wwwroot",
