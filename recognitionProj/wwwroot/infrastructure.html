@@ -302,84 +302,85 @@
                          style="padding:15px; border:1px solid #ddd; border-top:none;">
                         <!-- Infrastructure Form (no action/method for now) -->
                         <form id="infrastructureForm">
+                            <div style="display: grid; gap: 20px; grid-template-columns: repeat(3,auto);">
+                                <div class="form-row">
+                                    <label for="InsID">Institution ID:</label>
+                                    <input type="number"
+                                           id="InsID"
+                                           name="InsID"
+                                           class="form-control"
+                                           placeholder="Enter Institution ID"
+                                           required>
+                                </div>
 
-                            <div class="form-row">
-                                <label for="InsID">Institution ID:</label>
-                                <input type="number"
-                                       id="InsID"
-                                       name="InsID"
-                                       class="form-control"
-                                       placeholder="Enter Institution ID"
-                                       required>
+                                <div class="form-row">
+                                    <label for="Area">Area (square meters):</label>
+                                    <input type="number"
+                                           id="Area"
+                                           name="Area"
+                                           class="form-control"
+                                           placeholder="Enter infrastructure area in sq. meters">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Sites">Number of Sites:</label>
+                                    <input type="number"
+                                           id="Sites"
+                                           name="Sites"
+                                           class="form-control"
+                                           placeholder="Enter number of sites">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Terr">Number of Terrains:</label>
+                                    <input type="number"
+                                           id="Terr"
+                                           name="Terr"
+                                           class="form-control"
+                                           placeholder="Enter number of terrains">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Halls">Number of Halls:</label>
+                                    <input type="number"
+                                           id="Halls"
+                                           name="Halls"
+                                           class="form-control"
+                                           placeholder="Enter number of halls">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Library">Number of Libraries:</label>
+                                    <input type="number"
+                                           id="Library"
+                                           name="Library"
+                                           class="form-control"
+                                           placeholder="Enter number of libraries">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="LabsAttach">Labs Attachment:</label>
+                                    <input type="text"
+                                           id="LabsAttach"
+                                           name="LabsAttach"
+                                           class="form-control"
+                                           placeholder="Attach labs info or description">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Build">Building Info:</label>
+                                    <input type="text"
+                                           id="Build"
+                                           name="Build"
+                                           class="form-control"
+                                           placeholder="Enter building details">
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary mt-3">
+                                    Submit
+                                </button>
                             </div>
-
-                            <div class="form-row">
-                                <label for="Area">Area (square meters):</label>
-                                <input type="number"
-                                       id="Area"
-                                       name="Area"
-                                       class="form-control"
-                                       placeholder="Enter infrastructure area in sq. meters">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Sites">Number of Sites:</label>
-                                <input type="number"
-                                       id="Sites"
-                                       name="Sites"
-                                       class="form-control"
-                                       placeholder="Enter number of sites">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Terr">Number of Terrains:</label>
-                                <input type="number"
-                                       id="Terr"
-                                       name="Terr"
-                                       class="form-control"
-                                       placeholder="Enter number of terrains">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Halls">Number of Halls:</label>
-                                <input type="number"
-                                       id="Halls"
-                                       name="Halls"
-                                       class="form-control"
-                                       placeholder="Enter number of halls">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Library">Number of Libraries:</label>
-                                <input type="number"
-                                       id="Library"
-                                       name="Library"
-                                       class="form-control"
-                                       placeholder="Enter number of libraries">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="LabsAttach">Labs Attachment:</label>
-                                <input type="text"
-                                       id="LabsAttach"
-                                       name="LabsAttach"
-                                       class="form-control"
-                                       placeholder="Attach labs info or description">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Build">Building Info:</label>
-                                <input type="text"
-                                       id="Build"
-                                       name="Build"
-                                       class="form-control"
-                                       placeholder="Enter building details">
-                            </div>
-
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary mt-3">
-                                Submit
-                            </button>
                         </form>
                     </div>
                 </div>

@@ -300,84 +300,85 @@
                          style="padding:15px; border:1px solid #ddd; border-top:none;">
                         <!-- Library Form (no action/method for now) -->
                         <form id="libraryForm">
+                            <div style="display: grid; gap: 20px; grid-template-columns: repeat(3,auto);">
+                                <div class="form-row">
+                                    <label for="InsID">Institution ID:</label>
+                                    <input type="number"
+                                           id="InsID"
+                                           name="InsID"
+                                           class="form-control"
+                                           placeholder="Enter Institution ID"
+                                           required>
+                                </div>
 
-                            <div class="form-row">
-                                <label for="InsID">Institution ID:</label>
-                                <input type="number"
-                                       id="InsID"
-                                       name="InsID"
-                                       class="form-control"
-                                       placeholder="Enter Institution ID"
-                                       required>
+                                <div class="form-row">
+                                    <label for="Area">Area (square meters):</label>
+                                    <input type="number"
+                                           id="Area"
+                                           name="Area"
+                                           class="form-control"
+                                           placeholder="Enter library area in sq. meters">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Capacity">Capacity:</label>
+                                    <input type="number"
+                                           id="Capacity"
+                                           name="Capacity"
+                                           class="form-control"
+                                           placeholder="Enter maximum capacity">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="ArBooks">Arabic Books:</label>
+                                    <input type="number"
+                                           id="ArBooks"
+                                           name="ArBooks"
+                                           class="form-control"
+                                           placeholder="Enter number of Arabic books">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="EnBooks">English Books:</label>
+                                    <input type="number"
+                                           id="EnBooks"
+                                           name="EnBooks"
+                                           class="form-control"
+                                           placeholder="Enter number of English books">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="Papers">Research Papers / Journals:</label>
+                                    <input type="number"
+                                           id="Papers"
+                                           name="Papers"
+                                           class="form-control"
+                                           placeholder="Enter number of papers or journals">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="EBooks">E-Books:</label>
+                                    <input type="number"
+                                           id="EBooks"
+                                           name="EBooks"
+                                           class="form-control"
+                                           placeholder="Enter number of E-Books">
+                                </div>
+
+                                <div class="form-row">
+                                    <label for="ESubscription">E-Subscription:</label>
+                                    <input type="number"
+                                           id="ESubscription"
+                                           name="ESubscription"
+                                           class="form-control"
+                                           placeholder="Enter number of E-Subscription services">
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary mt-3">
+                                    Submit
+                                </button>
                             </div>
-
-                            <div class="form-row">
-                                <label for="Area">Area (square meters):</label>
-                                <input type="number"
-                                       id="Area"
-                                       name="Area"
-                                       class="form-control"
-                                       placeholder="Enter library area in sq. meters">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Capacity">Capacity:</label>
-                                <input type="number"
-                                       id="Capacity"
-                                       name="Capacity"
-                                       class="form-control"
-                                       placeholder="Enter maximum capacity">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="ArBooks">Arabic Books:</label>
-                                <input type="number"
-                                       id="ArBooks"
-                                       name="ArBooks"
-                                       class="form-control"
-                                       placeholder="Enter number of Arabic books">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="EnBooks">English Books:</label>
-                                <input type="number"
-                                       id="EnBooks"
-                                       name="EnBooks"
-                                       class="form-control"
-                                       placeholder="Enter number of English books">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="Papers">Research Papers / Journals:</label>
-                                <input type="number"
-                                       id="Papers"
-                                       name="Papers"
-                                       class="form-control"
-                                       placeholder="Enter number of papers or journals">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="EBooks">E-Books:</label>
-                                <input type="number"
-                                       id="EBooks"
-                                       name="EBooks"
-                                       class="form-control"
-                                       placeholder="Enter number of E-Books">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="ESubscription">E-Subscription:</label>
-                                <input type="number"
-                                       id="ESubscription"
-                                       name="ESubscription"
-                                       class="form-control"
-                                       placeholder="Enter number of E-Subscription services">
-                            </div>
-
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary mt-3">
-                                Submit
-                            </button>
                         </form>
                     </div>
                 </div>
