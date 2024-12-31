@@ -127,7 +127,7 @@ CREATE TABLE [dbo].[Infrastructure](
 	[Halls] [int] NULL,
 	[Library] [int] NULL,
 	--[Labs] [nvarchar](500) NULL,
-	[labs_Attach] [nvarchar] NULL,
+	[LabsAttach] [nvarchar](500) NULL,
 	[Build] [nvarchar](500) NULL
 ) 
 CREATE TABLE [dbo].[Library](

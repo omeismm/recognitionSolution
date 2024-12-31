@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using recognitionProj;
-using System.Collections.Generic;
 
 namespace RecognitionProj.Controllers
 {
@@ -8,8 +7,13 @@ namespace RecognitionProj.Controllers
     [Route("api/[controller]")]
     public class InfrastructureController : ControllerBase
     {
-        // In-memory list to store infrastructure information temporarily (for demonstration purposes)
-        private static List<Infrastructure> _infrastructureInfoList = new List<Infrastructure>();
+        private readonly DatabaseHandler _dbHandler;
+
+        // Constructor injection for DatabaseHandler
+        public InfrastructureController(DatabaseHandler dbHandler)
+        {
+            _dbHandler = dbHandler;
+        }
 
         // POST: api/infrastructure/save
         [HttpPost("save")]
@@ -20,10 +24,10 @@ namespace RecognitionProj.Controllers
                 return BadRequest(new { success = false, message = "Invalid infrastructure information data." });
             }
 
-            // Add the infrastructure information object to the list (simulating saving to a database)
-            _infrastructureInfoList.Add(infrastructureInfo);
+            // Instead of calling itself, call DatabaseHandler
+            _dbHandler.InsertInfrastructure(infrastructureInfo);
+            // or if you want to update, use: _dbHandler.UpdateInfrastructure(infrastructureInfo);
 
-            // Return success response
             return Ok(new { success = true, message = "Infrastructure information saved successfully." });
         }
 
@@ -31,8 +35,11 @@ namespace RecognitionProj.Controllers
         [HttpGet("get-all")]
         public IActionResult GetAllInfrastructureInfo()
         {
-            // Return all the infrastructure information (simulating retrieval from a database)
-            return Ok(_infrastructureInfoList);
+            // If you want to retrieve from DB, do something like:
+            // var allInfrastructure = _dbHandler.GetAllInfrastructure();
+            // return Ok(allInfrastructure);
+
+            return Ok(new { success = true, message = "Implement retrieval if needed." });
         }
     }
 }
