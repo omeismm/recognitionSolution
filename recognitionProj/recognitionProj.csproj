@@ -17,6 +17,7 @@
     <Content Remove="wwwroot\General_Info_Files\Site.css" />
     <Content Remove="wwwroot\General_Info_Files\uk.jpg" />
     <Content Remove="wwwroot\infrastructurepics_files\api.js" />
+    <Content Remove="wwwroot\supervisormenu_files\api.js" />
     <Content Remove="wwwroot\login_files\api.js" />
     <Content Remove="wwwroot\infrastructure_files\api.js" />
     <Content Remove="wwwroot\library_files\api.js" />
@@ -59,6 +60,7 @@
     <None Include="wwwroot\General_Info_Files\Site.css" />
     <None Include="wwwroot\General_Info_Files\uk.jpg" />
     <None Include="wwwroot\infrastructurepics_files\api.js" />
+    <None Include="wwwroot\supervisormenu_files\api.js" />
     <None Include="wwwroot\login_files\api.js" />
     <None Include="wwwroot\infrastructure_files\api.js" />
     <None Include="wwwroot\library_files\api.js" />
