@@ -190,7 +190,7 @@
             </nav>
 
             <!-- Forms for Uploading Files -->
-            <form class="form-container" action="/upload_all" method="post" enctype="multipart/form-data">
+            <form class="form-container" action="/api/generalinfo/upload_all" method="post" enctype="multipart/form-data">
                 <div class="form-box">
                     <div class="form-title">Faculties</div>
                     <div class="note">Please upload the file containing details about the faculties.</div>
@@ -229,7 +229,7 @@
                             Number of the Students <span class="text-danger">*</span>
                         </label>
                         <input type="file" id="students" name="students" class="form-control"
-                               accept=".xls,.xlsx,.csv" required>
+                              accept=".xls,.xlsx,.csv" required>
                         <button type="button" class="delete-btn"
                                 onclick="document.getElementById('students').value = ''">
                             Delete
@@ -245,7 +245,6 @@
                             Teaching Staff <span class="text-danger">*</span>
                         </label>
                         <input type="file" id="staff" name="staff" class="form-control" accept=".xls,.xlsx,.csv"
-                               required>
                         <button type="button" class="delete-btn"
                                 onclick="document.getElementById('staff').value = ''">
                             Delete
@@ -255,7 +254,10 @@
 
                 <button type="submit" class="submit-btn">Submit All</button>
             </form>
+
         </div>
+        <!--<script src="login_files/auth.js"></script>-->
+        <script src="General_Info_Files/api.js"></script>
     </div>
 </body>
 
