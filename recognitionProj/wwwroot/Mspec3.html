@@ -9,7 +9,7 @@
     <link href="Mspec3_files/simple-sidebar.css" rel="stylesheet">
     <link href="Mspec3_files/Site.css" rel="stylesheet">
     <!--<link href="Mspec3_files/bootstrap.css" rel="stylesheet">-->
-
+    
     <link rel="stylesheet" href="Mspec3_files/all.css" crossorigin="anonymous">
 
 
@@ -66,6 +66,7 @@
             vertical-align: middle;
             margin-left: 10px;
         }
+
         .list-group-item.active,
         .list-group-item.active:hover,
         .list-group-item.active:focus {
@@ -79,29 +80,32 @@
             background-color: #ffffff;
             border: 1px solid #dddddd;
         }
+
             .list-group-item:first-child {
-                border-top-width:1px;
+                border-top-width: 1px;
                 border-top-right-radius: 4px;
                 border-top-left-radius: 4px;
             }
 
             .list-group-item:last-child {
-                border-bottom-width:1px;
+                border-bottom-width: 1px;
                 border-bottom-right-radius: 4px;
                 border-bottom-left-radius: 4px;
             }
 
         .main-container .btn {
-            width: 300px;
-            height: 80x;
+            display: block; /* Ensure it behaves like a block for easy centering */
+            width: 400px; /* Increase width to make it bigger */
+            height: 80px; /* Confirm or increase height (typo fix: '80x' -> '80px') */
+            font-size: 22px; /* Make text bigger */
+            margin: 10px auto; /* Center horizontally & add vertical spacing */
             background-color: #428bca;
             color: white;
-            font-size: 18px;
             text-align: center;
-            margin: auto;
             border-radius: 8px;
             transition: background-color 0.3s ease;
         }
+
 
             .main-container .btn:hover {
                 background-color: rgba(30, 30, 30, 0.7);
@@ -117,6 +121,23 @@
         .hidden {
             display: none;
         }
+        /* Example: custom 60%-width modals + vertical center */
+        .modal-dialog.modal-60 {
+            max-width: 60% !important;
+            margin: auto; /* horizontally center */
+        }
+
+        .modal-dialog-centered.modal-60 {
+            display: flex;
+            align-items: center; /* vertical center */
+        }
+
+        /* Make all form submit buttons bigger */
+        button.btn.btn-primary[type="submit"] {
+            font-size: 20px; /* bigger text */
+            padding: 12px 28px; /* more spacing around text */
+        }
+
     </style>
 </head>
 
@@ -151,7 +172,7 @@
                 </a>
                 <a href="http://localhost:5000/generalinfo.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/General_Info.png" width="30px" draggable="false"/>
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
                 </a>
                 <a href="http://localhost:5000/admissionrequirements.html"
@@ -235,6 +256,7 @@
             <!-- 1) Bachelor's Parent Modal -->
             <div class="modal fade" id="bachelorParentModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
+
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Bachelor’s Programs</h5>
@@ -264,18 +286,16 @@
 
             <!-- 2) High Diploma Parent Modal -->
             <div class="modal fade" id="highDiplomaParentModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-60 modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">High Diploma</h5>
-                            <button type="button" class="btn-close highDiplomaParentClose"
-                                    aria-label="Close"></button>
+                            <button type="button" class="btn-close highDiplomaParentClose" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>Select High Diploma form:</p>
                             <button id="openHighDiplomaFormBtn" class="btn btn-secondary w-100">
-                                High Diploma
-                                Form
+                                High Diploma Form
                             </button>
                         </div>
                     </div>
@@ -755,7 +775,7 @@
             </div>
         </div>
 
-        <!-- High Diploma Child Modal -->
+        <<!-- High Diploma Child Modal -->
         <div class="modal fade child-modal" id="highDiplomaModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -765,91 +785,219 @@
                     </div>
                     <div class="modal-body">
                         <form id="HighDiplomaForm">
+
+                            <!-- 1) Type (read-only, NO upload) -->
                             <div class="form-row">
                                 <label for="Type">Type:</label>
-                                <input type="text" id="Type" name="Type" class="form-control"
-                                       value="High Diploma" required readonly>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumStu">Number of Students:</label>
-                                <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                       placeholder="Enter number of students" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumProf">Number of Full Time Professors:</label>
-                                <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                       placeholder="Enter number of professors" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                <input type="text"
+                                       id="Type"
+                                       name="Type"
                                        class="form-control"
-                                       placeholder="Enter number of Full Time associate professors" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                       placeholder="Enter number of assistant professors" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                       class="form-control"
-                                       placeholder="Enter number of other Full Time PhD holders">
-                            </div>
-                            <div class="form-row">
-                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                       class="form-control"
-                                       placeholder="Enter number of other Full Time Professor Of Practice">
-                            </div>
-                            <div class="form-row">
-                                <label for="NumberLecturers">Number of Lecturers:</label>
-                                <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                       class="form-control" placeholder="Enter number of lecturers" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                       class="form-control" placeholder="Enter number of assistant lecturers"
-                                       required>
-                            </div>
-                            <div class="form-row">
-                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                       class="form-control" placeholder="Enter number of other teachers" required>
-                            </div>
-                            <div class="form-row">
-                                <label for="SpecAttachName">Special Attachment Name:</label>
-                                <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                       class="form-control" placeholder="Enter special attachment name">
-                            </div>
-                            <div class="form-row">
-                                <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                       class="form-control" placeholder="Enter special attachment description">
-                            </div>
-                            <div class="form-row">
-                                <label for="InsID">Institution ID:</label>
-                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       value="High Diploma"
+                                       required
                                        readonly>
                             </div>
+
+                            <!-- 2) Number of Students (NO upload) -->
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number"
+                                       id="NumStu"
+                                       name="NumStu"
+                                       class="form-control"
+                                       placeholder="Enter number of students"
+                                       required>
+                            </div>
+
+                            <!-- 3) Number of Full Time Professors + Upload -->
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumProf"
+                                           name="NumProf"
+                                           class="form-control"
+                                           placeholder="Enter number of professors"
+                                           required>
+                                    <!-- Upload for 'NumProf' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumProfFile"
+                                           name="NumProfFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 4) Number of Full Time Associate Professors + Upload -->
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumAssociative"
+                                           name="NumAssociative"
+                                           class="form-control"
+                                           placeholder="Enter number of Full Time associate professors"
+                                           required>
+                                    <!-- Upload for 'NumAssociative' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumAssociativeFile"
+                                           name="NumAssociativeFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 5) Number of Full Time Assistant Professors + Upload -->
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumAssistant"
+                                           name="NumAssistant"
+                                           class="form-control"
+                                           placeholder="Enter number of assistant professors"
+                                           required>
+                                    <!-- Upload for 'NumAssistant' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumAssistantFile"
+                                           name="NumAssistantFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 6) Number of Full Time PhD Holders + Upload -->
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumPhdHolders"
+                                           name="NumPhdHolders"
+                                           class="form-control"
+                                           placeholder="Enter number of other Full Time PhD holders">
+                                    <!-- Upload for 'NumPhdHolders' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumPhdHoldersFile"
+                                           name="NumPhdHoldersFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 7) Number of Full Time Professor of Practice + Upload -->
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumProfPractice"
+                                           name="NumProfPractice"
+                                           class="form-control"
+                                           placeholder="Enter number of other Full Time Professor Of Practice">
+                                    <!-- Upload for 'NumProfPractice' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumProfPracticeFile"
+                                           name="NumProfPracticeFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 8) Number of Lecturers + Upload -->
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumberLecturers"
+                                           name="NumberLecturers"
+                                           class="form-control"
+                                           placeholder="Enter number of lecturers"
+                                           required>
+                                    <!-- Upload for 'NumberLecturers' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumberLecturersFile"
+                                           name="NumberLecturersFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 9) Number of Assistant Lecturers + Upload -->
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumAssisLecturer"
+                                           name="NumAssisLecturer"
+                                           class="form-control"
+                                           placeholder="Enter number of assistant lecturers"
+                                           required>
+                                    <!-- Upload for 'NumAssisLecturer' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumAssisLecturerFile"
+                                           name="NumAssisLecturerFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- 10) Number of Other Teachers + Upload -->
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <div class="input-group">
+                                    <input type="number"
+                                           id="NumOtherTeachers"
+                                           name="NumOtherTeachers"
+                                           class="form-control"
+                                           placeholder="Enter number of other teachers"
+                                           required>
+                                    <!-- Upload for 'NumOtherTeachers' field -->
+                                    <input type="file"
+                                           class="form-control"
+                                           id="NumOtherTeachersFile"
+                                           name="NumOtherTeachersFile"
+                                           accept=".xls, .xlsx" />
+                                </div>
+                            </div>
+
+                            <!-- These fields remain WITHOUT any upload inputs -->
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number"
+                                       id="InsID"
+                                       name="InsID"
+                                       class="form-control"
+                                       value="0"
+                                       readonly>
+                            </div>
+
                             <div class="form-row">
                                 <label for="PracticalHours">Practical Hours:</label>
-                                <input type="number" id="PracticalHours" name="PracticalHours"
-                                       class="form-control" value="0" readonly>
+                                <input type="number"
+                                       id="PracticalHours"
+                                       name="PracticalHours"
+                                       class="form-control"
+                                       value="0"
+                                       readonly>
                             </div>
+
                             <div class="form-row">
                                 <label for="TheoreticalHours">Theoretical Hours:</label>
-                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                       class="form-control" value="0" readonly>
+                                <input type="number"
+                                       id="TheoreticalHours"
+                                       name="TheoreticalHours"
+                                       class="form-control"
+                                       value="0"
+                                       readonly>
                             </div>
+
+                            <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Masters: Scientific Master -->
         <div class="modal fade child-modal" id="scientificMasterModal" tabindex="-1" aria-hidden="true">
@@ -1443,246 +1591,8 @@
 
 
     <script src="Mspec3_files/api.js" type="text/javascript"></script>
-    <script>
-        /* PARENT & CHILD MODALS:
-           1) Parent = { backdrop: 'static' } so it won’t close on outside click
-           2) Child = { backdrop: false } so it doesn’t hide the parent
-           3) Then wire up open/close logic
-        */
+    <script src="Mspec3_files/Modals.js"></script>
 
-        // ============ Parent Modals ============
-        const bachelorParentModal = new bootstrap.Modal(document.getElementById('bachelorParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-        const highDiplomaParentModal = new bootstrap.Modal(document.getElementById('highDiplomaParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-        const mastersParentModal = new bootstrap.Modal(document.getElementById('mastersParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-        const medicalParentModal = new bootstrap.Modal(document.getElementById('medicalParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-
-        const phdParentModal = new bootstrap.Modal(document.getElementById('phdParentModal'), {
-            backdrop: 'static',
-            keyboard: false
-        });
-
-        // ============ Child Modals ============
-        const scientificBscModal = new bootstrap.Modal(document.getElementById('scientificBscModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const humanitarianBscModal = new bootstrap.Modal(document.getElementById('humanitarianBscModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const scientificPracticalBscModal = new bootstrap.Modal(document.getElementById('scientificPracticalBscModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const humanitarianPracticalBscModal = new bootstrap.Modal(document.getElementById('humanitarianPracticalBscModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const highDiplomaModal = new bootstrap.Modal(document.getElementById('highDiplomaModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const scientificMasterModal = new bootstrap.Modal(document.getElementById('scientificMasterModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const humanitarianMasterModal = new bootstrap.Modal(document.getElementById('humanitarianMasterModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const scientificPracticalMasterModal = new bootstrap.Modal(document.getElementById('scientificPracticalMasterModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const mainMedicalModal = new bootstrap.Modal(document.getElementById('mainMedicalModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const residencyModal = new bootstrap.Modal(document.getElementById('residencyModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-        const phdModal = new bootstrap.Modal(document.getElementById('phdModal'), {
-            backdrop: false,
-            keyboard: false
-        });
-
-        // ============ OPEN PARENT MODALS ============
-        document.getElementById('openBachelorBtn').addEventListener('click', () => {
-            bachelorParentModal.show();
-        });
-        document.getElementById('openHighDiplomaBtn').addEventListener('click', () => {
-            highDiplomaParentModal.show();
-        });
-        document.getElementById('openMastersBtn').addEventListener('click', () => {
-            mastersParentModal.show();
-        });
-        document.getElementById('openMedicalBtn').addEventListener('click', () => {
-            medicalParentModal.show();
-        });
-
-        document.getElementById('openPhdBtn').addEventListener('click', () => {
-            phdParentModal.show();
-        });
-
-        // ============ CLOSE PARENT MODALS (X) ============
-        document.querySelector('.bachelorParentClose').addEventListener('click', () => {
-            bachelorParentModal.hide();
-        });
-        document.querySelector('.highDiplomaParentClose').addEventListener('click', () => {
-            highDiplomaParentModal.hide();
-        });
-        document.querySelector('.mastersParentClose').addEventListener('click', () => {
-            mastersParentModal.hide();
-        });
-        document.querySelector('.medicalParentClose').addEventListener('click', () => {
-            medicalParentModal.hide();
-        });
-
-        document.querySelector('.phdParentClose').addEventListener('click', () => {
-            phdParentModal.hide();
-        });
-
-        // ============ OPEN CHILD MODALS FROM PARENT BUTTONS ============
-        // Bachelor
-        document.getElementById('openScientificBscBtn').addEventListener('click', () => {
-            scientificBscModal.show();
-        });
-        document.getElementById('openHumanitarianBscBtn').addEventListener('click', () => {
-            humanitarianBscModal.show();
-        });
-        document.getElementById('openScientificPracticalBscBtn').addEventListener('click', () => {
-            scientificPracticalBscModal.show();
-        });
-        document.getElementById('openHumanitarianPracticalBscBtn').addEventListener('click', () => {
-            humanitarianPracticalBscModal.show();
-        });
-
-        // High Diploma
-        document.getElementById('openHighDiplomaFormBtn').addEventListener('click', () => {
-            highDiplomaModal.show();
-        });
-
-        // Masters
-        document.getElementById('openScientificMasterBtn').addEventListener('click', () => {
-            scientificMasterModal.show();
-        });
-        document.getElementById('openHumanitarianMasterBtn').addEventListener('click', () => {
-            humanitarianMasterModal.show();
-        });
-        document.getElementById('openScientificPracticalMasterBtn').addEventListener('click', () => {
-            scientificPracticalMasterModal.show();
-        });
-
-        // Medical
-        document.getElementById('openMainMedicalBtn').addEventListener('click', () => {
-            mainMedicalModal.show();
-        });
-
-        // Residency
-        document.getElementById('openResidencyBtn2').addEventListener('click', () => {
-            residencyModal.show();
-        });
-
-        // PhD
-        document.getElementById('openPhdFormBtn').addEventListener('click', () => {
-            phdModal.show();
-        });
-
-        // ============ CLOSE CHILD MODALS (X) ============
-        document.querySelector('.scientificBscClose').addEventListener('click', () => {
-            scientificBscModal.hide();
-        });
-        document.querySelector('.humanitarianBscClose').addEventListener('click', () => {
-            humanitarianBscModal.hide();
-        });
-        document.querySelector('.scientificPracticalBscClose').addEventListener('click', () => {
-            scientificPracticalBscModal.hide();
-        });
-        document.querySelector('.humanitarianPracticalBscClose').addEventListener('click', () => {
-            humanitarianPracticalBscModal.hide();
-        });
-        document.querySelector('.highDiplomaClose').addEventListener('click', () => {
-            highDiplomaModal.hide();
-        });
-        document.querySelector('.scientificMasterClose').addEventListener('click', () => {
-            scientificMasterModal.hide();
-        });
-        document.querySelector('.humanitarianMasterClose').addEventListener('click', () => {
-            humanitarianMasterModal.hide();
-        });
-        document.querySelector('.scientificPracticalMasterClose').addEventListener('click', () => {
-            scientificPracticalMasterModal.hide();
-        });
-        document.querySelector('.mainMedicalClose').addEventListener('click', () => {
-            mainMedicalModal.hide();
-        });
-        document.querySelector('.residencyClose').addEventListener('click', () => {
-            residencyModal.hide();
-        });
-        document.querySelector('.phdClose').addEventListener('click', () => {
-            phdModal.hide();
-        });
-
-        // ============ FORM SUBMISSIONS (Prevent default, then hide child) ============
-        document.getElementById('ScientificBachelorForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // handle your logic ...
-            scientificBscModal.hide();
-        });
-        document.getElementById('HumanitarianBachelorRatioForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            humanitarianBscModal.hide();
-        });
-        document.getElementById('ScientificPracticalBachelorForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            scientificPracticalBscModal.hide();
-        });
-        document.getElementById('HumnamitarianPracticalBachelorForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            humanitarianPracticalBscModal.hide();
-        });
-        document.getElementById('HighDiplomaForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            highDiplomaModal.hide();
-        });
-        document.getElementById('ScientificMastersForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            scientificMasterModal.hide();
-        });
-        document.getElementById('HumanitarianMastersForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            humanitarianMasterModal.hide();
-        });
-        document.getElementById('ScientificPracticalMastersForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            scientificPracticalMasterModal.hide();
-        });
-        document.getElementById('MainMedicalForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            mainMedicalModal.hide();
-        });
-        document.getElementById('ResidencyForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            residencyModal.hide();
-        });
-        document.getElementById('DoctorateForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            phdModal.hide();
-        });
-    </script>
     <script src="login_files/auth.js"></script>
 </body>
 </html>
