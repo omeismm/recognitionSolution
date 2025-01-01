@@ -9,8 +9,11 @@ namespace RecognitionProj.Controllers
     public class PublicInfoController : ControllerBase
     {
         // In-memory list to store public information temporarily (for demonstration purposes)
-        private static List<PublicInfo> _publicInfoList = new List<PublicInfo>();
-
+        private readonly DatabaseHandler _dbHandler;
+        public PublicInfoController(DatabaseHandler dbHandler)
+        {
+            _dbHandler = dbHandler;
+        }
         // POST: api/publicinfo/save
         [HttpPost("save")]
         public IActionResult SavePublicInfo([FromBody] PublicInfo publicInfo)
@@ -20,8 +23,7 @@ namespace RecognitionProj.Controllers
                 return BadRequest(new { success = false, message = "Invalid public information data." });
             }
 
-            // Add the public information object to the list (simulating saving to a database)
-            _publicInfoList.Add(publicInfo);
+            _dbHandler.InsertPublicInfo(publicInfo);
 
             // Return success response
             return Ok(new { success = true, message = "Public information saved successfully." });
@@ -32,7 +34,7 @@ namespace RecognitionProj.Controllers
         public IActionResult GetAllPublicInfo()
         {
             // Return all the public information (simulating retrieval from a database)
-            return Ok(_publicInfoList);
+            return Ok();
         }
     }
 }

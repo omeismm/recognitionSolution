@@ -40,7 +40,7 @@ namespace RecognitionProj.Controllers
                         return false;
                     }
 
-                    // Append timestamp to file name
+                    
                     
                     var filePath = Path.Combine(institutionFolder, $"{fileNamePrefix} {fileExtension}");
 

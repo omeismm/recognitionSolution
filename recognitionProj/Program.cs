@@ -17,8 +17,8 @@ builder.Services.AddSingleton<Verifier>();
 // Register DatabaseHandler and pass connection string from configuration
 // First, read the connection string from appsettings.json or environment variables
 
-var connectionString = "Server=SAIF\\SQLEXPRESS;Database=master;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
-
+//var connectionString = "Server=SAIF\\SQLEXPRESS;Database=master;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
+var connectionString = "Server=DEMONT-ML\\SQLEXPRESS;Database=master;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
 
 
 
