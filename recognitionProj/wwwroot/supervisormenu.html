@@ -5,10 +5,10 @@
     <title>Recognition of Non-Jordanian Institution</title>
     <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="attachments_files/simple-sidebar.css" rel="stylesheet">
-    <link href="attachments_files/Site.css" rel="stylesheet">
-    <link href="attachments_files/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="attachments_files/all.css" crossorigin="anonymous">
+    <link href="supervisormenu_files/simple-sidebar.css" rel="stylesheet">
+    <link href="supervisormenu_files/Site.css" rel="stylesheet">
+    <link href="supervisormenu_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="supervisormenu_files/all.css" crossorigin="anonymous">
     
       
     <style>
@@ -222,6 +222,8 @@
                 <a href="http://localhost:5000/supervisormenu.html" class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-home"></i>&nbsp;&nbsp; Supervisor Menu
                 </a>
+
+
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
@@ -250,7 +252,7 @@
                    class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
-                <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                <a href="http://localhost:5000/supervisormenu.html" class="list-group-item list-group-item-action bg-light">
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/infrastructurepics.html"
@@ -277,12 +279,12 @@
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkAR" title="Arabic" href="#">
-                                <img src="attachments_files/jo.jpg" width="22px">
+                                <img src="supervisormenu_files/jo.jpg" width="22px">
                             </a>
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkEN" title="English" href="#">
-                                <img src="attachments_files/uk.jpg" width="22px">
+                                <img src="supervisormenu_files/uk.jpg" width="22px">
                             </a>
                         </li>
                     </ul>
@@ -291,6 +293,42 @@
             <div class="container-fluid">
                 <!-- Add your cleaned-up content here -->
                 <!-- The original code had no actual functional form content, so just leaving this as a template. -->
+                <h1>Registered Universities</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>University ID</th>
+                            <th>University Name</th>
+                            <th>Report</th>
+                            <th>Edit</th>
+                            <th>Attachments</th>
+                        </tr>
+                    </thead>
+                    <tbody id="universities-table">
+                        <!-- Data will be dynamically populated here using JavaScript -->
+                    </tbody>
+                </table>
+                <script>
+                    // Fetch universities data from the backend
+                    fetch('http://localhost:5000/api/universities')//todo this is not good
+                        .then(response => response.json())
+                        .then(data => {
+                            const table = document.getElementById('universities-table');
+                            data.forEach(university => {
+                                const row = document.createElement('tr');
+                                row.innerHTML = `
+                                        <td>${university.id}</td>
+                                        <td>${university.name}</td>
+                                        <td class="action-links"><a href="/reports/${university.id}">Report</a></td>
+                                        <td class="action-links"><a href="/edit/${university.id}">Edit</a></td>
+                                        <td class="action-links"><a href="/attachments/${university.id}">Attachments</a></td>
+                                    `;
+                                table.appendChild(row);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching universities:', error));
+                </script>
+
 
             </div>
         </div>
