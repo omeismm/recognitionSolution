@@ -219,46 +219,57 @@
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
                     <!--todo the above html file-->
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
                 </a>
                 <a href="http://localhost:5000/academicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
                 </a>
                 <a href="http://localhost:5000/generalinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
                 </a>
                 <a href="http://localhost:5000/admissionrequirements.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
                 </a>
                 <a href="http://localhost:5000/Mspec3.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Specialization Information
                 </a>
                 <a href="http://localhost:5000/infrastructure.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
                     <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
                 </a>
                 <a href="http://localhost:5000/library.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
                 <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/infrastructurepics.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_Pictures.png" width="25px" draggable="false" />
                     <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
                 <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
                     <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
                 </a>
                 <!--todo the above html file-->
@@ -267,6 +278,7 @@
 
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
                         <li class="nav-item li_Lang">
@@ -280,6 +292,12 @@
                         </li>
                     </ul>
                 </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
             </nav>
             <div class="container-fluid">
                 <div class="panel panel-primary" style="margin:4px;">

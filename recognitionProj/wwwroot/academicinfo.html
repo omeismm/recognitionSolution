@@ -201,13 +201,16 @@
             color: red;
             font-size: 21px;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
 <body id="body" style="direction:ltr;">
     <!-- Removed ASP.NET form, viewstate and postback code -->
     <!-- You can now use a simple HTML form pointing to your API endpoint -->
-
     <div class="d-flex" id="wrapper">
         <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
             <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
@@ -217,55 +220,68 @@
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
                     <!--todo the above html file-->
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
                 </a>
                 <a href="http://localhost:5000/academicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
                 </a>
                 <a href="http://localhost:5000/generalinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
                 </a>
                 <a href="http://localhost:5000/admissionrequirements.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
                 </a>
                 <a href="http://localhost:5000/Mspec3.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Specialization Information
                 </a>
                 <a href="http://localhost:5000/infrastructure.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
                     <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
                 </a>
                 <a href="http://localhost:5000/library.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
-
                 <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/infrastructurepics.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_Pictures.png" width="25px" draggable="false" />
                     <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
                 <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
                     <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
                 </a>
                 <!--todo the above html file-->
             </div>
         </div>
+        
+
 
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
                         <li class="nav-item li_Lang">
@@ -285,219 +301,267 @@
                         </li>
                     </ul>
                 </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
             </nav>
             <div class="container-fluid">
+
                 <!-- Add your cleaned-up content here -->
                 <!-- The original code had no actual functional form content, so just leaving this as a template. -->
-
                 <div class="person">
                     <div class="person-header"
-                         style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                         style="cursor: pointer; background-color: #343a40; color: #fff; padding: 15px; border: 1px solid #343a40; border-radius: 5px 5px 0 0; font-size: 1.25rem; font-weight: bold; text-align: center;">
                         Academic Information
                     </div>
                     <div class="person-content"
-                         style="padding: 15px; border: 1px solid #ddd; border-top: none;">
+                         style="padding: 20px; border: 1px solid #ddd; border-top: none; border-radius: 0 0 5px 5px; background-color: #f9f9f9;">
                         <form id="academicInfoForm">
-                            <div style="display: grid; gap: 20px; grid-template-columns: repeat(3,auto);">
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" required>
+                            <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                                <div class="form-row" style="display: flex; flex-direction: column;">
+                                    <label for="InsID" style="font-weight: bold; margin-bottom: 5px;">Institution ID:</label>
+                                    <input type="number" id="InsID" name="InsID" class="form-control" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
                                 </div>
 
-                                <div class="form-row">
-                                    <label for="InsTypeID">Institution Type ID:</label>
-                                    <input type="number" id="InsTypeID" name="InsTypeID" class="form-control">
+                                <div class="form-row" style="display: flex; flex-direction: column;">
+                                    <label for="InsTypeID" style="font-weight: bold; margin-bottom: 5px;">Institution Type ID:</label>
+                                    <input type="number" id="InsTypeID" name="InsTypeID" class="form-control" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                                 </div>
 
-                                <div class="form-row">
-                                    <label for="InsType">Institution Type:</label>
-                                    <input type="text" id="InsType" name="InsType" class="form-control">
+                                <div class="form-row" style="display: flex; flex-direction: column;">
+                                    <label for="InsType" style="font-weight: bold; margin-bottom: 5px;">Institution Type:</label>
+                                    <input type="text" id="InsType" name="InsType" class="form-control" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                                 </div>
 
-                                <div class="form-row">
-                                    <label for="HighEdu_Rec">Higher Education Recommendation:</label>
-                                    <input type="number" id="HighEdu_Rec" name="HighEdu_Rec" class="form-control">
-                                </div>
+                                <!-- Add more form rows here in a similar style -->
 
-                                <div class="form-row">
-                                    <label for="QualityDept_Rec">Quality Department Recommendation:</label>
-                                    <input type="number" id="QualityDept_Rec" name="QualityDept_Rec" class="form-control">
+                                <div class="form-row" style="display: flex; flex-direction: column;">
+                                    <label for="Accepted" style="font-weight: bold; margin-bottom: 5px;">Accepted?</label>
+                                    <input type="checkbox" id="Accepted" name="Accepted" class="form-control" style="transform: scale(1.5); cursor: not-allowed;" disabled>
                                 </div>
-
-                                <div class="form-row">
-                                    <label for="StudyLangCitizen">Study Language for Citizens:</label>
-                                    <input type="text" id="StudyLangCitizen" name="StudyLangCitizen" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudyLangInter">Study Language for International Students:</label>
-                                    <input type="text" id="StudyLangInter" name="StudyLangInter" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="JointClass">Joint Class:</label>
-                                    <input type="number" id="JointClass" name="JointClass" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudySystem">Study System:</label>
-                                    <input type="text" id="StudySystem" name="StudySystem" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="MinHours">Minimum Hours:</label>
-                                    <input type="number" id="MinHours" name="MinHours" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="MaxHours">Maximum Hours:</label>
-                                    <input type="number" id="MaxHours" name="MaxHours" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="ResearchScopus">Research Scopus:</label>
-                                    <input type="text" id="ResearchScopus" name="ResearchScopus" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="ResearchOthers">Research Others:</label>
-                                    <input type="text" id="ResearchOthers" name="ResearchOthers" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="Practicing">Practicing:</label>
-                                    <input type="number" id="Practicing" name="Practicing" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudyAttendance">Study Attendance:</label>
-                                    <input type="number" id="StudyAttendance" name="StudyAttendance" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudentsMove">Students Move:</label>
-                                    <input type="number" id="StudentsMove" name="StudentsMove" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudyAttendanceDesc">Study Attendance Description:</label>
-                                    <input type="text" id="StudyAttendanceDesc" name="StudyAttendanceDesc" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="StudentsMoveDesc">Students Move Description:</label>
-                                    <input type="text" id="StudentsMoveDesc" name="StudentsMoveDesc" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="DistanceLearning">Distance Learning:</label>
-                                    <input type="number" id="DistanceLearning" name="DistanceLearning" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="MaxHoursDL">Maximum Hours for Distance Learning:</label>
-                                    <input type="number" id="MaxHoursDL" name="MaxHoursDL" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="MaxYearsDL">Maximum Years for Distance Learning:</label>
-                                    <input type="number" id="MaxYearsDL" name="MaxYearsDL" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="MaxSemsDL">Maximum Semesters for Distance Learning:</label>
-                                    <input type="number" id="MaxSemsDL" name="MaxSemsDL" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="Diploma">Diploma:</label>
-                                    <input type="number" id="Diploma" name="Diploma" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="DiplomaTest">Diploma Test:</label>
-                                    <input type="number" id="DiplomaTest" name="DiplomaTest" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="HoursPercentage">Hours Percentage:</label>
-                                    <input type="number" id="HoursPercentage" name="HoursPercentage" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="EducationType">Education Type:</label>
-                                    <input type="text" id="EducationType" name="EducationType" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="AvailableDegrees">Available Degrees:</label>
-                                    <input type="text" id="AvailableDegrees" name="AvailableDegrees" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="Faculties">Faculties:</label>
-                                    <input type="text" id="Faculties" name="Faculties" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="ARWURank">ARWU Rank:</label>
-                                    <input type="number" id="ARWURank" name="ARWURank" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="THERank">THE Rank:</label>
-                                    <input type="number" id="THERank" name="THERank" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="QSRank">QS Rank:</label>
-                                    <input type="number" id="QSRank" name="QSRank" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="OtherRank">Other Rank:</label>
-                                    <input type="text" id="OtherRank" name="OtherRank" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="NumOfScopusResearches">Number of Scopus Researches:</label>
-                                    <input type="number" id="NumOfScopusResearches" name="NumOfScopusResearches" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="ScopusFrom">Scopus Date from:</label>
-                                    <input type="date" id="ScopusFrom" name="ScopusFrom" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="ScopusTo">Scopus Date to:</label>
-                                    <input type="date" id="ScopusTo" name="ScopusTo" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="Infrastructure">Infrastructure:</label>
-                                    <input type="text" id="Infrastructure" name="Infrastructure" class="form-control">
-                                </div>
-
-                                <div class="form-row">
-                                    <label for="Accepted">Accepted?</label>
-                                    <input type="checkbox" id="Accepted" name="Accepted" class="form-control" disabled>
-                                </div>
-                                <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary mt-3">
-                                    Submit
-                                </button>
                             </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary mt-3"
+                                    style="margin-top: 20px; padding: 10px 20px; border: none; border-radius: 5px; background-color: #007bff; color: #fff; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;">
+                                Submit
+                            </button>
                         </form>
                     </div>
                 </div>
+
+                <!--<div class="person">
+        <div class="person-header"
+             style="cursor:pointer; background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+            Academic Information
+        </div>
+        <div class="person-content"
+             style="padding: 15px; border: 1px solid #ddd; border-top: none;">
+            <form id="academicInfoForm">
+                <div style="display: grid; gap: 20px; grid-template-columns: repeat(3,auto);">
+                    <
+                    <div class="form-row">
+                        <label for="InsID">Institution ID:</label>
+                        <input type="number" id="InsID" name="InsID" class="form-control" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="InsTypeID">Institution Type ID:</label>
+                        <input type="number" id="InsTypeID" name="InsTypeID" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="InsType">Institution Type:</label>
+                        <input type="text" id="InsType" name="InsType" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="HighEdu_Rec">Higher Education Recommendation:</label>
+                        <input type="number" id="HighEdu_Rec" name="HighEdu_Rec" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="QualityDept_Rec">Quality Department Recommendation:</label>
+                        <input type="number" id="QualityDept_Rec" name="QualityDept_Rec" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudyLangCitizen">Study Language for Citizens:</label>
+                        <input type="text" id="StudyLangCitizen" name="StudyLangCitizen" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudyLangInter">Study Language for International Students:</label>
+                        <input type="text" id="StudyLangInter" name="StudyLangInter" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="JointClass">Joint Class:</label>
+                        <input type="number" id="JointClass" name="JointClass" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudySystem">Study System:</label>
+                        <input type="text" id="StudySystem" name="StudySystem" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="MinHours">Minimum Hours:</label>
+                        <input type="number" id="MinHours" name="MinHours" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="MaxHours">Maximum Hours:</label>
+                        <input type="number" id="MaxHours" name="MaxHours" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="ResearchScopus">Research Scopus:</label>
+                        <input type="text" id="ResearchScopus" name="ResearchScopus" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="ResearchOthers">Research Others:</label>
+                        <input type="text" id="ResearchOthers" name="ResearchOthers" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="Practicing">Practicing:</label>
+                        <input type="number" id="Practicing" name="Practicing" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudyAttendance">Study Attendance:</label>
+                        <input type="number" id="StudyAttendance" name="StudyAttendance" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudentsMove">Students Move:</label>
+                        <input type="number" id="StudentsMove" name="StudentsMove" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudyAttendanceDesc">Study Attendance Description:</label>
+                        <input type="text" id="StudyAttendanceDesc" name="StudyAttendanceDesc" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="StudentsMoveDesc">Students Move Description:</label>
+                        <input type="text" id="StudentsMoveDesc" name="StudentsMoveDesc" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="DistanceLearning">Distance Learning:</label>
+                        <input type="number" id="DistanceLearning" name="DistanceLearning" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="MaxHoursDL">Maximum Hours for Distance Learning:</label>
+                        <input type="number" id="MaxHoursDL" name="MaxHoursDL" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="MaxYearsDL">Maximum Years for Distance Learning:</label>
+                        <input type="number" id="MaxYearsDL" name="MaxYearsDL" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="MaxSemsDL">Maximum Semesters for Distance Learning:</label>
+                        <input type="number" id="MaxSemsDL" name="MaxSemsDL" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="Diploma">Diploma:</label>
+                        <input type="number" id="Diploma" name="Diploma" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="DiplomaTest">Diploma Test:</label>
+                        <input type="number" id="DiplomaTest" name="DiplomaTest" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="HoursPercentage">Hours Percentage:</label>
+                        <input type="number" id="HoursPercentage" name="HoursPercentage" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="EducationType">Education Type:</label>
+                        <input type="text" id="EducationType" name="EducationType" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="AvailableDegrees">Available Degrees:</label>
+                        <input type="text" id="AvailableDegrees" name="AvailableDegrees" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="Faculties">Faculties:</label>
+                        <input type="text" id="Faculties" name="Faculties" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="ARWURank">ARWU Rank:</label>
+                        <input type="number" id="ARWURank" name="ARWURank" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="THERank">THE Rank:</label>
+                        <input type="number" id="THERank" name="THERank" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="QSRank">QS Rank:</label>
+                        <input type="number" id="QSRank" name="QSRank" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="OtherRank">Other Rank:</label>
+                        <input type="text" id="OtherRank" name="OtherRank" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="NumOfScopusResearches">Number of Scopus Researches:</label>
+                        <input type="number" id="NumOfScopusResearches" name="NumOfScopusResearches" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="ScopusFrom">Scopus Date from:</label>
+                        <input type="date" id="ScopusFrom" name="ScopusFrom" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="ScopusTo">Scopus Date to:</label>
+                        <input type="date" id="ScopusTo" name="ScopusTo" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="Infrastructure">Infrastructure:</label>
+                        <input type="text" id="Infrastructure" name="Infrastructure" class="form-control">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="Accepted">Accepted?</label>
+                        <input type="checkbox" id="Accepted" name="Accepted" class="form-control" disabled>
+                    </div>-->
+                <!-- Submit button -->
+                <!--<button type="submit" class="btn btn-primary mt-3">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    </div>-->
 
 
 
 
-            <script src="academicinfo_files/api.js" type="text/javascript"></script>
-            <script src="login_files/auth.js"></script>
+                <script src="academicinfo_files/api.js" type="text/javascript"></script>
+                <script src="login_files/auth.js"></script>
 
 </body>
 </html>

@@ -113,6 +113,10 @@
             flex-direction: column;
             align-items: center;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -129,58 +133,68 @@
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
                     <!--todo the above html file-->
+                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
                 </a>
                 <a href="http://localhost:5000/academicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
                     <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
                 </a>
                 <a href="http://localhost:5000/generalinfo.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/General_Info.png" width="30px" draggable="false"/>
                     <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
                 </a>
                 <a href="http://localhost:5000/admissionrequirements.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
                 </a>
-
                 <a href="http://localhost:5000/Mspec3.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
                     <i class="fas fa-scroll"></i>&nbsp;&nbsp;Specialization Information
                 </a>
-
                 <a href="http://localhost:5000/infrastructure.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
                     <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
                 </a>
                 <a href="http://localhost:5000/library.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
                     <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
-
                 <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
                     <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/infrastructurepics.html"
                    class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_Pictures.png" width="25px" draggable="false" />
                     <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
                 <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
-                    <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    Submit Application
                 </a>
                 <!--todo the above html file-->
             </div>
         </div>
 
+
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="height: 50px; border-bottom-left-radius: 4px;">
                 <div class="container-fluid">
+                    <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item">
@@ -202,7 +216,6 @@
                     </div>
                 </div>
             </nav>
-
 
             <!-- MAIN CONTAINER WITH GROUP BUTTONS -->
             <div class="main-container">
@@ -305,1115 +318,1121 @@
                                 Form
                             </button>
 
-                             <button id="openResidencyBtn2" class="btn btn-secondary w-100 mb-2">Residency Form</button>
-                            </div>
+                            <button id="openResidencyBtn2" class="btn btn-secondary w-100 mb-2">Residency Form</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- 5) Residency Parent Modal -->
-            <div class="modal fade" id="residencyParentModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Residency Medical</h5>
-                            <button type="button" class="btn-close residencyParentClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6) PhD Parent Modal -->
-            <div class="modal fade" id="phdParentModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">PhD Programs</h5>
-                            <button type="button" class="btn-close phdParentClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <button id="openPhdFormBtn" class="btn btn-secondary w-100">Phd Form</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ==================== CHILD MODALS (FORMS) ==================== -->
-            <!-- 1) Scientific BSC Modal -->
-            <div class="modal fade child-modal" id="scientificBscModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Scientific BSC</h5>
-                            <button type="button" class="btn-close scientificBscClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- #ScientificBachelorForm -->
-                            <form id="ScientificBachelorForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Scientific Bachelor" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2) Bachelor in Humanities Modal -->
-            <div class="modal fade child-modal" id="humanitarianBscModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Bachelor in Humanities</h5>
-                            <button type="button" class="btn-close humanitarianBscClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- #HumanitarianBachelorRatioForm -->
-                            <form id="HumanitarianBachelorForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Humanitarian Bachelor" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3) Applied Scientific BSC -->
-            <div class="modal fade child-modal" id="scientificPracticalBscModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Applied Scientific BSC</h5>
-                            <button type="button" class="btn-close scientificPracticalBscClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- #ScientificPracticalBachelorForm -->
-                            <form id="ScientificPracticalBachelorForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Scientific Practical Bachelor" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4) Applied Humanities BSC -->
-            <div class="modal fade child-modal" id="humanitarianPracticalBscModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Applied Humanities Bachelor</h5>
-                            <button type="button" class="btn-close humanitarianPracticalBscClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- #HumnamitarianPracticalBachelorForm -->
-                            <form id="HumnamitarianPracticalBachelorForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Humanitarian Practical Bachelor" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- High Diploma Child Modal -->
-            <div class="modal fade child-modal" id="highDiplomaModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">High Diploma</h5>
-                            <button type="button" class="btn-close highDiplomaClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="HighDiplomaForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="High Diploma" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Masters: Scientific Master -->
-            <div class="modal fade child-modal" id="scientificMasterModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Scientific Master</h5>
-                            <button type="button" class="btn-close scientificMasterClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="ScientificMastersForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Scientific Masters" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Masters: Humanities Master -->
-            <div class="modal fade child-modal" id="humanitarianMasterModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Humanities Masters</h5>
-                            <button type="button" class="btn-close humanitarianMasterClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="HumanitarianMastersForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Humanitarian Masters" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Masters: Applied Scientific Masters -->
-            <div class="modal fade child-modal" id="scientificPracticalMasterModal" tabindex="-1"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Applied Scientific Masters</h5>
-                            <button type="button" class="btn-close scientificPracticalMasterClose"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="ScientificPracticalMastersForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Scientific Practical Masters" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Primary Medical (Child) -->
-            <div class="modal fade child-modal" id="mainMedicalModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Primary Medical</h5>
-                            <button type="button" class="btn-close mainMedicalClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="MainMedicalForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control"
-                                           value="Main Medical" required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Residency (Child) -->
-            <div class="modal fade child-modal" id="residencyModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Residency Medical</h5>
-                            <button type="button" class="btn-close residencyClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="ResidencyForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control" value="Residency"
-                                           required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PhD (Child) -->
-            <div class="modal fade child-modal" id="phdModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">PhD Programs</h5>
-                            <button type="button" class="btn-close phdClose" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="DoctorateForm">
-                                <div class="form-row">
-                                    <label for="Type">Type:</label>
-                                    <input type="text" id="Type" name="Type" class="form-control" value="Doctorate"
-                                           required readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumStu">Number of Students:</label>
-                                    <input type="number" id="NumStu" name="NumStu" class="form-control"
-                                           placeholder="Enter number of students" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProf">Number of Full Time Professors:</label>
-                                    <input type="number" id="NumProf" name="NumProf" class="form-control"
-                                           placeholder="Enter number of professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssociative">Number of Full Time Associate Professors:</label>
-                                    <input type="number" id="NumAssociative" name="NumAssociative"
-                                           class="form-control"
-                                           placeholder="Enter number of Full Time associate professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
-                                    <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
-                                           placeholder="Enter number of assistant professors" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
-                                    <input type="number" id="NumPhdHolders" name="NumPhdHolders"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time PhD holders">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
-                                    <input type="number" id="NumProfPractice" name="NumProfPractice"
-                                           class="form-control"
-                                           placeholder="Enter number of other Full Time Professor Of Practice">
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumberLecturers">Number of Lecturers:</label>
-                                    <input type="number" id="NumberLecturers" name="NumberLecturers"
-                                           class="form-control" placeholder="Enter number of lecturers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
-                                    <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
-                                           class="form-control" placeholder="Enter number of assistant lecturers"
-                                           required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="NumOtherTeachers">Number of Other Teachers:</label>
-                                    <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
-                                           class="form-control" placeholder="Enter number of other teachers" required>
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachName">Special Attachment Name:</label>
-                                    <input type="text" id="SpecAttachName" name="SpecAttachName"
-                                           class="form-control" placeholder="Enter special attachment name">
-                                </div>
-                                <div class="form-row">
-                                    <label for="SpecAttachDesc">Special Attachment Description:</label>
-                                    <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
-                                           class="form-control" placeholder="Enter special attachment description">
-                                </div>
-                                <div class="form-row">
-                                    <label for="InsID">Institution ID:</label>
-                                    <input type="number" id="InsID" name="InsID" class="form-control" value="0"
-                                           readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="PracticalHours">Practical Hours:</label>
-                                    <input type="number" id="PracticalHours" name="PracticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <div class="form-row">
-                                    <label for="TheoreticalHours">Theoretical Hours:</label>
-                                    <input type="number" id="TheoreticalHours" name="TheoreticalHours"
-                                           class="form-control" value="0" readonly>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
         </div>
+        <script>
+            document.getElementById("sidebarToggle").addEventListener("click", function () {
+                const sidebar = document.getElementById("sidebar_wrapper");
+                sidebar.classList.toggle("hidden");
+            });
+        </script>
+
+        <!-- 5) Residency Parent Modal -->
+        <div class="modal fade" id="residencyParentModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Residency Medical</h5>
+                        <button type="button" class="btn-close residencyParentClose"
+                                aria-label="Close"></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 6) PhD Parent Modal -->
+        <div class="modal fade" id="phdParentModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">PhD Programs</h5>
+                        <button type="button" class="btn-close phdParentClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <button id="openPhdFormBtn" class="btn btn-secondary w-100">Phd Form</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== CHILD MODALS (FORMS) ==================== -->
+        <!-- 1) Scientific BSC Modal -->
+        <div class="modal fade child-modal" id="scientificBscModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Scientific BSC</h5>
+                        <button type="button" class="btn-close scientificBscClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- #ScientificBachelorForm -->
+                        <form id="ScientificBachelorForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Scientific Bachelor" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2) Bachelor in Humanities Modal -->
+        <div class="modal fade child-modal" id="humanitarianBscModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Bachelor in Humanities</h5>
+                        <button type="button" class="btn-close humanitarianBscClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- #HumanitarianBachelorRatioForm -->
+                        <form id="HumanitarianBachelorForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Humanitarian Bachelor" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3) Applied Scientific BSC -->
+        <div class="modal fade child-modal" id="scientificPracticalBscModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Applied Scientific BSC</h5>
+                        <button type="button" class="btn-close scientificPracticalBscClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- #ScientificPracticalBachelorForm -->
+                        <form id="ScientificPracticalBachelorForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Scientific Practical Bachelor" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4) Applied Humanities BSC -->
+        <div class="modal fade child-modal" id="humanitarianPracticalBscModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Applied Humanities Bachelor</h5>
+                        <button type="button" class="btn-close humanitarianPracticalBscClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- #HumnamitarianPracticalBachelorForm -->
+                        <form id="HumnamitarianPracticalBachelorForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Humanitarian Practical Bachelor" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- High Diploma Child Modal -->
+        <div class="modal fade child-modal" id="highDiplomaModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">High Diploma</h5>
+                        <button type="button" class="btn-close highDiplomaClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="HighDiplomaForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="High Diploma" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Masters: Scientific Master -->
+        <div class="modal fade child-modal" id="scientificMasterModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Scientific Master</h5>
+                        <button type="button" class="btn-close scientificMasterClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ScientificMastersForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Scientific Masters" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Masters: Humanities Master -->
+        <div class="modal fade child-modal" id="humanitarianMasterModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Humanities Masters</h5>
+                        <button type="button" class="btn-close humanitarianMasterClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="HumanitarianMastersForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Humanitarian Masters" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Masters: Applied Scientific Masters -->
+        <div class="modal fade child-modal" id="scientificPracticalMasterModal" tabindex="-1"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Applied Scientific Masters</h5>
+                        <button type="button" class="btn-close scientificPracticalMasterClose"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ScientificPracticalMastersForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Scientific Practical Masters" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary Medical (Child) -->
+        <div class="modal fade child-modal" id="mainMedicalModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Primary Medical</h5>
+                        <button type="button" class="btn-close mainMedicalClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="MainMedicalForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control"
+                                       value="Main Medical" required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Residency (Child) -->
+        <div class="modal fade child-modal" id="residencyModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Residency Medical</h5>
+                        <button type="button" class="btn-close residencyClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ResidencyForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control" value="Residency"
+                                       required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PhD (Child) -->
+        <div class="modal fade child-modal" id="phdModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">PhD Programs</h5>
+                        <button type="button" class="btn-close phdClose" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="DoctorateForm">
+                            <div class="form-row">
+                                <label for="Type">Type:</label>
+                                <input type="text" id="Type" name="Type" class="form-control" value="Doctorate"
+                                       required readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumStu">Number of Students:</label>
+                                <input type="number" id="NumStu" name="NumStu" class="form-control"
+                                       placeholder="Enter number of students" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProf">Number of Full Time Professors:</label>
+                                <input type="number" id="NumProf" name="NumProf" class="form-control"
+                                       placeholder="Enter number of professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssociative">Number of Full Time Associate Professors:</label>
+                                <input type="number" id="NumAssociative" name="NumAssociative"
+                                       class="form-control"
+                                       placeholder="Enter number of Full Time associate professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssistant">Number of Full Time Assistant Professors:</label>
+                                <input type="number" id="NumAssistant" name="NumAssistant" class="form-control"
+                                       placeholder="Enter number of assistant professors" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumPhdHolders">Number of Full Time PhD Holders:</label>
+                                <input type="number" id="NumPhdHolders" name="NumPhdHolders"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time PhD holders">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumProfPractice">Number of Full Time Professor of Practice:</label>
+                                <input type="number" id="NumProfPractice" name="NumProfPractice"
+                                       class="form-control"
+                                       placeholder="Enter number of other Full Time Professor Of Practice">
+                            </div>
+                            <div class="form-row">
+                                <label for="NumberLecturers">Number of Lecturers:</label>
+                                <input type="number" id="NumberLecturers" name="NumberLecturers"
+                                       class="form-control" placeholder="Enter number of lecturers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumAssisLecturer">Number of Assistant Lecturers:</label>
+                                <input type="number" id="NumAssisLecturer" name="NumAssisLecturer"
+                                       class="form-control" placeholder="Enter number of assistant lecturers"
+                                       required>
+                            </div>
+                            <div class="form-row">
+                                <label for="NumOtherTeachers">Number of Other Teachers:</label>
+                                <input type="number" id="NumOtherTeachers" name="NumOtherTeachers"
+                                       class="form-control" placeholder="Enter number of other teachers" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachName">Special Attachment Name:</label>
+                                <input type="text" id="SpecAttachName" name="SpecAttachName"
+                                       class="form-control" placeholder="Enter special attachment name">
+                            </div>
+                            <div class="form-row">
+                                <label for="SpecAttachDesc">Special Attachment Description:</label>
+                                <input type="text" id="SpecAttachDesc" name="SpecAttachDesc"
+                                       class="form-control" placeholder="Enter special attachment description">
+                            </div>
+                            <div class="form-row">
+                                <label for="InsID">Institution ID:</label>
+                                <input type="number" id="InsID" name="InsID" class="form-control" value="0"
+                                       readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="PracticalHours">Practical Hours:</label>
+                                <input type="number" id="PracticalHours" name="PracticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label for="TheoreticalHours">Theoretical Hours:</label>
+                                <input type="number" id="TheoreticalHours" name="TheoreticalHours"
+                                       class="form-control" value="0" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
     </div>
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -1445,7 +1464,7 @@
             backdrop: 'static',
             keyboard: false
         });
-        
+
         const phdParentModal = new bootstrap.Modal(document.getElementById('phdParentModal'), {
             backdrop: 'static',
             keyboard: false
@@ -1510,7 +1529,7 @@
         document.getElementById('openMedicalBtn').addEventListener('click', () => {
             medicalParentModal.show();
         });
-      
+
         document.getElementById('openPhdBtn').addEventListener('click', () => {
             phdParentModal.show();
         });
@@ -1528,7 +1547,7 @@
         document.querySelector('.medicalParentClose').addEventListener('click', () => {
             medicalParentModal.hide();
         });
-    
+
         document.querySelector('.phdParentClose').addEventListener('click', () => {
             phdParentModal.hide();
         });
