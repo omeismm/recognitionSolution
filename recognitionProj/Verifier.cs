@@ -543,10 +543,10 @@ public class Verifier
                     studentToStaffRatio =(double) spec.NumStu / (1.25 * 50 + 1.35*(totalStaff - 50));
                 else
                     studentToStaffRatio = (double)spec.NumStu / (1.25 * 50 + 1.35 * 50  + 1.5*(totalStaff-100));
-                if (studentToStaffRatio > 25)
+                if (studentToStaffRatio > 8)
 
                 {
-                    if (studentToStaffRatio <= 30) // lenient by 20%
+                    if (studentToStaffRatio <= 8 + 1.6) // lenient by 20%
                     {
                         spec.Color = 1; // Close to meeting the ratio
                         return;
