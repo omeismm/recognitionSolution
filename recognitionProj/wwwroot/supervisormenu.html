@@ -303,41 +303,223 @@
             <div class="container-fluid">
                 <!-- Add your cleaned-up content here -->
                 <!-- The original code had no actual functional form content, so just leaving this as a template. -->
-                <h1>Registered Universities</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>University ID</th>
-                            <th>University Name</th>
-                            <th>Report</th>
-                            <th>Edit</th>
-                            <th>Attachments</th>
-                        </tr>
-                    </thead>
-                    <tbody id="universities-table">
-                        <!-- Data will be dynamically populated here using JavaScript -->
-                    </tbody>
-                </table>
-                <script>
-                    // Fetch universities data from the backend
-                    fetch('http://localhost:5000/api/universities')//todo this is not good
-                        .then(response => response.json())
-                        .then(data => {
-                            const table = document.getElementById('universities-table');
-                            data.forEach(university => {
-                                const row = document.createElement('tr');
-                                row.innerHTML = `
-                                        <td>${university.id}</td>
-                                        <td>${university.name}</td>
-                                        <td class="action-links"><a href="/reports/${university.id}">Report</a></td>
-                                        <td class="action-links"><a href="/edit/${university.id}">Edit</a></td>
-                                        <td class="action-links"><a href="/attachments/${university.id}">Attachments</a></td>
-                                    `;
-                                table.appendChild(row);
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="utf-8" />
+                    <title>Supervisor Portal</title>
+                    <link rel="stylesheet" href="bootstrap.css" />
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Supervisor Portal</h1>
+
+                        <!-- 1. Input Institution ID & Button to Load -->
+                        <div class="form-group">
+                            <label for="txtInsId">Enter Institution ID:</label>
+                            <input type="number" id="txtInsId" class="form-control" placeholder="e.g. 9999" />
+                            <button id="btnLoad" class="btn btn-primary mt-2">Load Info</button>
+                        </div>
+
+                        <!-- 2. Display Institution Info -->
+                        <div id="institutionData" class="mt-4"></div>
+
+                        <!-- 3. Acceptance Record Form -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h4>Update Acceptance Record</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- A. ACCEPTED / NOT ACCEPTED -->
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="chkAccepted" />
+                                    <label class="form-check-label" for="chkAccepted">
+                                        Is Accepted? (uncheck to indicate problems)
+                                    </label>
+                                </div>
+
+                                <!-- B. Common Problem Checkboxes -->
+                                <h5>Common Problems (check any that apply):</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkInfrastructure" value="Poor Infrastructure" />
+                                    <label class="form-check-label" for="chkInfrastructure">Poor Infrastructure</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkAccreditation" value="Not Accredited in Home Country" />
+                                    <label class="form-check-label" for="chkAccreditation">Not Accredited in Home Country</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkLibrary" value="No/Insufficient Library" />
+                                    <label class="form-check-label" for="chkLibrary">No/Insufficient Library</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkLabs" value="Insufficient Labs" />
+                                    <label class="form-check-label" for="chkLabs">Insufficient Labs</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkStaff" value="Not Enough Staff" />
+                                    <label class="form-check-label" for="chkStaff">Not Enough Staff</label>
+                                </div>
+                                <!-- Add more checkboxes as needed... -->
+                                <!-- C. Additional Notes -->
+                                <div class="form-group mt-3">
+                                    <label for="txtAdditionalNotes">Additional Notes (Optional):</label>
+                                    <textarea id="txtAdditionalNotes" class="form-control" rows="3" placeholder="Add any extra notes here"></textarea>
+                                </div>
+
+                                <!-- D. Save Button -->
+                                <button id="btnSaveAcceptance" class="btn btn-success mt-3">Save Acceptance</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        const btnLoad = document.getElementById('btnLoad');
+                        const txtInsId = document.getElementById('txtInsId');
+                        const institutionDataDiv = document.getElementById('institutionData');
+
+                        const chkAccepted = document.getElementById('chkAccepted');
+                        const additionalNotes = document.getElementById('txtAdditionalNotes');
+                        const btnSaveAcceptance = document.getElementById('btnSaveAcceptance');
+
+                        // We'll gather all problem checkboxes by the class "problem-checkbox"
+                        const problemCheckboxes = document.querySelectorAll('.problem-checkbox');
+
+                        // 1. Load institution info
+                        btnLoad.addEventListener('click', async () => {
+                            const insId = txtInsId.value.trim();
+                            if (!insId) {
+                                alert("Please enter a valid InsID.");
+                                return;
+                            }
+
+                            const url = `/api/supervisor/institution-info?insId=${encodeURIComponent(insId)}`;
+                            try {
+                                const resp = await fetch(url);
+                                if (!resp.ok) {
+                                    const error = await resp.json();
+                                    alert(`Error loading: ${error.message}`);
+                                    return;
+                                }
+                                const data = await resp.json();
+                                if (!data.success) {
+                                    alert(`Error: ${data.message}`);
+                                    return;
+                                }
+
+                                // Show institution data (customize what you want to display)
+                                institutionDataDiv.innerHTML = `
+                                    <b>Institution ID:</b> ${insId}<br/>
+                                    <b>Name:</b> ${data.institutionData.insName || "N/A"}<br/>
+                                    <b>Country:</b> ${data.institutionData.country || "N/A"}<br/>
+                                    <b>All Acceptance Records:</b><br/>
+                                    <pre>${JSON.stringify(data.acceptanceRecords, null, 2)}</pre>
+                                `;
+                            } catch (error) {
+                                console.error(error);
+                                alert(`Error loading data: ${error}`);
+                            }
+                        });
+
+                        // 2. Save (Update) Acceptance Record
+                        btnSaveAcceptance.addEventListener('click', async () => {
+                            const insId = txtInsId.value.trim();
+                            if (!insId) {
+                                alert("Please load an InsID first.");
+                                return;
+                            }
+
+                            // A. Check if institution is accepted
+                            const isAccepted = chkAccepted.checked;
+
+                            // B. Collect reasons from the checked boxes
+                            const selectedReasons = [];
+                            problemCheckboxes.forEach(cb => {
+                                if (cb.checked) {
+                                    selectedReasons.push(cb.value);
+                                }
                             });
-                        })
-                        .catch(error => console.error('Error fetching universities:', error));
-                </script>
+
+                            // C. Add additional notes if provided
+                            const notesText = additionalNotes.value.trim();
+                            if (notesText) {
+                                selectedReasons.push(notesText);
+                            }
+
+                            // D. Build the AcceptanceRecord object for the server
+                            const today = new Date();
+                            const yyyy = today.getFullYear();
+                            const mm = String(today.getMonth() + 1).padStart(2, '0');
+                            const dd = String(today.getDate()).padStart(2, '0');
+                            const dateStr = `${yyyy}-${mm}-${dd}`;
+
+                            const acceptancePayload = {
+                                isAccepted: isAccepted,
+                                date: dateStr,  // The server might parse or store as string
+                                reason: selectedReasons
+                            };
+
+                            const updateUrl = `/api/supervisor/update-acceptance?insId=${encodeURIComponent(insId)}`;
+                            try {
+                                const resp = await fetch(updateUrl, {
+                                    method: 'PUT',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(acceptancePayload)
+                                });
+                                const result = await resp.json();
+                                if (!resp.ok) {
+                                    alert(`Error updating acceptance: ${result.message}`);
+                                    return;
+                                }
+                                alert(result.message);
+
+                                // Optional: Clear checkboxes/notes after saving
+                                problemCheckboxes.forEach(cb => { cb.checked = false; });
+                                additionalNotes.value = "";
+                            } catch (error) {
+                                console.error(error);
+                                alert(`Error saving acceptance: ${error}`);
+                            }
+                        });
+                    </script>
+                </body>
+            </html>
+
+            <h1>Registered Universities</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>University ID</th>
+                        <th>University Name</th>
+                        <th>Report</th>
+                        <th>Edit</th>
+                        <th>Attachments</th>
+                    </tr>
+                </thead>
+                <tbody id="universities-table">
+                    <!-- Data will be dynamically populated here using JavaScript -->
+                </tbody>
+            </table>
+            <script>
+                // Fetch universities data from the backend
+                fetch('http://localhost:5000/api/universities')//todo this is not good
+                    .then(response => response.json())
+                    .then(data => {
+                        const table = document.getElementById('universities-table');
+                        data.forEach(university => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                                                    <td>${university.id}</td>
+                                                                    <td>${university.name}</td>
+                                                                    <td class="action-links"><a href="/reports/${university.id}">Report</a></td>
+                                                                    <td class="action-links"><a href="/edit/${university.id}">Edit</a></td>
+                                                                    <td class="action-links"><a href="/attachments/${university.id}">Attachments</a></td>
+                                                                `;
+                            table.appendChild(row);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching universities:', error));
+            </script>
 
 
             </div>
