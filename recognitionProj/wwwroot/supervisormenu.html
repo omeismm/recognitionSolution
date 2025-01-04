@@ -2,88 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Recognition of Non-Jordanian Institution</title>
+    <title>Supervisor Portal</title>
     <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="supervisormenu_files/simple-sidebar.css" rel="stylesheet">
-    <link href="supervisormenu_files/Site.css" rel="stylesheet">
-    <link href="supervisormenu_files/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="supervisormenu_files/all.css" crossorigin="anonymous">
-    
-      
-    <style>
-        .border-right {
-            border: 1px solid #dee2e6 !important;
-        }
 
+    <!-- Example CSS includes -->
+    <link rel="stylesheet" href="supervisormenu_files/bootstrap.css">
+    <link rel="stylesheet" href="supervisormenu_files/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="supervisormenu_files/Site.css">
+    <link rel="stylesheet" href="supervisormenu_files/simple-sidebar.css">
+
+    <style>
         body {
             font-size: 16px !important;
             font-weight: 600 !important;
-            font-family: Tajawal !important;
+            font-family: Tajawal, Arial, sans-serif !important;
             background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
             background-size: cover !important;
             background-attachment: fixed;
             background-repeat: no-repeat;
         }
-
-        .table {
-            width: auto !important;
-            margin: 0 15px 0 15px;
+        .border-right {
+            border: 1px solid #dee2e6 !important;
         }
-
-        .tableForAdmissinReqView {
-            width: max-content !important;
-            margin: 0 15px 0 15px;
-        }
-
-        .verylong {
-            width: 822px !important;
-        }
-
-        .long {
-            width: 650px !important;
-        }
-
-        .Meduim {
-            width: 400px !important;
-        }
-
-        .Small {
-            width: 280px !important;
-        }
-
-        .VerySmall {
-            width: 50px !important;
-        }
-
-        .form-control,
-        [disabled] {
-            font-weight: 600;
-            height: auto !important;
-            font-size: 15px !important;
-            display: block;
-            width: 100%;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.428571429;
-            color: #555555;
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-        }
-
         .navbar {
             margin-bottom: 0 !important;
             border: 1px solid #dddddd !important;
         }
-
+        .list-group-item {
+            font-weight: 500;
+        }
+        .li_Lang {
+            padding: 10px;
+        }
         .center {
             text-align: center !important;
         }
-
         th {
             background-color: #990033;
             color: white;
@@ -91,112 +45,6 @@
             font-weight: 600 !important;
             border: solid #dddddd 2px !important;
         }
-
-        .tbody > tr:hover > td,
-        .table-hover > tbody > tr:hover > th {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        .limited {
-            width: 300px !important;
-        }
-
-        td {
-            width: 250px !important;
-        }
-
-        label {
-            margin-right: 10px !important;
-            font-weight: 500 !important;
-        }
-
-        .HeadOfTable {
-            text-align: center !important;
-            font-weight: 600;
-            background-color: #ddfdf0;
-        }
-
-        .auto {
-            width: auto !important;
-        }
-
-        .ddl_H,
-        [disabled] {
-            height: 45px !important;
-        }
-
-        .cusom_GRID_AR {
-            margin-left: 20px !important;
-        }
-
-        .HeadOfTableLong {
-            font-weight: 400;
-            background-color: #ddfdf0;
-            width: auto !important;
-        }
-
-        .MultiLine {
-            height: 200px !important;
-        }
-
-        .Custome_td {
-            width: 700px !important;
-            font-weight: 700;
-        }
-
-        .list-group {
-            font-weight: 500;
-        }
-
-        .li_Lang {
-            padding: 10px;
-        }
-
-        .dropdown-menu {
-            min-width: 100px !important;
-            text-align: center !important;
-        }
-
-        a {
-            color: black !important;
-        }
-
-        .btnSave {
-            font-size: Large !important;
-            float: left;
-            margin-left: 30px;
-            margin-right: 30px;
-            width: 100px;
-        }
-
-        .SucPage {
-            background-color: #428bca !important;
-            background-image: none !important;
-            color: white !important;
-        }
-
-        .SucIframe {
-            width: 300px;
-            height: 80px;
-            border-radius: 15px;
-            border: none;
-        }
-
-        .FilesGRD {
-            margin: 0 !important;
-        }
-
-        .PReq {
-            width: fit-content !important;
-            margin: 1% 1% 0 1% !important;
-            font-weight: 700 !important;
-        }
-
-        .UnivGrid {
-            font-weight: 800 !important;
-        }
-
         .StarSpan {
             color: red;
             font-size: 21px;
@@ -204,10 +52,7 @@
     </style>
 </head>
 
-<body id="body" style="direction:ltr;">
-    <!-- Removed ASP.NET form, viewstate and postback code -->
-    <!-- You can now use a simple HTML form pointing to your API endpoint -->
-
+<body style="direction:ltr;">
     <div class="d-flex" id="wrapper">
         <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
             <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
@@ -217,315 +62,223 @@
                 <a href="http://localhost:5000/instructions.html"
                    class="list-group-item list-group-item-action bg-light">
                     <!--todo the above html file-->
-                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
-                    &nbsp; Instructions and Requirements
+                    <i class="fas fa-atlas"></i>&nbsp;&nbsp; Instructions and Requirements
                 </a>
                 <a href="http://localhost:5000/supervisormenu.html" class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
-                    &nbsp; Supervisor Menu
+                    <i class="fas fa-home"></i>&nbsp;&nbsp; Supervisor Menu
                 </a>
                 <a href="http://localhost:5000/publicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
-                    &nbsp; Public Info
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; Public Info
                 </a>
                 <a href="http://localhost:5000/academicinfo.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
-                    &nbsp;Academic Info
+                    <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Academic Info
                 </a>
                 <a href="http://localhost:5000/generalinfo.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/General_Info.png" width="30px" draggable="false" />
-                    &nbsp; General Info
+                    <i class="fas fa-info-circle"></i>&nbsp;&nbsp; General Info
                 </a>
                 <a href="http://localhost:5000/admissionrequirements.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
-                    &nbsp;Admission Requirements
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Admission Requirements
                 </a>
                 <a href="http://localhost:5000/Mspec3.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
-                    &nbsp;Specialization Information
+                    <i class="fas fa-scroll"></i>&nbsp;&nbsp;Specialization Information
                 </a>
                 <a href="http://localhost:5000/infrastructure.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
-                    &nbsp;Infrastructure
+                    <i class="fas fa-house-damage"></i>&nbsp;&nbsp;Infrastructure
                 </a>
                 <a href="http://localhost:5000/library.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Library.png" width="30px" draggable="false" />
-                    &nbsp;Library
+                    <i class="fas fa-book-reader"></i>&nbsp;&nbsp;Library
                 </a>
+
                 <a href="http://localhost:5000/attachments.html" class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
-                    &nbsp;Attachments
+                    <i class="fas fa-paperclip"></i>&nbsp;&nbsp;Attachments
                 </a>
                 <a href="http://localhost:5000/infrastructurepics.html"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Infrastructure_Pictures.png" width="25px" draggable="false" />
-                    &nbsp;Infrastructure Pictures
+                    <i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Infrastructure Pictures
                 </a>
                 <!--todo the above html file-->
                 <a href="http://localhost:5000/submit.html" id="submit"
                    class="list-group-item list-group-item-action bg-light">
-                    <img src="Icons/Submission.png" width="25px" draggable="false" />
-                    &nbsp;Submit Application
+                    <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Submit Application
                 </a>
                 <!--todo the above html file-->
             </div>
         </div>
-
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="float:right !important;">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
                         <li class="nav-item li_Lang">
                             <a id="lnkLogout" href="#">
-                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                                <img src="Icons/Logout.png" width="25px" draggable="false" alt="" />
+                                &nbsp;Logout
                             </a>
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkAR" title="Arabic" href="#">
-                                <img src="supervisormenu_files/jo.jpg" width="22px">
+                                <img src="supervisormenu_files/jo.jpg" width="22px" alt="AR" />
                             </a>
                         </li>
                         <li class="nav-item li_Lang">
                             <a id="lnkEN" title="English" href="#">
-                                <img src="supervisormenu_files/uk.jpg" width="22px">
+                                <img src="supervisormenu_files/uk.jpg" width="22px" alt="EN" />
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
+
             <div class="container-fluid">
-                <!-- Add your cleaned-up content here -->
-                <!-- The original code had no actual functional form content, so just leaving this as a template. -->
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="utf-8" />
-                    <title>Supervisor Portal</title>
-                    <link rel="stylesheet" href="bootstrap.css" />
-                </head>
-                <body>
-                    <div class="container">
-                        <h1>Supervisor Portal</h1>
+                <br />
+                <h1 class="mb-4">Supervisor Portal (Acceptance)</h1>
 
-                        <!-- 1. Input Institution ID & Button to Load -->
-                        <div class="form-group">
-                            <label for="txtInsId">Enter Institution ID:</label>
-                            <input type="number" id="txtInsId" class="form-control" placeholder="e.g. 9999" />
-                            <button id="btnLoad" class="btn btn-primary mt-2">Load Info</button>
-                        </div>
+                <!-- Institution ID Field -->
+                <div class="form-group">
+                    <label for="txtInsId">Enter Institution ID:</label>
+                    <input type="number" id="txtInsId" class="form-control" placeholder="e.g. 9999" />
+                </div>
 
-                        <!-- 2. Display Institution Info -->
-                        <div id="institutionData" class="mt-4"></div>
-
-                        <!-- 3. Acceptance Record Form -->
-                        <div class="card mt-4">
-                            <div class="card-header">
-                                <h4>Update Acceptance Record</h4>
-                            </div>
-                            <div class="card-body">
-                                <!-- A. ACCEPTED / NOT ACCEPTED -->
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="chkAccepted" />
-                                    <label class="form-check-label" for="chkAccepted">
-                                        Is Accepted? (uncheck to indicate problems)
-                                    </label>
-                                </div>
-
-                                <!-- B. Common Problem Checkboxes -->
-                                <h5>Common Problems (check any that apply):</h5>
-                                <div class="form-check">
-                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkInfrastructure" value="Poor Infrastructure" />
-                                    <label class="form-check-label" for="chkInfrastructure">Poor Infrastructure</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkAccreditation" value="Not Accredited in Home Country" />
-                                    <label class="form-check-label" for="chkAccreditation">Not Accredited in Home Country</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkLibrary" value="No/Insufficient Library" />
-                                    <label class="form-check-label" for="chkLibrary">No/Insufficient Library</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkLabs" value="Insufficient Labs" />
-                                    <label class="form-check-label" for="chkLabs">Insufficient Labs</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input problem-checkbox" type="checkbox" id="chkStaff" value="Not Enough Staff" />
-                                    <label class="form-check-label" for="chkStaff">Not Enough Staff</label>
-                                </div>
-                                <!-- Add more checkboxes as needed... -->
-                                <!-- C. Additional Notes -->
-                                <div class="form-group mt-3">
-                                    <label for="txtAdditionalNotes">Additional Notes (Optional):</label>
-                                    <textarea id="txtAdditionalNotes" class="form-control" rows="3" placeholder="Add any extra notes here"></textarea>
-                                </div>
-
-                                <!-- D. Save Button -->
-                                <button id="btnSaveAcceptance" class="btn btn-success mt-3">Save Acceptance</button>
-                            </div>
-                        </div>
+                <!-- Acceptance Record Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Update Acceptance Record</h4>
                     </div>
+                    <div class="card-body">
+                        <!-- A. ACCEPTED / NOT ACCEPTED -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="chkAccepted" />
+                            <label class="form-check-label" for="chkAccepted">
+                                Is Accepted? (uncheck to indicate problems)
+                            </label>
+                        </div>
 
-                    <script>
-                        const btnLoad = document.getElementById('btnLoad');
-                        const txtInsId = document.getElementById('txtInsId');
-                        const institutionDataDiv = document.getElementById('institutionData');
+                        <!-- B. Common Problem Checkboxes -->
+                        <h5>Common Problems (check any that apply):</h5>
+                        <div class="form-check">
+                            <input class="form-check-input problem-checkbox" type="checkbox" value="Poor Infrastructure" id="chkInfrastructure" />
+                            <label class="form-check-label" for="chkInfrastructure">Poor Infrastructure</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input problem-checkbox" type="checkbox" value="Not Accredited in Home Country" id="chkAccreditation" />
+                            <label class="form-check-label" for="chkAccreditation">Not Accredited in Home Country</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input problem-checkbox" type="checkbox" value="No/Insufficient Library" id="chkLibrary" />
+                            <label class="form-check-label" for="chkLibrary">No/Insufficient Library</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input problem-checkbox" type="checkbox" value="Insufficient Labs" id="chkLabs" />
+                            <label class="form-check-label" for="chkLabs">Insufficient Labs</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input problem-checkbox" type="checkbox" value="Not Enough Staff" id="chkStaff" />
+                            <label class="form-check-label" for="chkStaff">Not Enough Staff</label>
+                        </div>
+                        <!-- Add more checkboxes as needed... -->
 
-                        const chkAccepted = document.getElementById('chkAccepted');
-                        const additionalNotes = document.getElementById('txtAdditionalNotes');
-                        const btnSaveAcceptance = document.getElementById('btnSaveAcceptance');
+                        <!-- C. Additional Notes -->
+                        <div class="form-group mt-3">
+                            <label for="txtAdditionalNotes">Additional Notes (Optional):</label>
+                            <textarea id="txtAdditionalNotes" class="form-control" rows="3" placeholder="Add any extra notes here"></textarea>
+                        </div>
 
-                        // We'll gather all problem checkboxes by the class "problem-checkbox"
-                        const problemCheckboxes = document.querySelectorAll('.problem-checkbox');
-
-                        // 1. Load institution info
-                        btnLoad.addEventListener('click', async () => {
-                            const insId = txtInsId.value.trim();
-                            if (!insId) {
-                                alert("Please enter a valid InsID.");
-                                return;
-                            }
-
-                            const url = `/api/supervisor/institution-info?insId=${encodeURIComponent(insId)}`;
-                            try {
-                                const resp = await fetch(url);
-                                if (!resp.ok) {
-                                    const error = await resp.json();
-                                    alert(`Error loading: ${error.message}`);
-                                    return;
-                                }
-                                const data = await resp.json();
-                                if (!data.success) {
-                                    alert(`Error: ${data.message}`);
-                                    return;
-                                }
-
-                                // Show institution data (customize what you want to display)
-                                institutionDataDiv.innerHTML = `
-                                    <b>Institution ID:</b> ${insId}<br/>
-                                    <b>Name:</b> ${data.institutionData.insName || "N/A"}<br/>
-                                    <b>Country:</b> ${data.institutionData.country || "N/A"}<br/>
-                                    <b>All Acceptance Records:</b><br/>
-                                    <pre>${JSON.stringify(data.acceptanceRecords, null, 2)}</pre>
-                                `;
-                            } catch (error) {
-                                console.error(error);
-                                alert(`Error loading data: ${error}`);
-                            }
-                        });
-
-                        // 2. Save (Update) Acceptance Record
-                        btnSaveAcceptance.addEventListener('click', async () => {
-                            const insId = txtInsId.value.trim();
-                            if (!insId) {
-                                alert("Please load an InsID first.");
-                                return;
-                            }
-
-                            // A. Check if institution is accepted
-                            const isAccepted = chkAccepted.checked;
-
-                            // B. Collect reasons from the checked boxes
-                            const selectedReasons = [];
-                            problemCheckboxes.forEach(cb => {
-                                if (cb.checked) {
-                                    selectedReasons.push(cb.value);
-                                }
-                            });
-
-                            // C. Add additional notes if provided
-                            const notesText = additionalNotes.value.trim();
-                            if (notesText) {
-                                selectedReasons.push(notesText);
-                            }
-
-                            // D. Build the AcceptanceRecord object for the server
-                            const today = new Date();
-                            const yyyy = today.getFullYear();
-                            const mm = String(today.getMonth() + 1).padStart(2, '0');
-                            const dd = String(today.getDate()).padStart(2, '0');
-                            const dateStr = `${yyyy}-${mm}-${dd}`;
-
-                            const acceptancePayload = {
-                                isAccepted: isAccepted,
-                                date: dateStr,  // The server might parse or store as string
-                                reason: selectedReasons
-                            };
-
-                            const updateUrl = `/api/supervisor/update-acceptance?insId=${encodeURIComponent(insId)}`;
-                            try {
-                                const resp = await fetch(updateUrl, {
-                                    method: 'PUT',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify(acceptancePayload)
-                                });
-                                const result = await resp.json();
-                                if (!resp.ok) {
-                                    alert(`Error updating acceptance: ${result.message}`);
-                                    return;
-                                }
-                                alert(result.message);
-
-                                // Optional: Clear checkboxes/notes after saving
-                                problemCheckboxes.forEach(cb => { cb.checked = false; });
-                                additionalNotes.value = "";
-                            } catch (error) {
-                                console.error(error);
-                                alert(`Error saving acceptance: ${error}`);
-                            }
-                        });
-                    </script>
-                </body>
-            </html>
-
-            <h1>Registered Universities</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>University ID</th>
-                        <th>University Name</th>
-                        <th>Report</th>
-                        <th>Edit</th>
-                        <th>Attachments</th>
-                    </tr>
-                </thead>
-                <tbody id="universities-table">
-                    <!-- Data will be dynamically populated here using JavaScript -->
-                </tbody>
-            </table>
-            <script>
-                // Fetch universities data from the backend
-                fetch('http://localhost:5000/api/universities')//todo this is not good
-                    .then(response => response.json())
-                    .then(data => {
-                        const table = document.getElementById('universities-table');
-                        data.forEach(university => {
-                            const row = document.createElement('tr');
-                            row.innerHTML = `
-                                                                    <td>${university.id}</td>
-                                                                    <td>${university.name}</td>
-                                                                    <td class="action-links"><a href="/reports/${university.id}">Report</a></td>
-                                                                    <td class="action-links"><a href="/edit/${university.id}">Edit</a></td>
-                                                                    <td class="action-links"><a href="/attachments/${university.id}">Attachments</a></td>
-                                                                `;
-                            table.appendChild(row);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching universities:', error));
-            </script>
-
-
+                        <!-- D. Save Button -->
+                        <button id="btnSaveAcceptance" class="btn btn-success mt-3">Save Acceptance</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    </form>
-    <script src="login_files/auth.js"></script>
+        </div> <!-- /page-content-wrapper -->
+    </div> <!-- /#wrapper -->
+
+    <script>
+        // Gather references
+        const txtInsId = document.getElementById('txtInsId');
+        const chkAccepted = document.getElementById('chkAccepted');
+        const additionalNotes = document.getElementById('txtAdditionalNotes');
+        const btnSaveAcceptance = document.getElementById('btnSaveAcceptance');
+        const problemCheckboxes = document.querySelectorAll('.problem-checkbox');
+
+        // Click handler for "Save Acceptance"
+        btnSaveAcceptance.addEventListener('click', async () => {
+            console.log("[SaveAcceptance] Button clicked.");
+
+            const insIdValue = txtInsId.value.trim();
+            if (!insIdValue) {
+                alert("Please enter a valid InsID first.");
+                console.log("[SaveAcceptance] No InsID provided.");
+                return;
+            }
+
+            // A) Build the reasons array from all checked checkboxes
+            const reasonsArray = [];
+            problemCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    reasonsArray.push(cb.value);
+                }
+            });
+
+            // B) Add the additional notes if any
+            const notesText = additionalNotes.value.trim();
+            if (notesText) {
+                reasonsArray.push(notesText);
+            }
+
+            // C) Build the AcceptanceRecord object
+            const isAccepted = chkAccepted.checked;
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const dateStr = `${yyyy}-${mm}-${dd}`;
+
+            const acceptancePayload = {
+                isAccepted: isAccepted,
+                date: dateStr,
+                reason: reasonsArray
+            };
+
+            console.log("[SaveAcceptance] Final payload:", acceptancePayload);
+
+            // D) Make PUT request to your new endpoint
+            const url = `/api/supervisor/update-acceptance?insId=${encodeURIComponent(insIdValue)}`;
+            console.log(`[SaveAcceptance] Sending PUT request to: ${url}`);
+
+            try {
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(acceptancePayload)
+                });
+
+                if (!response.ok) {
+                    // If we have a JSON error
+                    const errorData = await response.json();
+                    console.error("[SaveAcceptance] PUT failed:", errorData);
+                    alert(`Error updating acceptance: ${errorData.message}`);
+                    return;
+                }
+
+                const resultData = await response.json();
+                console.log("[SaveAcceptance] PUT success:", resultData);
+                alert(resultData.message);
+
+                // (Optional) Clear the form
+                problemCheckboxes.forEach(cb => { cb.checked = false; });
+                additionalNotes.value = "";
+                chkAccepted.checked = false;
+
+            } catch (err) {
+                console.error("[SaveAcceptance] Exception in fetch:", err);
+                alert(`Exception: ${err}`);
+            }
+        });
+    </script>
 </body>
 </html>

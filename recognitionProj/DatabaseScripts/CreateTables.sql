@@ -218,10 +218,11 @@ CREATE TABLE [dbo].[ExcelAttach](
 [AttachDesc] [nvarchar](100) NULL,
 
 )
-CREATE TABLE [dbo].[AcceptanceRecord](
-[InsID] [int] NOT NULL,
-[RecordNo] [int] NOT NULL,
-[DateOfRecord][date] NOT NULL,
-[Result] [nvarchar] NOT NULL,
-[Message] [nvarchar](200),
+CREATE TABLE [dbo].[AcceptanceRecord]
+(
+    [InsID]       INT       NOT NULL,
+    [RecordNo]    INT       NOT NULL,
+    [DateOfRecord]  DATE    NOT NULL,
+    [Result]      NVARCHAR(30)  NOT NULL,  -- e.g. "Accepted" or "Rejected"
+    [Message]     NVARCHAR(200) NULL       -- JSON or truncated reason
 )

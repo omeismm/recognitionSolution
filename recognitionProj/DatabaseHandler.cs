@@ -1184,5 +1184,161 @@ accepted: row["Accepted"] != DBNull.Value ? bool.Parse(row["Accepted"].ToString(
             return usersList;
         }
 
-    }
+        //---------------------------------------
+        // 1) InsertAcceptanceRecord
+        //---------------------------------------
+        public void InsertAcceptanceRecord(int insId, AcceptanceRecord record)
+        {
+            Console.WriteLine($"[InsertAcceptanceRecord] Called with InsID={insId}, IsAccepted={record.IsAccepted}, Date={record.Date}, ReasonCount={record.Reason.Count}");
+
+            // A) Determine the next RecordNo for this InsID
+            int nextRecordNo = 1; // default to 1 if none found
+            string countQuery = "SELECT COUNT(*) FROM AcceptanceRecord WHERE InsID=@InsID";
+
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(countQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@InsID", insId);
+                conn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                nextRecordNo = count + 1;
+            }
+            Console.WriteLine($"[InsertAcceptanceRecord] Next recordNo for InsID={insId} is {nextRecordNo}.");
+
+            // B) Convert boolean -> "Accepted" / "Rejected"
+            string resultString = record.IsAccepted ? "Accepted" : "Rejected";
+            // C) Convert reasons to JSON
+            string reasonJson = JsonConvert.SerializeObject(record.Reason);
+            // D) Insert the new row
+            string insertSql = @"
+                INSERT INTO AcceptanceRecord
+                    (InsID, RecordNo, DateOfRecord, Result, Message)
+                VALUES
+                    (@InsID, @RecordNo, @DateOfRecord, @Result, @Message);";
+
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(insertSql, conn))
+            {
+                cmd.Parameters.AddWithValue("@InsID", insId);
+                cmd.Parameters.AddWithValue("@RecordNo", nextRecordNo);
+                cmd.Parameters.AddWithValue("@DateOfRecord", record.Date.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@Result", resultString);
+                cmd.Parameters.AddWithValue("@Message", reasonJson);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            // E) Also update AcademicInfo.Accepted
+            //    1 means "true", 0 means "false"
+            UpdateAcademicAccepted(insId, record.IsAccepted);
+            Console.WriteLine($"[InsertAcceptanceRecord] Insert + academic updated done for InsID={insId}.");
+        }
+
+        //---------------------------------------
+        // 2) GetAllAcceptanceRecords
+        //---------------------------------------
+        public List<AcceptanceRecord> GetAllAcceptanceRecordsByInsId(int insId)
+        {
+            Console.WriteLine($"[GetAllAcceptanceRecords] Called with InsID={insId}.");
+            List<AcceptanceRecord> results = new List<AcceptanceRecord>();
+
+            string selectSql = @"
+                SELECT RecordNo, DateOfRecord, Result, Message
+                FROM AcceptanceRecord
+                WHERE InsID=@InsID
+                ORDER BY RecordNo ASC;";
+
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(selectSql, conn))
+            {
+                cmd.Parameters.AddWithValue("@InsID", insId);
+                conn.Open();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int recordNo = reader.GetInt32(0);
+                        DateTime dt = reader.GetDateTime(1);
+                        string result = reader.GetString(2);
+                        string message = reader.GetString(3);
+
+                        bool isAccepted = (result == "Accepted");
+                        DateOnly dateOfRecord = DateOnly.FromDateTime(dt);
+
+                        // Convert message back to List<string>
+                        List<string> reasons = JsonConvert.DeserializeObject<List<string>>(message);
+
+                        // Rebuild an AcceptanceRecord
+                        AcceptanceRecord rec = new AcceptanceRecord(isAccepted, dateOfRecord, reasons);
+                        results.Add(rec);
+                    }
+                }
+            }
+
+            Console.WriteLine($"[GetAllAcceptanceRecords] Found {results.Count} record(s) for InsID={insId}.");
+            return results;
+        }
+
+        //---------------------------------------
+        // 3) UpdateAcceptanceRecord (Optional)
+        //---------------------------------------
+        public void UpdateAcceptanceRecord(int insId, int recordNo, AcceptanceRecord record)
+        {
+            Console.WriteLine($"[UpdateAcceptanceRecord] Called with InsID={insId}, recordNo={recordNo}.");
+
+            string updateSql = @"
+                UPDATE AcceptanceRecord
+                SET DateOfRecord=@DateOfRecord, Result=@Result, Message=@Message
+                WHERE InsID=@InsID AND RecordNo=@RecordNo;";
+
+            string resultString = record.IsAccepted ? "Accepted" : "Rejected";
+            string reasonJson = JsonConvert.SerializeObject(record.Reason);
+
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(updateSql, conn))
+            {
+                cmd.Parameters.AddWithValue("@InsID", insId);
+                cmd.Parameters.AddWithValue("@RecordNo", recordNo);
+                cmd.Parameters.AddWithValue("@DateOfRecord", record.Date.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@Result", resultString);
+                cmd.Parameters.AddWithValue("@Message", reasonJson);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                Console.WriteLine($"[UpdateAcceptanceRecord] Affected rows = {rows} for InsID={insId}, recordNo={recordNo}.");
+            }
+
+            // Also update AcademicInfo.Accepted
+            UpdateAcademicAccepted(insId, record.IsAccepted);
+        }
+
+        //---------------------------------------
+        // 4) UpdateAcademicAccepted
+        //---------------------------------------
+        public void UpdateAcademicAccepted(int insId, bool isAccepted)
+        {
+            Console.WriteLine($"[UpdateAcademicAccepted] Setting AcademicInfo.Accepted = {isAccepted} for InsID={insId}.");
+
+            string updateSql = @"
+                UPDATE AcademicInfo
+                SET Accepted=@AcceptedValue
+                WHERE InsID=@InsID;";
+
+            int acceptedVal = isAccepted ? 1 : 0;
+
+            using (var conn = new SqlConnection(_connectionString))
+            using (var cmd = new SqlCommand(updateSql, conn))
+            {
+                cmd.Parameters.AddWithValue("@InsID", insId);
+                cmd.Parameters.AddWithValue("@AcceptedValue", acceptedVal);
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                Console.WriteLine($"[UpdateAcademicAccepted] Done. Rows affected={rows} for InsID={insId}.");
+            }
+        }
+
+        
+
+}
 }
